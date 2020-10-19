@@ -1,0 +1,40 @@
+@font-face {
+  font-family: Cookie;
+  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
+}
+body {
+  margin: 0;
+}
+.main {
+  width: 98vw;
+  background-color: blue;
+}
+.welcome-section {
+  width: 100%;
+  background:transparent url('../../assets/wooden.jpg') 0% 0% no-repeat padding-box;
+  height: 100vh;
+  background-size: cover;
+}
+.logo {
+  /*border: solid blue;*/
+  width: 8vw;
+  height: 20vh;
+  position: relative;
+  top: 12vh;
+  left: 12vw;
+  background:transparent url('../../assets/coffee spot logo.png') 0% 0% no-repeat padding-box;
+  background-size: cover;
+
+}
+.logo p {
+  font: 36px/36px "Cookie" ;
+  color: #241511;
+  position: relative;
+  top: 12%;
+  left: 13%;
+}
+.video {
+  border: solid blue;
+  width: 60vw;
+  height: 60vh;
+}
