@@ -3,6 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatIconModule} from '@angular/material';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -10,7 +15,11 @@ import { HomePageComponent } from './home-page/home-page.component';
     HomePageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatDividerModule,
+    MatIconModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

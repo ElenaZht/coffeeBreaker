@@ -1,12 +1,287 @@
 <div class="main">
-  <div class="welcome-section">
-    <div class="logo">
-      <p>Coffee Breaker</p>
-    </div>
-    <div class="video"></div>
-    <div class="promocard"></div>
+  <div class="smart-top">
+    <div class="smart-logo"></div>
   </div>
-  <div class="new-items-section"></div>
-  <div class="join-us-section"></div>
-  <div class="find-branch-section"></div>
+  <div class="welcome-section">
+    <div class="main-logo logo-l"></div>
+    <div class="video-wrap">
+      <video class="video" [autoplay]="true" [muted]="true" loop>
+        <source src="../../assets/videoplayback.mp4" type="video/mp4">
+      </video>
+
+    </div>
+    <div class="promocard">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="hr-wrap-top"><hr></div>
+          <div class="logo-m heder-logo"></div>
+          <div class="hr-wrap-top"><hr></div>
+        </div>
+        <div class="card-body">
+          <div class="ingredients">
+            <div class="ingredient">
+              <div class="ing-spot coffee-splash"></div>
+              <span class="ing-name">Espresso</span>
+            </div>
+            <div class="ingredient">
+              <div class="ing-spot milk-splash"></div>
+              <span class="ing-name">Milk</span>
+            </div>
+          </div>
+          <div class="cup"></div>
+          <button class="order-now-btn">
+            <span>Order now ></span>
+          </button>
+          <div class="price">
+            <span class="numb">10</span>
+            <div class="only-shek">
+              <span class="only">only</span>
+              <div class="shek"></div>
+            </div>
+          </div>
+          <div class="description">
+            <span class="item-title">Latte Makiata</span>
+            <span class="item-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="make-your-coffeebreak">Make your</span>
+          <hr>
+          <span class="make-your-coffeebreak">coffee break great again!</span>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-wrap">
+      <ul class="navbar">
+        <li class="li">
+          <div class="li-icon">Menu</div>
+          <div class="li-href"><mat-divider></mat-divider></div>
+        </li>
+        <li class="li">
+          <div class="li-icon pointer">
+          </div>
+          <div class="li-href"><mat-divider></mat-divider></div>
+        </li>
+        <li class="li">
+          <div class="li-icon tray">
+
+          </div>
+          <div class="li-href"><mat-divider></mat-divider></div>
+        </li>
+        <li class="li">
+          <div class="li-icon account">
+
+          </div>
+          <div class="li-href"><mat-divider></mat-divider></div>
+        </li>
+        <li class="li">
+          <div class="li-icon">en</div>
+          <div class="li-href"><mat-divider></mat-divider></div>
+        </li>
+        <li class="li">
+          <div class="li-icon email2">
+
+          </div>
+          <div class="li-href"><mat-divider></mat-divider></div>
+        </li>
+        <li class="li">
+          <div class="li-icon h">?</div>
+          <div class="li-href"><mat-divider></mat-divider></div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="new-items-section">
+    <div class="new-items-wrap">
+      <div class="news"></div>
+      <div class="iamnew">
+        <div class="bigwords">I am New!</div>
+        <div class="sometext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </div>
+        <button class="orangebtn"><span class="bnttext">See menu ></span></button>
+      </div>
+    </div>
+
+  </div>
+  <div class="join-us-section">
+    <div class="join-wrap">
+      <div class="contacts">
+        <div class="contact">
+          <div class="contact-icon instagram"></div>
+          <div class="contact-text">@coffee_breaker</div>
+        </div>
+        <div class="contact">
+          <div class="contact-icon facebook" ></div>
+          <div class="contact-text">coffee_breaker.com</div>
+        </div>
+        <div class="contact">
+          <div class="contact-icon email"></div>
+          <div class="contact-text">coffee_breaker@gmail.com</div>
+        </div>
+      </div>
+      <div class="join-text">
+        <div class="bigwords">Join us!</div>
+        <div class="sometext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </div>
+      </div>
+      <div class="smartphone"></div>
+      <div class="instascroll">
+        <div class="scroll-paper"></div>
+      </div>
+    </div>
+  </div>
+  <div class="find-branch-section">
+    <div class="branch-wrap">
+      <div class="bigwords">Find nearest point!</div>
+      <div class="sometext somepointtext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </div>
+      <div class="points-wrap">
+        <div class="points">
+          <div class="point">
+            <div class="point-icon"></div>
+            <div class="point-text">Tel aviv, st.Ben Gurion, 9</div>
+          </div>
+          <div class="point">
+            <div class="point-icon"></div>
+            <div class="point-text">Tel aviv, st.Dizenghof, 15</div>
+          </div>
+          <div class="point">
+            <div class="point-icon"></div>
+            <div class="point-text">Hifa, st.Itshak Rabin, 30</div>
+          </div>
+
+        </div>
+        <div class="btn">
+          <div class="white-arrow"></div>
+          <button class="orangebtn btn-other"><span class="bnttext">Other ></span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-wrap">
+      <div class="low-href"><mat-divider></mat-divider></div>
+
+      <div class="low-content">
+        <div class="footer-left">
+          <div class="sometext footer-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </div>
+          <div class="make-your-coffeebreak footer-coffee-break">Make your</div>
+          <div class="make-your-coffeebreak footer-coffee-break">coffee break great again!</div>
+        </div>
+        <div class="logo-m low-logo"></div>
+        <div class="footer-right">
+          <div class="mini-navbar">
+            <div class="mini-nav-item menu">Menu</div>
+            <div class="mini-nav-item pointer"></div>
+            <div class="mini-nav-item tray"></div>
+            <div class="mini-nav-item account"></div>
+            <div class="mini-nav-item lang">en</div>
+            <div class="mini-nav-item email2"></div>
+            <div class="mini-nav-item help">?</div>
+          </div>
+          <div class="mini-href"><mat-divider class="mini-href"></mat-divider></div>
+          <div class="footer-contacts">
+            <div class="footer-cont">
+              <div class="low-contacts">
+                <div class="contact-icon instagram"></div>
+                <div class="contact-text low-text">@coffee_breaker</div>
+              </div>
+              <div class="low-contacts">
+                <div class="contact-icon  facebook"></div>
+                <div class="contact-text low-text">coffee_breaker.com</div>
+              </div>
+              <div class="low-contacts">
+                <div class="contact-icon email"></div>
+                <div class="contact-text low-text">coffee_breaker@gmail.com</div>
+              </div>
+            </div>
+            <div class="footer-phone">054-2878115</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar-wrap2">
+    <ul class="navbar2">
+      <li class="li-icon2 burg"></li>
+      <li class="li-icon2 curlang">en</li>
+      <li class="li-icon2 pointer"></li>
+      <li class="li-icon2 menuic">Menu</li>
+    </ul>
+  </div>
+</div>
+<div class="main2">
+  <div class="smart-logo"></div>
+  <div class="smart-home-content">
+    <div class="promocard">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="hr-wrap-top"><hr></div>
+          <div class="logo-m heder-logo"></div>
+          <div class="hr-wrap-top"><hr></div>
+        </div>
+        <div class="card-body">
+          <div class="ingredients">
+            <div class="ingredient">
+              <div class="ing-spot coffee-splash"></div>
+              <span class="ing-name">Espresso</span>
+            </div>
+            <div class="ingredient">
+              <div class="ing-spot milk-splash"></div>
+              <span class="ing-name">Milk</span>
+            </div>
+          </div>
+          <div class="cup"></div>
+          <button class="order-now-btn">
+            <span>Order now ></span>
+          </button>
+          <div class="price">
+            <span class="numb">10</span>
+            <div class="only-shek">
+              <span class="only">only</span>
+              <div class="shek"></div>
+            </div>
+          </div>
+          <div class="description">
+            <span class="item-title">Latte Makiata</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div class="new-items-wrap">
+      <div class="bigwords">I am New!</div>
+      <div class="news"></div>
+      <button class="orangebtn"><span class="bnttext">See menu ></span></button>
+
+    </div>
+    <div class="contacts">
+      <div class="contact">
+        <div class="contact-icon instagram"></div>
+        <div class="contact-text">@coffee_breaker</div>
+      </div>
+      <div class="contact">
+        <div class="contact-icon facebook" ></div>
+        <div class="contact-text">coffee_breaker.com</div>
+      </div>
+      <div class="contact">
+        <div class="contact-icon email"></div>
+        <div class="contact-text">coffee_breaker@gmail.com</div>
+      </div>
+    </div>
+    <div class="find-branch-section">
+        <div class="bigwords find">Find nearest point!</div>
+        <button class="orangebtn btn-other"><span class="bnttext">Other ></span></button>
+    </div>
+  </div>
+  <ul class="smart-nav">
+    <li class="burg"></li>
+    <li><span  class="curlang">En</span></li>
+    <li class="pointer2"></li>
+    <li class="li-menu"><span class="smart-menu">Menu</span></li>
+  </ul>
+
+</div>
+<div class="scroll-to-top" [ngClass]="{'show-scrollTop': windowScrolled}">
+    <fa-icon class="fas fa-5x fa-chevron-up btn active" [icon]="['fas', 'chevron-up']"  aria-pressed="true" (click)="scrollToTop()"></fa-icon>
 </div>
