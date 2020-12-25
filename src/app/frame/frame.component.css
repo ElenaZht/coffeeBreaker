@@ -1,0 +1,64 @@
+.main {
+  width: 100%;
+  background:transparent url('../../assets/wooden.jpg') 0% 0% no-repeat padding-box;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.logo {
+  position: relative;
+  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  height: 13vh;
+  width: 9vw;
+  top: 2vh;
+  bottom: 2vh;
+  margin: auto;
+}
+.outlet {
+  max-height: 65vh;
+  overflow: scroll;
+}
+.navigation-box {
+  border: solid purple;
+  width: 50vw;
+  height: 13vh;
+  margin: auto;
+  margin-top: 2vh;
+}
+@media only screen and (max-width: 1024px){
+  .logo{
+    width: 35vmin;
+    height: 16%;
+    position: relative;
+    top: 2%;
+  }
+  .outlet {
+    max-height: 73vh;
+  }
+  .navigation-box {
+    width: 90%;
+    height: 11vh;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+}
+@media only screen and (max-width: 1024px) and (orientation: landscape){
+  .logo{
+    height: 13vmin;
+    width: 9vmax;
+    top: 2vmin;
+    bottom: 2vmin;
+  }
+  .outlet {
+    max-height: 65vmin;
+  }
+  .navigation-box {
+    width: 80vmax;
+    height: 13vmin;
+    margin-top: 2vmin;
+    margin-bottom: 0;
+  }
+}
