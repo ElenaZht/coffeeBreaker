@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { FrameComponent } from './frame/frame.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent
+    HomePageComponent,
+    FrameComponent
   ],
   imports: [
     BrowserModule,
