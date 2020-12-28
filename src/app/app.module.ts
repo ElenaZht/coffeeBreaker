@@ -12,6 +12,7 @@ import { MenuCommonComponent } from './menu-common/menu-common.component';
 import { RoutingModule} from './routing';
 import {HttpClientModule} from '@angular/common/http';
 import { ContactsComponent } from './contacts/contacts.component';
+import { ComminmentComponent } from './comminment/comminment.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     HomePageComponent,
     FrameComponent,
     MenuCommonComponent,
-    ContactsComponent
+    ContactsComponent,
+    ComminmentComponent
   ],
   imports: [
     BrowserModule,
