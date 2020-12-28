@@ -9,9 +9,9 @@ import {MatIconModule} from '@angular/material';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { FrameComponent } from './frame/frame.component';
 import { MenuCommonComponent } from './menu-common/menu-common.component';
-// import { RouterModule} from '@angular/router';
 import { RoutingModule} from './routing';
 import {HttpClientModule} from '@angular/common/http';
+import { ContactsComponent } from './contacts/contacts.component';
 
 
 @NgModule({
@@ -19,7 +19,8 @@ import {HttpClientModule} from '@angular/common/http';
     AppComponent,
     HomePageComponent,
     FrameComponent,
-    MenuCommonComponent
+    MenuCommonComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,

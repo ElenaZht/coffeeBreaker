@@ -1,0 +1,167 @@
+@font-face {
+  font-family: Cookie;
+  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: JosefinSans Regular;
+  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+.main {
+  height: 65vh;
+  background:transparent url('../../assets/coffee-people-three.png') 0% 0% no-repeat padding-box;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70%;
+  width: 70%;
+  position: relative;
+  top: 15%;
+}
+.category-card {
+  background-color: white;
+  width: 22vw;
+  height: 45vh;
+  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: solid rgba(0,0,0,0.25) 0.01px;
+
+}
+.card-content {
+  width: 85%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-header {
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hr-wrap-top {
+  display: flex;
+  align-items: center;
+  width: 38%;
+}
+.logo-m {
+  width: 8vw;
+  height: 8vh;
+  position: relative;
+  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+}
+.heder-logo {
+  height: 70%;
+  width: 14%;
+}
+.hr-wrap-top {
+  display: flex;
+  align-items: center;
+  width: 38%;
+}
+hr {
+  height: 2px;
+  background: #AB9690;
+  width: 100%;
+}
+.card-body {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.card-footer {
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.our-contacts {
+  font: 10vw Cookie;
+  line-height: 1;
+  display: flex;
+  text-align: center;
+  color: #1F1010;
+  opacity: 0.4;
+  text-shadow: 0 0 5px rgba(0,0,0,1);
+}
+.sometext {
+  font: 1vw JosefinSans Regular;
+  display: flex;
+  position: relative;
+  bottom: 68%;
+  width: 80%;
+  text-align: center;
+}
+.some-contacts-text-wrap {
+  width: 40%;
+  height: 88%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contacts {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.contact {
+  height: 27%;
+  display: flex;
+  justify-content: space-between;
+}
+.contact-icon {
+  width: 20%;
+}
+.instagram {
+  background:transparent url('../../assets/instagram.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.facebook {
+  background:transparent url('../../assets/facebook.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  transform: scale(1.4);
+
+}
+.email {
+  background:transparent url('../../assets/email.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  transform: scale(0.8);
+
+}
+.phone {
+    background:transparent url('../../assets/phone.png') 0% 0% no-repeat padding-box;
+    background-size: contain;
+    background-position: center;
+    transform: scale(0.8);
+
+  }
+.address {
+  background:transparent url('../../assets/address.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  transform: scale(0.8);
+
+}
+.contact-text {
+  width: 80%;
+  font: 1.2vw JosefinSans Regular;
+  display: flex;
+  align-items: center;
+}
