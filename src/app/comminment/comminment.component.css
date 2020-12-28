@@ -1,0 +1,225 @@
+@font-face {
+  font-family: Cookie;
+  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: JosefinSans Regular;
+  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+.main {
+  height: 105vh;
+  background:transparent url('../../assets/people-coffee.png') 0% 0% no-repeat padding-box;
+  background-position: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.main2 {
+  display: none;
+}
+.title {
+  width: 52%;
+  height: 15%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.our-comminment {
+  font: 10vw Cookie;
+  line-height: 1;
+  display: flex;
+  text-align: center;
+  color: #1F1010;
+  opacity: 0.4;
+  text-shadow: 0 0 5px rgba(0,0,0,1);
+}
+.com-text {
+  font: 1vw JosefinSans Regular;
+  display: flex;
+  position: relative;
+  bottom: 90%;
+  width: 50%;
+  text-align: center;
+}
+.content {
+  display: flex;
+  width: 90%;
+  height: 75vh;
+  margin: auto;
+  justify-content: space-between;
+}
+.owner {
+  width: 30%;
+  height: 75%;
+  position: relative;
+  left: 6%;
+  top: 12%;
+  z-index: 10;
+}
+.owner-photo {
+  background:transparent url('../../assets/owner-photo.jpeg') 0% 0% no-repeat padding-box;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+
+}
+.owner-text {
+  font: 3vw Cookie;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: relative;
+  top: -55%;
+  width: 90%;
+  margin: auto;
+  padding: 3%;
+}
+.prizes {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 25%;
+  position: relative;
+  top: -55%;
+}
+.prize1 {
+   background:transparent url('../../assets/prize1.png') 0% 0% no-repeat padding-box;
+   background-size: contain;
+   background-position: center;
+   width: 33%;
+ }
+.prize2 {
+  background:transparent url('../../assets/prize2.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  width: 33%;
+}
+.prize3 {
+  background:transparent url('../../assets/prize3.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  width: 33%;
+}
+.declaration {
+  display: flex;
+  width: 65%;
+  justify-content: space-between;
+  z-index: 0;
+
+}
+.category-card {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: solid rgba(0,0,0,0.25) 0.01px;
+
+}
+.card-content {
+  width: 85%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-header {
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hr-wrap-top {
+  display: flex;
+  align-items: center;
+  width: 30%;
+}
+
+hr {
+  height: 2px;
+  background: #AB9690;
+  width: 100%;
+}
+.com-logo {
+  font: 1.5vw JosefinSans Regular;
+  width: 30%;
+}
+.card-body {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+}
+.card-footer {
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.question {
+  font: 1vmax JosefinSans Regular;
+  padding: 2%;
+}
+.answer {
+  font: 0.7vmax JosefinSans Regular;
+}
+@media only screen and (max-width: 1024px) {
+  .main {
+    display: none;
+  }
+  .main2 {
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .prizes {
+    flex-direction: column;
+    top: 0;
+    height: 100%;
+    width: 40%;
+  }
+  .prize {
+    width: 100%;
+    height: 33%;
+  }
+  .our-comminment {
+    margin: auto;
+    padding: 2%;
+    font-size: 17vw;
+  }
+  .owner-photo {
+    width: 90%;
+    height: 40vh;
+    margin: auto;
+  }
+  .text {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  .question {
+    font: 2vmax JosefinSans Regular;
+    padding: 2%;
+  }
+  .answer {
+    font: 1.5vmax JosefinSans Regular;
+  }
+
+}
+@media only screen and (max-width: 1024px) and (orientation: landscape){
+  .owner-photo {
+    width: 40%;
+    height: 70vh;
+    margin: auto;
+  }
+}

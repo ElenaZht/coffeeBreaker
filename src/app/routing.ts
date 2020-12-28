@@ -4,11 +4,13 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MenuCommonComponent} from './menu-common/menu-common.component';
 import {ContactsComponent} from './contacts/contacts.component';
+import {ComminmentComponent} from './comminment/comminment.component';
 
 const routes: Routes = [
   {path: 'homepage', component: HomePageComponent },
   {path: 'menu_common', component: MenuCommonComponent},
   {path: 'contacts', component: ContactsComponent},
+  {path: 'help', component: ComminmentComponent},
   {path: '**', component: HomePageComponent }
 ];
 
