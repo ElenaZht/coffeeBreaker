@@ -8,22 +8,29 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { FrameComponent } from './frame/frame.component';
+import { MenuCommonComponent } from './menu-common/menu-common.component';
+// import { RouterModule} from '@angular/router';
+import { RoutingModule} from './routing';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    FrameComponent
+    FrameComponent,
+    MenuCommonComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatDividerModule,
     MatIconModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    RoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

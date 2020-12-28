@@ -1,0 +1,37 @@
+<app-frame>
+<div class="main">
+  <span class="swipe"><-- Swipe for more --></span>
+  <div class="carousel">
+    <a class="carousel-item" *ngFor="let item of items">
+      <div class="category-card">
+              <div class="card-content">
+                <div class="card-header">
+                  <div class="hr-wrap-top"><hr></div>
+                  <div class="logo-m heder-logo"></div>
+                  <div class="hr-wrap-top"><hr></div>
+                </div>
+                <div class="card-body">
+                  <div class="ingredients">
+                    <div class="ing-spot {{item.splash_class}}"></div>
+                  </div>
+                  <div class="cup {{item.pic_class}}"></div>
+                  <div class="price">
+                    <span class="numb">{{item.price}}</span>
+                    <div class="only-shek">
+                      <span class="only">from</span>
+                      <div class="shek"></div>
+                    </div>
+                  </div>
+                  <div class="description">
+                    <span class="item-title">{{item.name}}</span>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <hr>
+                </div>
+              </div>
+            </div>
+    </a>
+  </div>
+</div>
+</app-frame>

@@ -19,7 +19,7 @@
 }
 .outlet {
   max-height: 65vh;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 .navigation-box {
   border: solid purple;

@@ -1,0 +1,303 @@
+@font-face {
+  font-family: Cookie;
+  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: JosefinSans Regular;
+  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+.main {
+  height: 65vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+.swipe {
+  font: 1vw JosefinSans Regular;
+  color: #ECE6E5;
+  margin: auto;
+  position: relative;
+  top: 5%;
+}
+.carousel{
+  height: 65vh;
+  bottom: 12vh;
+  left: -7vw;
+  overflow: initial;
+}
+.category-card {
+  background-color: white;
+  width: 25vw;
+  height: 45vh;
+  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: solid rgba(0,0,0,0.25) 0.01px;
+
+}
+.card-content {
+  width: 85%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-header {
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hr-wrap-top {
+  display: flex;
+  align-items: center;
+  width: 38%;
+}
+.logo-m {
+  width: 8vw;
+  height: 8vh;
+  position: relative;
+  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+}
+.heder-logo {
+  height: 70%;
+  width: 14%;
+}
+.hr-wrap-top {
+  display: flex;
+  align-items: center;
+  width: 38%;
+}
+hr {
+  height: 2px;
+  background: #AB9690;
+  width: 100%;
+}
+.card-body {
+  height: 80%;
+}
+.ingredients {
+  height: 70%;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ing-spot {
+  width: 32%;
+  height: 100%;
+  position: absolute;
+  bottom: 25%;
+  right: 66%;
+  z-index: 10000;
+}
+.coffee-splash {
+  background:transparent url('../../assets/coffee-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.tea-splash {
+  background:transparent url('../../assets/tea-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 33%;
+  top: 7%;
+  left: 3.4%;
+  width: 16%;
+}
+.juice-splash {
+  background:transparent url('../../assets/juice-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+}
+.vegi-splash {
+  background:transparent url('../../assets/vegi.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+}
+.sprinkling-splash {
+  background:transparent url('../../assets/sprinkling-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 81%;
+}
+.candy-splash {
+  background:transparent url('../../assets/candy-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  width: 33%;
+  right: 60%;
+  top: -19%;
+}
+.cup {
+  width: 50%;
+  height: 60%;
+  position: absolute;
+  left: 8%;
+  top: 31%;
+  z-index: 0;
+  background:transparent url('../../assets/coffee-cup.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+}
+.juice-cup{
+  background:transparent url('../../assets/juice-cup.jpg') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+}
+.sandwich {
+  background:transparent url('../../assets/sandwich.jpg') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 50%;
+  width: 60%;
+  left: 0;
+}
+.donut {
+  background:transparent url('../../assets/donut.jpg') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+}
+.chocolate {
+  background:transparent url('../../assets/chocolate.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  left: 4%;
+  top: 33%;
+}
+.price {
+  width: 54%;
+  height: 45%;
+  position: relative;
+  top: -73%;
+  left: 47%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.numb {
+  width: 75%;
+  height: 100%;
+  color: #E04523;
+  display: flex;
+  justify-content: center;
+  font: 9vw JosefinSans Regular;
+  position: relative;
+
+}
+.only-shek {
+  width: 25%;
+  height: 59%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.only {
+  width: 100%;
+  height: 30%;
+  font: 1.1vw JosefinSans Regular;
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+.shek {
+  width: 100%;
+  height: 70%;
+  background:transparent url('../../assets/shekel.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  margin-top: 1vh;
+}
+.description {
+  width: 51%;
+  height: 45%;
+  position: relative;
+  top: -55%;
+  left: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.item-title {
+  font: 5vw Cookie;
+  color: #1F1010;
+  word-wrap: break-word;
+  line-height: 70%;
+  text-shadow: 2px 2px 4px #000000;
+}
+.card-footer {
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media only screen and (max-width: 1024px){
+  .carousel {
+    width: 90%;
+    bottom: 20vh;
+    left: -12vw;
+  }
+  .swipe {
+    font: 5vw JosefinSans Regular;
+  }
+  .category-card {
+    width: 40vmax;
+    height: 45vmax;
+    margin: auto;
+    top: 10vmax;
+  }
+  .price {
+    height: 33%;
+    top: -66%;
+    width: 51%;
+    left: 51%;
+  }
+  .numb {
+    font-size: 14vmax;
+  }
+  .only {
+    font-size: 1.7vmax;
+  }
+  .item-title {
+    font-size: 7vmax;
+    margin-left: 2vw;
+  }
+  .cup {
+    height: 55%;
+  }
+}
+@media only screen and (max-width: 1024px) and (orientation: landscape){
+  .carousel {
+    bottom: 7vh;
+    left: 5vw;
+  }
+  .swipe {
+    font: 3vw JosefinSans Regular;
+    z-index: 100;
+    top: 0;
+  }
+  .main {
+    height: 65vh;
+  }
+  .category-card {
+    top: 3vh;
+    width: 22vmax;
+    height: 27vmax;
+  }
+  .numb {
+    font-size: 7vmax;
+  }
+  .price {
+    height: 27%;
+  }
+  .item-title {
+    font-size: 5vmax;
+    margin-left: 0.5vw;
+  }
+}
