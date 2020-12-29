@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDividerModule} from '@angular/material/divider';
-import {MatIconModule} from '@angular/material';
+import {MatDialogModule, MatIconModule} from '@angular/material';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { FrameComponent } from './frame/frame.component';
 import { MenuCommonComponent } from './menu-common/menu-common.component';
@@ -13,6 +13,7 @@ import { RoutingModule} from './routing';
 import {HttpClientModule} from '@angular/common/http';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ComminmentComponent } from './comminment/comminment.component';
+import { LanguagesDialigComponent } from './languages-dialig/languages-dialig.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ComminmentComponent } from './comminment/comminment.component';
     FrameComponent,
     MenuCommonComponent,
     ContactsComponent,
-    ComminmentComponent
+    ComminmentComponent,
+    LanguagesDialigComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { ComminmentComponent } from './comminment/comminment.component';
     MatIconModule,
     FontAwesomeModule,
     RoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

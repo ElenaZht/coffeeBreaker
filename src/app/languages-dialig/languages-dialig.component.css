@@ -1,0 +1,124 @@
+@font-face {
+  font-family: Cookie;
+  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: JosefinSans Regular;
+  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+body {
+  user-select: none;
+}
+.category-card {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: solid rgba(0,0,0,0.25) 0.01px;
+
+}
+.card-content {
+  width: 85%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-header {
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hr-wrap-top {
+  display: flex;
+  align-items: center;
+  width: 30%;
+}
+
+hr {
+  height: 2px;
+  background: #AB9690;
+  width: 100%;
+}
+.com-logo {
+  font: 2.2vmax Cookie;
+  width: 30%;
+}
+.card-body {
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-footer {
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.exit {
+  position: absolute;
+  width: 1vw;
+  height: 1vh;
+  padding: .6%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: .4%;
+  margin-left: 28.5%;
+  border: 0;
+  font-size: 1vw;
+  opacity: 0.5;
+  user-select: none;
+}
+.exit:active {
+  background-color: #E04523;
+}
+.langicon {
+  width: 30%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .5s ease-out;
+}
+.langicon:hover {
+  transform: scale(1.2);
+  transition: all .5s ease-out;
+}
+.langicon:active {
+  transform: scale(1.4);
+  transition: all .5s ease-out;
+}
+.langicon > span {
+  font: 1.5vmax JosefinSans Regular;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 1vmin;
+}
+.eng {
+   background:transparent url('../../assets/english.png') 0% 0% no-repeat padding-box;
+   background-size: contain;
+   background-position: center;
+ }
+.heb {
+  background:transparent url('../../assets/hebrew.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+}
+.bel {
+  background:transparent url('../../assets/belarusian.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+}
+@media only screen and (max-width: 1024px){
+  .exit {
+    display: none;
+  }
+}
