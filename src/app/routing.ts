@@ -6,6 +6,7 @@ import {MenuCommonComponent} from './menu-common/menu-common.component';
 import {ContactsComponent} from './contacts/contacts.component';
 import {ComminmentComponent} from './comminment/comminment.component';
 import {LanguagesDialigComponent} from './languages-dialig/languages-dialig.component';
+import {BranchesComponent} from './branches/branches.component';
 
 const routes: Routes = [
   {path: 'homepage', component: HomePageComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'contacts', component: ContactsComponent},
   {path: 'help', component: ComminmentComponent},
   {path: 'lang', component: LanguagesDialigComponent},
+  {path: 'branches', component: BranchesComponent},
   {path: '**', component: HomePageComponent }
 ];
 
