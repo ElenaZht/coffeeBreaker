@@ -58,7 +58,7 @@
           <div class="li-href"><mat-divider></mat-divider></div>
         </li>
         <li class="li">
-          <div class="li-icon pointer">
+          <div class="li-icon pointer" routerLink="../branches">
           </div>
           <div class="li-href"><mat-divider></mat-divider></div>
         </li>
@@ -149,7 +149,7 @@
           </div>
 
         </div>
-        <div class="btn">
+        <div class="btn2">
           <div class="white-arrow"></div>
           <button class="orangebtn btn-other"><span class="bnttext">Other ></span></button>
         </div>
@@ -277,11 +277,11 @@
   <ul class="smart-nav">
     <li class="burg"></li>
     <li><span  class="curlang" (click)="chooseTheLang()">En</span></li>
-    <li class="pointer2"></li>
+    <li class="pointer2" routerLink="../branches"></li>
     <li class="li-menu"><span class="smart-menu">Menu</span></li>
   </ul>
 
 </div>
 <div class="scroll-to-top" [ngClass]="{'show-scrollTop': windowScrolled}">
-    <fa-icon class="fas fa-5x fa-chevron-up btn active" [icon]="['fas', 'chevron-up']"  aria-pressed="true" (click)="scrollToTop()"></fa-icon>
+    <fa-icon class="fas fa-5x fa-chevron-up btn2 active" [icon]="['fas', 'chevron-up']"  aria-pressed="true" (click)="scrollToTop()"></fa-icon>
 </div>

@@ -14,6 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ComminmentComponent } from './comminment/comminment.component';
 import { LanguagesDialigComponent } from './languages-dialig/languages-dialig.component';
+import { BranchesComponent } from './branches/branches.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { LanguagesDialigComponent } from './languages-dialig/languages-dialig.co
     MenuCommonComponent,
     ContactsComponent,
     ComminmentComponent,
-    LanguagesDialigComponent
+    LanguagesDialigComponent,
+    BranchesComponent
   ],
   imports: [
     BrowserModule,
