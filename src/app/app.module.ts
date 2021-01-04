@@ -15,6 +15,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { ComminmentComponent } from './comminment/comminment.component';
 import { LanguagesDialigComponent } from './languages-dialig/languages-dialig.component';
 import { BranchesComponent } from './branches/branches.component';
+import { BranchItemComponent } from './branch-item/branch-item.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { BranchesComponent } from './branches/branches.component';
     ContactsComponent,
     ComminmentComponent,
     LanguagesDialigComponent,
-    BranchesComponent
+    BranchesComponent,
+    BranchItemComponent
   ],
   imports: [
     BrowserModule,

@@ -13,14 +13,14 @@
       <div class="most-popular">
         <div class="pop-arrow"></div>
         <div class="pop-branches">
-          <div class="contact" *ngFor="let b of mostPopular">
+          <div class="contact" *ngFor="let b of mostPopular" (click)="onBranch(b)">
             <div class="contact-icon pointer"></div>
             <div class="contact-text">{{b.address}}</div>
           </div>
         </div>
       </div>
       <div class="all-branches">
-        <div class="contact" *ngFor="let b of branches">
+        <div class="contact" *ngFor="let b of branches" (click)="onBranch(b)">
           <div class="contact-icon pointer"></div>
           <div class="contact-text">{{b.address}}</div>
         </div>
@@ -32,7 +32,7 @@
       <span class="our-comminment">Branches</span>
     </div>
     <div class="all-branches">
-      <div class="contact" *ngFor="let b of branches">
+      <div class="contact" *ngFor="let b of branches" (click)="onBranch(b)">
         <div class="contact-icon pointer"></div>
         <div class="contact-text">{{b.address}}</div>
       </div>

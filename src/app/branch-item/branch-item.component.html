@@ -1,0 +1,27 @@
+<div class="category-card">
+  <div class="card-content">
+    <div class="card-header">
+      <div class="hr-wrap-top"><hr></div>
+      <div class="logo-m heder-logo"></div>
+      <div class="hr-wrap-top"><hr></div>
+    </div>
+    <div class="card-body">
+      <div class="photo" [ngStyle]="{'background-image': 'url('+data.photo+')'}"></div>
+      <div class="about">
+        <div class="address">
+          <div class="contact-icon pointer"></div>
+          <div class="adr">{{data.address}}</div>
+        </div>
+        <div class="description">{{data.desc}}</div>
+        <div class="splashes">
+          <div class="spl-milk"></div>
+          <div class="spl-cof"></div>
+          <div class="spl-tes"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <hr>
+    </div>
+  </div>
+</div>
