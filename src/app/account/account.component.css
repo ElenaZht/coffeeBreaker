@@ -1,0 +1,149 @@
+@font-face {
+  font-family: Cookie;
+  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: JosefinSans Regular;
+  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+.main {
+  height: 65vh;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+.main-title{
+  display: none;
+}
+.our-comminment {
+  font: 15vmax Cookie;
+  line-height: 1;
+  display: flex;
+  text-align: center;
+  color: #1F1010;
+  opacity: 0.4;
+  text-shadow: 0 0 5px rgba(0,0,0,1);
+  z-index: 0;
+}
+.com-text {
+  font: 1vw JosefinSans Regular;
+  display: flex;
+  position: absolute;
+  bottom: 42%;
+  width: 24%;
+  text-align: center;
+  text-indent: 8%;
+  z-index: 10;
+
+}
+.desc{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.carousel {
+  width: 50%;
+  height: 80%;
+}
+.carousel-item {
+  background-color: white;
+  border: solid rgba(0,0,0,0.25) 0.01px;
+  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  width: 20vmax;
+  height: 40vmin;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-item:hover {
+  cursor: pointer;
+}
+.carousel-item:active {
+  cursor: pointer;
+}
+.my-cards{
+  background:transparent url('../../assets/credit-cards.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  width: 30%;
+  height: 70%;
+  transform: scale(1.8);
+}
+.my-data{
+  background:transparent url('../../assets/account-card.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  width: 30%;
+  transform: scale(1.8);
+  height: 70%;
+
+}
+.my-orders{
+  background:transparent url('../../assets/orders-card.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  width: 30%;
+  transform: scale(1.8);
+  height: 70%;
+
+}
+.title {
+  font: 2vmax JosefinSans Regular;
+  color: black;
+  width: min-content;
+  text-align: center;
+}
+@media only screen and (max-width: 1024px){
+  .desc {
+    display: none;
+  }
+  .main-title {
+    font: 12vmax Cookie;
+    line-height: 1;
+    display: flex;
+    text-align: center;
+    color: #1F1010;
+    opacity: 0.4;
+    text-shadow: 0 0 5px rgba(0,0,0,1);
+  }
+  .main {
+    flex-direction: column;
+  }
+  .carousel{
+    width: 100%;
+  }
+  .carousel-item {
+    width: 70vmin;
+    height: 40vmax;
+  }
+  .title {
+    font-size: 4vmax;
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 1024px) and (orientation: landscape){
+  .desc {
+    display: flex;
+  }
+  .main-title{
+    display: none;
+  }
+  .main {
+    flex-direction: row;
+  }
+  .carousel {
+    width: 50%;
+    height: 100%;
+  }
+  .com-text {
+    display: none;
+  }
+  .carousel-item{
+    width: 20vw;
+    height: 50vh;
+  }
+}
