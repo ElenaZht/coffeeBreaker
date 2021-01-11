@@ -9,6 +9,7 @@ import {LanguagesDialigComponent} from './languages-dialig/languages-dialig.comp
 import {BranchesComponent} from './branches/branches.component';
 import {BranchItemComponent} from './branch-item/branch-item.component';
 import {AccountComponent} from './account/account.component';
+import {AStatisticComponent} from './a-statistic/a-statistic.component';
 
 const routes: Routes = [
   {path: 'homepage', component: HomePageComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'branches', component: BranchesComponent},
   {path: 'branch', component: BranchItemComponent},
   {path: 'account', component: AccountComponent},
+  {path: 'statistic', component: AStatisticComponent},
   {path: '**', component: HomePageComponent }
 ];
 
