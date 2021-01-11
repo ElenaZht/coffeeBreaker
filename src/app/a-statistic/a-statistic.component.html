@@ -1,0 +1,59 @@
+<app-frame>
+  <div class="main">
+      <div class="table">
+        <span class="table-title">Sold for today</span>
+        <hr>
+        <div class="titles">
+          <span>item</span>
+          <span>price for 1</span>
+          <span>sold pieces</span>
+          <span>total for item</span>
+        </div>
+        <hr>
+        <div class="items">
+          <div *ngFor="let i of soldItems">
+            <div class="table-raw">
+              <div class="img-title">
+                <div class="img" [ngStyle]="{'background-image': 'url('+i.img+')'}"></div>
+                <span>{{(i.itemTitle.length > this.titleWidthPermition) ? (i.itemTitle | slice:0:this.titleWidthPermition)+'..': i.itemTitle}}</span>
+              </div>
+              <div class="price">{{i.price}}₪</div>
+              <div class="sold">{{i.sold}}</div>
+              <div class="totalItem">{{i.price * i.sold}}₪</div>
+            </div>
+            <hr class="hr-thin">
+          </div>
+
+      </div>
+
+    </div>
+    <div class="summ">
+      <div class="stat-title">
+        <span class="stat">Statistic</span>
+        <span class="stat-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
+      </div>
+      <div class="summary">
+        <div class="sum-row one">
+          <span>Total for today:</span>
+          <span>{{this.totalPerday}}₪</span>
+        </div>
+        <div class="sum-row two">
+          <span>Most popular today:</span>
+          <div class="wrap">
+            <div class="mostPop" [ngStyle]="{'background-image': 'url('+this.itemPop.img+')'}"></div>
+            <span>{{(this.itemPop.itemTitle.length > this.titleWidthPermition) ? (this.itemPop.itemTitle | slice:0:this.titleWidthPermition)+'..': this.itemPop.itemTitle}}</span>
+          </div>
+
+        </div>
+        <div class="sum-row three">
+          <span>Most profitable today:</span>
+          <div class="wrap">
+            <div class="mostPop" [ngStyle]="{'background-image': 'url('+this.itemProf.img+')'}"></div>
+            <span>{{(this.itemProf.itemTitle.length > this.titleWidthPermition) ? (this.itemProf.itemTitle | slice:0:this.titleWidthPermition)+'..': this.itemProf.itemTitle}}</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</app-frame>
