@@ -1,0 +1,62 @@
+<app-frame>
+  <div class="main">
+    <div class="table">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="hr-wrap-top"><hr></div>
+          <div class="logo-m heder-logo"></div>
+          <div class="hr-wrap-top"><hr></div>
+        </div>
+        <div class="card-body">
+                <div *ngIf="myItems.length" class="items">
+                  <div *ngFor="let i of myItems">
+                    <div class="table-raw">
+                      <div class="img-title">
+                        <div class="img" [ngStyle]="{'background-image': 'url('+i.img+')'}"></div>
+                        <span>{{(i.itemTitle.length > this.titleWidthPermition) ? (i.itemTitle | slice:0:this.titleWidthPermition)+'..': i.itemTitle}}</span>
+                      </div>
+                      <div class="sold">
+                        <div class="minus" (click)="Decrease(i)" [class.btn-disabled]="i.sold <= 0"></div>
+                        {{i.sold}}
+                        <div class="plus" (click)="Increase(i)"></div>
+                      </div>
+                      <div class="totalItem">{{i.price * i.sold}}₪</div>
+                    </div>
+                    <hr class="hr-thin">
+                  </div>
+
+                </div>
+                 <div class="no-products" *ngIf="!this.myItems.length">
+                    <span>No products yet!</span>
+                 </div>
+                  <div *ngIf="myItems.length" class="total">
+                    <span class="total-word">Total:</span>
+                    <span class="total-items">{{this.totalItems}}</span>
+                    <span class="total-sum">{{this.totalPerday}}₪</span>
+                  </div>
+        <div class="card-footer">
+          <hr>
+        </div>
+      </div>
+
+      </div>
+
+    </div>
+    <div class="summ">
+      <div class="some-contacts-text-wrap">
+        <span class="our-contacts">Tray</span>
+        <span class="sometext">  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim  laboris nisi ut aliquip ex ea
+          commodo consequat. </span>
+      </div>
+      <div class="bottom-wrap">
+        <div class="btns">
+          <button  *ngIf="myItems.length" class="orangebtn" (click)="Order()" [class.btn-disabled]="totalItems <= 0"><span class="bnttext">Order</span></button>
+          <button  *ngIf="myItems.length" class="orangebtn graybtn" (click)="Clear()"><span class="bnttext mini-btn-text">Clear the tray</span></button>
+          <button  *ngIf="!myItems.length" class="orangebtn" routerLink="../menu_common"><span class="bnttext mini-btn-text">Menu ></span></button>
+        </div>
+        <div class="pics"></div>
+      </div>
+    </div>
+  </div>
+</app-frame>

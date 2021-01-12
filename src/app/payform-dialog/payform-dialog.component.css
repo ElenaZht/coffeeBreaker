@@ -1,0 +1,148 @@
+@font-face {
+  font-family: JosefinSans Regular;
+  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+.main{
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.pics{
+  width: 90%;
+  height: 25%;
+  background:transparent url('../../assets/mastercard-visa-paypal.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+}
+.card-wrapper{
+  width: 90%;
+  height: 50%;
+  background-color: #F2F2F2;
+  border-radius: 10px;
+  border: solid rgba(0,0,0,0.25) 0.01px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.btn-wrapper{
+  width: 90%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.orangebtn {
+  width: 30%;
+  height: 100%;;
+  position: relative;
+  background-color: #E04523;
+  border-radius: 15px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 14px 8px 2px 5px rgba(0,0,0,0.25);
+  transition: all 0.5s ease-in-out ;
+
+}
+.bnttext {
+  font: 1.9vw JosefinSans Regular;
+  color: white;
+  margin: auto;
+}
+.orangebtn:hover {
+  transform:scale(1.2);
+  transition: all 0.5s ease-in-out ;
+}
+.orangebtn:active {
+  transform:scale(1.8);
+  transition: all 1s ease-in-out;
+}
+.orangebtn:focus {
+  outline: 0;
+}
+.ccn{
+  font: 1.2vw JosefinSans Regular;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+
+}
+.card-number{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+}
+::placeholder{
+  text-align: center;
+  font: 1vw JosefinSans Regular;
+  padding: auto;
+}
+.card-number > input{
+  background-color: white;
+  border: solid rgba(0,0,0,0.25) 0.01px;
+  border-radius: 10px;
+  width: 24%;
+  height: 100%;
+}
+.card-expires{
+  height: 11%;
+  margin-left: 5%;
+  width: 40%;
+  background-color: white;
+  border: solid rgba(0,0,0,0.25) 0.01px;
+  border-radius: 10px;
+}
+.card-choice{
+  width: 90%;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+.card-choice-mini-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 100%;
+}
+.visa{
+  background:transparent url('../../assets/visa.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  width: 50%;
+  height: 70%;
+  margin-left: 5%;
+}
+.mastercard{
+  background:transparent url('../../assets/mastercard.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  width: 50%;
+  height: 70%;
+  margin-left: 5%;
+
+}
+.paypal{
+  background:transparent url('../../assets/paypal.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  width: 50%;
+  height: 70%;
+  margin-left: 5%;
+
+}
+[type="radio"]{
+  opacity: 1;
+  pointer-events: all;
+  position: relative;
+}
+input{
+  text-align: center;
+}
