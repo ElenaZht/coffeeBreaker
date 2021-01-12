@@ -18,6 +18,9 @@ import { BranchesComponent } from './branches/branches.component';
 import { BranchItemComponent } from './branch-item/branch-item.component';
 import { AccountComponent } from './account/account.component';
 import { AStatisticComponent } from './a-statistic/a-statistic.component';
+import { TrayComponent } from './tray/tray.component';
+import {FormsModule} from '@angular/forms';
+import { PayformDialogComponent } from './payform-dialog/payform-dialog.component';
 
 
 @NgModule({
@@ -32,7 +35,9 @@ import { AStatisticComponent } from './a-statistic/a-statistic.component';
     BranchesComponent,
     BranchItemComponent,
     AccountComponent,
-    AStatisticComponent
+    AStatisticComponent,
+    TrayComponent,
+    PayformDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,11 @@ import { AStatisticComponent } from './a-statistic/a-statistic.component';
     FontAwesomeModule,
     RoutingModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
+  ],
+  entryComponents: [
+    PayformDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

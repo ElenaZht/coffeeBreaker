@@ -10,6 +10,7 @@ import {BranchesComponent} from './branches/branches.component';
 import {BranchItemComponent} from './branch-item/branch-item.component';
 import {AccountComponent} from './account/account.component';
 import {AStatisticComponent} from './a-statistic/a-statistic.component';
+import {TrayComponent} from './tray/tray.component';
 
 const routes: Routes = [
   {path: 'homepage', component: HomePageComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'branch', component: BranchItemComponent},
   {path: 'account', component: AccountComponent},
   {path: 'statistic', component: AStatisticComponent},
+  {path: 'tray', component: TrayComponent},
   {path: '**', component: HomePageComponent }
 ];
 

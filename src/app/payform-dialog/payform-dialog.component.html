@@ -1,0 +1,34 @@
+<div class="main">
+  <div class="pics"></div>
+  <div class="card-wrapper">
+    <span class="ccn">Credit Card Number</span>
+    <div class="card-number">
+      <input type="text" minlength="4" maxlength="4" placeholder="XXXX">
+      <input type="text" minlength="4" maxlength="4" placeholder="XXXX">
+      <input type="text" minlength="4" maxlength="4" placeholder="XXXX">
+      <input type="text" minlength="4" maxlength="4" placeholder="XXXX">
+    </div>
+    <span class="ccn">Expires</span>
+    <input class="card-expires" placeholder="MM/YYYY">
+    <div class="card-choice">
+      <div class="card-choice-mini-wrap">
+        <input id="visa" type="radio" >
+        <label for="visa" class="visa"></label>
+      </div>
+      <div class="card-choice-mini-wrap">
+        <input id="mastercard" type="radio" >
+        <label for="mastercard" class="mastercard"></label>
+      </div>
+      <div class="card-choice-mini-wrap">
+        <input id="paypal" type="radio" >
+        <label for="paypal" class="paypal"></label>
+      </div>
+
+    </div>
+  </div>
+  <div class="btn-wrapper">
+    <button class="orangebtn" type="submit" (click)="pay()">
+      <span class="bnttext">Pay</span>
+    </button>
+  </div>
+</div>
