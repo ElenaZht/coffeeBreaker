@@ -19,25 +19,25 @@
         </div>
         <div class="card-body">
           <div class="ingredients">
-            <div class="ingredient" *ngFor="let i of promoItem.ingredients">
+            <div class="ingredient" *ngFor="let i of promoItems[startIndex].ingredients">
               <div class="ing-spot {{i.ingClass}}"></div>
               <span class="ing-name">{{i.ing}}</span>
             </div>
           </div>
-          <div class="cup" [ngStyle]="{'background-image': 'url('+promoItem.img+')'}"></div>
+          <div class="cup" [ngStyle]="{'background-image': 'url('+promoItems[startIndex].img+')'}"></div>
           <button class="order-now-btn">
             <span>Order now ></span>
           </button>
           <div class="price">
-            <span class="numb">{{promoItem.price}}</span>
+            <span class="numb">{{promoItems[startIndex].price}}</span>
             <div class="only-shek">
               <span class="only">only</span>
               <div class="shek"></div>
             </div>
           </div>
           <div class="description">
-            <span class="item-title">{{promoItem.title}}</span>
-            <span class="item-desc">{{promoItem.desc}}</span>
+            <span class="item-title">{{promoItems[startIndex].title}}</span>
+            <span class="item-desc">{{promoItems[startIndex].desc}}</span>
           </div>
         </div>
         <div class="card-footer">
@@ -90,11 +90,13 @@
   </div>
   <div class="new-items-section">
     <div class="new-items-wrap">
-      <div class="news"></div>
+      <div class="news">
+        <app-iamnew></app-iamnew>
+      </div>
       <div class="iamnew">
         <div class="bigwords">I am New!</div>
         <div class="sometext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </div>
-        <button class="orangebtn"><span class="bnttext">See menu ></span></button>
+        <button class="orangebtn" routerLink="../menu_common"><span class="bnttext">See menu ></span></button>
       </div>
     </div>
 
@@ -216,39 +218,40 @@
         </div>
         <div class="card-body">
           <div class="ingredients">
-            <div class="ingredient">
-              <div class="ing-spot coffee-splash"></div>
-              <span class="ing-name">Espresso</span>
-            </div>
-            <div class="ingredient">
-              <div class="ing-spot milk-splash"></div>
-              <span class="ing-name">Milk</span>
+            <div class="ingredient" *ngFor="let i of promoItems[startIndex].ingredients">
+              <div class="ing-spot {{i.ingClass}}"></div>
+              <span class="ing-name">{{i.ing}}</span>
             </div>
           </div>
-          <div class="cup"></div>
+          <div class="cup" [ngStyle]="{'background-image': 'url('+promoItems[startIndex].img+')'}"></div>
           <button class="order-now-btn">
             <span>Order now ></span>
           </button>
           <div class="price">
-            <span class="numb">10</span>
+            <span class="numb">{{promoItems[startIndex].price}}</span>
             <div class="only-shek">
               <span class="only">only</span>
               <div class="shek"></div>
             </div>
           </div>
           <div class="description">
-            <span class="item-title">Latte Makiata</span>
+            <span class="item-title">{{promoItems[startIndex].title}}</span>
+            <span class="item-desc">{{(promoItems[startIndex].desc | slice: 0:25)+'..'}}</span>
           </div>
         </div>
         <div class="card-footer">
+          <span class="make-your-coffeebreak">Make your</span>
           <hr>
+          <span class="make-your-coffeebreak">coffee break great again!</span>
         </div>
       </div>
     </div>
     <div class="new-items-wrap">
       <div class="bigwords">I am New!</div>
-      <div class="news"></div>
-      <button class="orangebtn"><span class="bnttext">See menu ></span></button>
+      <div class="news">
+        <app-iamnew></app-iamnew>
+      </div>
+      <button class="orangebtn" routerLink="../menu_common"><span class="bnttext">See menu ></span></button>
 
     </div>
     <div class="contacts">

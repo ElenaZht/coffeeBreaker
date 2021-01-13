@@ -37,7 +37,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
       ingredients: [{ing: 'Orange juice', ingClass: 'juice-splash'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Mineral Water', ingClass: 'water-splash'}],
     }
   ];
-  promoItem = this.promoItems[this.startIndex];
   constructor(@Inject(DOCUMENT) private document: Document, public dialog: MatDialog) { }
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -74,7 +73,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
     } else {
       this.startIndex = 0;
     }
-    this.promoItem = this.promoItems[this.startIndex];
   }
   ngOnDestroy() {
     if (this.interval) {

@@ -1,0 +1,403 @@
+@font-face {
+  font-family: Cookie;
+  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: JosefinSans Regular;
+  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+.carousel{
+  height: 65vh;
+  left: -5vw;
+  bottom: 20vh;
+  overflow: initial;
+  user-select: none;
+}
+.category-card {
+  background-color: white;
+  width: 24vw;
+  height: 41vh;
+  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: solid rgba(0,0,0,0.25) 0.01px;
+
+}
+.card-content {
+  width: 85%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-header {
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hr-wrap-top {
+  display: flex;
+  align-items: center;
+  width: 38%;
+}
+.logo-m {
+  width: 8vw;
+  height: 8vh;
+  position: relative;
+  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+}
+.heder-logo {
+  height: 70%;
+  width: 14%;
+}
+.hr-wrap-top {
+  display: flex;
+  align-items: center;
+  width: 38%;
+}
+hr {
+  height: 2px;
+  background: #AB9690;
+  width: 100%;
+}
+.card-body {
+  height: 80%;
+}
+.ingredients {
+  height: 70%;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.ingredient {
+  display: flex;
+  justify-content: space-between;
+  height: 17%;
+}
+
+.ing-spot {
+  width: 32%;
+  height: 100%;
+  z-index: 100;
+}
+.ing-name {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  font-family: JosefinSans Regular;
+  z-index: 100;
+  color: black;
+  line-height: 0.8;
+}
+.coffee-splash {
+  background:transparent url('../../assets/coffee-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.milk-splash {
+  background:transparent url('../../assets/milk-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.juice-splash {
+  background:transparent url('../../assets/juice-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.water-splash {
+  background:transparent url('../../assets/water-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.sugar {
+  background:transparent url('../../assets/sugar.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.mint {
+  background:transparent url('../../assets/mint.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.limes {
+  background:transparent url('../../assets/lime.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.eucalyptus {
+  background:transparent url('../../assets/eucalyptus.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.rosemary {
+  background:transparent url('../../assets/rosemary.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.thyme {
+  background:transparent url('../../assets/thyme.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.chamomile {
+  background:transparent url('../../assets/chamomile.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.flour {
+  background:transparent url('../../assets/flour.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.eggs {
+  background:transparent url('../../assets/eggs.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.cinnamon {
+  background:transparent url('../../assets/cinnamon.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.yeast {
+  background:transparent url('../../assets/yeast.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.butter {
+  background:transparent url('../../assets/butter.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.tea-leaves {
+  background:transparent url('../../assets/tea-leafes.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.tea-splash {
+  background:transparent url('../../assets/tea-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 33%;
+  top: 7%;
+  left: 3.4%;
+  width: 16%;
+}
+.juice-splash {
+  background:transparent url('../../assets/juice-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+}
+.vegi-splash {
+  background:transparent url('../../assets/vegi.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+}
+.sprinkling-splash {
+  background:transparent url('../../assets/sprinkling-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 81%;
+}
+.candy-splash {
+  background:transparent url('../../assets/candy-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  width: 33%;
+  right: 60%;
+  top: -19%;
+}
+.cup {
+  width: 50%;
+  height: 60%;
+  position: absolute;
+  left: 8%;
+  top: 31%;
+  z-index: 0;
+  background:transparent url('../../assets/coffee-cup.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+}
+.juice-cup{
+  background:transparent url('../../assets/juice-cup.jpg') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+}
+.sandwich {
+  background:transparent url('../../assets/sandwich.jpg') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 50%;
+  width: 60%;
+  left: 0;
+}
+.donut {
+  background:transparent url('../../assets/donut.jpg') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+}
+.chocolate {
+  background:transparent url('../../assets/chocolate.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  left: 4%;
+  top: 33%;
+}
+.price {
+  width: 54%;
+  height: 45%;
+  position: relative;
+  top: -73%;
+  left: 47%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.numb {
+  width: 75%;
+  height: 100%;
+  color: #E04523;
+  display: flex;
+  justify-content: center;
+  font: 9vw JosefinSans Regular;
+  position: relative;
+
+}
+.only-shek {
+  width: 25%;
+  height: 59%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.only {
+  width: 100%;
+  height: 30%;
+  font: 1.1vw JosefinSans Regular;
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+.shek {
+  width: 100%;
+  height: 70%;
+  background:transparent url('../../assets/shekel.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  margin-top: 1vh;
+}
+.description {
+  width: 51%;
+  height: 45%;
+  position: relative;
+  top: -55%;
+  left: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: black;
+}
+.item-title {
+  font: 1.5vw JosefinSans Regular;
+  color: black;
+  word-wrap: break-word;
+  line-height: 70%;
+}
+.card-footer {
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media only screen and (max-width: 1500px){
+  .carousel {
+    bottom: 14vh;
+    left: -4vw;
+  }
+}
+@media only screen and (max-width: 1024px){
+  .carousel {
+    width: 90%;
+    bottom: 29vh;
+  }
+  .swipe {
+    font: 5vw JosefinSans Regular;
+  }
+  .category-card {
+    width: 35vmax;
+    height: 40vmax;
+    margin: auto;
+    top: 10vmax;
+  }
+  .price {
+    height: 33%;
+    top: -66%;
+    width: 51%;
+    left: 51%;
+  }
+  .numb {
+    font-size: 14vmax;
+  }
+  .only {
+    font-size: 1.7vmax;
+  }
+  .item-title {
+    font-size: 3vmax;
+    margin-left: 2vw;
+  }
+  .cup {
+    height: 55%;
+  }
+  .item-desc{
+    padding-left: 8%;
+  }
+}
+@media only screen and (max-width: 1024px) and (orientation: landscape){
+  .carousel {
+    bottom: 7vh;
+    left: 5vw;
+  }
+  .category-card {
+    top: 3vh;
+    width: 22vmax;
+    height: 27vmax;
+  }
+  .numb {
+    font-size: 7vmax;
+  }
+  .price {
+    height: 27%;
+  }
+  .item-title {
+    font-size: 2vmax;
+    margin-left: 2vw;
+  }
+  .item-desc{
+    display: none;
+  }
+  .news{
+    height: 50%;
+  }
+}

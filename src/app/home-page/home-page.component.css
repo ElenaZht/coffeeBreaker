@@ -363,7 +363,6 @@ mat-divider {
 
 }
 .news {
-  border: solid purple;
   width: 60%;
 }
 .iamnew {
@@ -917,14 +916,22 @@ mat-divider {
   .ingredients {
     position: relative;
     bottom: 11%;
+    width: 60%;
+    align-items: baseline;
   }
   .ingredient {
     flex-direction: column;
     height: 25%;
-    font-size: 6vmin;
   }
   .ing-spot {
     height: 100%;
+  }
+  .ing-name{
+    font-size: 5vw;
+    width: 100%;
+  }
+  .make-your-coffeebreak{
+    display: none;
   }
   .card-footer {
     height: 7%;
@@ -949,9 +956,10 @@ mat-divider {
   }
   .description {
     top: -185%;
-    height: 25%;
+    height: 40%;
     left: 70%;
     width: 36%;
+    margin-left: 3%;
   }
   .item-title {
     font-size: 7vmin;
@@ -967,8 +975,9 @@ mat-divider {
     height: 15%
   }
   .news {
-    height: 60%;
-    width: 98%;
+    height: 70%;
+    width: 100%;
+    overflow: hidden;
   }
   .orangebtn {
     width: 69%;
@@ -1033,6 +1042,20 @@ mat-divider {
   .promocard {
     margin: auto;
     left: 0;
+  }
+  .make-your-coffeebreak{
+    display: none;
+  }
+  .description{
+    height: 60%;
+    margin-left: 2%;
+  }
+  .ing-name{
+    font-size: 2vw;
+  }
+  .ingredients{
+    width: 80%;
+    align-items: baseline;
   }
 }
 
