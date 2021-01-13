@@ -182,11 +182,30 @@ hr {
   background-position: center;
 
 }
+.juice-splash {
+  background:transparent url('../../assets/juice-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.water-splash {
+  background:transparent url('../../assets/water-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.sugar {
+  background:transparent url('../../assets/sugar.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
 .ing-name {
   width: 60%;
   display: flex;
   align-items: center;
   font-family: JosefinSans Regular;
+  z-index: 100;
 }
 .cup {
   width: 42%;
@@ -194,9 +213,9 @@ hr {
   position: relative;
   left: 20%;
   top: -52%;
-  background:transparent url('../../assets/coffee-cup.png') 0% 0% no-repeat padding-box;
   background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
 }
 .order-now-btn {
   width: 36%;

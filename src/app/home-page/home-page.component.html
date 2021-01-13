@@ -19,29 +19,25 @@
         </div>
         <div class="card-body">
           <div class="ingredients">
-            <div class="ingredient">
-              <div class="ing-spot coffee-splash"></div>
-              <span class="ing-name">Espresso</span>
-            </div>
-            <div class="ingredient">
-              <div class="ing-spot milk-splash"></div>
-              <span class="ing-name">Milk</span>
+            <div class="ingredient" *ngFor="let i of promoItem.ingredients">
+              <div class="ing-spot {{i.ingClass}}"></div>
+              <span class="ing-name">{{i.ing}}</span>
             </div>
           </div>
-          <div class="cup"></div>
+          <div class="cup" [ngStyle]="{'background-image': 'url('+promoItem.img+')'}"></div>
           <button class="order-now-btn">
             <span>Order now ></span>
           </button>
           <div class="price">
-            <span class="numb">10</span>
+            <span class="numb">{{promoItem.price}}</span>
             <div class="only-shek">
               <span class="only">only</span>
               <div class="shek"></div>
             </div>
           </div>
           <div class="description">
-            <span class="item-title">Latte Makiata</span>
-            <span class="item-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+            <span class="item-title">{{promoItem.title}}</span>
+            <span class="item-desc">{{promoItem.desc}}</span>
           </div>
         </div>
         <div class="card-footer">
