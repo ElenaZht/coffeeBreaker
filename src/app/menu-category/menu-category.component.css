@@ -741,3 +741,40 @@ hr {
     height: auto;
   }
 }
+@media only screen and (max-width: 1024px) {
+  .com-text, .header-right, .header-left, .ingredients, .item-desc, .only{
+    display: none;
+  }
+  .coffee, .main{
+    height: auto;
+    width: auto;
+  }
+  .promocard{
+    width: 60vw;
+    height: 30vh;
+    flex: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+  .cards{
+    width: 90%;
+    flex-direction: column;
+  }
+  .cup{
+    left: 5%;
+    top: 5%;
+  }
+  .item-title{
+    font-size: 6vw;
+  }
+  .numb{
+    font-size: 14vw;
+  }
+  .price{
+    top: -80%;
+  }
+  .description{
+    top: -75%;
+  }
+}
