@@ -115,6 +115,7 @@ hr {
   background:transparent url('../../assets/juice-splash.png') 0% 0% no-repeat padding-box;
   background-size: contain;
   background-position: center;
+  z-index: 0;
 }
 .vegi-splash {
   background:transparent url('../../assets/vegi.png') 0% 0% no-repeat padding-box;
@@ -127,13 +128,13 @@ hr {
   background-position: center;
   height: 81%;
 }
-.candy-splash {
-  background:transparent url('../../assets/candy-splash.png') 0% 0% no-repeat padding-box;
+.choco-splash {
+  background:transparent url('../../assets/choco-splash.png') 0% 0% no-repeat padding-box;
   background-size: contain;
   background-position: center;
   width: 33%;
   right: 60%;
-  top: -19%;
+  top: -16%;
 }
 .cup {
   width: 50%;
@@ -147,7 +148,7 @@ hr {
   background-position: center;
 }
 .juice-cup{
-  background:transparent url('../../assets/juice-cup.jpg') 0% 0% no-repeat padding-box;
+  background:transparent url('../../assets/orange-cup.png') 0% 0% no-repeat padding-box;
   background-size: contain;
   background-position: center;
 }
@@ -160,7 +161,7 @@ hr {
   left: 0;
 }
 .donut {
-  background:transparent url('../../assets/donut.jpg') 0% 0% no-repeat padding-box;
+  background:transparent url('../../assets/donut-pink.png') 0% 0% no-repeat padding-box;
   background-size: contain;
   background-position: center;
 }
@@ -170,6 +171,16 @@ hr {
   background-position: center;
   left: 4%;
   top: 33%;
+}
+.twix-right{
+  background:transparent url('../../assets/twix-right.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 35%;
+  left: 15%;
+  transform: scale(1.5);
+
 }
 .price {
   width: 54%;
