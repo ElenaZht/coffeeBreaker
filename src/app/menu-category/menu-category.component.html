@@ -1,0 +1,56 @@
+<app-frame>
+  <div class="main">
+    <div class="header">
+      <div class="go" (click)="go(-1)">
+        <fa-icon class="fas fa-5x fa-chevron-left active" [icon]="['fas', 'chevron-left']"></fa-icon>
+      </div>
+      <div class="{{category.classLeft}}"></div>
+      <div class="coffee">
+        <span class="our-comminment">{{category.categoryName}}</span>
+        <span class="com-text">{{category.text}}</span>
+      </div>
+      <div class="{{category.classRight}}"></div>
+      <div class="go" (click)="go(+1)">
+        <fa-icon class="fas fa-5x fa-chevron-right active" [icon]="['fas', 'chevron-right']"></fa-icon>
+      </div>
+    </div>
+    <div class="cards">
+      <div  class="promocard" *ngFor="let p of category.products">
+          <div class="card-content">
+            <div class="card-header">
+              <div class="hr-wrap-top"><hr></div>
+              <div class="logo-m heder-logo"></div>
+              <div class="hr-wrap-top"><hr></div>
+            </div>
+            <div class="card-body">
+              <div class="ingredients">
+                <div class="ingredient" *ngFor="let i of p.ingredients">
+                  <div class="ing-spot {{i.ingClass}}"></div>
+                  <span class="ing-name">{{i.ing}}</span>
+                </div>
+              </div>
+              <div class="cup" [ngStyle]="{'background-image': 'url('+p.img+')'}"></div>
+              <div class="price">
+                <span class="numb">{{p.price}}</span>
+                <div class="only-shek">
+                  <span class="only">only</span>
+                  <div class="shek"></div>
+                </div>
+              </div>
+              <div class="description">
+                <span class="item-title">{{(p.title.length > 12)?(p.title | slice: 0:12)+'..' : p.title}}</span>
+                <span class="item-desc">{{(p.desc.length > 25)?(p.desc | slice: 0:25)+'..' : p.desc}}</span>
+              </div>
+            </div>
+            <div class="card-footer">
+              <hr>
+            </div>
+          </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="scroll-to-top" [ngClass]="{'show-scrollTop': windowScrolled}">
+    <fa-icon class="fas fa-5x fa-chevron-up btn2 active" [icon]="['fas', 'chevron-up']"  aria-pressed="true" (click)="scrollToTop()"></fa-icon>
+  </div>
+</app-frame>

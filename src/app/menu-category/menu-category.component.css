@@ -1,0 +1,743 @@
+@font-face {
+  font-family: Cookie;
+  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: JosefinSans Regular;
+  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+.main{
+  height: 150vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+}
+.header{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 25vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.go{
+  color: white;
+  filter: drop-shadow(2px 4px 6px black);
+  opacity: .5;
+  transition: all 0.5s ease-in-out ;
+}
+.go:hover{
+  transition: all 0.5s ease-in-out ;
+  transform: scale(1.2);
+}
+.go:active{
+  transition: all 0.5s ease-in-out ;
+  transform: scale(1.4);
+}
+.coffee-beans{
+  background:transparent url('../../assets/coffee-beans.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.eggs-left{
+  background:transparent url('../../assets/eggs.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.bears-left{
+  background:transparent url('../../assets/bears-left.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.baget-left{
+  background:transparent url('../../assets/baget.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+  transform: scale(1.5);
+}
+.sprinkling-right{
+  background:transparent url('../../assets/butter.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.vegs-right{
+  background:transparent url('../../assets/veggs.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.twix-right{
+  background:transparent url('../../assets/twix-right.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+  transform: scale(1.5);
+
+}
+.coffee-spot{
+  background:transparent url('../../assets/coffee-spot.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.tea-pile{
+   background:transparent url('../../assets/tea-pile.png') 0% 0% no-repeat padding-box;
+   background-size: contain;
+   background-position: center;
+   height: 80%;
+   width: 10%;
+}
+.tea-spot{
+  background:transparent url('../../assets/tea-spot.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.oranges{
+  background:transparent url('../../assets/orange.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.mango{
+  background:transparent url('../../assets/mango.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.raspberry{
+  background:transparent url('../../assets/raspberry.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.caramel{
+  background:transparent url('../../assets/caramel.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.whipped-cream{
+  background:transparent url('../../assets/whipped-cream.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.juice{
+  background:transparent url('../../assets/juice-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.ice2{
+  background:transparent url('../../assets/ice.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.baget{
+  background:transparent url('../../assets/baget.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.letuce{
+  background:transparent url('../../assets/letuce.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.tomatoes{
+  background:transparent url('../../assets/tomatoes.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.cucumber{
+  background:transparent url('../../assets/cucumber.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.onion{
+  background:transparent url('../../assets/onion.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.onion-f{
+  background:transparent url('../../assets/onion-f.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.mozzarella{
+  background:transparent url('../../assets/mozzarella.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.cheese{
+  background:transparent url('../../assets/cheese.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.chiken{
+  background:transparent url('../../assets/chiken.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.beef{
+  background:transparent url('../../assets/beef.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.basil{
+  background:transparent url('../../assets/basil.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.spicies{
+  background:transparent url('../../assets/spicies.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 80%;
+  width: 10%;
+}
+.coffee{
+  width: 21%;
+  height: 90%;
+}
+.our-comminment {
+  font: 10vmax Cookie;
+  line-height: 1;
+  display: flex;
+  text-align: center;
+  color: #1F1010;
+  opacity: 0.4;
+  text-shadow: 0 0 5px rgba(0,0,0,1);
+  justify-content: center;
+}
+.com-text {
+  font: .8vw JosefinSans Regular;
+  display: flex;
+  position: relative;
+  bottom: 38%;
+  text-align: center;
+  width: 81%;
+  margin: auto;
+}
+.sugar {
+  background:transparent url('../../assets/sugar.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.flour {
+  background:transparent url('../../assets/flour.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.eggs {
+  background:transparent url('../../assets/eggs.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.cocoa {
+  background:transparent url('../../assets/cocoa.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.candle {
+  background:transparent url('../../assets/candle.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.cinnamon {
+  background:transparent url('../../assets/cinnamon.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.nutella {
+  background:transparent url('../../assets/nutella.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.yeast {
+  background:transparent url('../../assets/yeast.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.sprinkling {
+  background:transparent url('../../assets/sprinkling.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.butter {
+  background:transparent url('../../assets/butter.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.peanut-butter {
+  background:transparent url('../../assets/peanut-butter.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.almond {
+  background:transparent url('../../assets/almond.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.chocolate {
+  background:transparent url('../../assets/chocolate.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+}
+.water-splash {
+  background:transparent url('../../assets/water-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.cream {
+  background:transparent url('../../assets/cream.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.apple{
+  background:transparent url('../../assets/apple.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.syrup {
+  background:transparent url('../../assets/syrup.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.honey {
+  background:transparent url('../../assets/honey.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.ice {
+  background:transparent url('../../assets/ice.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.oreo {
+  background:transparent url('../../assets/oreo.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.cinnamon {
+  background:transparent url('../../assets/cinnamon.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.blueberry {
+  background:transparent url('../../assets/blueberry.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.black-tea {
+  background:transparent url('../../assets/black-tea.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.bergamonia {
+  background:transparent url('../../assets/bergamonia.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.juice-splash {
+  background:transparent url('../../assets/juice-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.limes {
+  background:transparent url('../../assets/lime.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.eucalyptus {
+  background:transparent url('../../assets/eucalyptus.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.rosemary {
+  background:transparent url('../../assets/rosemary.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.thyme {
+  background:transparent url('../../assets/thyme.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.chamomile {
+  background:transparent url('../../assets/chamomile.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.flour {
+  background:transparent url('../../assets/flour.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.eggs {
+  background:transparent url('../../assets/eggs.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.cinnamon {
+  background:transparent url('../../assets/cinnamon.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.yeast {
+  background:transparent url('../../assets/yeast.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.butter {
+  background:transparent url('../../assets/butter.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.tea-leaves {
+  background:transparent url('../../assets/green-tea.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.tea-splash {
+  background:transparent url('../../assets/tea-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 33%;
+  top: 7%;
+  left: 3.4%;
+  width: 16%;
+}
+.juice-splash {
+  background:transparent url('../../assets/juice-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+}
+.vegi-splash {
+  background:transparent url('../../assets/vegi.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+}
+.sprinkling-splash {
+  background:transparent url('../../assets/sprinkling-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  height: 81%;
+}
+.candy-splash {
+  background:transparent url('../../assets/candy-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  width: 33%;
+  right: 60%;
+  top: -19%;
+}
+.mint {
+  background:transparent url('../../assets/mint.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.cards{
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 3%;
+}
+.promocard {
+  background-color: white;
+  width: 10vw;
+  height: 33vh;
+  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 0 0 21%;
+  border: solid rgba(0,0,0,0.25) 0.01px;
+  transition: all 0.5s ease-in-out ;
+  margin-right: 2%;
+  margin-left: 2%;
+  margin-bottom: 4%;
+}
+.promocard:hover{
+  transform: scale(1.2);
+  transition: all 0.5s ease-in-out ;
+}
+hr {
+  height: 2px;
+  background: #AB9690;
+  width: 100%;
+}
+.hr-wrap-top {
+  display: flex;
+  align-items: center;
+  width: 38%;
+}
+.cardhead {
+  top: 2%;
+  left: 42%;
+}
+.card-content {
+  width: 85%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-header {
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-m {
+  width: 8vw;
+  height: 8vh;
+  position: relative;
+  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+}
+.heder-logo {
+  height: 70%;
+  width: 14%;
+}
+.card-body {
+  height: 70%;
+
+}
+.card-footer {
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+
+}
+.ingredients {
+  height: 70%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.ingredient {
+  display: flex;
+  justify-content: space-between;
+  height: 17%;
+}
+.ing-spot {
+  width: 50%;
+}
+.coffee-splash {
+  background:transparent url('../../assets/coffee-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.milk-splash {
+  background:transparent url('../../assets/milk-splash.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+
+}
+.ing-name {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  font-family: JosefinSans Regular;
+  z-index: 100;
+  line-height: .8;
+  -webkit-text-stroke: .1px white;
+}
+.cup {
+  width: 42%;
+  height: 81%;
+  position: relative;
+  left: 20%;
+  top: -52%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.price {
+  width: 47%;
+  height: 45%;
+  position: relative;
+  top: -160%;
+  left: 52%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.numb {
+  width: 75%;
+  height: 100%;
+  color: #E04523;
+  display: flex;
+  justify-content: center;
+  font: 5vw JosefinSans Regular;
+  position: relative;
+  top: 24%;
+  margin-left: 14%;
+
+}
+.only-shek {
+  width: 25%;
+  height: 59%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.only {
+  width: 100%;
+  height: 30%;
+  font: 1vw JosefinSans Regular;
+  display: flex;
+  justify-content: center;
+}
+.shek {
+  width: 100%;
+  height: 70%;
+  background:transparent url('../../assets/shekel.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  margin-top: 1vh;
+}
+.description {
+  width: 42%;
+  height: 60%;
+  position: relative;
+  top: -156%;
+  left: 57%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 5%;
+}
+.item-title {
+  font: 1.4vw JosefinSans Regular;
+  display: flex;
+  overflow-wrap: anywhere;
+}
+
+.item-desc {
+  width: 100%;
+  height: 70%;
+  font-family: JosefinSans Regular;
+}
+.scroll-to-top {
+  position: fixed;
+  bottom: 7vh;
+  opacity: 0;
+  transition: all .2s ease-in-out;
+}
+.show-scrollTop {
+  opacity: 0.8;
+  transition: all .2s ease-in-out;
+
+}
+
+.fa-chevron-up {
+  margin: auto;
+  color: white;
+  opacity: 0.8;
+  bottom: 11vh;
+  position: relative;
+  left: 2vw;
+}
+.btn2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 42%;
+
+}
+@media only screen and (max-width: 1500px) {
+  .item-desc{
+    line-height: .9;
+  }
+  .ingredient{
+    height: auto;
+  }
+}

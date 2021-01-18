@@ -11,10 +11,13 @@ import {BranchItemComponent} from './branch-item/branch-item.component';
 import {AccountComponent} from './account/account.component';
 import {AStatisticComponent} from './a-statistic/a-statistic.component';
 import {TrayComponent} from './tray/tray.component';
+import {MenuCategoryComponent} from './menu-category/menu-category.component';
 
 const routes: Routes = [
   {path: 'homepage', component: HomePageComponent },
   {path: 'menu_common', component: MenuCommonComponent},
+  {path: 'menu_category', component: MenuCategoryComponent},
+  {path: 'menu_category/:category_name', component: MenuCategoryComponent},
   {path: 'contacts', component: ContactsComponent},
   {path: 'help', component: ComminmentComponent},
   {path: 'lang', component: LanguagesDialigComponent},

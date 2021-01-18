@@ -22,6 +22,7 @@ import { TrayComponent } from './tray/tray.component';
 import {FormsModule} from '@angular/forms';
 import { PayformDialogComponent } from './payform-dialog/payform-dialog.component';
 import { IamnewComponent } from './iamnew/iamnew.component';
+import { MenuCategoryComponent } from './menu-category/menu-category.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { IamnewComponent } from './iamnew/iamnew.component';
     AStatisticComponent,
     TrayComponent,
     PayformDialogComponent,
-    IamnewComponent
+    IamnewComponent,
+    MenuCategoryComponent
   ],
   imports: [
     BrowserModule,
