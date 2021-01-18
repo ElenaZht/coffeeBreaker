@@ -766,15 +766,36 @@ hr {
     top: 5%;
   }
   .item-title{
-    font-size: 6vw;
+    font-size: 6vmin;
   }
   .numb{
-    font-size: 14vw;
+    font-size: 14vmin;
   }
   .price{
     top: -80%;
   }
   .description{
     top: -75%;
+  }
+}
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+  .cards{
+    flex-direction: row;
+  }
+  .promocard{
+    flex: 0 0 21%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  .item-title{
+    font-size: 4vmin;
+    margin-top: 3%;
+    width: 150%;
+  }
+  .numb{
+    font-size: 10vmin;
+  }
+  .description{
+    left: 40%;
   }
 }
