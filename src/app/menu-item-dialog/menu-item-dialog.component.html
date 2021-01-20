@@ -1,0 +1,101 @@
+<div class="main">
+  <div class="category-card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="hr-wrap-top"><hr></div>
+        <div class="logo-m heder-logo"></div>
+        <div class="hr-wrap-top"><hr></div>
+      </div>
+      <div class="card-body">
+        <div class="ingredients" *ngIf="data.ingredients.length > 0" >
+          <div class="ingredient" *ngFor="let i of data.ingredients">
+            <div class="ing-spot {{i.ingClass}}"></div>
+            <span class="ing-name">{{i.ing}}</span>
+          </div>
+        </div>
+        <div class="nutr" [ngStyle]="{'background-image': 'url('+data.nutr+')'}"></div>
+
+        <div class="col">
+            <div class="cup" [ngStyle]="{'background-image': 'url('+data.img+')'}"></div>
+
+          </div>
+          <div class="col">
+            <div class="price">
+              <span class="numb">{{data.price}}</span>
+              <div class="only-shek">
+                <span class="only">only</span>
+                <div class="shek"></div>
+              </div>
+            </div>
+            <div class="description">
+              <span class="item-title">{{data.title}}</span>
+              <span class="item-desc">{{data.desc}}</span>
+            </div>
+            <div class="btns-wrap">
+              <button class="orangebtn">
+              <fa-icon class="fas fa-2x fa-plus btn2 active" [icon]="['fas', 'plus']" style="color: white;margin-left: 5%"  aria-pressed="true"></fa-icon>
+                <span class="bnttext">Add to tray</span>
+              </button>
+              <button class="orangebtn graybtn">
+              <fa-icon class="fas fa-2x fa-shopping-cart btn2 active" [icon]="['fas', 'shopping-cart']" style="margin-left: 5%" aria-pressed="true"></fa-icon>
+                <span class="bnttext">My tray</span>
+              </button>
+            </div>
+
+          </div>
+
+      </div>
+      <div class="card-footer">
+        <hr>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="main2">
+  <div  *ngIf="!ings && !nutrs" class="cup" [ngStyle]="{'background-image': 'url('+data.img+')'}">
+    <div class="row1">
+      <fa-icon class="fas fa-3x fa-chevron-left active" [icon]="['fas', 'chevron-left']" style="color: white; filter: drop-shadow(2px 4px 6px black);margin-left: 5%;" (click)="goBack()"></fa-icon>
+      <div class="price">
+        <span class="numb">{{data.price}}</span>
+        <div class="only-shek">
+          <span class="only">only</span>
+          <div class="shek"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row2">
+      <span class="item-title">{{(data.title.length > 14)?(data.title | slice: 0:14)+'..' : data.title}}</span>
+    </div>
+    <div class="row3">
+      <div class="subcol">
+        <button class="orangebtn graybtn">
+          <fa-icon class="fas fa-2x fa-list-ul btn2 active"  (click)="goIngs()" [icon]="['fas', 'list-ul']" style="margin-left: 5%" aria-pressed="true"></fa-icon>
+        </button>
+        <button class="orangebtn graybtn">
+          <fa-icon class="fas fa-2x fa-heartbeat btn2 active" (click)="goNutrs()" [icon]="['fas', 'heartbeat']" style="margin-left: 5%" aria-pressed="true"></fa-icon>
+        </button>
+      </div>
+      <div class="subcol">
+        <button class="orangebtn">
+          <fa-icon class="fas fa-3x fa-plus btn2 active" [icon]="['fas', 'plus']" style="color: white;margin-left: 5%"  aria-pressed="true"></fa-icon>
+        </button>
+        <button class="orangebtn graybtn" (click)="goTray()">
+          <fa-icon class="fas fa-2x fa-shopping-cart btn2 active" [icon]="['fas', 'shopping-cart']" style="margin-left: 5%" aria-pressed="true"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="ings" class="ingredients-wrap">
+    <fa-icon class="fas fa-3x fa-chevron-left active" [icon]="['fas', 'chevron-left']" style="color: white; filter: drop-shadow(2px 4px 6px black);margin-left: 5%;" (click)="goIngs()"></fa-icon>
+
+    <div class="ingredient" *ngFor="let i of data.ingredients">
+      <div class="ing-spot {{i.ingClass}}"></div>
+      <span class="ing-name">{{i.ing}}</span>
+    </div>
+  </div>
+  <div *ngIf="nutrs" class="nurts-wrap">
+    <fa-icon class="fas fa-3x fa-chevron-left active" [icon]="['fas', 'chevron-left']" style="color: white; filter: drop-shadow(2px 4px 6px black);margin-left: 5%;" (click)="goNutrs()"></fa-icon>
+    <div class="nutr" [ngStyle]="{'background-image': 'url('+data.nutr+')'}"></div>
+  </div>
+</div>
