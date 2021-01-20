@@ -23,7 +23,7 @@ import {FormsModule} from '@angular/forms';
 import { PayformDialogComponent } from './payform-dialog/payform-dialog.component';
 import { IamnewComponent } from './iamnew/iamnew.component';
 import { MenuCategoryComponent } from './menu-category/menu-category.component';
-
+import { MenuItemDialogComponent } from './menu-item-dialog/menu-item-dialog.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,8 @@ import { MenuCategoryComponent } from './menu-category/menu-category.component';
     TrayComponent,
     PayformDialogComponent,
     IamnewComponent,
-    MenuCategoryComponent
+    MenuCategoryComponent,
+    MenuItemDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +56,8 @@ import { MenuCategoryComponent } from './menu-category/menu-category.component';
     FormsModule
   ],
   entryComponents: [
-    PayformDialogComponent
+    PayformDialogComponent,
+    MenuItemDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

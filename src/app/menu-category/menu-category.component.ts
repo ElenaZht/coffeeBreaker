@@ -1,11 +1,13 @@
 import {Component, HostListener, Input, OnInit} from '@angular/core';
 import {faChevronLeft, faChevronRight, faChevronUp} from '@fortawesome/free-solid-svg-icons';
-import {icon, library} from '@fortawesome/fontawesome-svg-core';
+import {library} from '@fortawesome/fontawesome-svg-core';
 import {ActivatedRoute} from '@angular/router';
 library.add(faChevronUp);
 library.add(faChevronRight);
 library.add(faChevronLeft);
 import {Router} from '@angular/router';
+import {MatDialog} from '@angular/material';
+import {MenuItemDialogComponent} from '../menu-item-dialog/menu-item-dialog.component';
 @Component({
   selector: 'app-menu-category',
   templateUrl: './menu-category.component.html',
@@ -22,76 +24,76 @@ export class MenuCategoryComponent implements OnInit {
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Cinnamon', ingClass: 'cinnamon'}, {ing: 'Blueberry', ingClass: 'blueberry'}],
+          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Cinnamon', ingClass: 'cinnamon'}, {ing: 'Blueberry', ingClass: 'blueberry'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Frappe', price: 8, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Cream', ingClass: 'cream'},  {ing: 'Syrup', ingClass: 'syrup'}],
+          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Cream', ingClass: 'cream'},  {ing: 'Syrup', ingClass: 'syrup'}], nutr: '../../assets/nutritions.png'
         },
 
         {title: 'Latte Makiata', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Chocolate', ingClass: 'chocolate'}],
+          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Chocolate', ingClass: 'chocolate'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Latte', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Sugar', ingClass: 'sugar'}],
+          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Sugar', ingClass: 'sugar'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Latte Honey', price: 18, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Honey', ingClass: 'honey'}],
+          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Honey', ingClass: 'honey'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Ice caffee', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'},  {ing: 'Ice', ingClass: 'ice'}],
+          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'},  {ing: 'Ice', ingClass: 'ice'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Espresso', price: 8, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}],
+          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Capuchino', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}],
+          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Americano', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Mineral Water', ingClass: 'water-splash'}],
+          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Mineral Water', ingClass: 'water-splash'}], nutr: '../../assets/nutritions.png'
         },
 
         {title: 'Ristretto', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}],
+          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Lungo', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Mineral Water', ingClass: 'water-splash'}],
+          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Mineral Water', ingClass: 'water-splash'}], nutr: '../../assets/nutritions.png'
         },
 
         {title: 'Latte Oreo', price: 18, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Oreo Cookies', ingClass: 'oreo'}],
+          ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Oreo Cookies', ingClass: 'oreo'}], nutr: '../../assets/nutritions.png'
         }
       ], classLeft: 'coffee-beans', classRight: 'coffee-spot', goLeft: 'Bakery', goRight: 'Tea'},
     {categoryName: 'Tea', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n' +
@@ -102,26 +104,26 @@ export class MenuCategoryComponent implements OnInit {
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/coffee-cup.png', menuCategory: 'tea',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Mineral Water', ingClass: 'water-splash'}, {ing: 'Green tea', ingClass: 'tea-leaves'},  {ing: 'Mint Leaves', ingClass: 'mint'}, {ing: 'Lime Peal', ingClass: 'limes'}],
+          ingredients: [{ing: 'Mineral Water', ingClass: 'water-splash'}, {ing: 'Green tea', ingClass: 'tea-leaves'},  {ing: 'Mint Leaves', ingClass: 'mint'}, {ing: 'Lime Peal', ingClass: 'limes'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Tea 5 herbs', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/coffee-cup.png', menuCategory: 'tea',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Mineral Water', ingClass: 'water-splash'}, {ing: 'Eucalyptus', ingClass: 'eucalyptus'}, {ing: 'Rosemary', ingClass: 'rosemary'}, {ing: 'Thyme', ingClass: 'thyme'}, {ing: 'Mint Leaves', ingClass: 'mint'}, {ing: 'Chamomile', ingClass: 'chamomile'}],
+          ingredients: [{ing: 'Mineral Water', ingClass: 'water-splash'}, {ing: 'Eucalyptus', ingClass: 'eucalyptus'}, {ing: 'Rosemary', ingClass: 'rosemary'}, {ing: 'Thyme', ingClass: 'thyme'}, {ing: 'Mint Leaves', ingClass: 'mint'}, {ing: 'Chamomile', ingClass: 'chamomile'}], nutr: '../../assets/nutritions.png'
         },
 
         {title: 'Tea Lady Gray', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Mineral Water', ingClass: 'water-splash'}, {ing: 'Black tea', ingClass: 'black-tea'}, {ing: 'Bergamonia', ingClass: 'bergamonia'}],
+          ingredients: [{ing: 'Mineral Water', ingClass: 'water-splash'}, {ing: 'Black tea', ingClass: 'black-tea'}, {ing: 'Bergamonia', ingClass: 'bergamonia'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Tea Honey&Cinnamon', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Mineral Water', ingClass: 'water-splash'}, {ing: 'Green tea', ingClass: 'tea-leaves'}, {ing: 'Honey', ingClass: 'honey'}, {ing: 'Cinnamon', ingClass: 'cinnamon'}],
+          ingredients: [{ing: 'Mineral Water', ingClass: 'water-splash'}, {ing: 'Green tea', ingClass: 'tea-leaves'}, {ing: 'Honey', ingClass: 'honey'}, {ing: 'Cinnamon', ingClass: 'cinnamon'}], nutr: '../../assets/nutritions.png'
         }
       ], classLeft: 'tea-pile', classRight: 'tea-spot', goLeft: 'Coffee', goRight: 'Drinks'},
     {categoryName: 'Drinks', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n' +
@@ -131,44 +133,44 @@ export class MenuCategoryComponent implements OnInit {
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/orange-cup.png', menuCategory: 'drinks',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Oranges', ingClass: 'oranges'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Mint Leaves', ingClass: 'mint'}],
+          ingredients: [{ing: 'Oranges', ingClass: 'oranges'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Mint Leaves', ingClass: 'mint'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Mango Sunrise', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/yellow-cup.png', menuCategory: 'drinks',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Mango', ingClass: 'mango'},   {ing: 'Syrup', ingClass: 'syrup'}, {ing: 'Ice', ingClass: 'ice'}],
+          ingredients: [{ing: 'Mango', ingClass: 'mango'},   {ing: 'Syrup', ingClass: 'syrup'}, {ing: 'Ice', ingClass: 'ice'}], nutr: '../../assets/nutritions.png'
         },
 
         {title: 'Rich Raspberry', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/pink-cup.png', menuCategory: 'drinks',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Raspberry', ingClass: 'raspberry'}, {ing: 'Cream', ingClass: 'cream'}, {ing: 'Ice', ingClass: 'ice'}, {ing: 'Thyme', ingClass: 'thyme'}, {ing: 'Cinnamon', ingClass: 'cinnamon'}, {ing: 'Sugar', ingClass: 'sugar'}],
+          ingredients: [{ing: 'Raspberry', ingClass: 'raspberry'}, {ing: 'Cream', ingClass: 'cream'}, {ing: 'Ice', ingClass: 'ice'}, {ing: 'Thyme', ingClass: 'thyme'}, {ing: 'Cinnamon', ingClass: 'cinnamon'}, {ing: 'Sugar', ingClass: 'sugar'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Ice Choco', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/cocoa-cup.png', menuCategory: 'drinks',
           // tslint:disable-next-line:max-line-length
-          ingredients: [ {ing: 'Ice', ingClass: 'ice'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Chocolate', ingClass: 'chocolate'}],
+          ingredients: [ {ing: 'Ice', ingClass: 'ice'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Chocolate', ingClass: 'chocolate'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Coca Cola', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/cola-bottle.png', menuCategory: 'drinks',
           // tslint:disable-next-line:max-line-length
-          ingredients: [],
+          ingredients: [], nutr: '../../assets/nutritions.png'
         },
         {title: 'Sprite', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/sprite-bottle.png', menuCategory: 'drinks',
           // tslint:disable-next-line:max-line-length
-          ingredients: [],
+          ingredients: [], nutr: '../../assets/nutritions.png'
         },
         {title: 'Mineral Water', price: 8, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/water-bottle.png', menuCategory: 'drinks',
           // tslint:disable-next-line:max-line-length
-          ingredients: [],
+          ingredients: [], nutr: '../../assets/nutritions.png'
         }
       ], classLeft: 'juice', classRight: 'ice2', goLeft: 'Tea', goRight: 'Sweets'},
     {categoryName: 'Bakery', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n' +
@@ -178,75 +180,75 @@ export class MenuCategoryComponent implements OnInit {
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/cruasan.png', menuCategory: 'bakery',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Butter', ingClass: 'butter'}],
+          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Butter', ingClass: 'butter'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Cruasan & Nutella', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/cruasan-nutella.png', menuCategory: 'bakery',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Nutella', ingClass: 'nutella'}],
+          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Nutella', ingClass: 'nutella'}], nutr: '../../assets/nutritions.png'
         },
 
         {title: 'Cookie', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/cookie.png', menuCategory: 'bakery',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Chocolate', ingClass: 'chocolate'}],
+          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Chocolate', ingClass: 'chocolate'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Cupcake Brownie', price: 12, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/cupcake-choco.png', menuCategory: 'bakery',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Chocolate', ingClass: 'chocolate'}, {ing: 'Cocoa', ingClass: 'cocoa'}],
+          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Chocolate', ingClass: 'chocolate'}, {ing: 'Cocoa', ingClass: 'cocoa'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Cupcake Happy Birthday', price: 18, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/cupcake-hb.png', menuCategory: 'bakery',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Candle', ingClass: 'candle'}, {ing: 'Sprinkling', ingClass: 'sprinkling'}],
+          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Candle', ingClass: 'candle'}, {ing: 'Sprinkling', ingClass: 'sprinkling'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Glass Donut', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/donut-glass.png', menuCategory: 'bakery',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Butter', ingClass: 'butter'}],
+          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Butter', ingClass: 'butter'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Zebra Donut', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/donut-white.png', menuCategory: 'bakery',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Chocolate', ingClass: 'chocolate'}, {ing: 'Cream', ingClass: 'cream'}],
+          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Chocolate', ingClass: 'chocolate'}, {ing: 'Cream', ingClass: 'cream'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Sugar Donut', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/donut-sugar.png', menuCategory: 'bakery',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}],
+          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Sprinkling Donut', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/donut-pink.png', menuCategory: 'bakery',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Sprinkling', ingClass: 'sprinkling'}],
+          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Sprinkling', ingClass: 'sprinkling'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Brownie', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/brownie.png', menuCategory: 'bakery',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Chocolate', ingClass: 'chocolate'}, {ing: 'Cocoa', ingClass: 'cocoa'}],
+          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Chocolate', ingClass: 'chocolate'}, {ing: 'Cocoa', ingClass: 'cocoa'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Peanut Macaroons', price: 12, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/macaroons.png', menuCategory: 'bakery',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Peanut Butter', ingClass: 'peanut-butter'}, {ing: 'Almond', ingClass: 'almond'}],
+          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Peanut Butter', ingClass: 'peanut-butter'}, {ing: 'Almond', ingClass: 'almond'}], nutr: '../../assets/nutritions.png'
         },
 
         {title: 'Apple Shtrudel', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/shtrudel.png', menuCategory: 'bakery',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Apple', ingClass: 'apple'}],
+          ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Apple', ingClass: 'apple'}], nutr: '../../assets/nutritions.png'
         }
       ], classLeft: 'eggs-left', classRight: 'sprinkling-right', goLeft: 'Sandwiches', goRight: 'Coffee'},
     {categoryName: 'Sandwiches', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n' +
@@ -257,38 +259,38 @@ export class MenuCategoryComponent implements OnInit {
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/sandwich3.png', menuCategory: 'Sandwiches',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Lettuce', ingClass: 'letuce'}, {ing: 'Tomatoes', ingClass: 'tomatoes'}, {ing: 'Onion', ingClass: 'onion'}, {ing: 'Chicken Breast', ingClass: 'chiken'}],
+          ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Lettuce', ingClass: 'letuce'}, {ing: 'Tomatoes', ingClass: 'tomatoes'}, {ing: 'Onion', ingClass: 'onion'}, {ing: 'Chicken Breast', ingClass: 'chiken'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Roastbeef Sandwich', price: 18, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/sandwich2.png', menuCategory: 'Sandwiches',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Lettuce', ingClass: 'letuce'}, {ing: 'Tomatoes', ingClass: 'tomatoes'}, {ing: 'Onion', ingClass: 'onion'}, {ing: 'Beef', ingClass: 'beef'}, {ing: 'Cheese', ingClass: 'cheese'}],
+          ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Lettuce', ingClass: 'letuce'}, {ing: 'Tomatoes', ingClass: 'tomatoes'}, {ing: 'Onion', ingClass: 'onion'}, {ing: 'Beef', ingClass: 'beef'}, {ing: 'Cheese', ingClass: 'cheese'}], nutr: '../../assets/nutritions.png'
         },
 
         {title: 'Toast Mozzarella', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/tost1.png', menuCategory: 'Sandwiches',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Tomatoes', ingClass: 'tomatoes'}, {ing: 'Mozzarella', ingClass: 'mozzarella'}, {ing: 'Basil', ingClass: 'basil'}],
+          ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Tomatoes', ingClass: 'tomatoes'}, {ing: 'Mozzarella', ingClass: 'mozzarella'}, {ing: 'Basil', ingClass: 'basil'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Toast Mozzarella & Spicy Tomatoes', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/tost2.png', menuCategory: 'Sandwiches',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Tomatoes', ingClass: 'tomatoes'}, {ing: 'Mozzarella', ingClass: 'mozzarella'}, {ing: 'Onion', ingClass: 'onion'}, {ing: 'Spice', ingClass: 'spicies'}],
+          ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Tomatoes', ingClass: 'tomatoes'}, {ing: 'Mozzarella', ingClass: 'mozzarella'}, {ing: 'Onion', ingClass: 'onion'}, {ing: 'Spice', ingClass: 'spicies'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Tost Spicy Beef', price: 18, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/tost3.png', menuCategory: 'Sandwiches',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Beef', ingClass: 'beef'},  {ing: 'Cheese', ingClass: 'cheese'}, {ing: 'Spice', ingClass: 'spicies'}],
+          ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Beef', ingClass: 'beef'},  {ing: 'Cheese', ingClass: 'cheese'}, {ing: 'Spice', ingClass: 'spicies'}], nutr: '../../assets/nutritions.png'
         },
         {title: 'Sandwich Veggies & Mozzarella', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/sandwich.jpg', menuCategory: 'Sandwiches',
           // tslint:disable-next-line:max-line-length
-          ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Lettuce', ingClass: 'letuce'}, {ing: 'Tomatoes', ingClass: 'tomatoes'}, {ing: 'Onion', ingClass: 'onion'}, {ing: 'Chicken Breast', ingClass: 'chiken'},  {ing: 'Mozzarella', ingClass: 'mozzarella'}],
+          ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Lettuce', ingClass: 'letuce'}, {ing: 'Tomatoes', ingClass: 'tomatoes'}, {ing: 'Onion', ingClass: 'onion'}, {ing: 'Chicken Breast', ingClass: 'chiken'},  {ing: 'Mozzarella', ingClass: 'mozzarella'}], nutr: '../../assets/nutritions.png'
         }
       ], classLeft: 'baget-left', classRight: 'vegs-right', goLeft: 'Sweets', goRight: 'Bakery'},
     {categoryName: 'Sweets', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n' +
@@ -299,56 +301,56 @@ export class MenuCategoryComponent implements OnInit {
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/twix.png', menuCategory: 'sweets',
           // tslint:disable-next-line:max-line-length
-          ingredients: [],
+          ingredients: [], nutr: '../../assets/nutritions.png'
         },
         {title: 'Snickers', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/snickers.png', menuCategory: 'sweets',
           // tslint:disable-next-line:max-line-length
-          ingredients: [],
+          ingredients: [], nutr: '../../assets/nutritions.png'
         },
         {title: 'Bounty', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/bounty.png', menuCategory: 'sweets',
           // tslint:disable-next-line:max-line-length
-          ingredients: [],
+          ingredients: [], nutr: '../../assets/nutritions.png'
         },
         {title: 'M & Ms', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/mms.png', menuCategory: 'sweets',
           // tslint:disable-next-line:max-line-length
-          ingredients: [],
+          ingredients: [], nutr: '../../assets/nutritions.png'
         },
         {title: 'KitKat', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/kitkat.png', menuCategory: 'sweets',
           // tslint:disable-next-line:max-line-length
-          ingredients: [],
+          ingredients: [], nutr: '../../assets/nutritions.png'
         },
         {title: 'Milka Milk Chocolate', price: 12, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/milka.png', menuCategory: 'sweets',
           // tslint:disable-next-line:max-line-length
-          ingredients: [],
+          ingredients: [], nutr: '../../assets/nutritions.png'
         },
         {title: 'Haribo Gummy Candies', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/gummy.png', menuCategory: 'sweets',
           // tslint:disable-next-line:max-line-length
-          ingredients: [],
+          ingredients: [], nutr: '../../assets/nutritions.png'
         },
         {title: 'MaxMallows Marshmallow', price: 12, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/marsh.png', menuCategory: 'sweets',
           // tslint:disable-next-line:max-line-length
-          ingredients: [],
+          ingredients: [], nutr: '../../assets/nutritions.png'
         }
 
       ], classLeft: 'bears-left', classRight: 'twix-right', goLeft: 'Drinks', goRight: 'Sandwiches'}
   ];
 
   windowScrolled: boolean;
-  constructor(private route: ActivatedRoute,  private router: Router) {
+  constructor(private route: ActivatedRoute,  private router: Router, public dialog: MatDialog) {
   }
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -386,6 +388,13 @@ export class MenuCategoryComponent implements OnInit {
       curCategory = curCategory + c;
     }
     this.category = this.categories[curCategory];
+  }
+  onItem(item) {
+    const dialogRef = this.dialog.open(MenuItemDialogComponent, {panelClass: 'custom-dialog-container', height: '60vmin',
+      width: '55vmax', data: item});
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The lang dialog was closed', result);
+    });
   }
 
 }
