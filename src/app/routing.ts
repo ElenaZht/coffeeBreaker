@@ -12,6 +12,7 @@ import {AccountComponent} from './account/account.component';
 import {AStatisticComponent} from './a-statistic/a-statistic.component';
 import {TrayComponent} from './tray/tray.component';
 import {MenuCategoryComponent} from './menu-category/menu-category.component';
+import {AOrdersComponent} from './a-orders/a-orders.component';
 
 const routes: Routes = [
   {path: 'homepage', component: HomePageComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'branch', component: BranchItemComponent},
   {path: 'account', component: AccountComponent},
   {path: 'statistic', component: AStatisticComponent},
+  {path: 'orders_control', component: AOrdersComponent},
   {path: 'tray', component: TrayComponent},
   {path: '**', component: HomePageComponent }
 ];

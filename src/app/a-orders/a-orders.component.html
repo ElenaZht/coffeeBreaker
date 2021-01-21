@@ -1,0 +1,94 @@
+<app-frame>
+  <div class="main">
+    <div class="stat-title">
+      <span class="stat">Orders control</span>
+      <span class="stat-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
+    </div>
+    <div class="panels">
+      <div class="promocard" cdkDropList #newOrdersList="cdkDropList"
+           [cdkDropListData]="newOrders"
+           [cdkDropListConnectedTo]="[processingList]" (cdkDropListDropped)="drop($event)">
+        <div class="header">
+          <span>New orders: {{newOrders.length}}</span>
+          <hr>
+        </div>
+        <div class="card-body">
+          <div cdkDrag class="order-card" *ngFor="let i of newOrders">
+            <div class="order-header">
+              <span>#{{i.id}}</span>
+              <hr>
+            </div>
+            <div class="order-card-body">
+              <div class="prod-list-item" *ngFor="let p of i.prods">
+                <div class="prev">
+                  <div [ngStyle]="{'background-image': 'url('+p.img+')'}"></div>
+                  <span>{{p.name}}</span>
+                </div>
+                <div style="color: gray">X</div>
+                <div style="width: 30%;">{{p.numb}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="promocard"  cdkDropList #processingList="cdkDropList"
+           [cdkDropListData]="processing" [cdkDropListConnectedTo]="[readyOrdersList]"
+           (cdkDropListDropped)="drop($event)">
+        <div class="header">
+          <span>Processing: {{processing.length}}</span>
+          <hr>
+        </div>
+        <div class="card-body">
+          <div cdkDrag class="order-card" *ngFor="let i of processing">
+            <div class="order-header">
+              <span>#{{i.id}}</span>
+              <hr>
+            </div>
+            <div class="order-card-body">
+              <div class="prod-list-item" *ngFor="let p of i.prods">
+                <div class="prev">
+                  <div [ngStyle]="{'background-image': 'url('+p.img+')'}"></div>
+                  <span>{{p.name}}</span>
+                </div>
+                <div style="color: gray">X</div>
+                <div style="width: 30%;">{{p.numb}}</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="promocard" cdkDropList #readyOrdersList="cdkDropList"
+           [cdkDropListData]="readyOrders"
+             (cdkDropListDropped)="drop($event)">
+        <div class="header">
+          <span>Ready orders: {{readyOrders.length}}</span>
+          <hr>
+        </div>
+        <div class="card-body">
+          <div cdkDrag class="order-card readycard" *ngFor="let i of readyOrders">
+            <span class="done" (click)="done(i)">Done</span>
+            <div class="order-header">
+              <span>#{{i.id}}</span>
+              <hr>
+            </div>
+            <div class="order-card-body">
+              <div class="prod-list-item" *ngFor="let p of i.prods">
+                <div class="prev">
+                  <div [ngStyle]="{'background-image': 'url('+p.img+')'}"></div>
+                  <span>{{p.name}}</span>
+                </div>
+                <div style="color: gray">X</div>
+                <div style="width: 30%;">{{p.numb}}</div>
+              </div>
+            </div>
+          </div>
+
+          </div>
+
+      </div>
+
+    </div>
+  </div>
+</app-frame>
