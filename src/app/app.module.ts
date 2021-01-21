@@ -24,6 +24,8 @@ import { PayformDialogComponent } from './payform-dialog/payform-dialog.componen
 import { IamnewComponent } from './iamnew/iamnew.component';
 import { MenuCategoryComponent } from './menu-category/menu-category.component';
 import { MenuItemDialogComponent } from './menu-item-dialog/menu-item-dialog.component';
+import { AOrdersComponent } from './a-orders/a-orders.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { MenuItemDialogComponent } from './menu-item-dialog/menu-item-dialog.com
     PayformDialogComponent,
     IamnewComponent,
     MenuCategoryComponent,
-    MenuItemDialogComponent
+    MenuItemDialogComponent,
+    AOrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import { MenuItemDialogComponent } from './menu-item-dialog/menu-item-dialog.com
     RoutingModule,
     HttpClientModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    DragDropModule
   ],
   entryComponents: [
     PayformDialogComponent,
