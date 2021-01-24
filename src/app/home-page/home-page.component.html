@@ -48,43 +48,7 @@
       </div>
     </div>
     <div class="navbar-wrap">
-      <ul class="navbar">
-        <li class="li">
-          <div class="li-icon" routerLink="../menu_common">Menu</div>
-          <div class="li-href"><mat-divider></mat-divider></div>
-        </li>
-        <li class="li">
-          <div class="li-icon pointer" routerLink="../branches">
-          </div>
-          <div class="li-href"><mat-divider></mat-divider></div>
-        </li>
-        <li class="li">
-          <div class="li-icon tray" routerLink="../tray">
-
-          </div>
-          <div class="li-href"><mat-divider></mat-divider></div>
-        </li>
-        <li class="li">
-          <div class="li-icon account" routerLink="../account">
-
-          </div>
-          <div class="li-href"><mat-divider></mat-divider></div>
-        </li>
-        <li class="li">
-          <div class="li-icon" (click)="chooseTheLang()">en</div>
-          <div class="li-href"><mat-divider></mat-divider></div>
-        </li>
-        <li class="li">
-          <div class="li-icon email2" routerLink="../contacts">
-
-          </div>
-          <div class="li-href"><mat-divider></mat-divider></div>
-        </li>
-        <li class="li">
-          <div class="li-icon h" routerLink="../help">?</div>
-          <div class="li-href"><mat-divider></mat-divider></div>
-        </li>
-      </ul>
+      <app-navbar></app-navbar>
     </div>
 
   </div>
@@ -168,11 +132,19 @@
         <div class="footer-right">
           <div class="mini-navbar">
             <div class="mini-nav-item menu">Menu</div>
-            <div class="mini-nav-item pointer"></div>
-            <div class="mini-nav-item tray" routerLink="../tray"></div>
-            <div class="mini-nav-item account"></div>
-            <div class="mini-nav-item lang">en</div>
-            <div class="mini-nav-item email2"></div>
+            <div class="mini-nav-item pointer">
+              <fa-icon class="fas fa-2x fa-map-marker" [icon]="['fas', 'map-marker-alt']"></fa-icon>
+            </div>
+            <div class="mini-nav-item tray" routerLink="../tray">
+              <fa-icon class="fas fa-2x fa-shopping-basket" [icon]="['fas', 'shopping-basket']"></fa-icon>
+            </div>
+            <div class="mini-nav-item account">
+              <fa-icon class="fas fa-2x fa-user-circle" [icon]="['fas', 'user-circle']"></fa-icon>
+            </div>
+            <div class="mini-nav-item lang" (click)="chooseTheLang()">en</div>
+            <div class="mini-nav-item email2">
+              <fa-icon class="fas fa-2x fa-info-circle" [icon]="['fas', 'info-circle']"></fa-icon>
+            </div>
             <div class="mini-nav-item help">?</div>
           </div>
           <div class="mini-href"><mat-divider class="mini-href"></mat-divider></div>
@@ -273,12 +245,15 @@
         <button class="orangebtn btn-other"><span class="bnttext">Other ></span></button>
     </div>
   </div>
-  <ul class="smart-nav">
-    <li class="burg"></li>
-    <li><span  class="curlang" (click)="chooseTheLang()">En</span></li>
-    <li class="pointer2" routerLink="../branches"></li>
-    <li class="li-menu"><span class="smart-menu">Menu</span></li>
-  </ul>
+  <div class="smart-nav">
+    <app-navbar></app-navbar>
+  </div>
+<!--  <ul class="smart-nav">-->
+<!--    <li class="burg"></li>-->
+<!--    <li><span  class="curlang" (click)="chooseTheLang()">En</span></li>-->
+<!--    <li class="pointer2" routerLink="../branches"></li>-->
+<!--    <li class="li-menu"><span class="smart-menu">Menu</span></li>-->
+<!--  </ul>-->
 
 </div>
 <div class="scroll-to-top" [ngClass]="{'show-scrollTop': windowScrolled}">

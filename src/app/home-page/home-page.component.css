@@ -699,6 +699,7 @@ mat-divider {
   display: flex;
   justify-content: space-between;
   height: 20%;
+  align-items: center;
 
 }
 .mini-href {
@@ -751,23 +752,14 @@ mat-divider {
 
 }
 .pointer {
-  background:transparent url('../../assets/point.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
   justify-content: center;
   display: flex;
 }
 .tray {
-  background:transparent url('../../assets/tray.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
   justify-content: center;
   display: flex;
 }
 .account {
-  background:transparent url('../../assets/account.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
   justify-content: center;
   display: flex;
 }
@@ -779,9 +771,6 @@ mat-divider {
 
 }
 .email2 {
-  background:transparent url('../../assets/email_black.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
   justify-content: center;
   display: flex;
 }
@@ -790,6 +779,11 @@ mat-divider {
   justify-content: center;
   display: flex;
   align-items: flex-end;
+}
+app-navbar{
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .orangebtn:hover,.order-now-btn:hover {
