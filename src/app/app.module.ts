@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDividerModule} from '@angular/material/divider';
-import {MatDialogModule, MatIconModule} from '@angular/material';
+import {MatDialogModule, MatIconModule, MatMenuModule} from '@angular/material';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { FrameComponent } from './frame/frame.component';
 import { MenuCommonComponent } from './menu-common/menu-common.component';
@@ -26,6 +26,7 @@ import { MenuCategoryComponent } from './menu-category/menu-category.component';
 import { MenuItemDialogComponent } from './menu-item-dialog/menu-item-dialog.component';
 import { AOrdersComponent } from './a-orders/a-orders.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     IamnewComponent,
     MenuCategoryComponent,
     MenuItemDialogComponent,
-    AOrdersComponent
+    AOrdersComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     HttpClientModule,
     MatDialogModule,
     FormsModule,
-    DragDropModule
+    DragDropModule,
+    MatMenuModule
   ],
   entryComponents: [
     PayformDialogComponent,

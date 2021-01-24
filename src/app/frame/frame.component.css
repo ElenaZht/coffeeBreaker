@@ -22,11 +22,16 @@
   overflow-y: scroll;
 }
 .navigation-box {
-  border: solid purple;
   width: 50vw;
   height: 13vh;
   margin: auto;
   margin-top: 2vh;
+}
+app-navbar{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 @media only screen and (max-width: 1024px){
   .logo{

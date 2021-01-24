@@ -2,10 +2,15 @@ import {Component, HostListener, Inject, OnInit, OnDestroy} from '@angular/core'
 import { DOCUMENT } from '@angular/common';
 import {faChevronUp} from '@fortawesome/free-solid-svg-icons';
 import {icon, library} from '@fortawesome/fontawesome-svg-core';
-import {LanguagesDialigComponent} from '../languages-dialig/languages-dialig.component';
 import {MatDialog} from '@angular/material';
 const up = icon({ prefix: 'fas', iconName: 'chevron-up' });
 library.add(faChevronUp);
+import {faInfoCircle, faMapMarkerAlt, faShoppingBasket, faUserCircle} from '@fortawesome/free-solid-svg-icons';
+import {LanguagesDialigComponent} from '../languages-dialig/languages-dialig.component';
+library.add(faMapMarkerAlt);
+library.add(faShoppingBasket);
+library.add(faUserCircle);
+library.add(faInfoCircle);
 
 
 @Component({
@@ -60,19 +65,22 @@ export class HomePageComponent implements OnInit, OnDestroy {
       this.changePromoItem();
     }, 10000);
   }
-  chooseTheLang() {
-    const dialogRef = this.dialog.open(LanguagesDialigComponent, {panelClass: 'custom-dialog-container', height: '40vmin',
-      width: '30vmax'});
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The lang dialog was closed', result);
-    });
-  }
+
   changePromoItem() {
     if (this.startIndex < this.promoItems.length) {
       this.startIndex++;
     } else {
       this.startIndex = 0;
     }
+  }
+  chooseTheLang() {
+    const dialogRef = this.dialog.open(LanguagesDialigComponent, {panelClass: 'custom-dialog-container', height: '40vmin',
+      width: '30vmax'});
+    document.getElementById('languages').classList.add('active-tab');
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The lang dialog was closed', result);
+      document.getElementById('languages').classList.remove('active-tab');
+    });
   }
   ngOnDestroy() {
     if (this.interval) {

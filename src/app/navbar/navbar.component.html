@@ -1,0 +1,65 @@
+<ul class="navbar">
+  <li class="li" id="menu">
+    <div class="li-icon" routerLink="../menu_common">Menu</div>
+    <div class="li-href"><mat-divider></mat-divider></div>
+  </li>
+  <li class="li" id="branches">
+    <div class="li-icon pointer" routerLink="../branches">
+      <fa-icon class="fas fa-map-marker" [icon]="['fas', 'map-marker-alt']"  aria-pressed="true"></fa-icon>
+    </div>
+    <div class="li-href"><mat-divider></mat-divider></div>
+  </li>
+  <li class="li" id="tray">
+    <div class="li-icon tray" routerLink="../tray">
+      <fa-icon class="fas fa-shopping-basket" [icon]="['fas', 'shopping-basket']"  aria-pressed="true"></fa-icon>
+
+    </div>
+    <div class="li-href"><mat-divider></mat-divider></div>
+  </li>
+  <li class="li" id="account">
+    <div class="li-icon account" routerLink="../account">
+      <fa-icon class="fas fa-user-circle" [icon]="['fas', 'user-circle']"  aria-pressed="true"></fa-icon>
+    </div>
+    <div class="li-href"><mat-divider></mat-divider></div>
+  </li>
+  <li class="li" id="languages">
+    <div class="li-icon" (click)="chooseTheLang()">en</div>
+    <div class="li-href"><mat-divider></mat-divider></div>
+  </li>
+  <li class="li" id="contacts">
+    <div class="li-icon email2" routerLink="../contacts">
+      <fa-icon class="fas fa-info-circle" [icon]="['fas', 'info-circle']"  aria-pressed="true"></fa-icon>
+
+    </div>
+    <div class="li-href"><mat-divider></mat-divider></div>
+  </li>
+  <li class="li" id="help">
+    <div class="li-icon h" routerLink="../help">?</div>
+    <div class="li-href"><mat-divider></mat-divider></div>
+  </li>
+</ul>
+<ul class="navbar navbar-collapse">
+  <li  class="li-icon" [matMenuTriggerFor]="menu">
+    <fa-icon class="fas fa-bars" [icon]="['fas', 'bars']"  aria-pressed="true"></fa-icon>
+  </li>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <div class="li-icon tray drop-li" routerLink="../tray">Tray</div>
+    </button>
+    <button mat-menu-item>
+      <div class="li-icon account drop-li" routerLink="../account">Account</div>
+    </button>
+    <button mat-menu-item>
+      <div class="li-icon email2 drop-li" routerLink="../contacts">Contacts
+      </div>
+    </button>
+    <button mat-menu-item>
+      <div class="li-icon h drop-li" routerLink="../help">About us</div>
+    </button>
+  </mat-menu>
+  <div class="li-icon lang2" (click)="chooseTheLang()">en</div>
+  <li  class="li-icon">
+    <fa-icon class="fas fa-map-marker" [icon]="['fas', 'map-marker-alt']"  aria-pressed="true"></fa-icon>
+  </li>
+  <div class="li-icon" routerLink="../menu_common">Menu</div>
+</ul>
