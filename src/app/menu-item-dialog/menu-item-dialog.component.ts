@@ -36,4 +36,9 @@ export class MenuItemDialogComponent implements OnInit {
   goNutrs() {
     this.nutrs = !this.nutrs;
   }
+
+  toTray() {
+    this.dialogRef.close();
+    this.router.navigate(['tray']);
+  }
 }

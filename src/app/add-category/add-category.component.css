@@ -1,0 +1,50 @@
+@font-face {
+  font-family: Cookie;
+  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: JosefinSans Regular;
+  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+.main{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.reg_lable{
+  text-align: center;
+  font: 3vw JosefinSans Regular;
+  letter-spacing: 0;
+  margin-top: 1%;
+  color: #E04523;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+.add-form{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+}
+.main-img{
+  width: 65%;
+  height: 64%;
+  background-position: center;
+  background-size: contain;
+  border: solid;
+}
+.sub-img{
+  width: 40%;
+  height: 40%;
+  background-position: center;
+  background-size: contain;
+  border: solid;
+}
+.wrap1, .wrap2{
+  height: 20vh;
+}

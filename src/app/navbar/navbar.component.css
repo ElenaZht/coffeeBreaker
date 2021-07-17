@@ -3,7 +3,7 @@
   height: 70%;
   display: flex;
   list-style: none;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-end;
 }
 .navbar-collapse{
@@ -90,6 +90,12 @@ mat-divider {
   transform: scale(.8);
 
 }
+.lock{
+  justify-content: center;
+  display: flex;
+  height: 5vh;
+  transform: scale(.8);
+}
 .help {
   font: 2vw JosefinSans Regular;
   justify-content: center;
@@ -102,6 +108,7 @@ mat-divider {
   }
   .navbar-collapse{
     display: flex;
+    justify-content: space-between;
   }
   .navbar-collapse > .li-icon{
     font-size: 5vmax;

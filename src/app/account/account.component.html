@@ -1,29 +1,40 @@
 <app-frame>
   <div class="main">
-    <span class="main-title">My account</span>
     <div class="desc">
-      <span class="our-comminment">My account</span>
-      <span class="com-text">
+      <span class="our-comminment"  *ngIf="!isAdmin">My account</span>
+      <span class="our-comminment admin"  *ngIf="isAdmin">Admin mode</span>
+      <span class="com-text"  *ngIf="!isAdmin">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Ut enim laboris nisi ut aliquip ex ea commodo consequat. Duis aute
         irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </span>
-      <div routerLink="../statistic">statistic</div>
-      <div routerLink="../orders_control">orders controlS</div>
+      <span class="com-text"  *ngIf="isAdmin">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim laboris nisi ut aliquip ex ea commodo consequat. Duis afugiat nulla pariatur.
+      </span>
     </div>
     <div class="carousel">
       <a class="carousel-item">
         <div class="my-data"></div>
         <div class="title">Personal data</div>
       </a>
-      <a class="carousel-item">
+      <a class="carousel-item" *ngIf="!isAdmin">
         <div class="my-cards"></div>
         <div class="title">My cards</div>
       </a>
-      <a class="carousel-item">
+      <a class="carousel-item" *ngIf="!isAdmin">
         <div class="my-orders"></div>
         <div class="title">My orders</div>
+      </a>
+      <a class="carousel-item" *ngIf="isAdmin">
+        <div class="orders-control" routerLink="../orders_control"></div>
+        <div class="title">Orders control</div>
+      </a>
+      <a class="carousel-item" *ngIf="isAdmin">
+        <div class="statistic" routerLink="../statistic"></div>
+        <div class="title">Statistic</div>
       </a>
 
     </div>

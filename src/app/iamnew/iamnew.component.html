@@ -1,7 +1,7 @@
 
   <div class="carousel" id="carusel111">
     <a class="carousel-item" *ngFor="let item of promoItems; let i = index">
-      <div class="category-card">
+      <div class="category-card" (click)="goToItem(item)">
         <div class="card-content">
           <div class="card-header">
             <div class="hr-wrap-top"><hr></div>

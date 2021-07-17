@@ -1,0 +1,18 @@
+<div class="main">
+  <div class="title"><span class="reg_lable">Add new category</span></div>
+  <form class="add-form">
+    <label for="title">Title of category</label>
+    <input id="title" type="text">
+    <div class="wrap1">
+      <label for="img1">Choose main image</label>
+      <input id="img1" type="file" (change)="onSelectFile($event)">
+      <img class="main-img" [src]="selectedFile">
+    </div>
+    <div class="wrap2">
+      <label for="img2">Choose sub image</label>
+      <input id="img2" type="file" (change)="onSelectFileMini($event)">
+      <div class="sub-img" [ngStyle]="{'background-image': selectedFileMini}"></div>
+
+    </div>
+  </form>
+</div>

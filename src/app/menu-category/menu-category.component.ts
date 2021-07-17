@@ -13,85 +13,86 @@ import {MenuItemDialogComponent} from '../menu-item-dialog/menu-item-dialog.comp
   templateUrl: './menu-category.component.html',
   styleUrls: ['./menu-category.component.css']
 })
-export class MenuCategoryComponent implements OnInit {
+export class MenuCategoryComponent implements OnInit  {
   category: any;
+  choosedItem: any;
   categories = [
     {categoryName: 'Coffee', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n' +
         '        sed do eiusmod consequat. Duis aute\n' +
         '        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       products: [
-        {title: 'Coffee Breaker', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1000, title: 'Coffee Breaker', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
+          img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Cinnamon', ingClass: 'cinnamon'}, {ing: 'Blueberry', ingClass: 'blueberry'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Frappe', price: 8, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1001, title: 'Frappe', price: 8, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
+          img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Cream', ingClass: 'cream'},  {ing: 'Syrup', ingClass: 'syrup'}], nutr: '../../assets/nutritions.png'
         },
 
-        {title: 'Latte Makiata', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1002, title: 'Latte Makiata', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
+          img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Chocolate', ingClass: 'chocolate'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Latte', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1003, title: 'Latte', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
+          img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Sugar', ingClass: 'sugar'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Latte Honey', price: 18, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1004, title: 'Latte Honey', price: 18, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
+          img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Honey', ingClass: 'honey'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Ice caffee', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1005, title: 'Ice caffee', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
+          img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'},  {ing: 'Ice', ingClass: 'ice'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Espresso', price: 8, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1006, title: 'Espresso', price: 8, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
+          img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Capuchino', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1007, title: 'Capuchino', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
+          img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Americano', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1008, title: 'Americano', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
+          img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Mineral Water', ingClass: 'water-splash'}], nutr: '../../assets/nutritions.png'
         },
 
-        {title: 'Ristretto', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1009, title: 'Ristretto', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
+          img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Lungo', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1010, title: 'Lungo', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
+          img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Mineral Water', ingClass: 'water-splash'}], nutr: '../../assets/nutritions.png'
         },
 
-        {title: 'Latte Oreo', price: 18, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1011, title: 'Latte Oreo', price: 18, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
+          img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Oreo Cookies', ingClass: 'oreo'}], nutr: '../../assets/nutritions.png'
         }
@@ -100,28 +101,28 @@ export class MenuCategoryComponent implements OnInit {
         '        sed do eiusmod consequat. Duis aute\n' +
         '        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       products: [
-        {title: 'Tea Green Mint Lime', price: 12 , desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1012, title: 'Tea Green Mint Lime', price: 12 , desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/coffee-cup.png', menuCategory: 'tea',
+          img: '../../assets/coffee-cup.png', menuCategory: 'Tea',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Mineral Water', ingClass: 'water-splash'}, {ing: 'Green tea', ingClass: 'tea-leaves'},  {ing: 'Mint Leaves', ingClass: 'mint'}, {ing: 'Lime Peal', ingClass: 'limes'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Tea 5 herbs', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1013, title: 'Tea 5 herbs', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/coffee-cup.png', menuCategory: 'tea',
+          img: '../../assets/coffee-cup.png', menuCategory: 'Tea',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Mineral Water', ingClass: 'water-splash'}, {ing: 'Eucalyptus', ingClass: 'eucalyptus'}, {ing: 'Rosemary', ingClass: 'rosemary'}, {ing: 'Thyme', ingClass: 'thyme'}, {ing: 'Mint Leaves', ingClass: 'mint'}, {ing: 'Chamomile', ingClass: 'chamomile'}], nutr: '../../assets/nutritions.png'
         },
 
-        {title: 'Tea Lady Gray', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1014, title: 'Tea Lady Gray', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
+          img: '../../assets/coffee-cup.png', menuCategory: 'Tea',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Mineral Water', ingClass: 'water-splash'}, {ing: 'Black tea', ingClass: 'black-tea'}, {ing: 'Bergamonia', ingClass: 'bergamonia'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Tea Honey&Cinnamon', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1015, title: 'Tea Honey&Cinnamon', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
+          img: '../../assets/coffee-cup.png', menuCategory: 'Tea',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Mineral Water', ingClass: 'water-splash'}, {ing: 'Green tea', ingClass: 'tea-leaves'}, {ing: 'Honey', ingClass: 'honey'}, {ing: 'Cinnamon', ingClass: 'cinnamon'}], nutr: '../../assets/nutritions.png'
         }
@@ -129,46 +130,46 @@ export class MenuCategoryComponent implements OnInit {
     {categoryName: 'Drinks', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n' +
         '        sed do eiusmod consequat. Duis aute\n' +
         '        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', products: [
-        {title: 'Cool Orange', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1016, title: 'Cool Orange', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/orange-cup.png', menuCategory: 'drinks',
+          img: '../../assets/orange-cup.png', menuCategory: 'Drinks',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Oranges', ingClass: 'oranges'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Mint Leaves', ingClass: 'mint'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Mango Sunrise', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1017, title: 'Mango Sunrise', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/yellow-cup.png', menuCategory: 'drinks',
+          img: '../../assets/yellow-cup.png', menuCategory: 'Drinks',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Mango', ingClass: 'mango'},   {ing: 'Syrup', ingClass: 'syrup'}, {ing: 'Ice', ingClass: 'ice'}], nutr: '../../assets/nutritions.png'
         },
 
-        {title: 'Rich Raspberry', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1018, title: 'Rich Raspberry', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/pink-cup.png', menuCategory: 'drinks',
+          img: '../../assets/pink-cup.png', menuCategory: 'Drinks',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Raspberry', ingClass: 'raspberry'}, {ing: 'Cream', ingClass: 'cream'}, {ing: 'Ice', ingClass: 'ice'}, {ing: 'Thyme', ingClass: 'thyme'}, {ing: 'Cinnamon', ingClass: 'cinnamon'}, {ing: 'Sugar', ingClass: 'sugar'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Ice Choco', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1019, title: 'Ice Choco', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/cocoa-cup.png', menuCategory: 'drinks',
+          img: '../../assets/cocoa-cup.png', menuCategory: 'Drinks',
           // tslint:disable-next-line:max-line-length
           ingredients: [ {ing: 'Ice', ingClass: 'ice'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Chocolate', ingClass: 'chocolate'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Coca Cola', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1020, title: 'Coca Cola', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/cola-bottle.png', menuCategory: 'drinks',
+          img: '../../assets/cola-bottle.png', menuCategory: 'Drinks',
           // tslint:disable-next-line:max-line-length
           ingredients: [], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Sprite', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1021, title: 'Sprite', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/sprite-bottle.png', menuCategory: 'drinks',
+          img: '../../assets/sprite-bottle.png', menuCategory: 'Drinks',
           // tslint:disable-next-line:max-line-length
           ingredients: [], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Mineral Water', price: 8, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1022, title: 'Mineral Water', price: 8, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/water-bottle.png', menuCategory: 'drinks',
+          img: '../../assets/water-bottle.png', menuCategory: 'Drinks',
           // tslint:disable-next-line:max-line-length
           ingredients: [], nutr: '../../assets/nutritions.png'
         }
@@ -176,77 +177,77 @@ export class MenuCategoryComponent implements OnInit {
     {categoryName: 'Bakery', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n' +
         '        sed do eiusmod consequat. Duis aute\n' +
         '        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', products: [
-        {title: 'Cruasan', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1023, title: 'Cruasan', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/cruasan.png', menuCategory: 'bakery',
+          img: '../../assets/cruasan.png', menuCategory: 'Bakery',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Butter', ingClass: 'butter'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Cruasan & Nutella', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1024, title: 'Cruasan & Nutella', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/cruasan-nutella.png', menuCategory: 'bakery',
+          img: '../../assets/cruasan-nutella.png', menuCategory: 'Bakery',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Nutella', ingClass: 'nutella'}], nutr: '../../assets/nutritions.png'
         },
 
-        {title: 'Cookie', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1025, title: 'Cookie', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/cookie.png', menuCategory: 'bakery',
+          img: '../../assets/cookie.png', menuCategory: 'Bakery',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Chocolate', ingClass: 'chocolate'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Cupcake Brownie', price: 12, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1026, title: 'Cupcake Brownie', price: 12, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/cupcake-choco.png', menuCategory: 'bakery',
+          img: '../../assets/cupcake-choco.png', menuCategory: 'Bakery',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Chocolate', ingClass: 'chocolate'}, {ing: 'Cocoa', ingClass: 'cocoa'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Cupcake Happy Birthday', price: 18, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1027, title: 'Cupcake Happy Birthday', price: 18, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/cupcake-hb.png', menuCategory: 'bakery',
+          img: '../../assets/cupcake-hb.png', menuCategory: 'Bakery',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Candle', ingClass: 'candle'}, {ing: 'Sprinkling', ingClass: 'sprinkling'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Glass Donut', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1028, title: 'Glass Donut', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/donut-glass.png', menuCategory: 'bakery',
+          img: '../../assets/donut-glass.png', menuCategory: 'Bakery',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Butter', ingClass: 'butter'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Zebra Donut', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1029, title: 'Zebra Donut', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/donut-white.png', menuCategory: 'bakery',
+          img: '../../assets/donut-white.png', menuCategory: 'Bakery',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Chocolate', ingClass: 'chocolate'}, {ing: 'Cream', ingClass: 'cream'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Sugar Donut', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1030, title: 'Sugar Donut', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/donut-sugar.png', menuCategory: 'bakery',
+          img: '../../assets/donut-sugar.png', menuCategory: 'Bakery',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Sprinkling Donut', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1031, title: 'Sprinkling Donut', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/donut-pink.png', menuCategory: 'bakery',
+          img: '../../assets/donut-pink.png', menuCategory: 'Bakery',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Sprinkling', ingClass: 'sprinkling'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Brownie', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1032, title: 'Brownie', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/brownie.png', menuCategory: 'bakery',
+          img: '../../assets/brownie.png', menuCategory: 'Bakery',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Chocolate', ingClass: 'chocolate'}, {ing: 'Cocoa', ingClass: 'cocoa'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Peanut Macaroons', price: 12, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1033, title: 'Peanut Macaroons', price: 12, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/macaroons.png', menuCategory: 'bakery',
+          img: '../../assets/macaroons.png', menuCategory: 'Bakery',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Peanut Butter', ingClass: 'peanut-butter'}, {ing: 'Almond', ingClass: 'almond'}], nutr: '../../assets/nutritions.png'
         },
 
-        {title: 'Apple Shtrudel', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1034, title: 'Apple Shtrudel', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/shtrudel.png', menuCategory: 'bakery',
+          img: '../../assets/shtrudel.png', menuCategory: 'Bakery',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Yeast', ingClass: 'yeast'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Apple', ingClass: 'apple'}], nutr: '../../assets/nutritions.png'
         }
@@ -255,38 +256,38 @@ export class MenuCategoryComponent implements OnInit {
         '        sed do eiusmod consequat. Duis aute\n' +
         '        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       products: [
-        {title: 'Chicken Sandwich', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1035, title: 'Chicken Sandwich', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/sandwich3.png', menuCategory: 'Sandwiches',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Lettuce', ingClass: 'letuce'}, {ing: 'Tomatoes', ingClass: 'tomatoes'}, {ing: 'Onion', ingClass: 'onion'}, {ing: 'Chicken Breast', ingClass: 'chiken'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Roastbeef Sandwich', price: 18, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1036, title: 'Roastbeef Sandwich', price: 18, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/sandwich2.png', menuCategory: 'Sandwiches',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Lettuce', ingClass: 'letuce'}, {ing: 'Tomatoes', ingClass: 'tomatoes'}, {ing: 'Onion', ingClass: 'onion'}, {ing: 'Beef', ingClass: 'beef'}, {ing: 'Cheese', ingClass: 'cheese'}], nutr: '../../assets/nutritions.png'
         },
 
-        {title: 'Toast Mozzarella', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1037, title: 'Toast Mozzarella', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/tost1.png', menuCategory: 'Sandwiches',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Tomatoes', ingClass: 'tomatoes'}, {ing: 'Mozzarella', ingClass: 'mozzarella'}, {ing: 'Basil', ingClass: 'basil'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Toast Mozzarella & Spicy Tomatoes', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1038, title: 'Toast Mozzarella & Spicy Tomatoes', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/tost2.png', menuCategory: 'Sandwiches',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Tomatoes', ingClass: 'tomatoes'}, {ing: 'Mozzarella', ingClass: 'mozzarella'}, {ing: 'Onion', ingClass: 'onion'}, {ing: 'Spice', ingClass: 'spicies'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Tost Spicy Beef', price: 18, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1039, title: 'Tost Spicy Beef', price: 18, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/tost3.png', menuCategory: 'Sandwiches',
           // tslint:disable-next-line:max-line-length
           ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Beef', ingClass: 'beef'},  {ing: 'Cheese', ingClass: 'cheese'}, {ing: 'Spice', ingClass: 'spicies'}], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Sandwich Veggies & Mozzarella', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1040, title: 'Sandwich Veggies & Mozzarella', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           img: '../../assets/sandwich.jpg', menuCategory: 'Sandwiches',
           // tslint:disable-next-line:max-line-length
@@ -297,51 +298,51 @@ export class MenuCategoryComponent implements OnInit {
         '        sed do eiusmod consequat. Duis aute\n' +
         '        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
       products: [
-        {title: 'Twix', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1041, title: 'Twix', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/twix.png', menuCategory: 'sweets',
+          img: '../../assets/twix.png', menuCategory: 'Sweets',
           // tslint:disable-next-line:max-line-length
           ingredients: [], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Snickers', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1042, title: 'Snickers', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/snickers.png', menuCategory: 'sweets',
+          img: '../../assets/snickers.png', menuCategory: 'Sweets',
           // tslint:disable-next-line:max-line-length
           ingredients: [], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Bounty', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1043, title: 'Bounty', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/bounty.png', menuCategory: 'sweets',
+          img: '../../assets/bounty.png', menuCategory: 'Sweets',
           // tslint:disable-next-line:max-line-length
           ingredients: [], nutr: '../../assets/nutritions.png'
         },
-        {title: 'M & Ms', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1044, title: 'M & Ms', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/mms.png', menuCategory: 'sweets',
+          img: '../../assets/mms.png', menuCategory: 'Sweets',
           // tslint:disable-next-line:max-line-length
           ingredients: [], nutr: '../../assets/nutritions.png'
         },
-        {title: 'KitKat', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1045, title: 'KitKat', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/kitkat.png', menuCategory: 'sweets',
+          img: '../../assets/kitkat.png', menuCategory: 'Sweets',
           // tslint:disable-next-line:max-line-length
           ingredients: [], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Milka Milk Chocolate', price: 12, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1046, title: 'Milka Milk Chocolate', price: 12, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/milka.png', menuCategory: 'sweets',
+          img: '../../assets/milka.png', menuCategory: 'Sweets',
           // tslint:disable-next-line:max-line-length
           ingredients: [], nutr: '../../assets/nutritions.png'
         },
-        {title: 'Haribo Gummy Candies', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1047, title: 'Haribo Gummy Candies', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/gummy.png', menuCategory: 'sweets',
+          img: '../../assets/gummy.png', menuCategory: 'Sweets',
           // tslint:disable-next-line:max-line-length
           ingredients: [], nutr: '../../assets/nutritions.png'
         },
-        {title: 'MaxMallows Marshmallow', price: 12, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+        {prodId: 1048, title: 'MaxMallows Marshmallow', price: 12, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
             'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          img: '../../assets/marsh.png', menuCategory: 'sweets',
+          img: '../../assets/marsh.png', menuCategory: 'Sweets',
           // tslint:disable-next-line:max-line-length
           ingredients: [], nutr: '../../assets/nutritions.png'
         }
@@ -351,6 +352,20 @@ export class MenuCategoryComponent implements OnInit {
 
   windowScrolled: boolean;
   constructor(private route: ActivatedRoute,  private router: Router, public dialog: MatDialog) {
+    this.category = this.categories[0];
+    const categoryName = this.route.snapshot.paramMap.get('category_name');
+    console.log('category name: ', categoryName);
+    this.category = this.categories.find(c => {
+      return c.categoryName === categoryName;
+    });
+    console.log('category ', this.category);
+
+    const queryParams = this.route.snapshot.queryParams;
+    const itemId = queryParams.itemId;
+    this.choosedItem = this.category.products.find(i => {
+      return i.prodId === parseInt(itemId);
+    });
+
   }
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -369,13 +384,17 @@ export class MenuCategoryComponent implements OnInit {
       }
     })();
   }
+
   ngOnInit() {
-    this.category = this.categories[0];
-    const categoryName = this.route.snapshot.paramMap.get('category_name');
-    this.category = this.categories.find(c => {
-      return c.categoryName === categoryName;
-    });
+    if (this.choosedItem) {
+      setTimeout(() => {
+      console.log('before onItem ');
+      this.onItem(this.choosedItem);
+      }, 500);
+    }
   }
+
+
   go(c) {
     let curCategory = this.categories.findIndex(i => {
       return i.categoryName === this.category.categoryName;

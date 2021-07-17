@@ -7,6 +7,7 @@ const up = icon({ prefix: 'fas', iconName: 'chevron-up' });
 library.add(faChevronUp);
 import {faInfoCircle, faMapMarkerAlt, faShoppingBasket, faUserCircle} from '@fortawesome/free-solid-svg-icons';
 import {LanguagesDialigComponent} from '../languages-dialig/languages-dialig.component';
+import {Router} from '@angular/router';
 library.add(faMapMarkerAlt);
 library.add(faShoppingBasket);
 library.add(faUserCircle);
@@ -22,27 +23,29 @@ export class HomePageComponent implements OnInit, OnDestroy {
   windowScrolled: boolean;
   interval: any;
   startIndex = 0;
+  isLogged = true;
+  isAdmin = false;
   promoItems = [
-    {title: 'Latte Makiata', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+    {prodId: 1002, title: 'Latte Makiata', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
         'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
+      img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
       // tslint:disable-next-line:max-line-length
-      ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}],
+      ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Chocolate', ingClass: 'chocolate'}], nutr: '../../assets/nutritions.png'
     },
-    {title: 'Americano', price: 8, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+    {prodId: 1008, title: 'Americano', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
         'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      img: '../../assets/coffee-cup.png', menuCategory: 'coffee',
+      img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
       // tslint:disable-next-line:max-line-length
-      ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Mineral Water', ingClass: 'water-splash'}],
+      ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Mineral Water', ingClass: 'water-splash'}], nutr: '../../assets/nutritions.png'
     },
-    {title: 'Orange Fresh', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
+    {prodId: 1016, title: 'Cool Orange', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
         'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      img: '../../assets/orange-cup.png', menuCategory: 'drinks',
+      img: '../../assets/orange-cup.png', menuCategory: 'Drinks',
       // tslint:disable-next-line:max-line-length
-      ingredients: [{ing: 'Orange juice', ingClass: 'juice-splash'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Mineral Water', ingClass: 'water-splash'}],
+      ingredients: [{ing: 'Oranges', ingClass: 'oranges'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Mint Leaves', ingClass: 'mint'}], nutr: '../../assets/nutritions.png'
     }
   ];
-  constructor(@Inject(DOCUMENT) private document: Document, public dialog: MatDialog) { }
+  constructor(@Inject(DOCUMENT) private document: Document, public dialog: MatDialog, private router: Router) { }
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
@@ -67,7 +70,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   }
 
   changePromoItem() {
-    if (this.startIndex < this.promoItems.length) {
+    if (this.startIndex < this.promoItems.length - 1) {
       this.startIndex++;
     } else {
       this.startIndex = 0;
@@ -86,5 +89,12 @@ export class HomePageComponent implements OnInit, OnDestroy {
     if (this.interval) {
       clearInterval(this.interval);
     }
+  }
+
+  orderThis() {
+    const promoItem = this.promoItems[this.startIndex];
+    const c = promoItem.menuCategory;
+    console.log('order this: ', promoItem);
+    this.router.navigate(['/menu_category', c], {queryParams: { itemId: promoItem.prodId }});
   }
 }

@@ -248,6 +248,54 @@ hr {
   flex-direction: column;
   justify-content: center;
 }
+.admin > .delete-btn {
+  display: none;
+}
+.admin > .delete-btn > span {
+  display: none;
+}
+.admin > .card-content:hover{
+  opacity: .5;
+}
+.admin:hover > .delete-btn {
+  width: 10vw;
+  height: 5vh;
+  left: 7vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transition: all 0.5s ease-in-out ;
+}
+.admin:hover > .delete-btn:hover, .plus:hover {
+  transition: all 0.5s ease-in-out ;
+  transform: scale(1.2);
+}
+.admin:hover > .delete-btn:active, .plus:active {
+  transition: all 0.5s ease-in-out ;
+  transform: scale(1.5);
+}
+.admin:hover > .delete-btn > span {
+  font: 2vmax JosefinSans Regular;
+  color: #E04523;
+  display: flex;
+
+}
+.plus{
+  stroke: black;
+  stroke-opacity: .2;
+  stroke-width: 3%;
+  color: white;
+  transition: all 0.5s ease-in-out ;
+}
+.plus-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media only screen and (max-width: 1024px){
   .carousel {
     width: 90%;

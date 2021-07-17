@@ -1,0 +1,115 @@
+@font-face {
+  font-family: Cookie;
+  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: JosefinSans Regular;
+  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+.card {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.reg_lable{
+  text-align: center;
+  font: 3vw JosefinSans Regular;
+  letter-spacing: 0;
+  color: #E04523;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+.btn-wrap{
+  height: 20%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.orangebtn {
+  width: 40%;
+  height: 80%;
+  position: relative;
+  margin: auto;
+  left: 5%;
+  background-color: #E04523;
+  border-radius: 25px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 14px 8px 2px 5px rgba(0,0,0,0.25);
+
+}
+.bnttext {
+  font: 1vw JosefinSans Regular;
+  color: white;
+}
+.orangebtn:hover{
+  transform:scale(1.2);
+  transition: all 0.5s ease-in-out ;
+}
+.orangebtn:active{
+  transform:scale(1.8);
+  transition: all 1s ease-in-out;
+}
+.orangebtn{
+  transition: all 0.5s ease-in-out ;
+}
+.orangebtn:focus{
+  outline: 0;
+}
+.card-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  width: 90%;
+  margin: auto;
+}
+
+.reg-data{
+  width: 90%;
+  height: 20%;
+}
+
+input::placeholder{
+  font-size: 1vw;
+  color: #06263998;
+}
+input{
+  font-size: 1vw;
+  color: black;
+}
+.error{
+  color: red;
+  font: 1vw JosefinSans Regular;
+  padding-left: 5%;
+}
+.danger{
+  color: #a94442;
+  background-color: #f2dede;
+  padding: 2%;
+  margin-top: 2%;
+  border: 1px solid #EA2340;
+  border-radius: 4px;
+  margin-left: 2%;
+  margin-right: 2%;
+  font: 1vmax JosefinSans Regular;
+  font-weight: bold;
+}
+.exit{
+  width: 5%;
+  position: absolute;
+  left: 93%;
+  bottom: 94%;
+  top: 1%;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

@@ -39,7 +39,7 @@
         </div>
         <div class="sum-row two">
           <span>Most popular today:</span>
-          <div class="wrap">
+          <div class="wrap" (click)="goToItem(this.itemPop)">
             <div class="mostPop" [ngStyle]="{'background-image': 'url('+this.itemPop.img+')'}"></div>
             <span>{{(this.itemPop.itemTitle.length > this.titleWidthPermition) ? (this.itemPop.itemTitle | slice:0:this.titleWidthPermition)+'..': this.itemPop.itemTitle}}</span>
           </div>
@@ -47,7 +47,7 @@
         </div>
         <div class="sum-row three">
           <span>Most profitable today:</span>
-          <div class="wrap">
+          <div class="wrap" (click)="goToItem(this.itemProf)">
             <div class="mostPop" [ngStyle]="{'background-image': 'url('+this.itemProf.img+')'}"></div>
             <span>{{(this.itemProf.itemTitle.length > this.titleWidthPermition) ? (this.itemProf.itemTitle | slice:0:this.titleWidthPermition)+'..': this.itemProf.itemTitle}}</span>
           </div>

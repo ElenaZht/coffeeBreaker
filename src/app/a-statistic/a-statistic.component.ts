@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-a-statistic',
@@ -21,7 +22,7 @@ export class AStatisticComponent implements OnInit {
   itemProf: object;
   totalPerday: number;
   titleWidthPermition = 20;
-  constructor() {
+  constructor(private router: Router) {
     if (window.screen.width <= 500) {
       this.titleWidthPermition = 7;
       console.log('screen less 500');
@@ -47,5 +48,10 @@ export class AStatisticComponent implements OnInit {
   }
   FindProfible() {
     this.itemProf = this.soldItems[this.soldItems.reduce((iMax, x, i, arr) => x.sold * x.price > arr[iMax].sold * arr[iMax].price ? i : iMax, 0)];
+  }
+
+  goToItem(item) {
+    const c = item.menuCategory;
+    this.router.navigate(['/menu_category', c], {queryParams: { itemId: item.prodId }});
   }
 }

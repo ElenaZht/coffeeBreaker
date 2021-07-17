@@ -9,19 +9,27 @@
     </div>
     <div class="li-href"><mat-divider></mat-divider></div>
   </li>
-  <li class="li" id="tray">
+  <li class="li" id="login" *ngIf="!isLogged"   (click)="logIn()">
+    <div class="li-icon lock">
+      <fa-icon class="fas fa-lock" [icon]="['fas', 'lock']"  aria-pressed="true"></fa-icon>
+    </div>
+    <div class="li-href"><mat-divider></mat-divider></div>
+  </li>
+  <li class="li" id="tray" *ngIf="isLogged && !isAdmin">
     <div class="li-icon tray" routerLink="../tray">
       <fa-icon class="fas fa-shopping-basket" [icon]="['fas', 'shopping-basket']"  aria-pressed="true"></fa-icon>
 
     </div>
     <div class="li-href"><mat-divider></mat-divider></div>
   </li>
-  <li class="li" id="account">
+  <li class="li" id="account" *ngIf="isLogged">
     <div class="li-icon account" routerLink="../account">
-      <fa-icon class="fas fa-user-circle" [icon]="['fas', 'user-circle']"  aria-pressed="true"></fa-icon>
+      <fa-icon *ngIf="!isAdmin" class="fas fa-user-circle" [icon]="['fas', 'user-circle']"  aria-pressed="true"></fa-icon>
+      <fa-icon *ngIf="isAdmin" class="fas fa-user-tie" [icon]="['fas', 'user-tie']"  aria-pressed="true"></fa-icon>
     </div>
     <div class="li-href"><mat-divider></mat-divider></div>
   </li>
+
   <li class="li" id="languages">
     <div class="li-icon" (click)="chooseTheLang()">en</div>
     <div class="li-href"><mat-divider></mat-divider></div>
@@ -37,16 +45,22 @@
     <div class="li-icon h" routerLink="../help">?</div>
     <div class="li-href"><mat-divider></mat-divider></div>
   </li>
+  <li class="li" id="logout" *ngIf="isLogged"  (click)="logOut()">
+    <div class="li-icon lock">
+      <fa-icon class="fas fa-lock-open" [icon]="['fas', 'lock-open']"  aria-pressed="true"></fa-icon>
+    </div>
+    <div class="li-href"><mat-divider></mat-divider></div>
+  </li>
 </ul>
 <ul class="navbar navbar-collapse">
   <li  class="li-icon" [matMenuTriggerFor]="menu">
     <fa-icon class="fas fa-bars" [icon]="['fas', 'bars']"  aria-pressed="true"></fa-icon>
   </li>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <button mat-menu-item *ngIf="isLogged">
       <div class="li-icon tray drop-li" routerLink="../tray">Tray</div>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item *ngIf="isLogged">
       <div class="li-icon account drop-li" routerLink="../account">Account</div>
     </button>
     <button mat-menu-item>
@@ -56,9 +70,15 @@
     <button mat-menu-item>
       <div class="li-icon h drop-li" routerLink="../help">About us</div>
     </button>
+    <button mat-menu-item *ngIf="isLogged" (click)="logOut()">
+      <div class="li-icon h drop-li">Log Out</div>
+    </button>
+    <button mat-menu-item *ngIf="!isLogged" (click)="logIn()">
+      <div class="li-icon h drop-li">Log In</div>
+    </button>
   </mat-menu>
   <div class="li-icon lang2" (click)="chooseTheLang()">en</div>
-  <li  class="li-icon">
+  <li  class="li-icon" routerLink="../branches">
     <fa-icon class="fas fa-map-marker" [icon]="['fas', 'map-marker-alt']"  aria-pressed="true"></fa-icon>
   </li>
   <div class="li-icon" routerLink="../menu_common">Menu</div>

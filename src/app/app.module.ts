@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -27,6 +27,12 @@ import { MenuItemDialogComponent } from './menu-item-dialog/menu-item-dialog.com
 import { AOrdersComponent } from './a-orders/a-orders.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponentComponent } from './login-component/login-component.component';
+import {UsersService} from './users.service';
+import {UsersArrayService} from './users-array.service';
+import { SignupComponent } from './signup/signup.component';
+import { AddCategoryComponent } from './add-category/add-category.component';
+import {ToastrModule, ToastrService, Overlay, OverlayContainer} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -47,7 +53,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     MenuCategoryComponent,
     MenuItemDialogComponent,
     AOrdersComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponentComponent,
+    SignupComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -60,13 +69,26 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatDialogModule,
     FormsModule,
     DragDropModule,
-    MatMenuModule
+    MatMenuModule,
+    ToastrModule.forRoot({
+      timeOut: 6000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    })
   ],
   entryComponents: [
     PayformDialogComponent,
-    MenuItemDialogComponent
+    MenuItemDialogComponent,
+    LoginComponentComponent,
+    SignupComponent,
+    AddCategoryComponent
   ],
-  providers: [],
+  providers: [
+    {provide: UsersService, useClass: UsersArrayService},
+    ToastrService,
+    Overlay,
+    OverlayContainer
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -34,18 +34,22 @@ app-navbar{
   align-items: center;
 }
 @media only screen and (max-width: 1024px){
+  .main{
+    height: 92.5vh;
+  }
   .logo{
-    width: 35vmin;
-    height: 16%;
+    width: 22vmin;
+    height: 9%;
     position: relative;
-    top: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
   }
   .outlet {
-    max-height: 73vh;
+    max-height: 65vh;
   }
   .navigation-box {
     width: 90%;
-    height: 11vh;
+    height: 8vh;
     margin-top: 2%;
     margin-bottom: 2%;
   }

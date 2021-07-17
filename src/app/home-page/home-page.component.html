@@ -25,7 +25,7 @@
             </div>
           </div>
           <div class="cup" [ngStyle]="{'background-image': 'url('+promoItems[startIndex].img+')'}"></div>
-          <button class="order-now-btn">
+          <button class="order-now-btn" (click)="orderThis()">
             <span>Order now ></span>
           </button>
           <div class="price">
@@ -113,7 +113,7 @@
         </div>
         <div class="btn2">
           <div class="white-arrow"></div>
-          <button class="orangebtn btn-other"><span class="bnttext">Other ></span></button>
+          <button class="orangebtn btn-other"  routerLink="../branches"><span class="bnttext">Other ></span></button>
         </div>
       </div>
     </div>
@@ -131,21 +131,21 @@
         <div class="logo-m low-logo"></div>
         <div class="footer-right">
           <div class="mini-navbar">
-            <div class="mini-nav-item menu">Menu</div>
-            <div class="mini-nav-item pointer">
+            <div class="mini-nav-item menu"  routerLink="../menu_common">Menu</div>
+            <div class="mini-nav-item pointer"  routerLink="../branches">
               <fa-icon class="fas fa-2x fa-map-marker" [icon]="['fas', 'map-marker-alt']"></fa-icon>
             </div>
-            <div class="mini-nav-item tray" routerLink="../tray">
+            <div class="mini-nav-item tray" routerLink="../tray" *ngIf="isLogged && !isAdmin">
               <fa-icon class="fas fa-2x fa-shopping-basket" [icon]="['fas', 'shopping-basket']"></fa-icon>
             </div>
-            <div class="mini-nav-item account">
+            <div class="mini-nav-item account" routerLink="../account" *ngIf="isLogged && !isAdmin">
               <fa-icon class="fas fa-2x fa-user-circle" [icon]="['fas', 'user-circle']"></fa-icon>
             </div>
             <div class="mini-nav-item lang" (click)="chooseTheLang()">en</div>
             <div class="mini-nav-item email2">
               <fa-icon class="fas fa-2x fa-info-circle" [icon]="['fas', 'info-circle']"></fa-icon>
             </div>
-            <div class="mini-nav-item help">?</div>
+            <div class="mini-nav-item help" routerLink="../help">?</div>
           </div>
           <div class="mini-href"><mat-divider class="mini-href"></mat-divider></div>
           <div class="footer-contacts">
@@ -242,19 +242,12 @@
     </div>
     <div class="find-branch-section">
         <div class="bigwords find">Find nearest point!</div>
-        <button class="orangebtn btn-other"><span class="bnttext">Other ></span></button>
+        <button class="orangebtn btn-other" routerLink="../branches"><span class="bnttext">Other ></span></button>
     </div>
   </div>
   <div class="smart-nav">
     <app-navbar></app-navbar>
   </div>
-<!--  <ul class="smart-nav">-->
-<!--    <li class="burg"></li>-->
-<!--    <li><span  class="curlang" (click)="chooseTheLang()">En</span></li>-->
-<!--    <li class="pointer2" routerLink="../branches"></li>-->
-<!--    <li class="li-menu"><span class="smart-menu">Menu</span></li>-->
-<!--  </ul>-->
-
 </div>
 <div class="scroll-to-top" [ngClass]="{'show-scrollTop': windowScrolled}">
     <fa-icon class="fas fa-5x fa-chevron-up btn2 active" [icon]="['fas', 'chevron-up']"  aria-pressed="true" (click)="scrollToTop()"></fa-icon>

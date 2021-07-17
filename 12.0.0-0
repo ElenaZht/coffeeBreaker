@@ -1,0 +1,8 @@
++ @angular/platform-browser@8.2.14
+updated 1 package and audited 1473 packages in 11.178s
+
+55 packages are looking for funding
+  run `npm fund` for details
+
+found 309 vulnerabilities (7 low, 49 moderate, 252 high, 1 critical)
+  run `npm audit fix` to fix them, or `npm audit` for details

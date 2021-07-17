@@ -7,6 +7,7 @@ import M from 'materialize-css';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
+  isAdmin = false;
   options = { fullWidth: false, padding: 100, numVisible: 3, shift: 10, dist: -100};
   constructor() {
     if (window.screen.width <= 1024) {

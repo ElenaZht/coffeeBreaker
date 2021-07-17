@@ -3,7 +3,8 @@
   <span class="swipe"><-- Swipe for more --></span>
   <div class="carousel">
     <a class="carousel-item" *ngFor="let item of items">
-      <div class="category-card">
+      <div class="category-card" [class.admin]="isAdmin">
+        <div class="delete-btn" *ngIf="isAdmin" (click)="delete(item)"><span>Delete</span></div>
               <div class="card-content">
                 <div class="card-header">
                   <div class="hr-wrap-top"><hr></div>
@@ -32,6 +33,10 @@
               </div>
             </div>
     </a>
+  </div>
+  <div class="plus-wrap" *ngIf="isAdmin">
+    <fa-icon class="fas fa-5x fa-plus plus" [icon]="['fas', 'plus']"  aria-pressed="true" (click)="addCategory()"></fa-icon>
+
   </div>
 </div>
 </app-frame>

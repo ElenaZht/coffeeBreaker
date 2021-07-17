@@ -7,7 +7,9 @@ const routesConfig = {
       "POST": {
         'restricted_to_roles': [rolesEnum.ADMIN, rolesEnum.WORKER]
       },
-      "GET": {},
+      "GET": {
+        'restricted_to_roles': [rolesEnum.ADMIN, rolesEnum.USER]
+      },
       "PUT": {
         'restricted_to_roles': [rolesEnum.ADMIN, rolesEnum.WORKER]
       },
@@ -50,7 +52,7 @@ server.post('/login', (req, res) => {
   }
 });
 
-server.post('/register', (req, res) => {
+server.post('/signup', (req, res) => {
   const { email, password } = req.body;
   console.log(email, password);
   const user = DB.get('users').find({email: email}).value();
@@ -58,7 +60,7 @@ server.post('/register', (req, res) => {
     DB.get('users').push({email, password, role: "user"}).write();
     res.sendStatus(200);
   } else {
-    res.status(404).text('user already exists.')
+    res.status(404).json({msg: 'user already exists.'})
   }
 });
 

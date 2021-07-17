@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="exit" type="submit" (click)="exit()">x</div>
+  <form class="card-body" #signup_Form="ngForm" (ngSubmit)="onSubmit(signup_Form)">
+    <div class="title"><span class="reg_lable">Sign Up</span></div>
+    <input  class="form-control reg-data" placeholder="Your Name"  type="text" id="inp1" #name="ngModel" name="name"
+            [(ngModel)]="signup_Form.name" required>
+    <div class="error" *ngIf="!name.valid && name.touched">
+      Name is required (Exp.: Symon Osher.).
+    </div>
+    <input  class="form-control reg-data" placeholder="Login"  type="text" id="inp2" #login="ngModel" name="login"
+            [(ngModel)]="signup_Form.login">
+    <div class="error" *ngIf="!login.valid && login.touched">
+      Login is required (Exp.: osher1988.).
+    </div>
+    <input  class="form-control reg-data" placeholder="Email"  type="email" id="inp3" #email="ngModel" name="email"
+            [(ngModel)]="signup_Form.email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+    <div class="error" *ngIf="!email.valid && email.touched">
+      Email is required (Exp.:Smith@example.com, Smith@gmail.com, etc.).
+    </div>
+    <input  class="form-control reg-data" placeholder="Birthday"  type="date" id="inp4" #bday="ngModel" name="bday"
+            [(ngModel)]="signup_Form.bday" required>
+    <div class="error" *ngIf="!bday.valid && bday.touched">
+      Birthday is required (Exp.: 10.02.1988).
+    </div>
+    <input  class="form-control reg-data" placeholder="Phone"  type="text" id="inp5" #phone="ngModel" name="phone"
+            [(ngModel)]="signup_Form.phone" required>
+    <div class="error" *ngIf="!phone.valid && phone.touched">
+      Phone is required (Exp.:0542223344).
+    </div>
+    <input  class="form-control reg-data" placeholder="Password"  type="password" #password="ngModel" id="inp6" name="password" [(ngModel)]="signup.password" required minlength="8">
+    <div class="error" *ngIf="!password.valid && password.touched">
+      Password is required (minimum 8 symbols).
+    </div>
+    <div class="btn-wrap">
+      <button class="orangebtn" type="submit" [disabled]="!signup.form.valid">
+        <span class="bnttext">Sign Up</span>
+      </button>
+    </div>
+  </form>
+  <div *ngIf="errorText !== ''" class="danger">{{errorText}}</div>
+</div>
+

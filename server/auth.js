@@ -58,23 +58,23 @@ class Authenticator {
     }
   }
 
-  getAuthMiddleware() {
-    let self = this;
-    return function(req, res, next) {
-      // Gather the jwt access token from the request header
-      const authHeader = req.headers['authorization'];
-      const token = authHeader && authHeader.split(' ')[1];
-      if (token == null) return res.sendStatus(401); // if there isn't any token
-      console.log(self.db);
-      jwt.verify(token, self._secret, (err, user) => {
-        console.log(err);
-        if (err) return res.sendStatus(403);
-        req.user = user;
-        console.info('Token authenticated. User info:', user);
-        next() // pass the execution off to whatever request the client intended
-      })
-    }
-  }
+  // getAuthMiddleware() {
+  //   let self = this;
+  //   return function(req, res, next) {
+  //     // Gather the jwt access token from the request header
+  //     const authHeader = req.headers['authorization'];
+  //     const token = authHeader && authHeader.split(' ')[1];
+  //     if (token == null) return res.sendStatus(401); // if there isn't any token
+  //     console.log(self.db);
+  //     jwt.verify(token, self._secret, (err, user) => {
+  //       console.log(err);
+  //       if (err) return res.sendStatus(403);
+  //       req.user = user;
+  //       console.info('Token authenticated. User info:', user);
+  //       next() // pass the execution off to whatever request the client intended
+  //     })
+  //   }
+  // }
 
   generateAccessToken(user, expiresIn='1d') {
     // expires after one day
@@ -94,7 +94,8 @@ class Authenticator {
       const user = this.db.get('users').find({email: username}).value();
       if (user && user.password === password){
         console.info(`User: ${username} authenticated!`);
-        return user;
+        let copied_user = Object.assign({}, user);
+        return copied_user;
       }
       console.info(`User: ${username} NOT authenticated!`);
       return null;

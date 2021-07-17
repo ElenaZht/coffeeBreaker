@@ -43,7 +43,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
+.admin{
+  color: #E04523;
+  opacity: 1;
+}
+
 .carousel {
   width: 50%;
   height: 80%;
@@ -90,6 +96,27 @@
   transform: scale(1.8);
   height: 70%;
 
+}
+.orders-control{
+  background:transparent url('../../assets/orders-control.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  width: 30%;
+  transform: scale(1.8);
+  height: 70%;
+
+}
+.statistic{
+  background:transparent url('../../assets/statistic.png') 0% 0% no-repeat padding-box;
+  background-size: contain;
+  background-position: center;
+  width: 30%;
+  transform: scale(1.8);
+  height: 70%;
+
+}
+div:active{
+  outline: none;
 }
 .title {
   font: 2vmax JosefinSans Regular;

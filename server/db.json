@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "email": "dima@gmail.com",
+      "password": "12345678",
+      "role": "admin",
+      "id": 1
+    },
+    {
+      "email": "lena@mail.com",
+      "password": "12345678",
+      "role": "user"
+    },
+    {
+      "email": "dima@mail.com",
+      "password": "12345678",
+      "role": "user"
+    },
+    {
+      "email": "dima12@gmail.com",
+      "password": "12345678",
+      "role": "user"
+    },
+    {
+      "email": "dima123@gmail.com",
+      "password": "12345678",
+      "role": "user"
+    }
+  ],
+  "items": [
+    {
+      "name": "item A1",
+      "id": 1
+    },
+    {
+      "name": "item A2",
+      "id": 2
+    },
+    {
+      "name": "item A3",
+      "id": 3
+    },
+    {
+      "name": "item A4",
+      "id": 4
+    },
+    {
+      "name": "item A5",
+      "id": 5
+    }
+  ]
+}
