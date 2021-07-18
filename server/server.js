@@ -46,9 +46,11 @@ server.post('/login', (req, res) => {
     let token = auth.generateAccessToken(user);
     user.token = token;
     delete user.password;
-    res.status(200).json(user);
+    setTimeout(() => res.status(200).json(user), parseInt(Math.random()*3000+2000));
+
   } else {
-    res.sendStatus(401)
+    setTimeout(() => res.sendStatus(401), parseInt(Math.random()*3000+2000));
+
   }
 });
 

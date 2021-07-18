@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule} from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -33,6 +33,8 @@ import {UsersArrayService} from './users-array.service';
 import { SignupComponent } from './signup/signup.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import {ToastrModule, ToastrService, Overlay, OverlayContainer} from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 @NgModule({
   declarations: [
@@ -74,8 +76,10 @@ import {ToastrModule, ToastrService, Overlay, OverlayContainer} from 'ngx-toastr
       timeOut: 6000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
-    })
+    }),
+    NgxSpinnerModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [
     PayformDialogComponent,
     MenuItemDialogComponent,

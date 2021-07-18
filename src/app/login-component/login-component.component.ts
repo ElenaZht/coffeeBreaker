@@ -5,6 +5,8 @@ import {NgForm} from '@angular/forms';
 import {User, UsersService} from '../users.service';
 import {SignupComponent} from '../signup/signup.component';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 @Component({
   selector: 'app-login-signup-component',
@@ -13,20 +15,23 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponentComponent implements OnInit {
   errorText: string;
-  constructor(public dialogRef: MatDialogRef<LoginComponentComponent>, private usersService: UsersService,  private router: Router, public dialog: MatDialog, private toastr: ToastrService) {
+  constructor(public dialogRef: MatDialogRef<LoginComponentComponent>, private usersService: UsersService,  private router: Router, public dialog: MatDialog,
+              private toastr: ToastrService, private spinner: NgxSpinnerService) {
     this.errorText = '';
   }
 
   ngOnInit() {}
   onSubmit(loginForm: NgForm) {
+    this.spinner.show();
     const user = loginForm.value as User;
     console.log('email is ', user.email, ', password is ', user.password);
     this.usersService.logIn(user.email, user.password)
       .subscribe(answer => {
+        this.spinner.hide();
         if (answer) {
             if (answer === true) {
               loginForm.reset();
-              this.exit(true);
+              this.exit();
             }
             console.log('user received', user);
             this.showSuccess(user);
@@ -34,17 +39,18 @@ export class LoginComponentComponent implements OnInit {
             this.errorText = 'Wrong login or password.';
           }
         }, err => {
+          this.spinner.hide();
           console.log(err);
           this.showError(user);
         }
       );
   }
-  exit(bool) {
-    this.dialogRef.close(bool);
+  exit() {
+    this.dialogRef.close();
   }
 
   toSignUp() {
-    this.exit(true);
+    this.exit();
     const dialogRef = this.dialog.open(SignupComponent, {panelClass: 'custom-dialog-container', height: '50vmin',
       width: '20vmax'});
   }
