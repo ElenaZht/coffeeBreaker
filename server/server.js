@@ -60,9 +60,9 @@ server.post('/signup', (req, res) => {
   const user = DB.get('users').find({email: email}).value();
   if (!user) {
     DB.get('users').push({email, password, role: "user"}).write();
-    res.sendStatus(200);
+    setTimeout(() => res.status(200).json({}), parseInt(Math.random()*3000+2000));
   } else {
-    res.status(404).json({msg: 'user already exists.'})
+    setTimeout(() => res.status(404).json({msg: 'user already exists.'}), parseInt(Math.random()*3000+2000));
   }
 });
 
