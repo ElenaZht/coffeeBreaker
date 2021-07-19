@@ -3,6 +3,8 @@ import { DOCUMENT } from '@angular/common';
 import {faChevronUp} from '@fortawesome/free-solid-svg-icons';
 import {icon, library} from '@fortawesome/fontawesome-svg-core';
 import {MatDialog} from '@angular/material';
+import {UsersService} from '../users.service';
+
 const up = icon({ prefix: 'fas', iconName: 'chevron-up' });
 library.add(faChevronUp);
 import {faInfoCircle, faMapMarkerAlt, faShoppingBasket, faUserCircle} from '@fortawesome/free-solid-svg-icons';
@@ -23,8 +25,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
   windowScrolled: boolean;
   interval: any;
   startIndex = 0;
-  isLogged = true;
-  isAdmin = false;
   promoItems = [
     {prodId: 1002, title: 'Latte Makiata', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
         'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -45,7 +45,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
       ingredients: [{ing: 'Oranges', ingClass: 'oranges'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Mint Leaves', ingClass: 'mint'}], nutr: '../../assets/nutritions.png'
     }
   ];
-  constructor(@Inject(DOCUMENT) private document: Document, public dialog: MatDialog, private router: Router) { }
+  constructor(@Inject(DOCUMENT) private document: Document, public dialog: MatDialog, private router: Router, private userService: UsersService) { }
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {

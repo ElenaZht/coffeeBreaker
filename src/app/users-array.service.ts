@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {User, UsersService} from './users.service';
+import {Roles, User, UsersService} from './users.service';
 import {BehaviorSubject, Observable, throwError} from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { environment } from './environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {environment} from './environments/environment';
 import {catchError, map} from 'rxjs/operators';
 
 
@@ -36,7 +36,7 @@ export class UsersArrayService implements UsersService {
     // return new Observable<true>();
     return this.http.post<User>(`${environment.apiUrl}/login`, {email, password})
       .pipe(map(user => {
-      console.log(user);
+      console.log('UserService.Login', user);
       if (user && user.token) {
         localStorage.setItem('user', JSON.stringify(user));
         this.currentUser = user;
@@ -62,6 +62,12 @@ export class UsersArrayService implements UsersService {
 
   isLoggedIn(): boolean {
     if (this.currentUser && this.currentUser.token) {
+      return true;
+    }
+    return false;
+  }
+  isAdmin(): boolean {
+    if (this.currentUser && this.currentUser.token && this.currentUser.role === Roles.admin) {
       return true;
     }
     return false;

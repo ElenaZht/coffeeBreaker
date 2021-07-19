@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {LanguagesDialigComponent} from '../languages-dialig/languages-dialig.component';
 import {MatDialog} from '@angular/material';
 import {Router} from '@angular/router';
@@ -9,11 +9,12 @@ import {
   faLockOpen,
   faMapMarkerAlt,
   faShoppingBasket,
-  faUserCircle, faUserTie
+  faUserCircle,
+  faUserTie
 } from '@fortawesome/free-solid-svg-icons';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {LoginComponentComponent} from '../login-component/login-component.component';
-import {User, UsersService} from '../users.service';
+import {Roles, UsersService} from '../users.service';
 
 library.add(faMapMarkerAlt);
 library.add(faShoppingBasket);
@@ -35,8 +36,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
   isLogged = false;
   isAdmin = false;
   ngOnInit() {
+    console.log('ng on init');
     this.detectActiveNav();
-    this.subscription = this.userService.getUser().subscribe(user => console.log('nav has user', user));
+    this.subscription = this.userService.getUser().subscribe(user => {
+        console.log('nav has user', user);
+        if (user && user.token) {
+          this.isLogged = true;
+        }
+        if (user && user.role === Roles.admin) {
+          console.log('ADMIN IS HERE');
+          this.isAdmin = true;
+        }
+    }
+    );
   }
   chooseTheLang() {
     const dialogRef = this.dialog.open(LanguagesDialigComponent, {panelClass: 'custom-dialog-container', height: '40vmin',
@@ -49,19 +61,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
   detectActiveNav() {
     console.log(this.router.url);
-    // if (this.router.url.includes('menu')) {
-    //   document.getElementById('menu').classList.add('active-tab');
-    // } else if (this.router.url.includes('branches')) {
-    //   document.getElementById('branches').classList.add('active-tab');
-    // } else if (this.router.url.includes('tray')) {
-    //   document.getElementById('tray').classList.add('active-tab');
-    // } else if (this.router.url.includes('account')) {
-    //   document.getElementById('account').classList.add('active-tab');
-    // } else if (this.router.url.includes('contacts')) {
-    //   document.getElementById('contacts').classList.add('active-tab');
-    // } else if (this.router.url.includes('help')) {
-    //   document.getElementById('help').classList.add('active-tab');
-    // }
+    if (this.router.url.includes('menu')) {
+      document.getElementById('menu').classList.add('active-tab');
+    } else if (this.router.url.includes('branches')) {
+      document.getElementById('branches').classList.add('active-tab');
+    } else if (this.router.url.includes('tray')) {
+      document.getElementById('tray').classList.add('active-tab');
+    } else if (this.router.url.includes('account')) {
+      document.getElementById('account').classList.add('active-tab');
+    } else if (this.router.url.includes('contacts')) {
+      document.getElementById('contacts').classList.add('active-tab');
+    } else if (this.router.url.includes('help')) {
+      document.getElementById('help').classList.add('active-tab');
+    }
     }
 
   logOut() {
@@ -69,21 +81,25 @@ export class NavbarComponent implements OnInit, OnDestroy {
     console.log('class list', document.getElementById('logout').classList);
     if (confirm('Do you want to log out?')) {
       this.isLogged = false;
+      this.userService.logout();
     }
     document.getElementById('logout').classList.remove('active-tab');
   }
 
   logIn() {
+    document.getElementById('login').classList.add('active-tab');
     const dialogRef = this.dialog.open(LoginComponentComponent, {panelClass: 'custom-dialog-container', height: '40vmin',
       width: '20vmax'});
     dialogRef.afterClosed().subscribe(
       result => {
         console.log('The dialog was closed', result);
+        document.getElementById('login').classList.remove('active-tab');
       }
     );
   }
 
   ngOnDestroy(): void {
+    console.log('NavBar ngOnDestroy');
     this.subscription.unsubscribe();
   }
 }

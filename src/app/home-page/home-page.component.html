@@ -135,10 +135,10 @@
             <div class="mini-nav-item pointer"  routerLink="../branches">
               <fa-icon class="fas fa-2x fa-map-marker" [icon]="['fas', 'map-marker-alt']"></fa-icon>
             </div>
-            <div class="mini-nav-item tray" routerLink="../tray" *ngIf="isLogged && !isAdmin">
+            <div class="mini-nav-item tray" routerLink="../tray" *ngIf="userService.isLoggedIn() && !userService.isAdmin()">
               <fa-icon class="fas fa-2x fa-shopping-basket" [icon]="['fas', 'shopping-basket']"></fa-icon>
             </div>
-            <div class="mini-nav-item account" routerLink="../account" *ngIf="isLogged && !isAdmin">
+            <div class="mini-nav-item account" routerLink="../account" *ngIf="userService.isLoggedIn()  && !userService.isAdmin()">
               <fa-icon class="fas fa-2x fa-user-circle" [icon]="['fas', 'user-circle']"></fa-icon>
             </div>
             <div class="mini-nav-item lang" (click)="chooseTheLang()">en</div>
