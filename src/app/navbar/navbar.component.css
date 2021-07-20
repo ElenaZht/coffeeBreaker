@@ -50,47 +50,7 @@ mat-divider {
 .active-tab > .li-icon{
   color: #E04523;
 }
-.menu {
-  font: 2vw JosefinSans Regular;
-  justify-content: center;
-  display: flex;
-  align-items: flex-end;
-
-}
-.pointer {
-  justify-content: center;
-  display: flex;
-  height: 5vh;
-  transform: scale(.8);
-}
-.tray {
-  justify-content: center;
-  display: flex;
-  height: 5vh;
-  transform: scale(.8);
-
-}
-.account {
-  justify-content: center;
-  display: flex;
-  height: 5vh;
-  transform: scale(.8);
-}
-.lang {
-  font: 2vw JosefinSans Regular;
-  justify-content: center;
-  display: flex;
-  align-items: flex-end;
-
-}
-.email2 {
-  justify-content: center;
-  display: flex;
-  height: 5vh;
-  transform: scale(.8);
-
-}
-.lock{
+.tab {
   justify-content: center;
   display: flex;
   height: 5vh;

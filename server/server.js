@@ -46,10 +46,10 @@ server.post('/login', (req, res) => {
     let token = auth.generateAccessToken(user);
     user.token = token;
     delete user.password;
-    setTimeout(() => res.status(200).json(user), parseInt(Math.random()*3000+2000));
+    setTimeout(() => res.status(200).json(user), parseInt(Math.random()*3000+1000));
 
   } else {
-    setTimeout(() => res.sendStatus(401), parseInt(Math.random()*3000+2000));
+    setTimeout(() => res.sendStatus(401), parseInt(Math.random()*3000+1000));
 
   }
 });
@@ -60,9 +60,9 @@ server.post('/signup', (req, res) => {
   const user = DB.get('users').find({email: email}).value();
   if (!user) {
     DB.get('users').push({email, password, role: "user"}).write();
-    setTimeout(() => res.status(200).json({}), parseInt(Math.random()*3000+2000));
+    setTimeout(() => res.status(200).json({}), parseInt(Math.random()*3000+1000));
   } else {
-    setTimeout(() => res.status(404).json({msg: 'user already exists.'}), parseInt(Math.random()*3000+2000));
+    setTimeout(() => res.status(404).json({msg: 'user already exists.'}), parseInt(Math.random()*3000+1000));
   }
 });
 

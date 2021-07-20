@@ -4,26 +4,26 @@
     <div class="li-href"><mat-divider></mat-divider></div>
   </li>
   <li class="li" id="branches">
-    <div class="li-icon pointer" routerLink="../branches">
+    <div class="li-icon tab" routerLink="../branches">
       <fa-icon class="fas fa-map-marker" [icon]="['fas', 'map-marker-alt']"  aria-pressed="true"></fa-icon>
     </div>
     <div class="li-href"><mat-divider></mat-divider></div>
   </li>
   <li class="li" id="login" *ngIf="!isLogged"   (click)="logIn()">
-    <div class="li-icon lock">
+    <div class="li-icon tab">
       <fa-icon class="fas fa-lock" [icon]="['fas', 'lock']"  aria-pressed="true"></fa-icon>
     </div>
     <div class="li-href"><mat-divider></mat-divider></div>
   </li>
   <li class="li" id="tray" *ngIf="isLogged && !isAdmin">
-    <div class="li-icon tray" routerLink="../tray">
+    <div class="li-icon tab" routerLink="../tray">
       <fa-icon class="fas fa-shopping-basket" [icon]="['fas', 'shopping-basket']"  aria-pressed="true"></fa-icon>
 
     </div>
     <div class="li-href"><mat-divider></mat-divider></div>
   </li>
   <li class="li" id="account" *ngIf="isLogged">
-    <div class="li-icon account" routerLink="../account">
+    <div class="li-icon tab" routerLink="../account">
       <fa-icon *ngIf="!isAdmin" class="fas fa-user-circle" [icon]="['fas', 'user-circle']"  aria-pressed="true"></fa-icon>
       <fa-icon *ngIf="isAdmin" class="fas fa-user-tie" [icon]="['fas', 'user-tie']"  aria-pressed="true"></fa-icon>
     </div>
@@ -35,7 +35,7 @@
     <div class="li-href"><mat-divider></mat-divider></div>
   </li>
   <li class="li" id="contacts">
-    <div class="li-icon email2" routerLink="../contacts">
+    <div class="li-icon tab" routerLink="../contacts">
       <fa-icon class="fas fa-info-circle" [icon]="['fas', 'info-circle']"  aria-pressed="true"></fa-icon>
 
     </div>
@@ -46,7 +46,7 @@
     <div class="li-href"><mat-divider></mat-divider></div>
   </li>
   <li class="li" id="logout" *ngIf="isLogged"  (click)="logOut()">
-    <div class="li-icon lock">
+    <div class="li-icon tab">
       <fa-icon class="fas fa-lock-open" [icon]="['fas', 'lock-open']"  aria-pressed="true"></fa-icon>
     </div>
     <div class="li-href"><mat-divider></mat-divider></div>
@@ -64,7 +64,7 @@
       <div class="li-icon account drop-li" routerLink="../account">Account</div>
     </button>
     <button mat-menu-item>
-      <div class="li-icon email2 drop-li" routerLink="../contacts">Contacts
+      <div class="li-icon tab drop-li" routerLink="../contacts">Contacts
       </div>
     </button>
     <button mat-menu-item>

@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import {LanguagesDialigComponent} from '../languages-dialig/languages-dialig.component';
 import {MatDialog} from '@angular/material';
 import {Router} from '@angular/router';
@@ -15,6 +15,8 @@ import {
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {LoginComponentComponent} from '../login-component/login-component.component';
 import {Roles, UsersService} from '../users.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 library.add(faMapMarkerAlt);
 library.add(faShoppingBasket);
@@ -29,15 +31,15 @@ library.add(faUserTie);
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit, OnDestroy {
+export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   subscription;
-  constructor(public dialog: MatDialog, private router: Router, private userService: UsersService) {
+  constructor(public dialog: MatDialog, private router: Router, private userService: UsersService, private toastr: ToastrService) {
   }
   isLogged = false;
   isAdmin = false;
   ngOnInit() {
     console.log('ng on init');
-    this.detectActiveNav();
+    // this.detectActiveNav();
     this.subscription = this.userService.getUser().subscribe(user => {
         console.log('nav has user', user);
         if (user && user.token) {
@@ -50,6 +52,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
     );
   }
+  ngAfterViewInit(): void {
+    this.detectActiveNav();
+    console.log('after view init');
+  }
+
   chooseTheLang() {
     const dialogRef = this.dialog.open(LanguagesDialigComponent, {panelClass: 'custom-dialog-container', height: '40vmin',
       width: '30vmax'});
@@ -60,14 +67,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
     });
   }
   detectActiveNav() {
-    console.log(this.router.url);
+    console.log('detect active nav', this.router.url);
     if (this.router.url.includes('menu')) {
       document.getElementById('menu').classList.add('active-tab');
     } else if (this.router.url.includes('branches')) {
       document.getElementById('branches').classList.add('active-tab');
     } else if (this.router.url.includes('tray')) {
+      console.log('element by id is ', document.getElementById('tray'));
       document.getElementById('tray').classList.add('active-tab');
     } else if (this.router.url.includes('account')) {
+      console.log('element by id is ', document.getElementById('account'));
       document.getElementById('account').classList.add('active-tab');
     } else if (this.router.url.includes('contacts')) {
       document.getElementById('contacts').classList.add('active-tab');
@@ -77,14 +86,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
 
   logOut() {
-    document.getElementById('logout').classList.add('active-tab');
-    console.log('class list', document.getElementById('logout').classList);
-    if (confirm('Do you want to log out?')) {
-      this.isLogged = false;
-      this.userService.logout();
-    }
-    document.getElementById('logout').classList.remove('active-tab');
-  }
+    const element = document.getElementById('logout');
+    element.classList.add('active-tab');
+    console.log('element is detected classlist ->', element);
+    setTimeout( () => {
+      if (confirm('Do you want to log out?')) {
+        this.isLogged = false;
+        this.isAdmin = false;
+        this.userService.logout();
+        this.showSuccess();
+      }
+      document.getElementById('logout').classList.remove('active-tab');
+    }, 500);
+}
 
   logIn() {
     document.getElementById('login').classList.add('active-tab');
@@ -96,6 +110,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
         document.getElementById('login').classList.remove('active-tab');
       }
     );
+  }
+  showSuccess() {
+    this.toastr.success('Log in for more actions. ', 'Logged out successfully!' );
   }
 
   ngOnDestroy(): void {
