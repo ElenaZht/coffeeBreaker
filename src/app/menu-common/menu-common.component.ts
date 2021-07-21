@@ -2,11 +2,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import M from 'materialize-css';
 import { HttpClient } from '@angular/common/http';
 import {Router} from '@angular/router';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {MatDialog} from '@angular/material';
-import {AddCategoryComponent} from '../add-category/add-category.component';
-library.add(faPlus);
 
 
 @Component({
@@ -23,7 +19,6 @@ export class MenuCommonComponent implements OnInit, AfterViewInit {
     {name: 'Sandwiches', price: '15', pic_class: 'sandwich', splash_class: 'vegi-splash'},
     {name: 'Bakery', price: '5', pic_class: 'donut', splash_class: 'sprinkling-splash'},
     ];
-  isAdmin = false;
   constructor(private http: HttpClient,  private router: Router, public dialog: MatDialog) {
     if (window.screen.width <= 1024) {
       console.log('SCREEN LESS THAN 1024 DETECTED');
@@ -38,14 +33,5 @@ export class MenuCommonComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     const elems = document.querySelectorAll('.carousel');
     const instances = M.Carousel.init(elems, this.options);
-  }
-
-  delete(item) {
-    this.items.splice(this.items.indexOf(item), 1);
-  }
-
-  addCategory() {
-    const dialogRef = this.dialog.open(AddCategoryComponent, {panelClass: 'custom-dialog-container', height: '50vmin',
-      width: '30vmax'});
   }
 }

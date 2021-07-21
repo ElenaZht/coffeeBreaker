@@ -19,7 +19,7 @@ export class UsersArrayService implements UsersService {
       this.currentUser = JSON.parse(u);
       this.user$ = new BehaviorSubject(this.currentUser);
       // this.user$.next(this.currentUser);
-      console.log('user session restored');
+      console.log('user session restored', this.currentUser);
     } else {
       this.user$ = new BehaviorSubject(null);
     }
@@ -73,19 +73,25 @@ export class UsersArrayService implements UsersService {
     return false;
   }
 
-  editUser(id: number, firstName: string, secondName: string, email: string, url: string): Observable<boolean> {
-    // this.user$.next(this.currentUser);
-    return this.http.put<boolean>(`${environment.apiUrl}/users/edituser`, {firstName, secondName, id, email, url}).pipe(map( res => {
+  editUser(id: number, firstname: string, secondname: string, email: string, birthday: any, phone: string): Observable<User> {
+    console.log('firstname comes to array server from component ', firstname);
+    return this.http.put<User>(`${environment.apiUrl}/api/users/${id}`, {firstname, secondname, email, phone, birthday}).pipe(map( res => {
       if (res) {
-        console.log('change name status', res);
-        this.currentUser.firstname = firstName;
-        this.currentUser.secondname = secondName;
-        this.currentUser.email = email;
-        this.currentUser.url = url;
+        console.log('change data status', res);
+        this.currentUser.firstname = res.firstname;
+        this.currentUser.secondname = res.secondname;
+        this.currentUser.email = res.email;
+        this.currentUser.phone = res.phone;
+        this.currentUser.birthday = res.birthday;
+        this.user$.next(res);
         localStorage.setItem('user', JSON.stringify(this.currentUser));
-        }
+        } else {
+        console.log('we have no res from server');
+      }
       return res;
-    }
+    }, err => {
+      console.log('array service got error from server', err);
+      }
     ));
   }
 

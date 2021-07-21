@@ -1,17 +1,23 @@
 {
   "users": [
     {
+      "firstname": "Dmitry",
+      "secondname": "Zhytomirski",
       "email": "dima@gmail.com",
-      "password": "12345678",
-      "role": 0,
+      "phone": "0543332244",
+      "birthday": "24/09/1983",
       "id": 1
     },
     {
       "email": "lena@mail.com",
       "password": "12345678",
-      "role": 1
+      "role": 1,
+      "id": 2,
+      "firstname": "Elena",
+      "secondname": "Zhytomirskaya",
+      "phone": "0543332555",
+      "birthday": "05/10/1995"
     }
-
   ],
   "items": [
     {
@@ -19,7 +25,13 @@
       "id": 1
     },
     {
-      "name": "item A2",
+      "email": "lena@mail.com",
+      "password": "12345678",
+      "role": 1,
+      "firstname": "Elena2",
+      "secondname": "Zhytomirskaya",
+      "phone": "0543332555",
+      "birthday": "05/10/1995",
       "id": 2
     },
     {
@@ -33,6 +45,19 @@
     {
       "name": "item A5",
       "id": 5
+    },
+    {
+      "id": 100,
+      "name": "item100"
+    },
+    {
+      "id": 101,
+      "name": "item1001"
+    },
+    {
+      "name": "item10021aa",
+      "title": "fdasd",
+      "id": 1021
     }
   ]
 }

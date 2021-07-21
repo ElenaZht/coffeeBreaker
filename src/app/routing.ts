@@ -13,6 +13,7 @@ import {AStatisticComponent} from './a-statistic/a-statistic.component';
 import {TrayComponent} from './tray/tray.component';
 import {MenuCategoryComponent} from './menu-category/menu-category.component';
 import {AOrdersComponent} from './a-orders/a-orders.component';
+import {PersonalDataComponent} from './personal-data/personal-data.component';
 
 const routes: Routes = [
   {path: 'homepage', component: HomePageComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'statistic', component: AStatisticComponent},
   {path: 'orders_control', component: AOrdersComponent},
   {path: 'tray', component: TrayComponent},
+  {path: 'personal_data', component: PersonalDataComponent},
   {path: '**', component: HomePageComponent }
 ];
 

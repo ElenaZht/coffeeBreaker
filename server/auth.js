@@ -4,7 +4,7 @@ const path = require('path');
 const url = require('url');
 
 dotenv.config({ path: path.join(__dirname, '.env') });
-const ROLES = {'GUEST': 'guest', 'USER': 'user', 'WORKER': 'worker', 'ADMIN': 'admin'};
+const ROLES = {'USER': 1, 'ADMIN': 0};
 
 function getPosition(string, subString, index) {
   return string.split(subString, index).join(subString).length;

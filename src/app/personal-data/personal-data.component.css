@@ -1,0 +1,98 @@
+@font-face {
+  font-family: Cookie;
+  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: JosefinSans Regular;
+  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+.main {
+  height: 65vh;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  user-select: none;
+}
+.our-comminment {
+  font: 15vmax Cookie;
+  line-height: 1;
+  display: flex;
+  text-align: center;
+  color: #1F1010;
+  opacity: 0.4;
+  text-shadow: 0 0 5px rgba(0,0,0,1);
+  z-index: 0;
+}
+.desc{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.admin{
+  color: #E04523;
+  opacity: 1;
+}
+.com-text {
+  font: 1vw JosefinSans Regular;
+  display: flex;
+  position: absolute;
+  bottom: 42%;
+  width: 24%;
+  text-align: center;
+  text-indent: 8%;
+  z-index: 10;
+
+}
+.data {
+  border: solid rgba(0,0,0,0.25) 0.01px;
+  box-shadow: 14px 2px 3px 5px rgb(0 0 0 / 25%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 35%;
+  height: 70%;
+  font: 2vw JosefinSans Regular;
+
+}
+.data .title{
+  font: 3vw Cookie;
+  margin-bottom: 5%;
+}
+.wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.title-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.edit {
+  opacity: 0.5;
+  border: none;
+  background: white;
+}
+.edit:hover {
+  opacity: 1;
+}
+.edit:active {
+  transform: scale(1.1);
+}
+form {
+  width: 70%;
+}
+input {
+  width: 70%;
+}
+label {
+  max-width: 25%;
+  font: 1vw JosefinSans Regular;
+}

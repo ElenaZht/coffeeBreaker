@@ -5,18 +5,18 @@ const {Authenticator, rolesEnum} = require("./auth");
 const routesConfig = {
   "/items": {
       "POST": {
-        'restricted_to_roles': [rolesEnum.ADMIN, rolesEnum.WORKER]
+        'restricted_to_roles': [rolesEnum.ADMIN]
       },
       "GET": {
         'restricted_to_roles': [rolesEnum.ADMIN, rolesEnum.USER]
       },
       "PUT": {
-        'restricted_to_roles': [rolesEnum.ADMIN, rolesEnum.WORKER]
+        'restricted_to_roles': [rolesEnum.ADMIN]
       },
   },
   "/users": {
     "POST": {
-      'restricted_to_roles': [rolesEnum.ADMIN]
+      'restricted_to_roles': [rolesEnum.ADMIN, rolesEnum.USER]
     },
     "GET": {
       'restricted_to_roles': [rolesEnum.ADMIN]
@@ -36,7 +36,8 @@ const auth = new Authenticator(routesConfig, DB);
 
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
-server.use('/api', auth.getRolesBasedAuthMiddleware('/api'), router);
+// server.use('/api', auth.getRolesBasedAuthMiddleware('/api'), router);
+server.use('/api', router);
 
 server.post('/login', (req, res) => {
   const { email, password } = req.body;
@@ -65,6 +66,27 @@ server.post('/signup', (req, res) => {
     setTimeout(() => res.status(404).json({msg: 'user already exists.'}), parseInt(Math.random()*3000+1000));
   }
 });
+
+// server.put('/users/edituser', (req, res) => {
+//   const { firstname, secondname, email, birthday, phone } = req.body;
+//   console.log(req.body, 'SERVER EDIT USER FUNC');
+//   const user = DB.get('users').find({email: email}).value();
+//   console.log('server found user ', user);
+//   if (!user) {
+//     setTimeout(() => res.status(404).json({msg: 'user not found.'}), parseInt(Math.random()*3000+1000));
+//   } else {
+//     console.log('user edition on server...');
+//     console.log('user sent name ', req.body.firstname);
+//     user.firstname = req.body.firstname;
+//     console.log('and now his name is ', user.firstname);
+//     user.secondname = req.body.secondname;
+//     user.email = req.body.email;
+//     user.birthday = req.body.birthday;
+//     user.phone = req.body.phone;
+//     console.log('user after edition ', user);
+//     setTimeout(() => res.status(200).json({user}), parseInt(Math.random()*3000+1000));
+//   }
+// });
 
 server.listen(3000, () => {
   console.log('JSON Server is running')

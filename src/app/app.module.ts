@@ -31,9 +31,9 @@ import { LoginComponentComponent } from './login-component/login-component.compo
 import {UsersService} from './users.service';
 import {UsersArrayService} from './users-array.service';
 import { SignupComponent } from './signup/signup.component';
-import { AddCategoryComponent } from './add-category/add-category.component';
 import {ToastrModule, ToastrService, Overlay, OverlayContainer} from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { PersonalDataComponent } from './personal-data/personal-data.component';
 
 
 @NgModule({
@@ -58,7 +58,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     NavbarComponent,
     LoginComponentComponent,
     SignupComponent,
-    AddCategoryComponent
+    PersonalDataComponent
   ],
   imports: [
     BrowserModule,
@@ -84,8 +84,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     PayformDialogComponent,
     MenuItemDialogComponent,
     LoginComponentComponent,
-    SignupComponent,
-    AddCategoryComponent
+    SignupComponent
   ],
   providers: [
     {provide: UsersService, useClass: UsersArrayService},
