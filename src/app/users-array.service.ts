@@ -75,7 +75,8 @@ export class UsersArrayService implements UsersService {
 
   editUser(id: number, firstname: string, secondname: string, email: string, birthday: any, phone: string): Observable<User> {
     console.log('firstname comes to array server from component ', firstname);
-    return this.http.put<User>(`${environment.apiUrl}/api/users/${id}`, {firstname, secondname, email, phone, birthday}).pipe(map( res => {
+    // tslint:disable-next-line:max-line-length
+    return this.http.patch<User>(`${environment.apiUrl}/api/users/${id}`, {firstname, secondname, email, phone, birthday}).pipe(map( res => {
       if (res) {
         console.log('change data status', res);
         this.currentUser.firstname = res.firstname;

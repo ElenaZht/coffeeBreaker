@@ -31,16 +31,18 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
     this.subscription = this.userService.getUser().subscribe(user => {
         this.user = user;
         console.log('accaunt of user ', this.user);
-        if (this.user.role === 0) {
+        if (user) {
+          if (this.user.role === 0) {
             this.isAdmin = true;
           }
-        this.firstname = this.user.firstname;
-        this.firstname = this.user.firstname;
-        this.secondname = this.user.secondname;
-        this.email = this.user.email;
-        this.phone = this.user.phone;
-        this.birthday = this.user.birthday;
+          this.firstname = this.user.firstname;
+          this.firstname = this.user.firstname;
+          this.secondname = this.user.secondname;
+          this.email = this.user.email;
+          this.phone = this.user.phone;
+          this.birthday = this.user.birthday;
         }
+      }
     );
   }
 
