@@ -2,11 +2,12 @@
   "users": [
     {
       "firstname": "Dmitry",
-      "secondname": "Zhytomirski",
+      "secondname": "Zhytomirski222",
       "email": "dima@gmail.com",
       "phone": "0543332244",
       "birthday": "24/09/1983",
-      "id": 1
+      "id": 1,
+      "password": "12345678"
     },
     {
       "email": "lena@mail.com",
@@ -23,16 +24,6 @@
     {
       "name": "item A1",
       "id": 1
-    },
-    {
-      "email": "lena@mail.com",
-      "password": "12345678",
-      "role": 1,
-      "firstname": "Elena2",
-      "secondname": "Zhytomirskaya",
-      "phone": "0543332555",
-      "birthday": "05/10/1995",
-      "id": 2
     },
     {
       "name": "item A3",

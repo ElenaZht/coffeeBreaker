@@ -3,6 +3,10 @@ import {User, UsersService} from '../users.service';
 import {NgForm} from '@angular/forms';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faPencilAlt, faCheck, faUndo} from '@fortawesome/free-solid-svg-icons';
+import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
+
+
 library.add(faPencilAlt);
 library.add(faCheck);
 library.add(faUndo);
@@ -25,7 +29,7 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
   birthday: Date;
   subscription;
 
-  constructor(private userService: UsersService) {}
+  constructor(private userService: UsersService, private toastr: ToastrService, private spinner: NgxSpinnerService) {}
 
   ngOnInit() {
     this.subscription = this.userService.getUser().subscribe(user => {
@@ -41,22 +45,34 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
           this.email = this.user.email;
           this.phone = this.user.phone;
           this.birthday = this.user.birthday;
+        } else {
+          this.firstname = '';
+          this.firstname = '';
+          this.secondname = '';
+          this.email = '';
+          this.phone = '';
+          this.birthday = new Date();
         }
       }
     );
   }
 
   onSubmit(dataForm: NgForm) {
+    this.spinner.show();
     const user = dataForm.value as User;
     const edition = this.userService.editUser(this.user.id, user.firstname, user.secondname, user.email, user.birthday, user.phone);
     console.log('data from form ', user);
     console.log('component send name to array service as ', user.firstname);
     edition.subscribe(
       answer => {
+            this.spinner.hide();
             console.log('answer from array service ', answer);
             console.log('finily this.user is ', this.user);
             this.editData();
+            this.showSuccess();
           }, err => {
+            this.spinner.hide();
+            this.showError();
             console.log('error from array service', err);
           }
     );
@@ -73,6 +89,14 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
     this.email = this.user.email;
     this.phone = this.user.phone;
     this.birthday = this.user.birthday;
+  }
+  showSuccess() {
+    this.toastr.success('Your data edited successfully!' );
+  }
+
+  showError() {
+    this.toastr.error('Please, try again.', 'Your data not edited!');
+
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
