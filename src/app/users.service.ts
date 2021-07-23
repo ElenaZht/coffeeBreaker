@@ -1,8 +1,7 @@
 import {Observable, Subject} from 'rxjs';
 export enum Roles {
   admin,
-  user,
-  guest
+  user
 }
 
 export interface User {

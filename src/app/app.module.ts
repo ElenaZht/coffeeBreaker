@@ -34,6 +34,8 @@ import { SignupComponent } from './signup/signup.component';
 import {ToastrModule, ToastrService, Overlay, OverlayContainer} from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { PersonalDataComponent } from './personal-data/personal-data.component';
+import {ItemsService} from './items.service';
+import {ItemsArrayService} from './items-array.service';
 
 
 @NgModule({
@@ -88,6 +90,7 @@ import { PersonalDataComponent } from './personal-data/personal-data.component';
   ],
   providers: [
     {provide: UsersService, useClass: UsersArrayService},
+    {provide: ItemsService, useClass: ItemsArrayService},
     ToastrService,
     Overlay,
     OverlayContainer

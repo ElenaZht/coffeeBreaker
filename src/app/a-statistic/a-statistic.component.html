@@ -3,19 +3,21 @@
       <div class="table">
         <span class="table-title">Sold for today</span>
         <hr>
-        <div class="titles">
+        <p *ngIf="!soldItems.length" class="template">No sold items for today yet..</p>
+
+        <div class="titles" *ngIf="soldItems.length">
           <span>item</span>
           <span>price for 1</span>
           <span>sold pieces</span>
           <span>total for item</span>
         </div>
         <hr>
-        <div class="items">
+        <div class="items" *ngIf="soldItems.length">
           <div *ngFor="let i of soldItems">
             <div class="table-raw">
-              <div class="img-title">
+              <div class="img-title" (click)="goToItem(i)">
                 <div class="img" [ngStyle]="{'background-image': 'url('+i.img+')'}"></div>
-                <span>{{(i.itemTitle.length > this.titleWidthPermition) ? (i.itemTitle | slice:0:this.titleWidthPermition)+'..': i.itemTitle}}</span>
+                <span>{{(i.title.length > this.titleWidthPermition) ? (i.title | slice:0:this.titleWidthPermition)+'..': i.title}}</span>
               </div>
               <div class="price">{{i.price}}₪</div>
               <div class="sold">{{i.sold}}</div>
@@ -32,7 +34,7 @@
         <span class="stat">Statistic</span>
         <span class="stat-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
       </div>
-      <div class="summary">
+      <div class="summary" *ngIf="soldItems.length">
         <div class="sum-row one">
           <span>Total for today:</span>
           <span>{{this.totalPerday}}₪</span>
@@ -41,7 +43,7 @@
           <span>Most popular today:</span>
           <div class="wrap" (click)="goToItem(this.itemPop)">
             <div class="mostPop" [ngStyle]="{'background-image': 'url('+this.itemPop.img+')'}"></div>
-            <span>{{(this.itemPop.itemTitle.length > this.titleWidthPermition) ? (this.itemPop.itemTitle | slice:0:this.titleWidthPermition)+'..': this.itemPop.itemTitle}}</span>
+            <span>{{(this.itemPop.title.length > this.titleWidthPermition) ? (this.itemPop.title | slice:0:this.titleWidthPermition)+'..': this.itemPop.title}}</span>
           </div>
 
         </div>
@@ -49,7 +51,7 @@
           <span>Most profitable today:</span>
           <div class="wrap" (click)="goToItem(this.itemProf)">
             <div class="mostPop" [ngStyle]="{'background-image': 'url('+this.itemProf.img+')'}"></div>
-            <span>{{(this.itemProf.itemTitle.length > this.titleWidthPermition) ? (this.itemProf.itemTitle | slice:0:this.titleWidthPermition)+'..': this.itemProf.itemTitle}}</span>
+            <span>{{(this.itemProf.title.length > this.titleWidthPermition) ? (this.itemProf.title | slice:0:this.titleWidthPermition)+'..': this.itemProf.title}}</span>
           </div>
 
         </div>

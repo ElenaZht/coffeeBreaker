@@ -363,8 +363,9 @@ export class MenuCategoryComponent implements OnInit  {
     const queryParams = this.route.snapshot.queryParams;
     const itemId = queryParams.itemId;
     this.choosedItem = this.category.products.find(i => {
-      return i.prodId === parseInt(itemId);
+      return i.prodId === parseInt(itemId, 10);
     });
+    console.log('choosed item is ', this.choosedItem);
 
   }
   @HostListener('window:scroll', [])

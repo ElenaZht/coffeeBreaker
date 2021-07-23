@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {ItemsService, SoldItem} from '../items.service';
 
 @Component({
   selector: 'app-a-statistic',
@@ -7,22 +8,12 @@ import {Router} from '@angular/router';
   styleUrls: ['./a-statistic.component.css']
 })
 export class AStatisticComponent implements OnInit {
-  soldItems = [
-    {itemTitle: 'Capuchino', price: 13, sold: 19, img: '../../assets/coffee-cup.png'},
-    {itemTitle: 'Latte', price: 15, sold: 18, img: '../../assets/coffee-cup.png'},
-    {itemTitle: 'Latte Maciata', price: 17, sold: 15, img: '../../assets/coffee-cup.png'},
-    {itemTitle: 'Tea green with lemon, menta and herbs', price: 10, sold: 100, img: '../../assets/coffee-cup.png'},
-    {itemTitle: 'Donut Choco', price: 8, sold: 10, img: '../../assets/donut.jpg'},
-    {itemTitle: 'Shake apple and honey', price: 15, sold: 9, img: '../../assets/juice-cup.jpg'},
-    {itemTitle: 'Shake orange and menta', price: 15, sold: 3, img: '../../assets/juice-cup.jpg'},
-    {itemTitle: 'Cupcake vanilla', price: 13, sold: 2, img: '../../assets/cupcake.png'},
-    {itemTitle: 'Sandwich with cheece', price: 18, sold: 1, img: '../../assets/sandwich.jpg'}
-  ];
+  soldItems: SoldItem[] = [];
   itemPop: object;
   itemProf: object;
   totalPerday: number;
   titleWidthPermition = 20;
-  constructor(private router: Router) {
+  constructor(private router: Router, private itemServise: ItemsService) {
     if (window.screen.width <= 500) {
       this.titleWidthPermition = 7;
       console.log('screen less 500');
@@ -33,6 +24,12 @@ export class AStatisticComponent implements OnInit {
       this.titleWidthPermition = 15;
       console.log('screen less 1400');
     }
+    this.itemServise.GetSoldItems().subscribe(
+      res => {
+        this.soldItems = res;
+        console.log('statistics get sold items');
+      }
+    );
   }
 
   ngOnInit() {
@@ -52,6 +49,7 @@ export class AStatisticComponent implements OnInit {
 
   goToItem(item) {
     const c = item.menuCategory;
+    console.log('this item id is ', item.prodId, 'and category is ', item.menuCategory);
     this.router.navigate(['/menu_category', c], {queryParams: { itemId: item.prodId }});
   }
 }

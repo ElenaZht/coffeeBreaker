@@ -185,6 +185,12 @@ hr {
 .wrap > span{
   font: 1vmax JosefinSans Regular;
 }
+.template {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 2vmax JosefinSans Regular;
+}
 @media only screen and (max-width: 1024px) and (orientation: portrait){
   .main {
     flex-direction: column-reverse;
