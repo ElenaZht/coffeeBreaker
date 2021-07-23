@@ -24,6 +24,15 @@ export interface MenuCategory {
   text: string;
   products: Item[];
 }
+export interface Contacts {
+  instagram?: string;
+  facebook?: string;
+  email?: string;
+  phone1?: string;
+  phone2?: string;
+  phone3?: string;
+  address?: string;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -34,4 +43,7 @@ export abstract class ItemsService {
   abstract GetSoldItems(): Observable<SoldItem[]>;
   abstract SoldTheItem(item: Item): boolean;
   abstract GetItemsByCategory(categoryName): Observable<Item[]>;
+  abstract GetContacts(): Observable<Contacts>;
+  abstract EditContacts(instagram: string, facebook: string, email: string, phone1: string, phone2: string, phone3: string, address: string): Observable<Contacts>;
+
 }

@@ -168,6 +168,22 @@ hr {
   display: flex;
   align-items: center;
 }
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5%;
+}
+.edit {
+  opacity: 0.5;
+  border: none;
+  background: white;
+}
+.edit:hover {
+  opacity: 1;
+}
+.edit:active {
+  transform: scale(1.1);
+}
 @media only screen and (max-width: 1024px){
   .main {
     display: none;

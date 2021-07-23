@@ -1,7 +1,7 @@
 <app-frame>
   <div class="main">
     <div class="wrapper">
-      <div class="category-card">
+      <div class="category-card" [ngStyle]="{'height':isAdmine? '60vh':'45vh'}">
         <div class="card-content">
           <div class="card-header">
             <div class="hr-wrap-top"><hr></div>
@@ -9,36 +9,54 @@
             <div class="hr-wrap-top"><hr></div>
           </div>
           <div class="card-body">
-            <div class="contacts">
-              <div class="contact">
-                <div class="contact-icon instagram"></div>
-                <div class="contact-text">@coffee_breaker</div>
-              </div>
-              <div class="contact">
-                <div class="contact-icon facebook" ></div>
-                <div class="contact-text">coffee_breaker.com</div>
-              </div>
-              <div class="contact">
-                <div class="contact-icon email"></div>
-                <div class="contact-text">coffee_breaker@gmail.com</div>
-              </div>
-              <div class="contact">
-                <div class="contact-icon phone"></div>
-                <div class="contact-text">052-556-667</div>
-              </div>
-              <div class="contact">
-                <div class="contact-icon phone"></div>
-                <div class="contact-text">052-556-688</div>
-              </div>
-              <div class="contact">
-                <div class="contact-icon phone"></div>
-                <div class="contact-text">052-556-629</div>
-              </div>
-              <div class="contact">
-                <div class="contact-icon address"></div>
-                <div class="contact-text">Tel Aviv, st. Ben Gurion, 9</div>
-              </div>
+            <div class="buttons" *ngIf="isAdmine">
+              <button class="edit" (click)="editData()">
+                <fa-icon class="fas fa-pencil-alt fa-2x" [icon]="['fas', 'pencil-alt']"  aria-pressed="true"></fa-icon>
+              </button>
+              <button class="edit" *ngIf="isButtonsShown" (click)="onSubmit(contactsForm)">
+                <fa-icon class="fas fa-check fa-2x" [icon]="['fas', 'check']"  aria-pressed="true"></fa-icon>
+              </button>
+              <button class="edit" *ngIf="isButtonsShown" (click)="undo()">
+                <fa-icon class="fas fa-undo fa-2x" [icon]="['fas', 'undo']"  aria-pressed="true"></fa-icon>
+              </button>
             </div>
+            <form class="contacts" #contactsForm="ngForm">
+              <div class="contact" *ngIf="contacts && contacts.instagram">
+                <div class="contact-icon instagram"></div>
+                <div class="contact-text" *ngIf="!isAdmine">@coffee_breaker</div>
+                <input class="contact-text" *ngIf="isAdmine" [(ngModel)]="instagram" name="instagram">
+              </div>
+              <div class="contact" *ngIf="contacts && contacts.facebook">
+                <div class="contact-icon facebook" ></div>
+                <div class="contact-text"  *ngIf="!isAdmine">coffee_breaker.com</div>
+                <input class="contact-text"  *ngIf="isAdmine" [(ngModel)]="facebook" name="facebook">
+              </div>
+              <div class="contact" *ngIf="contacts && contacts.email">
+                <div class="contact-icon email"></div>
+                <div class="contact-text" *ngIf="!isAdmine">coffee_breaker@gmail.com</div>
+                <input class="contact-text" *ngIf="isAdmine" [(ngModel)]="email" name="email">
+              </div>
+              <div class="contact" *ngIf="contacts && contacts.phone1">
+                <div class="contact-icon phone"></div>
+                <div class="contact-text" *ngIf="!isAdmine">052-556-667</div>
+                <input class="contact-text" *ngIf="isAdmine" [(ngModel)]="phone1" name="phone1">
+              </div>
+              <div class="contact" *ngIf="contacts && contacts.phone2">
+                <div class="contact-icon phone"></div>
+                <div class="contact-text" *ngIf="!isAdmine">052-556-688</div>
+                <input class="contact-text" *ngIf="isAdmine" [(ngModel)]="phone2" name="phone2">
+              </div>
+              <div class="contact" *ngIf="contacts && contacts.phone3">
+                <div class="contact-icon phone"></div>
+                <div class="contact-text" *ngIf="!isAdmine">052-556-629</div>
+                <input class="contact-text" *ngIf="isAdmine" [(ngModel)]="phone3" name="phone3">
+              </div>
+              <div class="contact" *ngIf="contacts && contacts.address">
+                <div class="contact-icon address"></div>
+                <div class="contact-text" *ngIf="!isAdmine">Tel Aviv, st. Ben Gurion, 9</div>
+                <input class="contact-text" *ngIf="isAdmine" [(ngModel)]="address" name="address">
+              </div>
+            </form>
 
           </div>
           <div class="card-footer">

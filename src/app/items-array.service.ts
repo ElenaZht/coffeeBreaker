@@ -1,6 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Item, ItemsService, SoldItem} from './items.service';
+import {Contacts, Item, ItemsService, SoldItem} from './items.service';
 import {Observable, of} from 'rxjs';
+import {environment} from './environments/environment';
+import {map} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -42,7 +46,13 @@ export class ItemsArrayService implements ItemsService {
       sold: 18, date: new Date()
     }
   ];
-  constructor() {
+  contacts: Contacts;
+  constructor(private http: HttpClient) {
+    this.GetContacts().subscribe(
+      res => {
+        this.contacts = res;
+      }
+    );
     // const a = {prodId: 1007, title: 'Capuchino', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
     //     'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     //   img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
@@ -80,6 +90,31 @@ export class ItemsArrayService implements ItemsService {
     console.log('sold item is ', sItem);
     this.soldItems.push(sItem);
     return true;
+  }
+
+  GetContacts(): Observable<Contacts> {
+    return this.http.get<Contacts>(`${environment.apiUrl}/api/contacts/0`);
+  }
+
+  EditContacts(instagram, facebook, email, phone1, phone2, phone3, address): Observable<Contacts> {
+    return this.http.patch<Contacts>(`${environment.apiUrl}/api/contacts/0`, {instagram, facebook, email, phone1, phone2, phone3, address}).pipe(map( res => {
+        if (res) {
+          console.log('change data status', res);
+          this.contacts.instagram = res.instagram;
+          this.contacts.facebook = res.facebook;
+          this.contacts.email = res.email;
+          this.contacts.phone1 = res.phone1;
+          this.contacts.phone2 = res.phone2;
+          this.contacts.phone3 = res.phone3;
+          this.contacts.address = res.address;
+        } else {
+          console.log('we have no res from server');
+        }
+        return res;
+      }, err => {
+        console.log('items service got error from server', err);
+      }
+    ));
   }
 
 }
