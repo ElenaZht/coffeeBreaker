@@ -55,6 +55,7 @@
           <input [disabled]="isDisabled" id="bday" [(ngModel)]="birthday" name="birthday">
 
         </div>
+        <div (click)="deleteUser(user)" *ngIf="!isDisabled" class="delAccount">Delete my account.</div>
       </form>
 
     </div>

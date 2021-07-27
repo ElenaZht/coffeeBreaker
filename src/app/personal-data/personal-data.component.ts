@@ -69,10 +69,10 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
             console.log('answer from array service ', answer);
             console.log('finily this.user is ', this.user);
             this.editData();
-            this.showSuccess();
+            this.showSuccess('Your data edited successfully!');
           }, err => {
             this.spinner.hide();
-            this.showError();
+            this.showError('Please, try again.', 'Your data not edited!');
             console.log('error from array service', err);
           }
     );
@@ -90,15 +90,33 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
     this.phone = this.user.phone;
     this.birthday = this.user.birthday;
   }
-  showSuccess() {
-    this.toastr.success('Your data edited successfully!' );
+  showSuccess(msg) {
+    this.toastr.success(msg);
   }
 
-  showError() {
-    this.toastr.error('Please, try again.', 'Your data not edited!');
+  showError(msg, title) {
+    this.toastr.error(msg, title);
 
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  deleteUser(user: User) {
+    if (confirm('Are you sure you wont to delete your account? ')) {
+      this.spinner.show();
+      this.userService.RemoveUser(user.id).subscribe(
+        res => {
+          if (res) {
+            this.userService.logout();
+            this.spinner.hide();
+            this.showSuccess('Your account deleted successfully!');
+          }
+        }, err => {
+          this.spinner.hide();
+          this.showError(err.statusText, 'Your account not deleted');
+        }
+      );
+    }
   }
 }

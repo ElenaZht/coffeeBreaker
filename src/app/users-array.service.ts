@@ -107,9 +107,9 @@ export class UsersArrayService implements UsersService {
     this.logout();
   }
 
-  removeUser(id: number): Observable<boolean> {
+  RemoveUser(id: number): Observable<boolean> {
     console.log('remove user: ', id);
-    return this.http.delete<boolean>(`${environment.apiUrl}/users/removeuser/${id}`);
+    return this.http.delete<boolean>(`${environment.apiUrl}/api/users/${id}`);
   }
 
 }

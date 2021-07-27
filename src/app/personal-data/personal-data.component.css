@@ -96,3 +96,16 @@ label {
   max-width: 25%;
   font: 1vw JosefinSans Regular;
 }
+.delAccount {
+  font: 1vw JosefinSans Regular;
+  color: #E04523;
+  border: dotted 2px #E04523;
+  width: fit-content;
+}
+.delAccount:hover {
+  transform: scale(1.1);
+}
+.delAccount:active {
+  transform: scale(1.2);
+  background: white;
+}

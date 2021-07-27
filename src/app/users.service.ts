@@ -18,7 +18,7 @@ export interface User {
 
 export abstract class UsersService {
   abstract AddUser(user: User): Observable<boolean>;
-  abstract removeUser(id: number): Observable<boolean>;
+  abstract RemoveUser(id: number): Observable<boolean>;
   abstract getUserById(id: number): Observable<User>;
   abstract logIn(email: string, password: string ): Observable<boolean>;
   abstract logout();
