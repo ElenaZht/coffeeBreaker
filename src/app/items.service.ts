@@ -33,6 +33,13 @@ export interface Contacts {
   phone3?: string;
   address?: string;
 }
+export interface Branch {
+  id: number;
+  address: string;
+  desc: string;
+  photo: string;
+  popular?: boolean;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -45,5 +52,11 @@ export abstract class ItemsService {
   abstract GetItemsByCategory(categoryName): Observable<Item[]>;
   abstract GetContacts(): Observable<Contacts>;
   abstract EditContacts(instagram: string, facebook: string, email: string, phone1: string, phone2: string, phone3: string, address: string): Observable<Contacts>;
+  abstract GetBranches(): Observable<Branch[]>;
+  abstract DeleteBranch(branch: Branch): Observable<boolean>;
+  abstract AddNewBranch(branch: Branch): Observable<boolean>;
+  abstract EditBranch(branch: Branch): Observable<Branch>;
+  abstract ChangeBranchStatus(branch: Branch, newStatus): Observable<boolean>;
+
 
 }

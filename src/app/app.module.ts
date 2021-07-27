@@ -36,6 +36,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { PersonalDataComponent } from './personal-data/personal-data.component';
 import {ItemsService} from './items.service';
 import {ItemsArrayService} from './items-array.service';
+import { NewBranchComponent } from './new-branch/new-branch.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import {ItemsArrayService} from './items-array.service';
     NavbarComponent,
     LoginComponentComponent,
     SignupComponent,
-    PersonalDataComponent
+    PersonalDataComponent,
+    NewBranchComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +88,8 @@ import {ItemsArrayService} from './items-array.service';
     PayformDialogComponent,
     MenuItemDialogComponent,
     LoginComponentComponent,
-    SignupComponent
+    SignupComponent,
+    NewBranchComponent
   ],
   providers: [
     {provide: UsersService, useClass: UsersArrayService},

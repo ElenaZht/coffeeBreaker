@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Contacts, Item, ItemsService, SoldItem} from './items.service';
-import {Observable, of} from 'rxjs';
+import {Branch, Contacts, Item, ItemsService, SoldItem} from './items.service';
+import {BehaviorSubject, Observable, of} from 'rxjs';
 import {environment} from './environments/environment';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
@@ -47,6 +47,7 @@ export class ItemsArrayService implements ItemsService {
     }
   ];
   contacts: Contacts;
+  branches$ = new BehaviorSubject<Branch[]>([]);
   constructor(private http: HttpClient) {
     this.GetContacts().subscribe(
       res => {
@@ -63,6 +64,12 @@ export class ItemsArrayService implements ItemsService {
     //     this.SoldTheItem(a);
     //   }
     //   , 5000);
+
+    this.http.get<Branch[]>(`${environment.apiUrl}/api/branches`).subscribe(
+      res => {
+        this.branches$.next(Object.assign([], res));
+      }
+    );
   }
 
   AddItem(item: Item): Observable<boolean> {
@@ -115,6 +122,67 @@ export class ItemsArrayService implements ItemsService {
         console.log('items service got error from server', err);
       }
     ));
+  }
+
+  DeleteBranch(branch): Observable<boolean> {
+    return this.http.delete<boolean>(`${environment.apiUrl}/api/branches/${branch.id}`).pipe(map(
+      res => {
+        const branches = this.branches$.value;
+        const brIndx = branches.findIndex(b => b.id === branch.id);
+        branches.splice(brIndx, 1);
+        this.branches$.next(branches);
+        return true;
+      }, err => {
+        return false;
+      }
+    ));
+  }
+
+  GetBranches(): Observable<Branch[]> {
+    return this.branches$.asObservable();
+  }
+
+  EditBranch(branch): Observable<Branch> {
+    return this.http.patch<Branch>(`${environment.apiUrl}/api/branches/${branch.id}`, {address: branch.address, desc: branch.desc, photo: branch.photo}).pipe(map(
+      res => {
+        const branches = this.branches$.value;
+        const brIndx = branches.findIndex(b => b.id === branch.id);
+        branches[brIndx] = res;
+        this.branches$.next(branches);
+        return branch;
+      }
+    ));
+  }
+
+  ChangeBranchStatus(branch: Branch, newStatus: boolean): Observable<boolean> {
+    return this.http.patch<boolean>(`${environment.apiUrl}/api/branches/${branch.id}`, {popular: newStatus}).pipe(map(
+      res => {
+        const branches = this.branches$.value;
+        const brIndx = branches.findIndex(b => b.id === branch.id);
+        if (!branch.popular) {
+          console.log('branch with no popular prop ', branch.popular);
+          branch.popular = true;
+          this.branches$.next(branches);
+          return true;
+        }
+        branches[brIndx].popular = !branches[brIndx].popular;
+        this.branches$.next(branches);
+        return true;
+      }
+    ));
+  }
+
+  AddNewBranch(newBranch: Branch): Observable<boolean> {
+    return this.http.post<Branch>(`${environment.apiUrl}/api/branches`, newBranch).pipe(map(
+      res => {
+        const branches = this.branches$.value;
+        branches.push(res);
+        this.branches$.next(branches);
+        return true;
+      }, err => {
+        return err;
+      }
+  ));
   }
 
 }

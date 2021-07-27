@@ -1,0 +1,38 @@
+<div class="category-card">
+  <div class="card-content">
+    <div class="card-header">
+      <div class="hr-wrap-top"><hr></div>
+      <div class="logo-m heder-logo"></div>
+      <div class="hr-wrap-top"><hr></div>
+    </div>
+    <div class="card-body">
+      <div class="photo" [ngStyle]="{'background-image': 'url('+photo+')', 'filter':gray? 'grayscale(100%)':'none'}">
+        <input style="visibility: hidden" class="hover-text" id="chooseFile" type='file' (change)="onSelectFile($event)">
+        <label for="chooseFile" class="hover-text"> <fa-icon size="4x" [icon]="['fas', 'images']"></fa-icon></label>
+      </div>
+      <form class="about" #brachForm="ngForm">
+        <div class="address">
+          <div class="contact-icon pointer"></div>
+          <input class="adr" required="" [(ngModel)]="address" name="address" placeholder="Address (ex.: Tel Aviv, st.Jerusalim, 1)">
+        </div>
+          <input class="description" maxlength="350" [(ngModel)]="desc" name="desc" placeholder="Description (ex.: Lorem ipsum, fata de..)">
+        <div class="buttons">
+          <button class="edit" (click)="onSubmit(brachForm)" [disabled]="!address.length">
+            <fa-icon class="fas fa-check fa-2x" [icon]="['fas', 'check']"  aria-pressed="true"></fa-icon>
+          </button>
+          <button class="edit" (click)="undo()" [disabled]="!address.length && !desc.length">
+            <fa-icon class="fas fa-times fa-2x" [icon]="['fas', 'times']"  aria-pressed="true"></fa-icon>
+          </button>
+        </div>
+        <div class="splashes">
+          <div class="spl-milk"></div>
+          <div class="spl-cof"></div>
+          <div class="spl-tes"></div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <hr>
+    </div>
+  </div>
+</div>

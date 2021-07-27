@@ -9,18 +9,19 @@
         irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </span>
     </div>
+    <button class="orangebtn" *ngIf="isAdmin" (click)="AddBranch()"><p class="bnttext"><fa-icon class="fas fa-plus" [icon]="['fas', 'plus']"  aria-pressed="true"></fa-icon><span style="width: 70%;">Add new branch</span></p></button>
     <div class="wrap">
       <div class="most-popular">
         <div class="pop-arrow"></div>
         <div class="pop-branches">
-          <div class="contact" *ngFor="let b of mostPopular" (click)="onBranch(b)">
+          <div class="contact" *ngFor="let b of mostPopular | slice:0:6" (click)="onBranch(b)">
             <div class="contact-icon pointer"></div>
             <div class="contact-text">{{b.address}}</div>
           </div>
         </div>
       </div>
       <div class="all-branches">
-        <div class="contact" *ngFor="let b of branches" (click)="onBranch(b)">
+        <div class="contact" *ngFor="let b of (branches$ | async)" (click)="onBranch(b)">
           <div class="contact-icon pointer"></div>
           <div class="contact-text">{{b.address}}</div>
         </div>
@@ -32,7 +33,8 @@
       <span class="our-comminment">Branches</span>
     </div>
     <div class="all-branches">
-      <div class="contact" *ngFor="let b of branches" (click)="onBranch(b)">
+      <button class="orangebtn" *ngIf="isAdmin" (click)="AddBranch()"><p class="bnttext"><fa-icon class="fas fa-plus" [icon]="['fas', 'plus']"  aria-pressed="true"></fa-icon><span style="width: 70%;">Add new branch</span></p></button>
+      <div class="contact" *ngFor="let b of (branches$ | async)" (click)="onBranch(b)">
         <div class="contact-icon pointer"></div>
         <div class="contact-text">{{b.address}}</div>
       </div>

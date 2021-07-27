@@ -6,19 +6,45 @@
       <div class="hr-wrap-top"><hr></div>
     </div>
     <div class="card-body">
-      <div class="photo" [ngStyle]="{'background-image': 'url('+data.photo+')'}"></div>
-      <div class="about">
+      <div class="photo" [ngStyle]="{'background-image': 'url('+photo+')'}">
+        <input *ngIf="isShowEdit" style="visibility: hidden" class="hover-text" id="chooseFile" type='file' (change)="onSelectFile($event)">
+        <label *ngIf="isShowEdit" for="chooseFile" class="hover-text"> <fa-icon size="4x" [icon]="['fas', 'images']"></fa-icon></label>
+      </div>
+      <form class="about" #brachForm="ngForm">
         <div class="address">
           <div class="contact-icon pointer"></div>
-          <div class="adr">{{data.address}}</div>
+          <div class="adr" *ngIf="!isShowEdit">{{address}}</div>
+          <input class="adr" *ngIf="isShowEdit" [(ngModel)]="address" name="address">
+          <div class="popular" *ngIf="branch.popular">popular</div>
         </div>
-        <div class="description">{{data.desc}}</div>
+        <div class="description" *ngIf="!isShowEdit">{{desc}}</div>
+        <input class="description" *ngIf="isShowEdit" [(ngModel)]="desc" name="desc">
+        <div class="buttons" *ngIf="isAdmin">
+          <button class="edit" (click)="editData()">
+            <fa-icon class="fas fa-pencil-alt fa-2x" [icon]="['fas', 'pencil-alt']"  aria-pressed="true"></fa-icon>
+          </button>
+          <button class="edit" *ngIf="isShowEdit" (click)="onSubmit(brachForm)">
+            <fa-icon class="fas fa-check fa-2x" [icon]="['fas', 'check']"  aria-pressed="true"></fa-icon>
+          </button>
+          <button class="edit" *ngIf="isShowEdit" (click)="undo()">
+            <fa-icon class="fas fa-undo fa-2x" [icon]="['fas', 'undo']"  aria-pressed="true"></fa-icon>
+          </button>
+          <button class="edit" *ngIf="isShowEdit" (click)="delete(branch)">
+            <fa-icon class="fas fa-trash-alt fa-2x" [icon]="['fas', 'trash-alt']"  aria-pressed="true"></fa-icon>
+          </button>
+        </div>
+        <button class="rempop" *ngIf="isShowEdit && isAdmin && branch.popular" (click)="removeFromPop(branch)">
+          remove from popular
+        </button>
+        <button class="rempop" *ngIf="isShowEdit && isAdmin && !branch.popular" (click)="addToPop(branch)">
+          add to popular
+        </button>
         <div class="splashes">
           <div class="spl-milk"></div>
           <div class="spl-cof"></div>
           <div class="spl-tes"></div>
         </div>
-      </div>
+      </form>
     </div>
     <div class="card-footer">
       <hr>

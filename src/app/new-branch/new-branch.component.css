@@ -69,6 +69,7 @@ hr {
   width: 3vw;
   height: 5vh;
   transform: scale(1);
+  opacity: .5;
 }
 .address {
   display: flex;
@@ -103,8 +104,13 @@ hr {
 }
 .photo {
   background-position: center;
+  background-size: cover;
   height: 100%;
   width: 50%;
+  opacity: 0.7;
+}
+.photo:hover {
+  opacity: 0.35;
 }
 .hover-text {
   visibility: hidden;
@@ -118,6 +124,7 @@ hr {
   color: white;
 
 }
+
 .adr {
   font: 1.5vw JosefinSans Regular;
 }
@@ -156,6 +163,9 @@ hr {
   display: flex;
   justify-content: space-between;
   margin-bottom: 5%;
+  width: 50%;
+  position: relative;
+  left: 25%;
 }
 .edit {
   opacity: 0.5;
