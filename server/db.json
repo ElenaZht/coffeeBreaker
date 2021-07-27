@@ -1,24 +1,58 @@
 {
   "users": [
     {
-      "firstname": "Dmitry",
-      "secondname": "Zhytomirski222",
-      "email": "dima@gmail.com",
-      "phone": "0543332244",
-      "birthday": "24/09/1983",
-      "id": 1,
-      "role": 0,
-      "password": "12345678"
-    },
-    {
       "email": "lena@mail.com",
       "password": "12345678",
-      "role": 1,
-      "id": 2,
-      "firstname": "Elena",
-      "secondname": "Zhytomirskaya",
+      "role": "user",
+      "id": 0,
+      "name": "Elena",
       "phone": "0543332555",
       "birthday": "05/10/1995"
+    },
+    {
+      "email": "dimazh@gmail.com",
+      "password": "12345678",
+      "role": "user",
+      "name": "Dmotry",
+      "phone": "0543332555",
+      "birthday": "24/09/1983",
+      "id": 1
+    },
+    {
+      "email": "lenalena@gmail.com",
+      "password": "12345678",
+      "role": "user",
+      "name": "Lena Lena",
+      "phone": "0543332555",
+      "birthday": "24/09/1983",
+      "id": 2
+    },
+    {
+      "email": "alonalena@gmail.com",
+      "password": "12345678",
+      "role": "user",
+      "name": "Alona Lena",
+      "phone": "0543332555",
+      "birthday": "24/09/1983",
+      "id": 3
+    },
+    {
+      "name": "Alena",
+      "login": "ElenaZht",
+      "email": "alona@gmail.com",
+      "birthday": "2021-07-27",
+      "phone": "0523334455",
+      "password": "12345678",
+      "id": 4
+    },
+    {
+      "name": "lena",
+      "login": "ElenaZht",
+      "email": "len@gmail.com",
+      "birthday": "2021-07-27",
+      "phone": "0512223344",
+      "password": "12345678",
+      "id": 5
     }
   ],
   "items": [

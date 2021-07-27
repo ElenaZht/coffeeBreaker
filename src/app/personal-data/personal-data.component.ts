@@ -5,7 +5,7 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {faPencilAlt, faCheck, faUndo} from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
-
+import { DatePipe } from '@angular/common';
 
 library.add(faPencilAlt);
 library.add(faCheck);
@@ -22,14 +22,13 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
   isAdmin = false;
   isButtonsShown = false;
   isDisabled = true;
-  firstname: string;
-  secondname: string;
+  name: string;
   email: string;
   phone: string;
-  birthday: Date;
+  birthday: any;
   subscription;
 
-  constructor(private userService: UsersService, private toastr: ToastrService, private spinner: NgxSpinnerService) {}
+  constructor(private userService: UsersService, private toastr: ToastrService, private spinner: NgxSpinnerService, public datepipe: DatePipe) {}
 
   ngOnInit() {
     this.subscription = this.userService.getUser().subscribe(user => {
@@ -39,16 +38,15 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
           if (this.user.role === 0) {
             this.isAdmin = true;
           }
-          this.firstname = this.user.firstname;
-          this.firstname = this.user.firstname;
-          this.secondname = this.user.secondname;
+          this.name = this.user.name;
           this.email = this.user.email;
           this.phone = this.user.phone;
           this.birthday = this.user.birthday;
+          this.birthday = this.datepipe.transform(this.birthday, 'dd MMMM yyyy');
+          console.log('bd', this.birthday);
+
         } else {
-          this.firstname = '';
-          this.firstname = '';
-          this.secondname = '';
+          this.name = '';
           this.email = '';
           this.phone = '';
           this.birthday = new Date();
@@ -60,9 +58,9 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
   onSubmit(dataForm: NgForm) {
     this.spinner.show();
     const user = dataForm.value as User;
-    const edition = this.userService.editUser(this.user.id, user.firstname, user.secondname, user.email, user.birthday, user.phone);
+    const edition = this.userService.editUser(this.user.id, user.name, user.email, user.birthday, user.phone);
     console.log('data from form ', user);
-    console.log('component send name to array service as ', user.firstname);
+    console.log('component send name to array service as ', user.name);
     edition.subscribe(
       answer => {
             this.spinner.hide();
@@ -84,8 +82,7 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
   }
 
   undo() {
-    this.firstname = this.user.firstname;
-    this.secondname = this.user.secondname;
+    this.name = this.user.name;
     this.email = this.user.email;
     this.phone = this.user.phone;
     this.birthday = this.user.birthday;

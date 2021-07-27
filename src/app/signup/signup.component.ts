@@ -12,7 +12,11 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class SignupComponent implements OnInit {
   errorText: string;
-  user = {login: '', email: '', bday: '', password: '', phone: ''};
+  email: string;
+  birthday: Date;
+  password: string;
+  phone: string;
+  user = {email: '', birthday: '', password: '', phone: ''};
 
   constructor(public dialogRef: MatDialogRef<SignupComponent>, private usersService: UsersService, private toastr: ToastrService, private spinner: NgxSpinnerService) {
     this.errorText = '';
@@ -31,9 +35,13 @@ export class SignupComponent implements OnInit {
     this.usersService.AddUser(user).subscribe(
       () => {
         this.spinner.hide();
-        this.exit();
-        console.log('new user! ', user);
-        this.showSuccess(user);
+        this.usersService.logIn(user.email, user.password).subscribe(
+          res => {
+            this.exit();
+            console.log('new user! ', user);
+            this.showSuccess(user);
+          }
+        );
       }, err => {
         this.spinner.hide();
         console.log('error from sign up ', err);

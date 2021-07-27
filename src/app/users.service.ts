@@ -6,8 +6,7 @@ export enum Roles {
 
 export interface User {
   id: number;
-  firstname: string;
-  secondname: string;
+  name: string;
   email: string;
   phone: string;
   birthday: Date;
@@ -24,7 +23,7 @@ export abstract class UsersService {
   abstract logout();
   abstract isLoggedIn(): boolean;
   abstract isAdmin(): boolean;
-  abstract editUser(id: number, firstName: string, secondName: string, email: string, birthday: any, phone: string): Observable<User>;
+  abstract editUser(id: number, name: string, email: string, birthday: any, phone: string): Observable<User>;
   abstract getUser(): Observable<User>;
   abstract test();
   abstract getCurrentUser(): User;

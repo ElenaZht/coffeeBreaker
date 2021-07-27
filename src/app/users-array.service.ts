@@ -28,12 +28,11 @@ export class UsersArrayService implements UsersService {
   AddUser(user: User): Observable<boolean> {
     console.log(user);
     console.log(environment.apiUrl);
-    return this.http.post<boolean>(`${environment.apiUrl}/signup`, user);
+    return this.http.post<boolean>(`${environment.apiUrl}/api/users`, user);
 
   }
 
   logIn(email: string, password: string ): Observable<boolean> {
-    // return new Observable<true>();
     return this.http.post<User>(`${environment.apiUrl}/login`, {email, password})
       .pipe(map(user => {
       console.log('UserService.Login', user);
@@ -73,14 +72,13 @@ export class UsersArrayService implements UsersService {
     return false;
   }
 
-  editUser(id: number, firstname: string, secondname: string, email: string, birthday: any, phone: string): Observable<User> {
-    console.log('firstname comes to array server from component ', firstname);
+  editUser(id: number, name: string, email: string, birthday: any, phone: string): Observable<User> {
+    console.log('firstname comes to array server from component ', name);
     // tslint:disable-next-line:max-line-length
-    return this.http.patch<User>(`${environment.apiUrl}/api/users/${id}`, {firstname, secondname, email, phone, birthday}).pipe(map( res => {
+    return this.http.patch<User>(`${environment.apiUrl}/api/users/${id}`, {name, email, phone, birthday}).pipe(map( res => {
       if (res) {
         console.log('change data status', res);
-        this.currentUser.firstname = res.firstname;
-        this.currentUser.secondname = res.secondname;
+        this.currentUser.name = res.name;
         this.currentUser.email = res.email;
         this.currentUser.phone = res.phone;
         this.currentUser.birthday = res.birthday;

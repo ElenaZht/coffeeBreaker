@@ -32,13 +32,8 @@
       </div>
       <form #data_Form="ngForm" (ngSubmit)="onSubmit(data_Form)">
         <div class="wrap">
-          <label for="name">First name: </label>
-          <input [disabled]="isDisabled" id="name" [(ngModel)]="firstname" name="firstname">
-        </div>
-        <div class="wrap">
-          <label for="lastname">Last name: </label>
-          <input [disabled]="isDisabled" id="lastname" [(ngModel)]="secondname" name="secondname">
-
+          <label for="name">My Name: </label>
+          <input [disabled]="isDisabled" id="name" [(ngModel)]="name" name="name">
         </div>
         <div class="wrap">
           <label for="email">Email: </label>

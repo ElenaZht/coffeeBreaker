@@ -37,6 +37,7 @@ import { PersonalDataComponent } from './personal-data/personal-data.component';
 import {ItemsService} from './items.service';
 import {ItemsArrayService} from './items-array.service';
 import { NewBranchComponent } from './new-branch/new-branch.component';
+import {DatePipe} from '@angular/common';
 
 
 @NgModule({
@@ -96,7 +97,8 @@ import { NewBranchComponent } from './new-branch/new-branch.component';
     {provide: ItemsService, useClass: ItemsArrayService},
     ToastrService,
     Overlay,
-    OverlayContainer
+    OverlayContainer,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
