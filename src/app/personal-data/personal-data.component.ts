@@ -49,7 +49,7 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
           this.name = '';
           this.email = '';
           this.phone = '';
-          this.birthday = new Date();
+          this.birthday = '';
         }
       }
     );

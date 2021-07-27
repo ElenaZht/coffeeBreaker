@@ -14,6 +14,8 @@ import {TrayComponent} from './tray/tray.component';
 import {MenuCategoryComponent} from './menu-category/menu-category.component';
 import {AOrdersComponent} from './a-orders/a-orders.component';
 import {PersonalDataComponent} from './personal-data/personal-data.component';
+import {AuthGuard} from '../../server/auth.guard';
+
 
 const routes: Routes = [
   {path: 'homepage', component: HomePageComponent },
@@ -25,11 +27,11 @@ const routes: Routes = [
   {path: 'lang', component: LanguagesDialigComponent},
   {path: 'branches', component: BranchesComponent},
   {path: 'branch', component: BranchItemComponent},
-  {path: 'account', component: AccountComponent},
-  {path: 'statistic', component: AStatisticComponent},
-  {path: 'orders_control', component: AOrdersComponent},
+  {path: 'account', component: AccountComponent,  canActivate: [AuthGuard], children: []},
+  {path: 'statistic', component: AStatisticComponent,  canActivate: [AuthGuard], children: []},
+  {path: 'orders_control', component: AOrdersComponent,  canActivate: [AuthGuard], children: []},
   {path: 'tray', component: TrayComponent},
-  {path: 'personal_data', component: PersonalDataComponent},
+  {path: 'personal_data', component: PersonalDataComponent, canActivate: [AuthGuard], children: []},
   {path: '**', component: HomePageComponent }
 ];
 

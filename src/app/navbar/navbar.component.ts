@@ -95,6 +95,14 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
         this.isAdmin = false;
         this.userService.logout();
         this.showSuccess();
+        if (this.router.url.includes('account') ||
+          this.router.url.includes('personal_data') ||
+          this.router.url.includes('my_orders') ||
+          this.router.url.includes('my_cards') ||
+          this.router.url.includes('statistic') ||
+          this.router.url.includes('orders_control')) {
+          this.router.navigate(['/homepage']);
+        }
       }
       document.getElementById('logout').classList.remove('active-tab');
     }, 500);
