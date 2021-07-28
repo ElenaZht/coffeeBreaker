@@ -32,13 +32,21 @@
               <span class="item-desc">{{data.desc}}</span>
             </div>
             <div class="btns-wrap">
-              <button class="orangebtn">
+              <button class="orangebtn" *ngIf="!isAdmine">
               <fa-icon class="fas fa-2x fa-plus btn2 active" [icon]="['fas', 'plus']" style="color: white;margin-left: 5%"  aria-pressed="true"></fa-icon>
                 <span class="bnttext">Add to tray</span>
               </button>
-              <button class="orangebtn graybtn">
+              <button class="orangebtn graybtn" *ngIf="!isAdmine">
               <fa-icon class="fas fa-2x fa-shopping-cart btn2 active" [icon]="['fas', 'shopping-cart']" style="margin-left: 5%" aria-pressed="true"></fa-icon>
                 <span class="bnttext" (click)="toTray()">My tray</span>
+              </button>
+              <button class="orangebtn" *ngIf="isAdmine">
+                <fa-icon class="fas fa-2x fa-plus btn2 active" [icon]="['fas', 'plus']" style="color: white;margin-left: 5%"  aria-pressed="true"></fa-icon>
+                <span class="bnttext" (click)="edit(data)">Edit item</span>
+              </button>
+              <button class="orangebtn graybtn" *ngIf="isAdmine">
+                <fa-icon class="fas fa-2x fa-shopping-cart btn2 active" [icon]="['fas', 'shopping-cart']" style="margin-left: 5%" aria-pressed="true"></fa-icon>
+                <span class="bnttext" (click)="delete(data)">Delete item</span>
               </button>
             </div>
 

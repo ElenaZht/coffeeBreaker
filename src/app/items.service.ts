@@ -24,6 +24,12 @@ export interface MenuCategory {
   text: string;
   products: Item[];
 }
+export interface CommonCategory {
+  name: string;
+  price: string;
+  pic_class: string;
+  splash_class: string;
+}
 export interface Contacts {
   instagram?: string;
   facebook?: string;
@@ -47,6 +53,7 @@ export abstract class ItemsService {
   abstract AddItem(item: Item): Observable<boolean>;
   abstract DeleteItem(item: Item): Observable<boolean>;
   abstract GetItem(): Observable<Item>;
+  abstract GetAllTheItems(): Observable<[]>;
   abstract GetSoldItems(): Observable<SoldItem[]>;
   abstract SoldTheItem(item: Item): boolean;
   abstract GetItemsByCategory(categoryName): Observable<Item[]>;
@@ -57,6 +64,7 @@ export abstract class ItemsService {
   abstract AddNewBranch(branch: Branch): Observable<boolean>;
   abstract EditBranch(branch: Branch): Observable<Branch>;
   abstract ChangeBranchStatus(branch: Branch, newStatus): Observable<boolean>;
+  abstract GetCommonCategories(): Observable<CommonCategory[]>;
 
 
 }

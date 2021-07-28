@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Branch, Contacts, Item, ItemsService, SoldItem} from './items.service';
+import {Branch, CommonCategory, Contacts, Item, ItemsService, SoldItem} from './items.service';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import {environment} from './environments/environment';
 import {map} from 'rxjs/operators';
@@ -76,6 +76,13 @@ export class ItemsArrayService implements ItemsService {
     return undefined;
   }
 
+  // DeleteItem(item: Item): Observable<boolean> {
+  //   return this.http.delete<boolean>(`${environment.apiUrl}/api/items/${item.prodId}`).pipe(map(
+  //     res => {
+  //
+  //     }
+  //   ));
+  // }
   DeleteItem(item: Item): Observable<boolean> {
     return undefined;
   }
@@ -184,5 +191,14 @@ export class ItemsArrayService implements ItemsService {
       }
   ));
   }
+
+  GetCommonCategories(): Observable<CommonCategory[]> {
+    return this.http.get<CommonCategory[]>(`${environment.apiUrl}/api/common_categories`);
+  }
+
+  GetAllTheItems(): Observable<[]> {
+    return this.http.get<[]>(`${environment.apiUrl}/api/items`);
+  }
+
 
 }

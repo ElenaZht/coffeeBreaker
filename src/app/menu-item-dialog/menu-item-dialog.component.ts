@@ -3,6 +3,8 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {faChevronLeft, faHeartbeat, faListUl, faPlus, faShoppingCart} from '@fortawesome/free-solid-svg-icons';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {Router} from '@angular/router';
+import {ItemsService, Item} from '../items.service';
+
 library.add(faPlus);
 library.add(faShoppingCart);
 library.add(faChevronLeft);
@@ -17,7 +19,8 @@ library.add(faListUl);
 })
 export class MenuItemDialogComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<MenuItemDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private router: Router) { }
+  isAdmine = false;
+  constructor(public dialogRef: MatDialogRef<MenuItemDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private router: Router, private itemService: ItemsService) { }
   ings = false;
   nutrs = false;
   ngOnInit() {
@@ -40,5 +43,15 @@ export class MenuItemDialogComponent implements OnInit {
   toTray() {
     this.dialogRef.close();
     this.router.navigate(['tray']);
+  }
+
+  edit(data: Item) {}
+
+  delete(data: Item) {
+    this.itemService.DeleteItem(data).subscribe(
+      res => {
+
+      }
+    );
   }
 }

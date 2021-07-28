@@ -1,20 +1,22 @@
 <app-frame>
   <div class="main">
-    <div class="header">
+    <div style="color: gray" *ngIf="!isEmpty && !categories.length">Loading..</div>
+    <div style="color: gray" *ngIf="isEmpty && !categories.length">Oops..This category is tired. Please, try again later.</div>
+    <div class="header" *ngIf="category">
       <div class="go" (click)="go(-1)">
         <fa-icon class="fas fa-5x fa-chevron-left active" [icon]="['fas', 'chevron-left']"></fa-icon>
       </div>
-      <div class="{{category.classLeft}} header-left"></div>
+      <div  class="{{category.classLeft}} header-left"></div>
       <div class="coffee">
-        <span class="our-comminment">{{category.categoryName}}</span>
+        <span class="our-comminment" >{{category.categoryName}}</span>
         <span class="com-text">{{category.text}}</span>
       </div>
-      <div class="{{category.classRight}} header-right"></div>
+      <div  class="{{category.classRight}} header-right"></div>
       <div class="go" (click)="go(+1)">
         <fa-icon class="fas fa-5x fa-chevron-right active" [icon]="['fas', 'chevron-right']"></fa-icon>
       </div>
     </div>
-    <div class="cards">
+    <div class="cards" *ngIf="category">
       <div  class="promocard" *ngFor="let p of category.products" (click)="onItem(p)">
           <div class="card-content">
             <div class="card-header">
