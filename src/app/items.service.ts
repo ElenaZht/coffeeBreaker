@@ -20,6 +20,7 @@ export interface Ingredient {
   ingClass: string;
 }
 export interface MenuCategory {
+  id: number;
   categoryName: string;
   text: string;
   products: Item[];
@@ -53,7 +54,7 @@ export abstract class ItemsService {
   abstract AddItem(item: Item): Observable<boolean>;
   abstract DeleteItem(item: Item): Observable<boolean>;
   abstract GetItem(): Observable<Item>;
-  abstract GetAllTheItems(): Observable<[]>;
+  abstract GetAllTheItems(): Observable<MenuCategory[]>;
   abstract GetSoldItems(): Observable<SoldItem[]>;
   abstract SoldTheItem(item: Item): boolean;
   abstract GetItemsByCategory(categoryName): Observable<Item[]>;

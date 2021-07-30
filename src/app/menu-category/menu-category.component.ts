@@ -42,8 +42,9 @@ export class MenuCategoryComponent implements OnInit  {
           const categoryName = this.route.snapshot.paramMap.get('category_name');
           console.log('category name: ', categoryName);
           this.category = this.categories.find(c => {
-          return c.categoryName === categoryName;
-        });
+            console.log('category name find: ', c);
+            return c.categoryName === categoryName;
+          });
           console.log('this.category after find: ', this.category);
           console.log('category ', this.category);
           console.log('categories length ', this.categories.length);

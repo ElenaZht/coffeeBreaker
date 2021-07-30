@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Branch, CommonCategory, Contacts, Item, ItemsService, SoldItem} from './items.service';
+import {Branch, CommonCategory, Contacts, Item, ItemsService, MenuCategory, SoldItem} from './items.service';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import {environment} from './environments/environment';
 import {map} from 'rxjs/operators';
@@ -48,6 +48,8 @@ export class ItemsArrayService implements ItemsService {
   ];
   contacts: Contacts;
   branches$ = new BehaviorSubject<Branch[]>([]);
+  items$ = new BehaviorSubject<MenuCategory[]>([]);
+  items;
   constructor(private http: HttpClient) {
     this.GetContacts().subscribe(
       res => {
@@ -70,21 +72,41 @@ export class ItemsArrayService implements ItemsService {
         this.branches$.next(Object.assign([], res));
       }
     );
+    this.http.get<[]>(`${environment.apiUrl}/api/items`).subscribe(
+      res => {
+        this.items$.next(Object.assign([], res));
+      }
+    );
   }
 
   AddItem(item: Item): Observable<boolean> {
     return undefined;
   }
 
-  // DeleteItem(item: Item): Observable<boolean> {
-  //   return this.http.delete<boolean>(`${environment.apiUrl}/api/items/${item.prodId}`).pipe(map(
-  //     res => {
-  //
-  //     }
-  //   ));
-  // }
   DeleteItem(item: Item): Observable<boolean> {
-    return undefined;
+    this.items = this.items$.value;
+    const category: MenuCategory = this.items.find(c =>  item.menuCategory === c.categoryName);
+    const itIndx = category.products.findIndex(i => (i.prodId && i.menuCategory) === (item.prodId && i.menuCategory));
+    category.products.splice(itIndx, 1);
+    return this.http.put<MenuCategory>(`${environment.apiUrl}/api/items/${category.id}`, category).pipe(map(
+      res => {
+        if (res) {
+          this.items$.next(this.items);
+          return true;
+        }
+      }
+    ));
+
+
+    // return this.http.delete<boolean>(`${environment.apiUrl}/api/items/${category}/products/${item.prodId}`).pipe(map(
+    //   res => {
+    //     const items = this.items$.value;
+    //     const itIndx = items.findIndex(i => i.prodId === item.prodId);
+    //     items.splice(itIndx, 1);
+    //     this.items$.next(items);
+    //     return true;
+    //   }
+    // ));
   }
 
   GetItem(): Observable<Item> {
@@ -196,8 +218,8 @@ export class ItemsArrayService implements ItemsService {
     return this.http.get<CommonCategory[]>(`${environment.apiUrl}/api/common_categories`);
   }
 
-  GetAllTheItems(): Observable<[]> {
-    return this.http.get<[]>(`${environment.apiUrl}/api/items`);
+  GetAllTheItems(): Observable<MenuCategory[]> {
+    return this.items$.asObservable();
   }
 
 

@@ -10,7 +10,7 @@
                   <div class="logo-m heder-logo"></div>
                   <div class="hr-wrap-top"><hr></div>
                 </div>
-                <div class="card-body">
+                <div class="card-body" (click)="goToCategory(item.name)">
                   <div class="ingredients">
                     <div class="ing-spot {{item.splash_class}}"></div>
                   </div>
@@ -23,7 +23,7 @@
                     </div>
                   </div>
                   <div class="description">
-                    <span class="item-title"  (click)="goToCategory(item.name)">{{item.name}}</span>
+                    <span class="item-title" >{{item.name}}</span>
                   </div>
                 </div>
                 <div class="card-footer">
