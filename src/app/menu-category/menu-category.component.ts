@@ -23,7 +23,6 @@ export class MenuCategoryComponent implements OnInit  {
   choosedItem: any;
   categories = [];
   isEmpty = false;
-
   windowScrolled: boolean;
   constructor(private route: ActivatedRoute,  private router: Router, public dialog: MatDialog, private itemsService: ItemsService, private spinner: NgxSpinnerService) {
     this.spinner.show();
@@ -33,28 +32,28 @@ export class MenuCategoryComponent implements OnInit  {
         this.categories = res;
         if (this.categories.length === 0) {
           this.isEmpty = true;
-          console.log('this.categories.length === 0');
+          // console.log('this.categories.length === 0');
         } else {
-          console.log('this.categories.length !=== 0');
-          console.log('this.categories = ', this.categories);
+          // console.log('this.categories.length !=== 0');
+          // console.log('this.categories = ', this.categories);
           this.category = this.categories[0];
-          console.log('this category [0] ', this.category);
+          // console.log('this category [0] ', this.category);
           const categoryName = this.route.snapshot.paramMap.get('category_name');
-          console.log('category name: ', categoryName);
+          // console.log('category name: ', categoryName);
           this.category = this.categories.find(c => {
-            console.log('category name find: ', c);
+            // console.log('category name find: ', c);
             return c.categoryName === categoryName;
           });
-          console.log('this.category after find: ', this.category);
-          console.log('category ', this.category);
-          console.log('categories length ', this.categories.length);
+          // console.log('this.category after find: ', this.category);
+          // console.log('category ', this.category);
+          // console.log('categories length ', this.categories.length);
 
           const queryParams = this.route.snapshot.queryParams;
           const itemId = queryParams.itemId;
           this.choosedItem = this.category.products.find(i => {
           return i.prodId === parseInt(itemId, 10);
         });
-          console.log('choosed item is ', this.choosedItem);
+          // console.log('choosed item is ', this.choosedItem);
         }
       }, err => {
         this.spinner.hide();
@@ -112,5 +111,6 @@ export class MenuCategoryComponent implements OnInit  {
       console.log('The lang dialog was closed', result);
     });
   }
+
 
 }

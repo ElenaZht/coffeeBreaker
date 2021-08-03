@@ -20,7 +20,6 @@ import {AuthGuard} from '../../server/auth.guard';
 const routes: Routes = [
   {path: 'homepage', component: HomePageComponent },
   {path: 'menu_common', component: MenuCommonComponent},
-  {path: 'menu_category', component: MenuCategoryComponent},
   {path: 'menu_category/:category_name', component: MenuCategoryComponent},
   {path: 'contacts', component: ContactsComponent},
   {path: 'help', component: ComminmentComponent},

@@ -170,6 +170,11 @@ hr {
 .ing-spot {
   width: 50%;
 }
+.splash {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .coffee-splash {
   background:transparent url('../../assets/coffee-splash.png') 0% 0% no-repeat padding-box;
   background-size: contain;

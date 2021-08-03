@@ -52,6 +52,7 @@ export interface Branch {
 })
 export abstract class ItemsService {
   abstract AddItem(item: Item): Observable<boolean>;
+  abstract EditItem(item: Item): Observable<Item>;
   abstract DeleteItem(item: Item): Observable<boolean>;
   abstract GetItem(): Observable<Item>;
   abstract GetAllTheItems(): Observable<MenuCategory[]>;

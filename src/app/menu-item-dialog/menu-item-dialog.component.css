@@ -76,7 +76,7 @@ hr {
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
-  width: 50%;
+  width: 25%;
 }
 .card-footer {
   height: 15%;
@@ -86,13 +86,39 @@ hr {
 }
 .ingredients {
   height: 100%;
-  width: 40%;
+  width: 25%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   animation-name: ing-appearance;
   animation-duration: 1s;
   animation-timing-function: ease-out;
+}
+.hover-text {
+  visibility: hidden;
+}
+.chooseNutr:hover, .chooseCup:hover {
+  opacity: .3;
+}
+.chooseNutr:hover > .hover-text, .chooseCup:hover > .hover-text {
+  visibility: visible;
+  position: relative;
+  top: 40%;
+  left:  40%;
+  z-index: 2;
+  color: white;
+
+}
+.edit {
+  opacity: 0.5;
+  border: none;
+  background: white;
+}
+.edit:hover {
+  opacity: 1;
+}
+.edit:active {
+  transform: scale(1.1);
 }
 @keyframes ing-appearance {
   0%{
@@ -132,7 +158,7 @@ hr {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: .3;
+  opacity: .5;
 }
 .btns-wrap {
   display: flex;
@@ -220,8 +246,8 @@ hr {
   justify-content: space-between;
 }
 .nutr{
-  width: 50%;
-  height: 100%;
+  width: 25%;
+  height: 80%;
   background-size: contain;
   background-repeat: no-repeat;
 
@@ -243,311 +269,71 @@ hr {
   flex-direction: column;
   justify-content: center;
 }
-/*-------------------------------INGREDIENTS---------------------------------------*/
-.oranges{
-  background:transparent url('../../assets/orange.png') 0% 0% no-repeat padding-box;
+.splash {
   background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
 }
-.mango{
-  background:transparent url('../../assets/mango.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
+.add-ing-img {
+  color: gray;
+  opacity: .2;
 }
-.raspberry{
-  background:transparent url('../../assets/raspberry.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.caramel{
-  background:transparent url('../../assets/caramel.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.whipped-cream{
-  background:transparent url('../../assets/whipped-cream.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.juice{
-  background:transparent url('../../assets/juice-splash.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.ice2{
-  background:transparent url('../../assets/ice.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.baget{
-  background:transparent url('../../assets/baget.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.letuce{
-  background:transparent url('../../assets/letuce.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.tomatoes{
-  background:transparent url('../../assets/tomatoes.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.cucumber{
-  background:transparent url('../../assets/cucumber.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.onion{
-  background:transparent url('../../assets/onion.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.onion-f{
-  background:transparent url('../../assets/onion-f.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.mozzarella{
-  background:transparent url('../../assets/mozzarella.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.cheese{
-  background:transparent url('../../assets/cheese.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.chiken{
-  background:transparent url('../../assets/chiken.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.beef{
-  background:transparent url('../../assets/beef.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.basil{
-  background:transparent url('../../assets/basil.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.spicies{
-  background:transparent url('../../assets/spicies.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
+.add-ing-img:hover {
+  opacity: .8;
 }
 .coffee{
   width: 21%;
   height: 90%;
 }
-.sugar {
-  background:transparent url('../../assets/sugar.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
+.remIng {
+  display: flex;
+  align-items: center;
+  width: 15%;
 }
-.flour {
-  background:transparent url('../../assets/flour.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
+.addIngBut {
+  color: gray;
+  display: flex;
+  align-items: center;
 }
-.eggs {
-  background:transparent url('../../assets/eggs.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
+.newIng {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150%;
+  margin-top: auto;
 }
-.cocoa {
-  background:transparent url('../../assets/cocoa.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
+.visualIng {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
 }
-.candle {
-  background:transparent url('../../assets/candle.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
+.textIng {
+  display: flex;
+  resize: none;
+  width: 50%;
+  height: 50%;
 }
-.cinnamon {
-  background:transparent url('../../assets/cinnamon.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
+.addAllIng {
+  display: flex;
+  width: 15%;
+  margin-left: 5%;
 }
-.nutella {
-  background:transparent url('../../assets/nutella.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
+.undoIng {
+  display: flex;
+  align-items: center;
+  width: 15%;
+  margin-left: 5%;
 }
-.yeast {
-  background:transparent url('../../assets/yeast.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
+.goback {
+  color: white;
+  filter: drop-shadow(2px 4px 6px black);
+  margin-left: 5%;
 }
-.sprinkling {
-  background:transparent url('../../assets/sprinkling.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.butter {
-  background:transparent url('../../assets/butter.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.peanut-butter {
-  background:transparent url('../../assets/peanut-butter.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.almond {
-  background:transparent url('../../assets/almond.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.chocolate {
-  background:transparent url('../../assets/chocolate.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.water-splash {
-  background:transparent url('../../assets/water-splash.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.cream {
-  background:transparent url('../../assets/cream.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.apple{
-  background:transparent url('../../assets/apple.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.syrup {
-  background:transparent url('../../assets/syrup.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.honey {
-  background:transparent url('../../assets/honey.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.ice {
-  background:transparent url('../../assets/ice.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.oreo {
-  background:transparent url('../../assets/oreo.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.cinnamon {
-  background:transparent url('../../assets/cinnamon.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.blueberry {
-  background:transparent url('../../assets/blueberry.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.black-tea {
-  background:transparent url('../../assets/black-tea.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.bergamonia {
-  background:transparent url('../../assets/bergamonia.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.juice-splash {
-  background:transparent url('../../assets/juice-splash.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.limes {
-  background:transparent url('../../assets/lime.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.eucalyptus {
-  background:transparent url('../../assets/eucalyptus.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.rosemary {
-  background:transparent url('../../assets/rosemary.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.thyme {
-  background:transparent url('../../assets/thyme.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.chamomile {
-  background:transparent url('../../assets/chamomile.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.flour {
-  background:transparent url('../../assets/flour.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.eggs {
-  background:transparent url('../../assets/eggs.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.cinnamon {
-  background:transparent url('../../assets/cinnamon.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.yeast {
-  background:transparent url('../../assets/yeast.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.butter {
-  background:transparent url('../../assets/butter.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.tea-leaves {
-  background:transparent url('../../assets/green-tea.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.tea-splash {
-  background:transparent url('../../assets/tea-splash.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-  height: 33%;
-  top: 7%;
-  left: 3.4%;
-  width: 16%;
-}
-.mint {
-  background:transparent url('../../assets/mint.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.coffee-splash {
-  background:transparent url('../../assets/coffee-splash.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-
-}
-.milk-splash {
-  background:transparent url('../../assets/milk-splash.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-
+.check-wrap {
+  display: flex;
+  justify-content: space-around;
+  width: 75%
 }
 @media only screen and (max-width: 1024px) {
   .main{

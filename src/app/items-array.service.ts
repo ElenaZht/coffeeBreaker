@@ -96,18 +96,26 @@ export class ItemsArrayService implements ItemsService {
         }
       }
     ));
-
-
-    // return this.http.delete<boolean>(`${environment.apiUrl}/api/items/${category}/products/${item.prodId}`).pipe(map(
-    //   res => {
-    //     const items = this.items$.value;
-    //     const itIndx = items.findIndex(i => i.prodId === item.prodId);
-    //     items.splice(itIndx, 1);
-    //     this.items$.next(items);
-    //     return true;
-    //   }
-    // ));
   }
+
+  EditItem(item: Item): Observable<Item> {
+    console.log('item arrived to service as ', item);
+    this.items = this.items$.value;
+    const category: MenuCategory = this.items.find(c =>  item.menuCategory === c.categoryName);
+    const idx = category.products.findIndex(i => i.prodId === item.prodId);
+    category.products[idx] = item;
+    console.log('idx: ', idx, 'product after edit ', category.products[idx], 'category ', category);
+    return this.http.put<MenuCategory>(`${environment.apiUrl}/api/items/${category.id}`, category).pipe(map(
+      res => {
+        if (res) {
+          this.items$.next(this.items);
+          console.log('item rigth before return ', item);
+          return item;
+        }
+      }
+    ));
+  }
+
 
   GetItem(): Observable<Item> {
     return undefined;

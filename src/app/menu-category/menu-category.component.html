@@ -6,12 +6,12 @@
       <div class="go" (click)="go(-1)">
         <fa-icon class="fas fa-5x fa-chevron-left active" [icon]="['fas', 'chevron-left']"></fa-icon>
       </div>
-      <div  class="{{category.classLeft}} header-left"></div>
+      <div  class="splash side-splash header-left" [ngStyle]="{'background-image': 'url('+category.classLeft+')'}"></div>
       <div class="coffee">
         <span class="our-comminment" >{{category.categoryName}}</span>
         <span class="com-text">{{category.text}}</span>
       </div>
-      <div  class="{{category.classRight}} header-right"></div>
+      <div  class="splash side-splash header-right" [ngStyle]="{'background-image': 'url('+category.classRight+')'}"></div>
       <div class="go" (click)="go(+1)">
         <fa-icon class="fas fa-5x fa-chevron-right active" [icon]="['fas', 'chevron-right']"></fa-icon>
       </div>
@@ -28,7 +28,7 @@
             <div class="card-body">
               <div class="ingredients">
                 <div class="ingredient" *ngFor="let i of p.ingredients">
-                  <div class="ing-spot {{i.ingClass}}"></div>
+                  <div class="ing-spot splash" [ngStyle]="{'background-image': 'url('+i.ingClass+')'}"></div>
                   <span class="ing-name">{{i.ing}}</span>
                 </div>
               </div>
