@@ -68,7 +68,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   }
   detectActiveNav() {
     console.log('detect active nav', this.router.url);
-    if (this.router.url.includes('menu')) {
+    if (this.router.url.includes('menu_common')) {
       document.getElementById('menu').classList.add('active-tab');
     } else if (this.router.url.includes('branches')) {
       document.getElementById('branches').classList.add('active-tab');

@@ -18,6 +18,21 @@
     </div>
     <div class="cards" *ngIf="category">
       <span style="color:gray;margin: auto auto" *ngIf="category.products.length === 0">No products yet..</span>
+      <div *ngIf="isAdmin" class="promocard">
+        <div class="card-content">
+          <div class="card-header">
+            <div class="hr-wrap-top"><hr></div>
+            <div class="logo-m heder-logo"></div>
+            <div class="hr-wrap-top"><hr></div>
+          </div>
+          <div class="card-body addcup" (click)="goAdd()">
+            <span>+ Add new product</span>
+          </div>
+          <div class="card-footer">
+            <hr>
+          </div>
+        </div>
+      </div>
       <div  class="promocard" *ngFor="let p of category.products" (click)="onItem(p)">
           <div class="card-content">
             <div class="card-header">

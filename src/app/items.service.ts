@@ -51,7 +51,7 @@ export interface Branch {
   providedIn: 'root'
 })
 export abstract class ItemsService {
-  abstract AddItem(item: Item): Observable<boolean>;
+  abstract AddItem(item: Item, category: string): Observable<Item>;
   abstract EditItem(item: Item): Observable<Item>;
   abstract DeleteItem(item: Item): Observable<boolean>;
   abstract GetItem(): Observable<Item>;

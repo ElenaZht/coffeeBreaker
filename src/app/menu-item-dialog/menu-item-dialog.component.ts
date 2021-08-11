@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {faChevronLeft, faHeartbeat, faListUl, faShoppingCart, faTrashAlt, faPencilAlt, faTimes} from '@fortawesome/free-solid-svg-icons';
+import {faChevronLeft, faHeartbeat, faListUl, faShoppingCart, faTrashAlt, faPencilAlt, faTimes, faTrash} from '@fortawesome/free-solid-svg-icons';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {Router} from '@angular/router';
 import {ItemsService, Item, Ingredient} from '../items.service';
@@ -16,6 +16,7 @@ library.add(faListUl);
 library.add(faTrashAlt);
 library.add(faPencilAlt);
 library.add(faTimes);
+library.add(faTrash);
 
 
 @Component({
@@ -55,8 +56,8 @@ export class MenuItemDialogComponent implements OnInit {
   ngOnInit() {
   }
 
-  goBack() {
-    this.dialogRef.close();
+  goBack(item) {
+    this.dialogRef.close(item);
   }
   goTray() {
     this.dialogRef.close();
@@ -68,7 +69,6 @@ export class MenuItemDialogComponent implements OnInit {
   goNutrs() {
     this.nutrs = !this.nutrs;
   }
-
   toTray() {
     this.dialogRef.close();
     this.router.navigate(['tray']);
@@ -77,7 +77,7 @@ export class MenuItemDialogComponent implements OnInit {
     this.isEdit = !this.isEdit;
   }
   onSelectFile(event: any, thisSelectedFile, photoValue) {
-    console.log('photoVAlue is ', typeof photoValue)
+    console.log('photoVAlue is ', typeof photoValue);
     thisSelectedFile = event.target.files[0] as File;
     console.log('photo before  is ', thisSelectedFile);
     const reader = new FileReader();
@@ -98,7 +98,7 @@ export class MenuItemDialogComponent implements OnInit {
         res => {
           this.spinner.hide();
           this.showSuccess(data.title + ' was deleted successfuly!');
-          this.goBack();
+          this.goBack(data);
         }, err => {
           this.spinner.hide();
           this.showError(err.statusText, data.title + ' not deleted!');

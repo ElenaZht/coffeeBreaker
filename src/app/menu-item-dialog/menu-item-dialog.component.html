@@ -98,9 +98,10 @@
 <div class="main2">
   <div  *ngIf="!ings && !nutrs" class="cup" [ngStyle]="{'background-image': 'url('+visualValue+')'}">
     <div class="row1">
-      <fa-icon class="fas fa-3x fa-chevron-left active goback" [icon]="['fas', 'chevron-left']" (click)="goBack()"></fa-icon>
+      <fa-icon class="fas fa-3x fa-chevron-left active goback" [icon]="['fas', 'chevron-left']" (click)="goBack(data)"></fa-icon>
       <div class="price">
-        <span class="numb">{{price}}</span>
+        <span *ngIf="!isEdit" class="numb">{{price}}</span>
+        <input style="margin: 0"  class="numb" *ngIf="isEdit" [(ngModel)]="price" name="price">
         <div class="only-shek">
           <span class="only">only</span>
           <div class="shek"></div>
@@ -108,7 +109,8 @@
       </div>
     </div>
     <div class="row2">
-      <span class="item-title">{{(title.length > 14)?(title | slice: 0:14)+'..' : title}}</span>
+      <span *ngIf="!isEdit" class="item-title">{{(title.length > 14)?(title | slice: 0:14)+'..' : title}}</span>
+      <textarea style="resize: none;height: auto" class="item-title" *ngIf="isEdit" [(ngModel)]="title" name="title" rows="1" cols="1"></textarea>
     </div>
     <div class="row3">
       <div class="subcol">
@@ -120,25 +122,57 @@
         </button>
       </div>
       <div class="subcol">
-        <button class="orangebtn">
+        <button *ngIf="!isAdmine" class="orangebtn">
           <fa-icon class="fas fa-3x fa-plus btn2 active" [icon]="['fas', 'plus']" style="color: white;margin-left: 5%"  aria-pressed="true"></fa-icon>
         </button>
-        <button class="orangebtn graybtn" (click)="goTray()">
+        <button *ngIf="isAdmine" class="orangebtn" (click)="goEdit()">
+          <fa-icon class="fas fa-3x fa-pencil-alt btn2 active" [icon]="['fas', 'pencil-alt']" style="color: white;margin-left: 5%"  aria-pressed="true"></fa-icon>
+        </button>
+        <button *ngIf="!isAdmine" class="orangebtn graybtn" (click)="goTray()">
           <fa-icon class="fas fa-2x fa-shopping-cart btn2 active" [icon]="['fas', 'shopping-cart']" style="margin-left: 5%" aria-pressed="true"></fa-icon>
+        </button>
+        <button *ngIf="isAdmine && !isEdit" class="orangebtn graybtn" (click)="delete(data)">
+          <fa-icon class="fas fa-2x fa-trash btn2 active" [icon]="['fas', 'trash']" style="margin-left: 5%" aria-pressed="true"></fa-icon>
+        </button>
+        <button class="edit" *ngIf="isAdmine && isEdit" (click)="undo()">
+          <fa-icon class="fas fa-undo fa-2x" [icon]="['fas', 'undo']"  aria-pressed="true"></fa-icon>
+        </button>
+        <button class="edit" *ngIf="isEdit" (click)="onSubmit(itemForm)" [disabled]="ingNewName.length">
+          <fa-icon class="fas fa-check fa-2x" [icon]="['fas', 'check']"  aria-pressed="true"></fa-icon>
         </button>
       </div>
     </div>
   </div>
   <div *ngIf="ings" class="ingredients-wrap">
     <fa-icon class="fas fa-3x fa-chevron-left active goback" [icon]="['fas', 'chevron-left']" (click)="goIngs()"></fa-icon>
+    <div class="ingredient" *ngIf="isEdit" style="justify-content: space-around;">
+      <span class="edit addIngBut" (click)="showAddEngWindow()">+ Add new ingredient</span>
+    </div>
+    <div  class="ingredient newIng" *ngIf="isEdit && addEngWindow" style="width: 90%; margin-left: 5%">
+      <div class="ing-spot splash"[ngStyle]="{'background-image': 'url('+visualIng.url+')'}">
+        <input style="width: 0%;visibility: hidden" class="hover-text" id="chooseFile4" type='file' (change)="onSelectFile($event, selectedFileIng, visualIng)">
+        <label for="chooseFile4" > <fa-icon class="add-ing-img" size="2x" [icon]="['fas', 'images']" style="display:flex;"></fa-icon></label>
+      </div>
+
+      <textarea class="textIng" maxlength="10" type="text" [(ngModel)]="ingNewName" [ngModelOptions]="{standalone: true}" required rows="1" cols="1"></textarea>
+      <fa-icon (click)="addNewIng()" class="fas fa-check edit addAllIng" [icon]="['fas', 'check']"  aria-pressed="true"></fa-icon>
+      <fa-icon (click)="remNewIng()"*ngIf="isEdit && x" class="fas fa-times edit undoIng" [icon]="['fas', 'times']"  aria-pressed="true"></fa-icon>
+
+    </div>
 
     <div class="ingredient" *ngFor="let i of ingredients">
-      <div class="ing-spot {{i.ingClass}}"></div>
+      <div class="ing-spot splash" [ngStyle]="{'background-image': 'url('+i.ingClass+')'}"></div>
       <span class="ing-name">{{i.ing}}</span>
+      <fa-icon (click)="remIng(i)" *ngIf="isEdit && i.ing.length" class="fas fa-times edit remIng" [icon]="['fas', 'times']"  aria-pressed="true"></fa-icon>
+
     </div>
   </div>
-  <div *ngIf="nutrs" class="nurts-wrap">
+  <div *ngIf="nutrs && !isEdit" class="nurts-wrap">
     <fa-icon class="fas fa-3x fa-chevron-left active goback" [icon]="['fas', 'chevron-left']" (click)="goNutrs()"></fa-icon>
-    <div class="nutr" [ngStyle]="{'background-image': 'url('+nutrValue+')'}"></div>
+    <div class="nutr" [ngStyle]="{'background-image': 'url('+nutrValue.url+')'}"></div>
+  </div>
+  <div class="nutr chooseNutr" style="height: 100%;width: 100%" [ngStyle]="{'background-image': 'url('+nutrValue.url+')'}" *ngIf="nutrs && isEdit">
+    <input accept=".png,.jpg,.jpeg" *ngIf="isEdit" style="visibility: hidden" class="hover-text" id="chooseFile5" type='file' (change)="onSelectFile($event, selectedFileNutr, nutrValue)">
+    <label *ngIf="isEdit" for="chooseFile5" class="hover-text" style="left: 0"> <fa-icon size="4x" [icon]="['fas', 'images']" style="filter: drop-shadow(2px 4px 6px black);"></fa-icon></label>
   </div>
 </div>

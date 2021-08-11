@@ -79,14 +79,21 @@ export class ItemsArrayService implements ItemsService {
     );
   }
 
-  AddItem(item: Item): Observable<boolean> {
-    return undefined;
+  AddItem(item: Item, categoryName: string): Observable<Item> {
+    console.log('new item recieved to service ', item);
+    this.items = this.items$.value;
+    const category = this.items.find(c => c.categoryName === categoryName);
+    category.products.push(item);
+    console.log('category is ', category);
+    return this.http.put<Item>(`${environment.apiUrl}/api/items/${category.id}`, category);
   }
 
   DeleteItem(item: Item): Observable<boolean> {
     this.items = this.items$.value;
     const category: MenuCategory = this.items.find(c =>  item.menuCategory === c.categoryName);
-    const itIndx = category.products.findIndex(i => (i.prodId && i.menuCategory) === (item.prodId && i.menuCategory));
+    // const itIndx = category.products.findIndex(i => (i.prodId && i.menuCategory) === (item.prodId && i.menuCategory));
+    const itIndx = category.products.findIndex(i => (i.prodId) === (item.prodId));
+    console.log('delete index', itIndx);
     category.products.splice(itIndx, 1);
     return this.http.put<MenuCategory>(`${environment.apiUrl}/api/items/${category.id}`, category).pipe(map(
       res => {

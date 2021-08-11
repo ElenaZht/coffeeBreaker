@@ -4,6 +4,7 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {ActivatedRoute} from '@angular/router';
 import {ItemsService} from '../items.service';
 
+
 library.add(faChevronUp);
 library.add(faChevronRight);
 library.add(faChevronLeft);
@@ -12,6 +13,8 @@ import {MatDialog} from '@angular/material';
 import {MenuItemDialogComponent} from '../menu-item-dialog/menu-item-dialog.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {ToastrService} from 'ngx-toastr';
+import {User, UsersService} from '../users.service';
+import {AddNewItemComponent} from '../add-new-item/add-new-item.component';
 
 @Component({
   selector: 'app-menu-category',
@@ -24,8 +27,15 @@ export class MenuCategoryComponent implements OnInit  {
   categories = [];
   isEmpty = false;
   windowScrolled: boolean;
-  constructor(private route: ActivatedRoute,  private router: Router, public dialog: MatDialog, private itemsService: ItemsService, private spinner: NgxSpinnerService) {
+  user: User;
+  isAdmin: boolean;
+  constructor(private route: ActivatedRoute,  private router: Router, public dialog: MatDialog,
+              private itemsService: ItemsService, private spinner: NgxSpinnerService, private userService: UsersService) {
     this.spinner.show();
+    this.user = this.userService.getCurrentUser();
+    if (this.user.role === 0) {
+      this.isAdmin = true;
+    }
     this.itemsService.GetAllTheItems().subscribe(
       res => {
         this.spinner.hide();
@@ -109,8 +119,16 @@ export class MenuCategoryComponent implements OnInit  {
       width: '55vmax', data: item});
     dialogRef.afterClosed().subscribe(result => {
       console.log('The lang dialog was closed', result);
+      this.category.products.splice(result.prodId, 1);
     });
   }
 
 
+  goAdd() {
+    const dialogRef = this.dialog.open(AddNewItemComponent, {panelClass: 'custom-dialog-container', height: '60vmin',
+      width: '55vmax', data: {category: this.category}});
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The lang dialog was closed', result);
+    });
+  }
 }

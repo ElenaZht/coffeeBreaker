@@ -271,6 +271,21 @@ hr {
   width: 42%;
 
 }
+.addcup {
+  background-image: url('../../assets/graycup.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: darkgray;
+  font: 1.5vw JosefinSans Regular;
+}
+.addcup:active {
+  transform: scale(1.1);
+  transition: ease-in-out 1s;
+}
 @media only screen and (max-width: 1500px) {
   .item-desc{
     line-height: .9;

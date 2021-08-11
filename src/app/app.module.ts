@@ -38,6 +38,7 @@ import {ItemsService} from './items.service';
 import {ItemsArrayService} from './items-array.service';
 import { NewBranchComponent } from './new-branch/new-branch.component';
 import {DatePipe} from '@angular/common';
+import { AddNewItemComponent } from './add-new-item/add-new-item.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import {DatePipe} from '@angular/common';
     LoginComponentComponent,
     SignupComponent,
     PersonalDataComponent,
-    NewBranchComponent
+    NewBranchComponent,
+    AddNewItemComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +92,8 @@ import {DatePipe} from '@angular/common';
     MenuItemDialogComponent,
     LoginComponentComponent,
     SignupComponent,
-    NewBranchComponent
+    NewBranchComponent,
+    AddNewItemComponent
   ],
   providers: [
     {provide: UsersService, useClass: UsersArrayService},
