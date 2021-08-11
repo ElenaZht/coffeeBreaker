@@ -62,57 +62,7 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod consequat. Duis aute irure dolor in reprehenderit in voluptate               velit esse cillum dolore eu fugiat nulla pariatur.",
       "products": [
         {
-          "prodId": 1000,
-          "title": "Coffee Breaker",
-          "price": 15,
-          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          "img": "../../assets/coffee-cup.png",
-          "menuCategory": "Coffee",
-          "ingredients": [
-            {
-              "ing": "Espresso",
-              "ingClass": "../../assets/coffee-splash.png"
-            },
-            {
-              "ing": "Milk 3%",
-              "ingClass": "../../assets/milk-splash.png"
-            },
-            {
-              "ing": "Cinnamon",
-              "ingClass": "../../assets/cinnamon.png"
-            },
-            {
-              "ing": "Blueberry",
-              "ingClass": "../../assets/blueberry.png"
-            }
-          ],
-          "nutr": "../../assets/nutritions.png"
-        },
-        {
-          "price": "10",
-          "title": "Frappe",
-          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          "prodId": 1001,
-          "menuCategory": "Coffee",
-          "img": "../../assets/coffee-cup.png",
-          "ingredients": [
-            {
-              "ing": "Espresso",
-              "ingClass": "../../assets/coffee-splash.png"
-            },
-            {
-              "ing": "Cream",
-              "ingClass": "../../assets/cream.png"
-            },
-            {
-              "ing": "Syrup",
-              "ingClass": "../../assets/syrup.png"
-            }
-          ],
-          "nutr": "../../assets/nutritions.png"
-        },
-        {
-          "price": "9",
+          "price": "11",
           "title": "Latte Makiata",
           "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           "prodId": 1002,
@@ -601,12 +551,12 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod consequat. Duis aute  irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       "products": [
         {
-          "price": "12",
-          "title": "Cruasan",
-          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           "prodId": 1023,
-          "menuCategory": "Bakery",
+          "title": "Cruasan",
+          "price": 10,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           "img": "../../assets/cruasan.png",
+          "menuCategory": "Bakery",
           "ingredients": [
             {
               "ing": "Flour",
