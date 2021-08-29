@@ -8,6 +8,7 @@ import {UsersService} from '../users.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {NgForm} from '@angular/forms';
+import {OrdersService} from '../orders.service';
 
 library.add(faShoppingCart);
 library.add(faChevronLeft);
@@ -40,8 +41,10 @@ export class MenuItemDialogComponent implements OnInit {
   ingNewName = '';
   ingredients: Ingredient[] = [{ing: 'No ingredients.', ingClass: ''}];
   addEngWindow = false;
-  constructor(public dialogRef: MatDialogRef<MenuItemDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private router: Router, private itemService: ItemsService, private userService: UsersService, private toastr: ToastrService, private spinner: NgxSpinnerService) {
-    if (this.userService.getCurrentUser().role === 0) {
+  constructor(public dialogRef: MatDialogRef<MenuItemDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private router: Router,
+              private itemService: ItemsService, private userService: UsersService, private toastr: ToastrService, private spinner: NgxSpinnerService,
+              private ordersService: OrdersService) {
+    if (this.userService.getCurrentUser() && this.userService.getCurrentUser().role === 0) {
       this.isAdmine = true;
     }
     this.nutrValue.url = data.nutr;
@@ -175,6 +178,21 @@ export class MenuItemDialogComponent implements OnInit {
       }, err => {
         this.spinner.hide();
         this.showError(err.statusText, item.title + ' was not edited!');
+      }
+    );
+  }
+
+  addToTray(data) {
+    this.spinner.show();
+    this.ordersService.addToCart(data).subscribe(
+      res => {
+        this.spinner.hide();
+        console.log(data.title + ' added to cart');
+        this.dialogRef.close();
+        this.showSuccess(data.title + ' added to your tray!');
+      }, err => {
+        this.spinner.hide();
+        console.log('error ', err.statusText);
       }
     );
   }

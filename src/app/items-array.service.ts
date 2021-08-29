@@ -10,42 +10,6 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class ItemsArrayService implements ItemsService {
-  soldItems: SoldItem[] = [
-    {prodId: 1007, title: 'Capuchino', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
-        'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
-      ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}], nutr: '../../assets/nutritions.png',
-      sold: 30, date: new Date()
-    },
-    {prodId: 1009, title: 'Ristretto', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
-        'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
-      // tslint:disable-next-line:max-line-length
-      ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}], nutr: '../../assets/nutritions.png',
-      sold: 4, date: new Date()
-    },
-    {prodId: 1014, title: 'Tea Lady Gray', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
-        'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      img: '../../assets/coffee-cup.png', menuCategory: 'Tea',
-      // tslint:disable-next-line:max-line-length
-      ingredients: [{ing: 'Mineral Water', ingClass: 'water-splash'}, {ing: 'Black tea', ingClass: 'black-tea'}, {ing: 'Bergamonia', ingClass: 'bergamonia'}], nutr: '../../assets/nutritions.png',
-      sold: 1, date: new Date()
-    },
-    {prodId: 1025, title: 'Cookie', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
-        'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      img: '../../assets/cookie.png', menuCategory: 'Bakery',
-      // tslint:disable-next-line:max-line-length
-      ingredients: [{ing: 'Flour', ingClass: 'flour'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Eggs', ingClass: 'eggs'}, {ing: 'Butter', ingClass: 'butter'}, {ing: 'Chocolate', ingClass: 'chocolate'}], nutr: '../../assets/nutritions.png',
-      sold: 15, date: new Date()
-    },
-    {prodId: 1035, title: 'Chicken Sandwich', price: 15, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
-        'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      img: '../../assets/sandwich3.png', menuCategory: 'Sandwiches',
-      // tslint:disable-next-line:max-line-length
-      ingredients: [{ing: 'Baguette', ingClass: 'baget'}, {ing: 'Lettuce', ingClass: 'letuce'}, {ing: 'Tomatoes', ingClass: 'tomatoes'}, {ing: 'Onion', ingClass: 'onion'}, {ing: 'Chicken Breast', ingClass: 'chiken'}], nutr: '../../assets/nutritions.png',
-      sold: 18, date: new Date()
-    }
-  ];
   contacts: Contacts;
   branches$ = new BehaviorSubject<Branch[]>([]);
   items$ = new BehaviorSubject<MenuCategory[]>([]);
@@ -56,16 +20,6 @@ export class ItemsArrayService implements ItemsService {
         this.contacts = res;
       }
     );
-    // const a = {prodId: 1007, title: 'Capuchino', price: 14, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
-    //     'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    //   img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
-    //   ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}], nutr: '../../assets/nutritions.png'
-    // } as Item;
-    // setTimeout(
-    //   () => {
-    //     this.SoldTheItem(a);
-    //   }
-    //   , 5000);
 
     this.http.get<Branch[]>(`${environment.apiUrl}/api/branches`).subscribe(
       res => {
@@ -91,7 +45,6 @@ export class ItemsArrayService implements ItemsService {
   DeleteItem(item: Item): Observable<boolean> {
     this.items = this.items$.value;
     const category: MenuCategory = this.items.find(c =>  item.menuCategory === c.categoryName);
-    // const itIndx = category.products.findIndex(i => (i.prodId && i.menuCategory) === (item.prodId && i.menuCategory));
     const itIndx = category.products.findIndex(i => (i.prodId) === (item.prodId));
     console.log('delete index', itIndx);
     category.products.splice(itIndx, 1);
@@ -133,15 +86,9 @@ export class ItemsArrayService implements ItemsService {
   }
 
   GetSoldItems(): Observable<SoldItem[]> {
-    return of(this.soldItems);
+    return this.http.get<SoldItem[]>(`${environment.apiUrl}/api/sold`);
   }
 
-  SoldTheItem(item: Item): boolean {
-    const sItem = {...item, sold: 2, date: new Date()} as SoldItem;
-    console.log('sold item is ', sItem);
-    this.soldItems.push(sItem);
-    return true;
-  }
 
   GetContacts(): Observable<Contacts> {
     return this.http.get<Contacts>(`${environment.apiUrl}/api/contacts/0`);
@@ -235,6 +182,10 @@ export class ItemsArrayService implements ItemsService {
 
   GetAllTheItems(): Observable<MenuCategory[]> {
     return this.items$.asObservable();
+  }
+
+  getBranchById(id: number): Observable<Branch> {
+    return this.http.get<Branch>(`${environment.apiUrl}/api/branches/${id}`);
   }
 
 

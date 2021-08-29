@@ -45,6 +45,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
       ingredients: [{ing: 'Oranges', ingClass: 'oranges'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Mint Leaves', ingClass: 'mint'}], nutr: '../../assets/nutritions.png'
     }
   ];
+  // todo: get promo items from server
   constructor(@Inject(DOCUMENT) private document: Document, public dialog: MatDialog, private router: Router, private userService: UsersService) { }
   @HostListener('window:scroll', [])
   onWindowScroll() {

@@ -1,0 +1,103 @@
+@font-face {
+  font-family: Cookie;
+  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: JosefinSans Regular;
+  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+.main {
+  margin: 5%;
+  display: flex;
+  height: 90%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 20%;
+}
+.header > .big {
+  font: 2vmax JosefinSans Regular;
+  color: #E04523;
+}
+.header > .small {
+  font: 1vmax JosefinSans Regular;
+  color: gray;
+}
+.list-wrap {
+  margin-top: 5%;
+  width: 98%;
+  overflow-y: scroll;
+}
+.branch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5vmax;
+  border-bottom: #999999 1px;
+  margin-bottom: 1%;
+  margin-top: 1%;
+}
+.branch:hover {
+  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+}
+.branchPhoto {
+  display: flex;
+  width: 25%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+.branchTitle {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  font: 1vw JosefinSans Regular;
+  align-items: center;
+}
+.check {
+  display: flex;
+  width: 5%;
+  height: 100%;
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
+}
+.orangebtn {
+  width: 36%;
+  height: 20%;
+  position: relative;
+  background-color: #E04523;
+  border-radius: 25px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 14px 8px 2px 5px rgba(0,0,0,0.25);
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+.orangebtn > p {
+  font: 1.9vw JosefinSans Regular;
+  color: white;
+}
+.orangebtn:hover {
+  transform:scale(1.2);
+  transition: all 0.5s ease-in-out ;
+}
+.orangebtn:active {
+  transform:scale(1.8);
+  transition: all 1s ease-in-out;
+}
+.orangebtn {
+  transition: all 0.5s ease-in-out ;
+}
+.orangebtn:focus {
+  outline: 0;
+}

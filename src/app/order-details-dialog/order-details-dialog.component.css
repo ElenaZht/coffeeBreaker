@@ -1,0 +1,77 @@
+@font-face {
+  font-family: Cookie;
+  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: JosefinSans Regular;
+  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+.main {
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+
+}
+.img {
+  background-image: url("../../assets/coffee-people-three.png");
+  background-position: center;
+  width: 50%;
+  height: 100%;
+}
+.order {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.close {
+  color: white;
+  text-shadow: 3px 3px 16px #272634;
+  position: relative;
+  left: 93%;
+}
+.close:active {
+  transform: scale(1.1);
+}
+.title {
+  font: 2vmax "JosefinSans Regular";
+  display: flex;
+  margin: auto;
+}
+.details {
+  margin: auto;
+  font: 1.5vmax "JosefinSans Regular";
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  height: 50%;
+}
+.detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+label {
+  font: 1vmax "JosefinSans Regular";
+  margin-right: 10%;
+}
+.itemlist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+ng-lottie {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}

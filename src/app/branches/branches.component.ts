@@ -30,6 +30,7 @@ export class BranchesComponent implements OnInit, OnDestroy {
       this.isAdmin = true;
     }
   }
+  // todo: fix branch 14 image format
 
   ngOnInit() {
   }

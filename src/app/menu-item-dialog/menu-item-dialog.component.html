@@ -58,7 +58,7 @@
               <textarea class="item-desc" style="resize: none" *ngIf="isEdit" [(ngModel)]="desc" name="desc" rows="4" cols="50"></textarea>
             </div>
             <div class="btns-wrap">
-              <button class="orangebtn" *ngIf="!isAdmine && !isEdit">
+              <button class="orangebtn" *ngIf="!isAdmine && !isEdit" (click)="addToTray(data)">
               <fa-icon class="fas fa-2x fa-plus btn2 active" [icon]="['fas', 'plus']" style="color: white;margin-left: 5%"  aria-pressed="true"></fa-icon>
                 <span class="bnttext">Add to tray</span>
               </button>

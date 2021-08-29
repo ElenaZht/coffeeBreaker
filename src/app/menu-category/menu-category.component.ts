@@ -33,7 +33,7 @@ export class MenuCategoryComponent implements OnInit  {
               private itemsService: ItemsService, private spinner: NgxSpinnerService, private userService: UsersService) {
     this.spinner.show();
     this.user = this.userService.getCurrentUser();
-    if (this.user.role === 0) {
+    if (this.user && this.user.role === 0) {
       this.isAdmin = true;
     }
     this.itemsService.GetAllTheItems().subscribe(
@@ -131,4 +131,5 @@ export class MenuCategoryComponent implements OnInit  {
       console.log('The lang dialog was closed', result);
     });
   }
+  // todo: fix logout bug
 }

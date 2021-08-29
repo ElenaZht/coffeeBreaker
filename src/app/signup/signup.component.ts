@@ -25,10 +25,11 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
   }
-  exit() {
-    this.dialogRef.close();
+  exit(ans = false) {
+    this.dialogRef.close(ans);
   }
   onSubmit(SignupForm: NgForm) {
+    console.log('submit');
     this.spinner.show();
     const user = SignupForm.value as User;
     console.log('user: ', user);
@@ -37,7 +38,7 @@ export class SignupComponent implements OnInit {
         this.spinner.hide();
         this.usersService.logIn(user.email, user.password).subscribe(
           res => {
-            this.exit();
+            this.exit(true);
             console.log('new user! ', user);
             this.showSuccess(user);
           }

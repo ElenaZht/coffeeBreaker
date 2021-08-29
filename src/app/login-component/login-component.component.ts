@@ -31,7 +31,7 @@ export class LoginComponentComponent implements OnInit {
         if (answer) {
             if (answer === true) {
               loginForm.reset();
-              this.exit();
+              this.exit(true);
             }
             console.log('user received', user);
             this.showSuccess(user);
@@ -45,14 +45,19 @@ export class LoginComponentComponent implements OnInit {
         }
       );
   }
-  exit() {
-    this.dialogRef.close();
+  exit(ans = false) {
+    this.dialogRef.close(ans);
   }
 
   toSignUp() {
-    this.exit();
     const dialogRef = this.dialog.open(SignupComponent, {panelClass: 'custom-dialog-container', height: '50vmin',
       width: '20vmax'});
+    dialogRef.afterClosed().subscribe(
+      res => {
+        console.log('res from sign up', res);
+        this.exit(res);
+      }
+    );
   }
   showSuccess(u) {
     this.toastr.success('You logged in as ' + u.email, 'Logged in successfully!' );

@@ -3,24 +3,26 @@
   <div class="card-wrapper">
     <span class="ccn">Credit Card Number</span>
     <div class="card-number">
-      <input type="text" minlength="4" maxlength="4" placeholder="XXXX">
-      <input type="text" minlength="4" maxlength="4" placeholder="XXXX">
-      <input type="text" minlength="4" maxlength="4" placeholder="XXXX">
-      <input type="text" minlength="4" maxlength="4" placeholder="XXXX">
+      <input type="text" minlength="4" maxlength="4" placeholder="XXXX" [(ngModel)]="first4" name="first4" (keyup)="onDigitInput($event, 0)">
+      <input type="text" minlength="4" maxlength="4" placeholder="XXXX" [(ngModel)]="second4" name="second4" (keyup)="onDigitInput($event, 1)">
+      <input type="text" minlength="4" maxlength="4" placeholder="XXXX" [(ngModel)]="thirthd4" name="thirthd4" (keyup)="onDigitInput($event, 2)">
+      <input type="text" minlength="4" maxlength="4" placeholder="XXXX" [(ngModel)]="last4" name="last4" (keyup)="onDigitInput($event, 3)">
     </div>
     <span class="ccn">Expires</span>
-    <input class="card-expires" placeholder="MM/YYYY">
+    <input class="card-expires" placeholder="MM/YYYY" minlength="5" maxlength="5" id="dob" [(ngModel)]="exp" (keyup)="onDigitInput($event, 4)">
+    <span  class="ccn">CVV</span>
+    <input class="card-expires" placeholder="XXX" minlength="3" maxlength="3" id="cvv" [(ngModel)]="cvv" (keyup)="onDigitInput($event, 5)">
     <div class="card-choice">
       <div class="card-choice-mini-wrap">
-        <input id="visa" type="radio" >
+        <input id="visa" type="radio" name="payMethod" value="visa" (keyup)="onDigitInput($event, 6)">
         <label for="visa" class="visa"></label>
       </div>
       <div class="card-choice-mini-wrap">
-        <input id="mastercard" type="radio" >
+        <input id="mastercard" type="radio" name="payMethod" value="mastercard">
         <label for="mastercard" class="mastercard"></label>
       </div>
       <div class="card-choice-mini-wrap">
-        <input id="paypal" type="radio" >
+        <input id="paypal" type="radio" name="payMethod" value="paypal">
         <label for="paypal" class="paypal"></label>
       </div>
 
@@ -31,4 +33,6 @@
       <span class="bnttext">Pay</span>
     </button>
   </div>
+  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+
 </div>

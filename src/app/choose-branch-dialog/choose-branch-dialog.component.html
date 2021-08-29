@@ -1,0 +1,16 @@
+<div class="main">
+  <div class="header">
+    <span class="big">What the branch?</span>
+    <span class="small">Choose the branch and come!</span>
+  </div>
+  <div class="list-wrap" *ngIf="(branches$ | async) && (branches$ | async).length">
+    <div class="branch" *ngFor="let b of (branches$ | async)">
+      <div class="branchPhoto" [ngStyle]="{'background-image': 'url('+b.photo+')'}"></div>
+      <label for="{{b.id}}" class="branchTitle">{{b.address}}</label>
+      <input id="{{b.id}}" type="radio" class="check" name="branch" value="{{b.id}}">
+    </div>
+  </div>
+  <button class="orangebtn" (click)="getBranch()">
+    <p>Continue</p>
+  </button>
+</div>

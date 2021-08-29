@@ -27,25 +27,26 @@ export class AStatisticComponent implements OnInit {
     this.itemServise.GetSoldItems().subscribe(
       res => {
         this.soldItems = res;
-        console.log('statistics get sold items');
+        console.log('statistics get sold items', this.soldItems);
       }
     );
   }
 
   ngOnInit() {
-    this.CountTotal();
-    this.FindPopular();
-    this.FindProfible();
+    // todo: fix functions
+    // this.CountTotal();
+    // this.FindPopular();
+    // this.FindProfible();
   }
-  CountTotal() {
-    this.totalPerday = this.soldItems.reduce((sum, elem) => sum + elem.sold * elem.price, 0);
-  }
-  FindPopular() {
-    this.itemPop = this.soldItems[this.soldItems.reduce((iMax, x, i, arr) => x.sold > arr[iMax].sold ? i : iMax, 0)];
-  }
-  FindProfible() {
-    this.itemProf = this.soldItems[this.soldItems.reduce((iMax, x, i, arr) => x.sold * x.price > arr[iMax].sold * arr[iMax].price ? i : iMax, 0)];
-  }
+  // CountTotal() {
+  //   this.totalPerday = this.soldItems.reduce((sum, elem) => sum + elem.sold * elem.price, 0);
+  // }
+  // FindPopular() {
+  //   this.itemPop = this.soldItems[this.soldItems.reduce((iMax, x, i, arr) => x.sold > arr[iMax].sold ? i : iMax, 0)];
+  // }
+  // FindProfible() {
+  //   this.itemProf = this.soldItems[this.soldItems.reduce((iMax, x, i, arr) => x.sold * x.price > arr[iMax].sold * arr[iMax].price ? i : iMax, 0)];
+  // }
 
   goToItem(item) {
     const c = item.menuCategory;

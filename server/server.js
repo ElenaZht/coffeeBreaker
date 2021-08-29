@@ -56,11 +56,12 @@ server.post('/login', (req, res) => {
 });
 
 server.post('/signup', (req, res) => {
-  const { email, password } = req.body;
-  console.log(email, password);
-  const user = DB.get('users').find({email: email}).value();
+  console.log(req.body);
+  const user = DB.get('users').find({email: req.body.email}).value();
   if (!user) {
-    DB.get('users').push({email, password, role: "user"}).write();
+    const maxId = Math.max(...DB.get('users').value().map(o => o.id));
+    console.log("newId:", maxId + 1);
+    DB.get('users').push({...req.body, id:  maxId + 1}).write();
     setTimeout(() => res.status(200).json({}), parseInt(Math.random()*3000+1000));
   } else {
     setTimeout(() => res.status(404).json({msg: 'user already exists.'}), parseInt(Math.random()*3000+1000));

@@ -13,7 +13,7 @@
                     <div class="table-raw">
                       <div class="img-title">
                         <div class="img" [ngStyle]="{'background-image': 'url('+i.img+')'}"></div>
-                        <span>{{(i.itemTitle.length > this.titleWidthPermition) ? (i.itemTitle | slice:0:this.titleWidthPermition)+'..': i.itemTitle}}</span>
+                        <span>{{(i.title.length > this.titleWidthPermition) ? (i.title | slice:0:this.titleWidthPermition)+'..': i.title}}</span>
                       </div>
                       <div class="sold">
                         <div class="minus" (click)="Decrease(i)" [class.btn-disabled]="i.sold <= 0"></div>
@@ -21,6 +21,7 @@
                         <div class="plus" (click)="Increase(i)"></div>
                       </div>
                       <div class="totalItem">{{i.price * i.sold}}₪</div>
+                      <fa-icon *ngIf="i.sold>0" (click)="remFromCart(i)" class="fas fa-times edit undoIng" [icon]="['fas', 'times']"  aria-pressed="true"></fa-icon>
                     </div>
                     <hr class="hr-thin">
                   </div>
@@ -51,7 +52,7 @@
       </div>
       <div class="bottom-wrap">
         <div class="btns">
-          <button  *ngIf="myItems.length" class="orangebtn" (click)="Order()" [class.btn-disabled]="totalItems <= 0"><span class="bnttext">Order</span></button>
+          <button  *ngIf="myItems.length" class="orangebtn" (click)="Order(myItems)" [class.btn-disabled]="totalItems <= 0"><span class="bnttext">Order</span></button>
           <button  *ngIf="myItems.length" class="orangebtn graybtn" (click)="Clear()"><span class="bnttext mini-btn-text">Clear the tray</span></button>
           <button  *ngIf="!myItems.length" class="orangebtn" routerLink="../menu_common"><span class="bnttext mini-btn-text">Menu ></span></button>
         </div>

@@ -39,8 +39,15 @@ import {ItemsArrayService} from './items-array.service';
 import { NewBranchComponent } from './new-branch/new-branch.component';
 import {DatePipe} from '@angular/common';
 import { AddNewItemComponent } from './add-new-item/add-new-item.component';
-
-
+import {OrdersArrayService} from './orders-array.service';
+import {OrdersService} from './orders.service';
+import { ChooseBranchDialogComponent } from './choose-branch-dialog/choose-branch-dialog.component';
+import { OrderDetailsDialogComponent } from './order-details-dialog/order-details-dialog.component';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+export function playerFactory() {
+  return player;
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,13 +66,15 @@ import { AddNewItemComponent } from './add-new-item/add-new-item.component';
     IamnewComponent,
     MenuCategoryComponent,
     MenuItemDialogComponent,
-    AOrdersComponent,
     NavbarComponent,
     LoginComponentComponent,
     SignupComponent,
     PersonalDataComponent,
     NewBranchComponent,
-    AddNewItemComponent
+    AddNewItemComponent,
+    AOrdersComponent,
+    ChooseBranchDialogComponent,
+    OrderDetailsDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +93,8 @@ import { AddNewItemComponent } from './add-new-item/add-new-item.component';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    LottieModule.forRoot({ player: playerFactory })
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [
@@ -93,11 +103,14 @@ import { AddNewItemComponent } from './add-new-item/add-new-item.component';
     LoginComponentComponent,
     SignupComponent,
     NewBranchComponent,
-    AddNewItemComponent
+    AddNewItemComponent,
+    ChooseBranchDialogComponent,
+    OrderDetailsDialogComponent
   ],
   providers: [
     {provide: UsersService, useClass: UsersArrayService},
     {provide: ItemsService, useClass: ItemsArrayService},
+    {provide: OrdersService, useClass: OrdersArrayService},
     ToastrService,
     Overlay,
     OverlayContainer,
@@ -105,4 +118,5 @@ import { AddNewItemComponent } from './add-new-item/add-new-item.component';
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {}

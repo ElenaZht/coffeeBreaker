@@ -15,7 +15,7 @@
     </div>
     <div class="li-href"><mat-divider></mat-divider></div>
   </li>
-  <li class="li" id="tray" *ngIf="isLogged && !isAdmin">
+  <li class="li" id="tray" *ngIf="!isAdmin">
     <div class="li-icon tab" routerLink="/tray">
       <fa-icon class="fas fa-shopping-basket" [icon]="['fas', 'shopping-basket']"  aria-pressed="true"></fa-icon>
 
@@ -57,7 +57,7 @@
     <fa-icon class="fas fa-bars" [icon]="['fas', 'bars']"  aria-pressed="true"></fa-icon>
   </li>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item *ngIf="isLogged">
+    <button mat-menu-item>
       <div class="li-icon tray drop-li" routerLink="/tray">Tray</div>
     </button>
     <button mat-menu-item *ngIf="isLogged">
