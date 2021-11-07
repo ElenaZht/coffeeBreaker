@@ -13,6 +13,7 @@ import {Router} from '@angular/router';
 export class AccountComponent implements OnInit, AfterViewInit {
   isAdmin = false;
   user: User;
+  cardClick = false;
   options = { fullWidth: false, padding: 100, numVisible: 3, shift: 10, dist: -100};
   constructor(private usersService: UsersService,  private router: Router) {
     this.user = this.usersService.getCurrentUser();
