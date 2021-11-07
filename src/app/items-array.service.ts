@@ -188,5 +188,11 @@ export class ItemsArrayService implements ItemsService {
     return this.http.get<Branch>(`${environment.apiUrl}/api/branches/${id}`);
   }
 
+  GetPromoItems(): Observable<Item[]> {
+    return this.http.get<Item[]>(`${environment.apiUrl}/api/promoItems`);
+  }
+  GetNewItems(): Observable<Item[]> {
+    return this.http.get<Item[]>(`${environment.apiUrl}/api/newItems`);
+  }
 
 }

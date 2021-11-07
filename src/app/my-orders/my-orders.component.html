@@ -1,0 +1,57 @@
+<app-frame>
+  <div class="main">
+    <fa-icon class="fas fa-3x fa-chevron-left active goback" [icon]="['fas', 'chevron-left']" (click)="goBack()"></fa-icon>
+    <div class="left-side">
+      <div class="desc">
+        <span class="our-comminment"  *ngIf="!isAdmin">My orders</span>
+        <span class="our-comminment admin"  *ngIf="isAdmin">Admin mode</span>
+        <span class="com-text"  *ngIf="!isAdmin">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </span>
+        <span class="com-text"  *ngIf="isAdmin">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim laboris nisi ut aliquip ex ea commodo consequat. Duis afugiat nulla pariatur.
+      </span>
+      </div>
+
+    </div>
+    <div class="right-side">
+      <div class="category-card">
+        <div class="card-title">
+          <span>ID</span>
+          <span>products</span>
+          <span>date</span>
+          <span>branch</span>
+          <span>status</span>
+        </div>
+        <hr style="width: 85%">
+        <div class="card-content">
+          <div *ngFor="let o of myOrders; let i= index">
+            <div class ="order-raw">
+              <span>{{o.id}}</span>
+              <div class="titles-wrap">
+                <div class="ttlwrp" *ngFor="let ord of o.ordered;let last = last" style="display: flex; flex-direction: column;justify-content: space-around" [ngClass]="{'last-child': last}">
+                  <span style="display: flex">{{ord.title}}({{ord.sold}})</span>
+                </div>
+
+              </div>
+              <span>{{o.date  | date:"dd MMM yyyy, h:mm a"}}</span>
+              <span>{{branchesIdToAddressMap[o.branch]}}</span>
+              <span class="h" *ngIf="o.status === 0">confirmed</span>
+              <span class="h" *ngIf="o.status === 1">processing</span>
+              <span class="h" *ngIf="o.status === 2">ready</span>
+            </div>
+            <hr>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</app-frame>

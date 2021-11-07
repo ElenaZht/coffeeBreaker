@@ -15,6 +15,7 @@ import {MenuCategoryComponent} from './menu-category/menu-category.component';
 import {AOrdersComponent} from './a-orders/a-orders.component';
 import {PersonalDataComponent} from './personal-data/personal-data.component';
 import {AuthGuard} from '../../server/auth.guard';
+import {MyOrdersComponent} from './my-orders/my-orders.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'branches', component: BranchesComponent},
   {path: 'branch', component: BranchItemComponent},
   {path: 'account', component: AccountComponent,  canActivate: [AuthGuard], children: []},
+  {path: 'my_orders', component: MyOrdersComponent},
   {path: 'statistic', component: AStatisticComponent,  canActivate: [AuthGuard], children: []},
   {path: 'orders_control', component: AOrdersComponent,  canActivate: [AuthGuard], children: []},
   {path: 'tray', component: TrayComponent},

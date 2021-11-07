@@ -2,10 +2,10 @@ import {Injectable} from '@angular/core';
 import {CreditCard, Order, OrdersService} from './orders.service';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import {Item, SoldItem} from './items.service';
-import {User} from './users.service';
+import {User, UsersService} from './users.service';
 import {HttpClient} from '@angular/common/http';
 import {environment} from './environments/environment';
-import {delay, map} from 'rxjs/operators';
+import {delay, map, filter} from 'rxjs/operators';
 import {PayformDialogComponent} from './payform-dialog/payform-dialog.component';
 import {MatDialog} from '@angular/material';
 
@@ -16,14 +16,26 @@ import {MatDialog} from '@angular/material';
 export class OrdersArrayService implements OrdersService {
   cart: SoldItem[] = [];
   cart$ = new BehaviorSubject<SoldItem[]>([]);
+  allOrders$ = new BehaviorSubject<Order[]>([]);
 
 
-  constructor(private http: HttpClient, private dialog: MatDialog) { }
+
+
+  constructor(private http: HttpClient, private dialog: MatDialog, private usersService: UsersService) {
+    this.http.get<Order[]>(`${environment.apiUrl}/api/orders`).subscribe(
+      res => {
+        this.allOrders$.next(res);
+      }
+    );
+  }
 
   addOrder(order: Order): Observable<Order> {
     return this.http.post<Order>(`${environment.apiUrl}/api/orders`, order).pipe(map(
       res => {
         console.log('order come backs from server ', res);
+        const allOrders = this.allOrders$.value;
+        allOrders.push(res);
+        this.allOrders$.next(allOrders);
         return res;
       }
       )
@@ -101,5 +113,10 @@ export class OrdersArrayService implements OrdersService {
   cleanTheCart(): void {
     this.cart = [];
     this.cart$.next(this.cart);
+  }
+
+  getMyOrders(): Observable<Order[]> {
+    const user = this.usersService.getCurrentUser();
+    return this.allOrders$.pipe(map(or => or.filter(o => o.user === user.id)));
   }
 }

@@ -45,6 +45,7 @@ import { ChooseBranchDialogComponent } from './choose-branch-dialog/choose-branc
 import { OrderDetailsDialogComponent } from './order-details-dialog/order-details-dialog.component';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 export function playerFactory() {
   return player;
 }
@@ -74,7 +75,8 @@ export function playerFactory() {
     AddNewItemComponent,
     AOrdersComponent,
     ChooseBranchDialogComponent,
-    OrderDetailsDialogComponent
+    OrderDetailsDialogComponent,
+    MyOrdersComponent
   ],
   imports: [
     BrowserModule,

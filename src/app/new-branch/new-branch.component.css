@@ -115,11 +115,11 @@ hr {
 .hover-text {
   visibility: hidden;
 }
-.photo:hover > .hover-text {
+.photo:hover > label {
   visibility: visible;
   position: relative;
   top: 40%;
-  left:  40%;
+  right: 30%;
   z-index: 2;
   color: white;
 

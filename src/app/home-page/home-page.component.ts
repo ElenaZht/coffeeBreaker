@@ -10,6 +10,7 @@ library.add(faChevronUp);
 import {faInfoCircle, faMapMarkerAlt, faShoppingBasket, faUserCircle} from '@fortawesome/free-solid-svg-icons';
 import {LanguagesDialigComponent} from '../languages-dialig/languages-dialig.component';
 import {Router} from '@angular/router';
+import {ItemsService} from '../items.service';
 library.add(faMapMarkerAlt);
 library.add(faShoppingBasket);
 library.add(faUserCircle);
@@ -25,28 +26,15 @@ export class HomePageComponent implements OnInit, OnDestroy {
   windowScrolled: boolean;
   interval: any;
   startIndex = 0;
-  promoItems = [
-    {prodId: 1002, title: 'Latte Makiata', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
-        'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
-      // tslint:disable-next-line:max-line-length
-      ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Milk 3%', ingClass: 'milk-splash'}, {ing: 'Chocolate', ingClass: 'chocolate'}], nutr: '../../assets/nutritions.png'
-    },
-    {prodId: 1008, title: 'Americano', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
-        'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      img: '../../assets/coffee-cup.png', menuCategory: 'Coffee',
-      // tslint:disable-next-line:max-line-length
-      ingredients: [{ing: 'Espresso', ingClass: 'coffee-splash'}, {ing: 'Mineral Water', ingClass: 'water-splash'}], nutr: '../../assets/nutritions.png'
-    },
-    {prodId: 1016, title: 'Cool Orange', price: 10, desc: 'Lorem ipsum dolor sit amet, consectetur ' +
-        'adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      img: '../../assets/orange-cup.png', menuCategory: 'Drinks',
-      // tslint:disable-next-line:max-line-length
-      ingredients: [{ing: 'Oranges', ingClass: 'oranges'}, {ing: 'Sugar', ingClass: 'sugar'}, {ing: 'Mint Leaves', ingClass: 'mint'}], nutr: '../../assets/nutritions.png'
-    }
-  ];
-  // todo: get promo items from server
-  constructor(@Inject(DOCUMENT) private document: Document, public dialog: MatDialog, private router: Router, private userService: UsersService) { }
+  promoItems = [];
+  constructor(@Inject(DOCUMENT) private document: Document, public dialog: MatDialog, private router: Router, private userService: UsersService, private itemsService: ItemsService) {
+    this.itemsService.GetNewItems().subscribe(
+      res => {
+        this.promoItems = res;
+
+      }
+    );
+  }
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {

@@ -38,6 +38,7 @@ export abstract class OrdersService {
   abstract remFromCart(item: Item): Observable<boolean>;
   abstract cleanTheCart(): void;
   abstract getCart(): Observable<SoldItem[]>;
+  abstract getMyOrders(): Observable<Order[]>;
   abstract saveCreditCard(card: CreditCard): Observable<boolean>;
   abstract mockCardChecking(): Observable<boolean>;
   abstract addOrder(order: Order): Observable<Order>;

@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import M from 'materialize-css';
 import {User, UsersService} from '../users.service';
+import {Router} from '@angular/router';
+
 
 
 @Component({
@@ -12,7 +14,7 @@ export class AccountComponent implements OnInit, AfterViewInit {
   isAdmin = false;
   user: User;
   options = { fullWidth: false, padding: 100, numVisible: 3, shift: 10, dist: -100};
-  constructor(private usersService: UsersService) {
+  constructor(private usersService: UsersService,  private router: Router) {
     this.user = this.usersService.getCurrentUser();
     if (this.user.role === 0) {
       this.isAdmin = true;
@@ -29,5 +31,9 @@ export class AccountComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     const elems = document.querySelectorAll('.carousel');
     const instances = M.Carousel.init(elems, this.options);
+  }
+
+  toMyOrders() {
+    this.router.navigate(['/my_orders']);
   }
 }

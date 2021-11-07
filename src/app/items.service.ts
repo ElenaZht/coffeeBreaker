@@ -55,6 +55,9 @@ export abstract class ItemsService {
   abstract EditItem(item: Item): Observable<Item>;
   abstract DeleteItem(item: Item): Observable<boolean>;
   // abstract GetItem(): Observable<Item>;
+  abstract GetPromoItems(): Observable<Item[]>;
+  abstract GetNewItems(): Observable<Item[]>;
+
   abstract GetAllTheItems(): Observable<MenuCategory[]>;
   abstract GetSoldItems(): Observable<SoldItem[]>;
   // abstract SoldTheItem(item: Item): boolean;

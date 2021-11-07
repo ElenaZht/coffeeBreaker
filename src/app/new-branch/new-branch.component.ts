@@ -41,7 +41,6 @@ export class NewBranchComponent implements OnInit {
     this.spinner.show();
     const newBranch = brachForm.value as Branch;
     newBranch.photo = this.photo;
-    newBranch.id = 13;
     console.log('new branch data gone to server as ', newBranch);
     this.itemsService.AddNewBranch(newBranch).subscribe(
       res => {
