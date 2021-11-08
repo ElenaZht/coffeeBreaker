@@ -46,6 +46,7 @@ import { OrderDetailsDialogComponent } from './order-details-dialog/order-detail
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 export function playerFactory() {
   return player;
 }
@@ -76,7 +77,8 @@ export function playerFactory() {
     AOrdersComponent,
     ChooseBranchDialogComponent,
     OrderDetailsDialogComponent,
-    MyOrdersComponent
+    MyOrdersComponent,
+    OrderDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -107,7 +109,8 @@ export function playerFactory() {
     NewBranchComponent,
     AddNewItemComponent,
     ChooseBranchDialogComponent,
-    OrderDetailsDialogComponent
+    OrderDetailsDialogComponent,
+    OrderDetailsComponent
   ],
   providers: [
     {provide: UsersService, useClass: UsersArrayService},

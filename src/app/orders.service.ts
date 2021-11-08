@@ -46,4 +46,6 @@ export abstract class OrdersService {
   abstract addOrderToUserOrders(order: Order): boolean;
   abstract goPayment(user: User): Observable<boolean>;
   abstract addToSold(order: Order): boolean;
+  abstract getTodaysOrders(): Observable<Order[]>;
+  abstract changeOrderStatus(id, newStatus): Observable<boolean>;
 }

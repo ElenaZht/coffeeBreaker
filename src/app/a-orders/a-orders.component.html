@@ -13,19 +13,19 @@
           <hr>
         </div>
         <div class="card-body">
-          <div cdkDrag class="order-card" *ngFor="let i of newOrders">
+          <div cdkDrag class="order-card" *ngFor="let i of newOrders" (click)="details(i)">
             <div class="order-header">
               <span>#{{i.id}}</span>
               <hr>
             </div>
             <div class="order-card-body">
-              <div class="prod-list-item" *ngFor="let p of i.prods">
+              <div class="prod-list-item" *ngFor="let p of i.ordered">
                 <div class="prev">
                   <div [ngStyle]="{'background-image': 'url('+p.img+')'}"></div>
-                  <span>{{p.name}}</span>
+                  <span>{{p.title}}</span>
                 </div>
                 <div style="color: gray">X</div>
-                <div style="width: 30%;">{{p.numb}}</div>
+                <div style="width: 30%;">{{p.sold}}</div>
               </div>
             </div>
           </div>
@@ -39,19 +39,19 @@
           <hr>
         </div>
         <div class="card-body">
-          <div cdkDrag class="order-card" *ngFor="let i of processing">
+          <div cdkDrag class="order-card" *ngFor="let i of processing" (click)="details(i)">
             <div class="order-header">
               <span>#{{i.id}}</span>
               <hr>
             </div>
             <div class="order-card-body">
-              <div class="prod-list-item" *ngFor="let p of i.prods">
+              <div class="prod-list-item" *ngFor="let p of i.ordered">
                 <div class="prev">
                   <div [ngStyle]="{'background-image': 'url('+p.img+')'}"></div>
-                  <span>{{p.name}}</span>
+                  <span>{{p.title}}</span>
                 </div>
                 <div style="color: gray">X</div>
-                <div style="width: 30%;">{{p.numb}}</div>
+                <div style="width: 30%;">{{p.sold}}</div>
               </div>
             </div>
           </div>
@@ -67,20 +67,20 @@
           <hr>
         </div>
         <div class="card-body">
-          <div cdkDrag class="order-card readycard" *ngFor="let i of readyOrders">
+          <div cdkDrag class="order-card readycard" *ngFor="let i of readyOrders" (click)="details(i)">
             <span class="done" (click)="done(i)">Done</span>
             <div class="order-header">
               <span>#{{i.id}}</span>
               <hr>
             </div>
             <div class="order-card-body">
-              <div class="prod-list-item" *ngFor="let p of i.prods">
+              <div class="prod-list-item" *ngFor="let p of i.ordered">
                 <div class="prev">
                   <div [ngStyle]="{'background-image': 'url('+p.img+')'}"></div>
-                  <span>{{p.name}}</span>
+                  <span>{{p.title}}</span>
                 </div>
                 <div style="color: gray">X</div>
-                <div style="width: 30%;">{{p.numb}}</div>
+                <div style="width: 30%;">{{p.sold}}</div>
               </div>
             </div>
           </div>

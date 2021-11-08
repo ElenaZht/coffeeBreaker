@@ -119,4 +119,29 @@ export class OrdersArrayService implements OrdersService {
     const user = this.usersService.getCurrentUser();
     return this.allOrders$.pipe(map(or => or.filter(o => o.user === user.id)));
   }
+
+  getTodaysOrders(): Observable<Order[]> {
+    return this.allOrders$;
+    // return this.allOrders$.pipe(map(or => or.filter(o => o.date === new Date())));
+  }
+
+  changeOrderStatus(id, status): Observable<boolean> {
+    return this.http.patch<Order>(`${environment.apiUrl}/api/orders/${id}`, {status}).pipe(map(
+      res => {
+        if (res) {
+          const tempOrders = this.allOrders$.value;
+          const curOrdInd = tempOrders.findIndex(o => o.id === id);
+          tempOrders[curOrdInd] = res;
+          this.allOrders$.next(tempOrders);
+          console.log('order status changed to ', res.status);
+          return true;
+        }
+      }, err => {
+        console.log('order status not changed', err.statusText);
+        return false;
+      }
+    )
+
+    );
+  }
 }
