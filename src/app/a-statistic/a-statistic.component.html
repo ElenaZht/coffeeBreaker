@@ -13,15 +13,15 @@
         </div>
         <hr>
         <div class="items" *ngIf="soldItems.length">
-          <div *ngFor="let i of soldItems">
+          <div *ngFor="let i of sortedItems | keyvalue: sortingPerTotal">
             <div class="table-raw">
               <div class="img-title" (click)="goToItem(i)">
-                <div class="img" [ngStyle]="{'background-image': 'url('+i.img+')'}"></div>
-                <span>{{(i.title.length > this.titleWidthPermition) ? (i.title | slice:0:this.titleWidthPermition)+'..': i.title}}</span>
+                <div class="img" [ngStyle]="{'background-image': 'url('+i.value.img+')'}"></div>
+                <span>{{(i.value.title.length > this.titleWidthPermition) ? (i.value.title | slice:0:this.titleWidthPermition)+'..': i.value.title}}</span>
               </div>
-              <div class="price">{{i.price}}₪</div>
-              <div class="sold">{{i.sold}}</div>
-              <div class="totalItem">{{i.price * i.sold}}₪</div>
+              <div class="price">{{i.value.price}}₪</div>
+              <div class="sold">{{i.value.sold}}</div>
+              <div class="totalItem">{{i.value.price * i.value.sold}}₪</div>
             </div>
             <hr class="hr-thin">
           </div>
@@ -37,7 +37,7 @@
       <div class="summary" *ngIf="soldItems.length">
         <div class="sum-row one">
           <span>Total for today:</span>
-          <span>{{this.totalPerday}}₪</span>
+          <span>{{totalPerday}}₪</span>
         </div>
         <div class="sum-row two">
           <span>Most popular today:</span>

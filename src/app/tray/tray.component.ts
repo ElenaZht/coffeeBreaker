@@ -11,6 +11,7 @@ import {Observable, of} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {ChooseBranchDialogComponent} from '../choose-branch-dialog/choose-branch-dialog.component';
 import {OrderDetailsDialogComponent} from '../order-details-dialog/order-details-dialog.component';
+import {ItemsService} from '../items.service';
 
 
 
@@ -30,7 +31,7 @@ export class TrayComponent implements OnInit, OnDestroy {
   user: User;
   isLogged: boolean;
   subscription;
-  constructor(public dialog: MatDialog, private ordersService: OrdersService,
+  constructor(public dialog: MatDialog, private ordersService: OrdersService, private itemsService: ItemsService,
               private toastr: ToastrService, private spinner: NgxSpinnerService,
               private usersService: UsersService) {
     if (window.screen.width <= 500) {
@@ -85,17 +86,22 @@ export class TrayComponent implements OnInit, OnDestroy {
         const payed = await this.payment().toPromise();
         this.order.date = new Date();
         this.order.branch = branchSuccess;
-        console.log('branch succsess ', branchSuccess);
         this.order.status = Statuses.confirmed;
         this.order.ordered = myItems;
         this.order.user = this.user.id;
         if (logginSuccess && branchSuccess && payed) {
           this.spinner.show();
-          console.log('all secured');
           const result = await this.ordersService.addOrder(this.order).toPromise();
           if (result) {
             this.spinner.hide();
-            console.log('order success');
+            this.itemsService.SoldTheItem(myItems).subscribe(
+              res => {
+                if (res) {
+                  return res;
+                }
+              }
+            );
+            console.log('my items from cart ', myItems);
             this.Clear();
             this.showOrderDetails(result);
           }

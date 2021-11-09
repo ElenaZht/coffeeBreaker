@@ -195,4 +195,9 @@ export class ItemsArrayService implements ItemsService {
     return this.http.get<Item[]>(`${environment.apiUrl}/api/newItems`);
   }
 
+  SoldTheItem(sItem: SoldItem): Observable<boolean> {
+    console.log('sold items comes to items service --', sItem); // sItem = [{}, {}, ..]
+    return this.http.post<boolean>(`${environment.apiUrl}/api/sold`, sItem);
+  }
+
 }
