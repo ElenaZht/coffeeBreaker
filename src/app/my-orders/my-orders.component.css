@@ -117,3 +117,26 @@ hr {
 .last-child {
   border-bottom: none;
 }
+@media only screen and (max-width: 1024px) {
+  .main {
+    flex-direction: column;
+  }
+  .our-comminment {
+    font-size: 7vmax;
+  }
+  .com-text {
+    display: none;
+  }
+  .category-card {
+    width: 100%;
+  }
+  .right-side {
+    width: 90%;
+  }
+  .left-side {
+    width: 70%;
+  }
+  .desc {
+    width: 100%;
+  }
+}

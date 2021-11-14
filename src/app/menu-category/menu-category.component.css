@@ -6,6 +6,14 @@
   font-family: JosefinSans Regular;
   src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
 }
+@font-face {
+  font-family: Arial Narrow;
+  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
+}
+@font-face {
+  font-family: Annabelle;
+  src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
+}
 .main{
   /*height: 150vh;*/
   background-color: white;
@@ -43,7 +51,7 @@
   height: 90%;
 }
 .our-comminment {
-  font: 10vmax Cookie;
+  font: 10vmax Cookie, Annabelle;
   line-height: 1;
   display: flex;
   text-align: center;
@@ -53,7 +61,7 @@
   justify-content: center;
 }
 .com-text {
-  font: .8vw JosefinSans Regular;
+  font: .8vw JosefinSans Regular, Arial Narrow;
   display: flex;
   position: relative;
   bottom: 38%;
@@ -163,7 +171,7 @@ hr {
   width: 60%;
   display: flex;
   align-items: center;
-  font-family: JosefinSans Regular;
+  font-family: JosefinSans Regular, Arial Narrow;
   z-index: 100;
   line-height: .8;
   -webkit-text-stroke: .1px white;
@@ -194,7 +202,7 @@ hr {
   color: #E04523;
   display: flex;
   justify-content: center;
-  font: 5vw JosefinSans Regular;
+  font: 5vw JosefinSans Regular, Arial Narrow;
   position: relative;
   top: 24%;
   margin-left: 14%;
@@ -210,7 +218,7 @@ hr {
 .only {
   width: 100%;
   height: 30%;
-  font: 1vw JosefinSans Regular;
+  font: 1vw JosefinSans Regular, Arial Narrow;
   display: flex;
   justify-content: center;
 }
@@ -234,7 +242,7 @@ hr {
   margin-left: 5%;
 }
 .item-title {
-  font: 1.4vw JosefinSans Regular;
+  font: 1.4vw JosefinSans Regular, Arial Narrow;
   display: flex;
   overflow-wrap: anywhere;
 }
@@ -242,7 +250,7 @@ hr {
 .item-desc {
   width: 100%;
   height: 70%;
-  font-family: JosefinSans Regular;
+  font-family: JosefinSans Regular, Arial Narrow;
 }
 .scroll-to-top {
   position: fixed;
@@ -280,7 +288,7 @@ hr {
   justify-content: center;
   align-items: center;
   color: darkgray;
-  font: 1.5vw JosefinSans Regular;
+  font: 1.5vw JosefinSans Regular, Arial Narrow;
 }
 .addcup:active {
   transform: scale(1.1);

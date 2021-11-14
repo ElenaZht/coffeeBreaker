@@ -1,15 +1,10 @@
 <app-frame>
   <div class="main">
     <div class="title">
-      <span class="our-comminment">Branches</span>
-      <span class="com-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      </span>
+      <span class="our-comminment">{{'branches.title' | translate}}</span>
+      <span class="com-text">{{'branches.desc' | translate}}</span>
     </div>
-    <button class="orangebtn" *ngIf="isAdmin" (click)="AddBranch()"><p class="bnttext"><fa-icon class="fas fa-plus" [icon]="['fas', 'plus']"  aria-pressed="true"></fa-icon><span style="width: 70%;">Add new branch</span></p></button>
+    <button class="orangebtn" *ngIf="isAdmin" (click)="AddBranch()"><p class="bnttext"><fa-icon class="fas fa-plus" [icon]="['fas', 'plus']"  aria-pressed="true"></fa-icon><span style="width: 70%;">{{'branches.add' | translate}}</span></p></button>
     <div class="wrap">
       <div class="most-popular">
         <div class="pop-arrow"></div>
@@ -30,10 +25,10 @@
   </div>
   <div class="main2">
     <div class="title">
-      <span class="our-comminment">Branches</span>
+      <span class="our-comminment">{{'branches.title' | translate}}</span>
     </div>
     <div class="all-branches">
-      <button class="orangebtn" *ngIf="isAdmin" (click)="AddBranch()"><p class="bnttext"><fa-icon class="fas fa-plus" [icon]="['fas', 'plus']"  aria-pressed="true"></fa-icon><span style="width: 70%;">Add new branch</span></p></button>
+      <button class="orangebtn" *ngIf="isAdmin" (click)="AddBranch()"><p class="bnttext"><fa-icon class="fas fa-plus" [icon]="['fas', 'plus']"  aria-pressed="true"></fa-icon><span style="width: 70%;">{{'branches.add' | translate}}</span></p></button>
       <div class="contact" *ngFor="let b of (branches$ | async)" (click)="onBranch(b)">
         <div class="contact-icon pointer"></div>
         <div class="contact-text">{{b.address}}</div>

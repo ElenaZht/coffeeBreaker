@@ -15,7 +15,7 @@
           <div class="contact-icon pointer"></div>
           <div class="adr" *ngIf="!isShowEdit">{{address}}</div>
           <input class="adr" *ngIf="isShowEdit" [(ngModel)]="address" name="address">
-          <div class="popular" *ngIf="branch.popular">popular</div>
+          <div class="popular" *ngIf="branch.popular">{{'branchitem.popular' | translate}}</div>
         </div>
         <div class="description" *ngIf="!isShowEdit">{{desc}}</div>
         <input class="description" *ngIf="isShowEdit" [(ngModel)]="desc" name="desc">
@@ -34,10 +34,10 @@
           </button>
         </div>
         <button class="rempop" *ngIf="isShowEdit && isAdmin && branch.popular" (click)="removeFromPop(branch)">
-          remove from popular
+          {{'branchitem.rempop' | translate}}
         </button>
         <button class="rempop" *ngIf="isShowEdit && isAdmin && !branch.popular" (click)="addToPop(branch)">
-          add to popular
+          {{'branchitem.addpop' | translate}}
         </button>
         <div class="splashes">
           <div class="spl-milk"></div>

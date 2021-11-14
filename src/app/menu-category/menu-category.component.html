@@ -1,15 +1,20 @@
 <app-frame>
   <div class="main">
-    <div style="color: gray" *ngIf="!isEmpty && !categories.length">Loading..</div>
-    <div style="color: gray" *ngIf="isEmpty && !categories.length">Oops..This category is tired. Please, try again later.</div>
+    <div style="color: gray" *ngIf="!isEmpty && !categories.length">{{'menucategory.loading' | translate}}..</div>
+    <div style="color: gray" *ngIf="isEmpty && !categories.length">{{'menucategory.oops' | translate}}</div>
     <div class="header" *ngIf="category">
       <div class="go" (click)="go(-1)">
         <fa-icon class="fas fa-5x fa-chevron-left active" [icon]="['fas', 'chevron-left']"></fa-icon>
       </div>
       <div  class="splash side-splash header-left" [ngStyle]="{'background-image': 'url('+category.classLeft+')'}"></div>
       <div class="coffee">
-        <span class="our-comminment" >{{category.categoryName}}</span>
-        <span class="com-text">{{category.text}}</span>
+        <span class="our-comminment" *ngIf="category.categoryName === 'Coffee'">{{'menucategory.coffee' | translate}}</span>
+        <span class="our-comminment" *ngIf="category.categoryName === 'Tea'">{{'menucategory.tea' | translate}}</span>
+        <span class="our-comminment" *ngIf="category.categoryName === 'Drinks'">{{'menucategory.drinks' | translate}}</span>
+        <span class="our-comminment" *ngIf="category.categoryName === 'Bakery'">{{'menucategory.bakery' | translate}}</span>
+        <span class="our-comminment" *ngIf="category.categoryName === 'Sweets'">{{'menucategory.sweets' | translate}}</span>
+        <span class="our-comminment" *ngIf="category.categoryName === 'Sandwiches'">{{'menucategory.sandwiches' | translate}}</span>
+        <span class="com-text">{{'iamnewblock.desc' | translate}}</span>
       </div>
       <div  class="splash side-splash header-right" [ngStyle]="{'background-image': 'url('+category.classRight+')'}"></div>
       <div class="go" (click)="go(+1)">
@@ -17,7 +22,7 @@
       </div>
     </div>
     <div class="cards" *ngIf="category">
-      <span style="color:gray;margin: auto auto" *ngIf="category.products.length === 0">No products yet..</span>
+      <span style="color:gray;margin: auto auto" *ngIf="category.products.length === 0">{{'menucategory.noproducts' | translate}}</span>
       <div *ngIf="isAdmin" class="promocard">
         <div class="card-content">
           <div class="card-header">
@@ -26,7 +31,7 @@
             <div class="hr-wrap-top"><hr></div>
           </div>
           <div class="card-body addcup" (click)="goAdd()">
-            <span>+ Add new product</span>
+            <span style="text-align: center">+ {{'menucategory.add' | translate}}</span>
           </div>
           <div class="card-footer">
             <hr>
@@ -51,7 +56,7 @@
               <div class="price">
                 <span class="numb">{{p.price}}</span>
                 <div class="only-shek">
-                  <span class="only">only</span>
+                  <span class="only">{{'addinging.only' | translate}}</span>
                   <div class="shek"></div>
                 </div>
               </div>

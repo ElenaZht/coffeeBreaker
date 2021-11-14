@@ -1,0 +1,229 @@
+{
+"iamnewblock" : {
+  "title" : "I am New!",
+  "desc" : "New fresh baked goods and drinks will cheer you up and charge you with positive emotions. Check out the list of our new products that we have prepared for you. They are waiting for you in the nearest coffee shop, click and learn a lot of new things.",
+  "button" : "See menu"
+},
+  "joinusblock" : {
+    "title" : "Join us!",
+    "desc" : "Stay in touch with us to tell about your impressions and share pleasant moments with friends"
+  },
+  "findpoint" : {
+    "title" : "Find nearest point!",
+    "desc" : "Easily find the nearest coffee shop among dozens of outlets and go there for new flavors that are waiting for you.",
+    "button" : "Other"
+  },
+  "footer" : {
+    "little" : "Good coffee and delicious pastries will cheer you up, fill your break with pleasant moments that you will wait every day.",
+    "big1" : "Make your",
+    "big2" : "coffee break great again!"
+  },
+  "navbar" : {
+    "menu" : "Menu",
+    "lang" : "en",
+    "tray" : "tray",
+    "account" : "Account",
+    "contacts" : "Contacts",
+    "aboutus" : "About us",
+    "logout" : "Log Out",
+    "login" : "Log In"
+  },
+  "menucommon" : {
+    "coffee" : "Coffee",
+    "tea" : "Tea",
+    "drinks" : "Drinks",
+    "bakery" : "Bakery",
+    "sweets" : "Sweets",
+    "sandwiches" : "Sandwiches",
+    "from" : "from",
+    "swipe" : "Swipe for more"
+  },
+  "menucategory" : {
+    "loading" : "Loading",
+    "oops" : "Oops..This category is tired. Please, try again later.",
+    "noproducts" : "No products yet",
+    "add" : "Add new product",
+    "coffee" : "Coffee",
+    "tea" : "Tea",
+    "drinks" : "Drinks",
+    "bakery" : "Bakery",
+    "sweets" : "Sweets",
+    "sandwiches" : "Sandwiches"
+  },
+  "tray" : {
+    "title" : "Tray",
+    "desc" : "Add products to your basket and order in just a couple of clicks. And soon you will receive your order packed in eco-friendly packaging that reliably preserves taste and warmth.",
+    "order" : "Order",
+    "clear" : "Clear the tray"
+  },
+  "account" : {
+    "title" : "My account",
+    "adminemode" : "Admin mode",
+    "desc" : "Your personal account will store all the necessary information so that you can place orders and pay in a couple of clicks at any time. Your personal data is under reliable protection.",
+    "adesc" : "Administrator mode is activated. Do not share your login information with this account. Administrator mode allows you to fully control the operation of the site.",
+    "mycards" : "My cards",
+    "nocards" : "No saved cards yet.",
+    "myorders" : "My orders",
+    "orderscontrol" : "Orders control",
+    "statistic" : "Statistic",
+    "personaldata" : "Personal data",
+    "myname" : "My Name",
+    "email" : "Email",
+    "phone" : "Phone",
+    "bday" : "Birthday",
+    "delete" : "Delete my account."
+  },
+  "chooselang" : {
+    "en" : "English",
+    "br" : "Belarusian",
+    "he" : "Hebrow"
+  },
+  "contacts" : {
+    "title" : "Our contacts",
+    "desc" : "Stay in touch with us to tell about your impressions and share pleasant moments with friends. And we will also be happy if you mark us on social networks and invite friends.",
+    "addr" : "Tel Aviv, st. Ben Gurion, 9"
+  },
+  "comminment" : {
+    "title" : "Our comminment",
+    "desc" : "We guarantee unmatched quality every day, strive to grow and improve, because we love our business." ,
+    "phrase" : "Every day we work for your bests coffee cup and always will!",
+    "q1" : "Who protects my rights as a consumer?",
+    "q1a" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "q2" : "Can I be confident in the quality and safety of your products?",
+    "q2a" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "q3" : "Where can I go with a request, complaint or suggestion?",
+    "q3a" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "q4" : "Does your company participate in international competitions and does it have prizes?",
+    "q4a" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  "myorders" : {
+    "title" : "My orders",
+    "desc" : "We have saved all your previous orders so that you can always remember your favorite products and affiliates. You can also follow the status of your order here.",
+    "id" : "ID",
+    "products" : "products",
+    "date" : "date",
+    "branch" : "branch",
+    "status" : "status",
+    "confirmed" : "confirmed",
+    "processing" : "processing",
+    "ready" : "ready"
+  },
+  "statistic" : {
+    "soldfortoday" : "Sold for today",
+    "noitems" : "No sold items for today yet..",
+    "item" : "item",
+    "price" : "price for 1",
+    "sold" : "sold pieces",
+    "totalitem" : "total for item",
+    "title" : "Statistic",
+    "desc" : "All the necessary sales statistics for today in one place. Lets you see how the business is progressing from day to day.",
+    "totaltoday" : "Total for today",
+    "popular" : "Most popular today",
+    "mostprofit" : "Most profitable today"
+  },
+  "orderscontrol" : {
+    "title" : "Orders control",
+    "desc": "Manage order processing and change order status by dragging and dropping the order card to the next window.",
+    "new" : "New orders",
+    "proc" : "Processing",
+    "ready" : "Ready orders"
+
+  },
+  "choosebranch" : {
+    "q" : "What the branch?",
+    "choose" : "Choose the branch and come!",
+    "c" : "Continue"
+  },
+  "addinging" : {
+    "add" : "Add new ingredient",
+    "hide" : "Hide ingredient form",
+    "only" : "only",
+    "additem" : "Add item",
+    "title" : "Title",
+    "desc" : "Description.."
+  },
+  "branchitem" : {
+    "popular" : "popular",
+    "rempop" : "remove from popular",
+    "addpop" : "add to popular",
+    "placeaddr" : "Address (ex.: Tel Aviv, st.Jerusalim, 1)",
+    "placedesc" : "Description (ex.: Lorem ipsum, fata de..)"
+  },
+  "branches" : {
+    "title" : "Branches",
+    "desc" : "Many of our wonderful coffee houses are waiting for you at these addresses. Find the address closest to you and enjoy our service.",
+    "add" : "Add new branch"
+  },
+  "login" : {
+    "emailexp" : "Email is required (Exp.:Smith@example.com, Smith@gmail.com, etc.).",
+    "passreq" : "Password is required (minimum 8 symbols).",
+    "placepass" : "Password",
+    "placeem" : "Email",
+    "log" : "Log In",
+    "or" : "or",
+    "sign" : "Sign Up"
+  },
+  "signup" : {
+    "sign" : "Sign Up",
+    "name" : "Your Name",
+    "namereq" : "Name is required (Exp.: Symon Osher.).",
+    "bdayreq" : "Birthday is required (Exp.: 10.02.1988).",
+    "phonereq" : "Phone is required (Exp.:0542223344)."
+  },
+  "edititem" : "Edit item",
+  "addtotray" : "Add to tray",
+  "deleteitem" : "Delete item",
+  "deleteitematall" : "Delete item",
+  "mytray" : "My tray",
+  "orderconfirm" : "Your order is confirmed!",
+  "ordnumb" : "Order number",
+  "branch" : "Branch",
+  "date" : "Date",
+  "items" : "Items",
+  "total" : "Total",
+  "confirm" : {
+    "deletebranch" : "Delete branch",
+    "deleted" : "deleted!",
+    "nobranch" : "This branch is not exist.",
+    "branchsuc" : "Branch data edited successfuly!",
+    "try" : "Please, try again.",
+    "branchnosuc" : "Branch data not edited!",
+    "branchnotpop" : "This branch is not popular any more?",
+    "makebranchpop" : "Make this branch popular?",
+    "savecredit" : "Save this credit card for your account? It will help you pay more fast the next time. This option it safety.",
+    "yourcard" : "You card",
+    "wassavedsuc" : "was saved successfuly!",
+    "notsaved" : "Credit card not saved!",
+    "suredel" : "Are you sure to delete",
+    "delsuc" : "was deleted successfuly!",
+    "notdel" : "not deleted!",
+    "fromrecipe" : "from recipe?",
+    "editsuc" : "was edited successfuly!",
+    "notedited" : "was not edited!",
+    "addedtotray" : "added to your tray!",
+    "ordnotconfirm" : "Order not confirmed! Pleace, try again.",
+    "fromtray" : "from the tray?",
+    "trayrem" : "removed from the tray.",
+    "wantlogout" : "Do you want to log out?",
+    "logformore" : "Log in for more actions.",
+    "suredelaccount" : "Are you sure you wont to delete your account?",
+    "accountdelsuc" : "Your account deleted successfully!",
+    "accountnotdel" : "Your account not deleted",
+    "youlogged" : "You logged in as",
+    "logsuc" : "Logged in successfully!",
+    "wrong" : "Wrong login or password.",
+    "nouser" : "There is no user with email",
+    "orpas" : "or password is wrong. Please, try again.",
+    "notauth" : "Not authorized!",
+    "contactsedited" : "Contacts edited successfully!",
+    "connotedited" : "Contacts not edited!",
+    "brwithaddr" : "Branch with address",
+    "addedsuc" : "added successfuly!",
+    "brnotadd" : "Branch not added!",
+    "mooved" : "moved to",
+    "dataedited" : "Your data edited successfully!",
+    "datanotedited" : "Your data not edited!"
+  },
+  "ordernow" : "Order now",
+  "lang" : "Language"
+}

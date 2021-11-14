@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {NgForm} from '@angular/forms';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-add-new-item',
@@ -25,9 +26,13 @@ export class AddNewItemComponent implements OnInit {
   addEngWindow = false;
   ings = false;
   nutrs = false;
+  remIngQ1: string;
+  remIngQ2: string;
+  addItemSuc: string;
+  addItemErr: string;
 
   constructor(public dialogRef: MatDialogRef<AddNewItemComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private router: Router,
-              private itemService: ItemsService, private toastr: ToastrService, private spinner: NgxSpinnerService) {
+              private itemService: ItemsService, private toastr: ToastrService, private spinner: NgxSpinnerService, private  translator: TranslateService) {
 
     this.nutrValue.url = '../../assets/nutrition_icon.png';
     this.visualValue.url = '../../assets/coffee_icon.png';
@@ -35,6 +40,12 @@ export class AddNewItemComponent implements OnInit {
     this.desc = '';
     this.title = '';
     this.ingredients = [{ing: '', ingClass: ''}];
+
+    this.translator.get('confirm.suredel').subscribe(res => this.remIngQ1 = res);
+    this.translator.get('confirm.fromrecipe').subscribe(res => this.remIngQ2 = res);
+    this.translator.get('confirm.editsuc').subscribe(res => this.addItemSuc = res);
+    this.translator.get('confirm.notedited').subscribe(res => this.addItemErr = res);
+
   }
 
   ngOnInit() {
@@ -49,7 +60,7 @@ export class AddNewItemComponent implements OnInit {
     this.addEngWindow = false;
   }
   remIng(i: Ingredient) {
-    if (confirm('Do you wont to delete ' + i.ing.toLowerCase() + ' from recipe?')) {
+    if (confirm(this.remIngQ1 + ' ' + i.ing.toLowerCase() + ' ' + this.remIngQ2)) {
       const idx = this.ingredients.indexOf(i);
       this.ingredients.splice(idx, 1);
       console.log('ingedients length ', this.ingredients.length);
@@ -112,7 +123,7 @@ export class AddNewItemComponent implements OnInit {
     this.itemService.AddItem(item, item.menuCategory).subscribe(
       res => {
         this.spinner.hide();
-        this.showSuccess(item.title + ' was edited successfuly!');
+        this.showSuccess(item.title + ' ' + this.addItemSuc);
         this.nutrValue.url = res.nutr;
         this.visualValue.url = res.img;
         this.price = res.price;
@@ -122,7 +133,7 @@ export class AddNewItemComponent implements OnInit {
         this.dialogRef.close();
       }, err => {
         this.spinner.hide();
-        this.showError(err.statusText, item.title + ' was not edited!');
+        this.showError(err.statusText, item.title + ' ' + this.addItemErr);
       }
     );
   }

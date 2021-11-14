@@ -1,6 +1,6 @@
 <app-frame>
 <div class="main">
-  <span class="swipe"><-- Swipe for more --></span>
+  <span class="swipe"><-- {{'menucommon.swipe' | translate}} --></span>
   <div class="carousel">
     <a class="carousel-item" *ngFor="let item of items">
       <div class="category-card">
@@ -18,12 +18,17 @@
                   <div class="price">
                     <span class="numb">{{item.price}}</span>
                     <div class="only-shek">
-                      <span class="only">from</span>
+                      <span class="only">{{'menucommon.from' | translate}}</span>
                       <div class="shek"></div>
                     </div>
                   </div>
                   <div class="description">
-                    <span class="item-title" >{{item.name}}</span>
+                    <span class="item-title" *ngIf="item.name === 'Coffee'">{{'menucommon.coffee' | translate}}</span>
+                    <span class="item-title" *ngIf="item.name === 'Tea'">{{'menucommon.tea' | translate}}</span>
+                    <span class="item-title" *ngIf="item.name === 'Drinks'">{{'menucommon.drinks' | translate}}</span>
+                    <span class="item-title" *ngIf="item.name === 'Bakery'">{{'menucommon.bakery' | translate}}</span>
+                    <span class="item-title" *ngIf="item.name === 'Sweets'">{{'menucommon.sweets' | translate}}</span>
+                    <span class="item-title" *ngIf="item.name === 'Sandwiches'">{{'menucommon.sandwiches' | translate}}</span>
                   </div>
                 </div>
                 <div class="card-footer">

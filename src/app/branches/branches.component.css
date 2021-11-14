@@ -6,6 +6,14 @@
   font-family: JosefinSans Regular;
   src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
 }
+@font-face {
+  font-family: Arial Narrow;
+  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
+}
+@font-face {
+  font-family: Annabelle;
+  src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
+}
 .main {
   height: 65vh;
   background:transparent url('../../assets/branches-background.png') 0% 0% no-repeat padding-box;
@@ -29,7 +37,7 @@
   align-items: center;
 }
 .our-comminment {
-  font: 12vmax Cookie;
+  font: 12vmax Cookie, Annabelle;
   line-height: 1;
   display: flex;
   text-align: center;
@@ -38,7 +46,7 @@
   text-shadow: 0 0 5px rgba(0,0,0,1);
 }
 .com-text {
-  font: 1vw JosefinSans Regular;
+  font: 1vw JosefinSans Regular, Arial Narrow;
   display: flex;
   position: relative;
   bottom: 63%;
@@ -86,7 +94,7 @@
 }
 .contact-text {
   width: 80%;
-  font: 1.2vw JosefinSans Regular;
+  font: 1.2vw JosefinSans Regular, Arial Narrow;
   display: flex;
   align-items: center;
 }
@@ -129,7 +137,7 @@
   transition: all 0.5s ease-in-out ;
 }
 .bnttext {
-  font: 1.9vmax JosefinSans Regular;
+  font: 1.9vmax JosefinSans Regular, Arial Narrow;
   color: white;
   display: flex;
   justify-content: space-around;

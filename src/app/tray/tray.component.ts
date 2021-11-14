@@ -12,6 +12,7 @@ import {map} from 'rxjs/operators';
 import {ChooseBranchDialogComponent} from '../choose-branch-dialog/choose-branch-dialog.component';
 import {OrderDetailsDialogComponent} from '../order-details-dialog/order-details-dialog.component';
 import {ItemsService} from '../items.service';
+import {TranslateService} from '@ngx-translate/core';
 
 
 
@@ -31,9 +32,13 @@ export class TrayComponent implements OnInit, OnDestroy {
   user: User;
   isLogged: boolean;
   subscription;
+  orderErr: string;
+  remCartQ1: string;
+  remCartQ2: string;
+  remCartSuc: string;
   constructor(public dialog: MatDialog, private ordersService: OrdersService, private itemsService: ItemsService,
               private toastr: ToastrService, private spinner: NgxSpinnerService,
-              private usersService: UsersService) {
+              private usersService: UsersService, private  translator: TranslateService) {
     if (window.screen.width <= 500) {
       this.titleWidthPermition = 150;
       console.log('screen less 500');
@@ -52,6 +57,12 @@ export class TrayComponent implements OnInit, OnDestroy {
       }
     );
     this.order = {id: undefined, ordered: [], status: undefined, branch: undefined, date: undefined, user: undefined};
+
+    this.translator.get('confirm.ordnotconfirm').subscribe(res => this.orderErr = res);
+    this.translator.get('confirm.suredel').subscribe(res => this.remCartQ1 = res);
+    this.translator.get('confirm.fromtray').subscribe(res => this.remCartQ2 = res);
+    this.translator.get('confirm.trayrem').subscribe(res => this.remCartSuc = res);
+
   }
 
   ngOnInit() {
@@ -109,7 +120,7 @@ export class TrayComponent implements OnInit, OnDestroy {
         }
       } catch (err) {
         this.spinner.hide();
-        this.showError(err.statusText, 'Order not confirmed! Pleace, try again.');
+        this.showError(err.statusText, this.orderErr);
         console.log(err);
       }
       }
@@ -162,12 +173,12 @@ export class TrayComponent implements OnInit, OnDestroy {
   }
 
   remFromCart(i: any) {
-    if (confirm('Do you wont to remove ' + i.title + ' from the tray?')) {
+    if (confirm(this.remCartQ1 + ' ' + i.title + ' ' + this.remCartQ2)) {
       this.spinner.show();
       this.ordersService.remFromCart(i).subscribe(
         res => {
           this.spinner.hide();
-          this.showSuccess(i.title + ' removed from the tray.');
+          this.showSuccess(i.title + ' ' + this.remCartSuc);
           console.log(i.title + ' removed from cart');
         }
       );

@@ -1,23 +1,16 @@
 <app-frame>
   <div class="main">
     <div class="desc">
-      <span class="our-comminment"  *ngIf="!isAdmin">My account</span>
-      <span class="our-comminment admin"  *ngIf="isAdmin">Admin mode</span>
-      <span class="com-text"  *ngIf="!isAdmin">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      <span class="our-comminment"  *ngIf="!isAdmin" [ngStyle]="{'font-size': myLang !== 'en' ? '7vmax':'15vmax'}">{{'account.title' | translate}}</span>
+      <span class="our-comminment admin"  *ngIf="isAdmin" [ngStyle]="{'font-size': myLang !== 'en' ? '7vmax':'15vmax'}">{{'account.adminemode' | translate}}</span>
+      <span class="com-text"  *ngIf="!isAdmin">{{'account.desc' | translate}}
       </span>
-      <span class="com-text"  *ngIf="isAdmin">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim laboris nisi ut aliquip ex ea commodo consequat. Duis afugiat nulla pariatur.
+      <span class="com-text"  *ngIf="isAdmin">{{'account.adesc' | translate}}
       </span>
     </div>
     <div class="data">
       <div class="title-wrap">
-        <p class="title">My personal data</p>
+        <p class="title">{{'account.personaldata' | translate}}</p>
         <div class="buttons">
           <button class="edit" (click)="editData()">
             <fa-icon class="fas fa-pencil-alt" [icon]="['fas', 'pencil-alt']"  aria-pressed="true"></fa-icon>
@@ -32,25 +25,25 @@
       </div>
       <form #data_Form="ngForm" (ngSubmit)="onSubmit(data_Form)">
         <div class="wrap">
-          <label for="name">My Name: </label>
+          <label for="name">{{'account.myname' | translate}}: </label>
           <input [disabled]="isDisabled" id="name" [(ngModel)]="name" name="name">
         </div>
         <div class="wrap">
-          <label for="email">Email: </label>
+          <label for="email">{{'account.email' | translate}}: </label>
           <input [disabled]="isDisabled" id="email" [(ngModel)]="email" name="email">
 
         </div>
         <div class="wrap">
-          <label for="phone">Phone: </label>
+          <label for="phone">{{'account.phone' | translate}}: </label>
           <input [disabled]="isDisabled" id="phone" [(ngModel)]="phone" name="phone">
 
         </div>
         <div class="wrap">
-          <label for="bday">Birthday: </label>
+          <label for="bday">{{'account.bday' | translate}}: </label>
           <input [disabled]="isDisabled" id="bday" [(ngModel)]="birthday" name="birthday">
 
         </div>
-        <div (click)="deleteUser(user)" *ngIf="!isDisabled" class="delAccount">Delete my account.</div>
+        <div (click)="deleteUser(user)" *ngIf="!isDisabled" class="delAccount">{{'account.delete' | translate}}</div>
       </form>
 
     </div>

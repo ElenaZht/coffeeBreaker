@@ -1,26 +1,26 @@
 <div class="card">
     <div class="exit" type="submit" (click)="exit()">x</div>
   <form class="card-body" #login_Form="ngForm" (ngSubmit)="onSubmit(login_Form)">
-    <div class="title"><span class="reg_lable">Log in</span></div>
-    <input  class="form-control reg-data" placeholder="Email"  type="email" id="inp1" #email="ngModel" name="email"
+    <div class="title"><span class="reg_lable">{{'login.log' | translate}}</span></div>
+    <input  class="form-control reg-data" placeholder="{{'login.placeem' | translate}}"  type="email" id="inp1" #email="ngModel" name="email"
             [(ngModel)]="login_Form.email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
     <div class="error" *ngIf="!email.valid && email.touched">
-      Email is required (Exp.:Smith@example.com, Smith@gmail.com, etc.).
+      {{'login.emailexp' | translate}}
     </div>
-    <input  class="form-control reg-data" placeholder="Password"  type="password" #password="ngModel" id="inp2" name="password" [(ngModel)]="login_Form.password" required minlength="8">
+    <input  class="form-control reg-data" placeholder="{{'login.placepass' | translate}}"  type="password" #password="ngModel" id="inp2" name="password" [(ngModel)]="login_Form.password" required minlength="8">
     <div class="error" *ngIf="!password.valid && password.touched">
-      Password is required (minimum 8 symbols).
+      {{'login.passreq' | translate}}
     </div>
     <div class="btn-wrap">
       <button class="orangebtn" type="submit" [disabled]="!login_Form.form.valid">
-        <span class="bnttext">Log On</span>
+        <span class="bnttext">{{'login.log' | translate}}</span>
       </button>
-      <span class="or">or</span>
-      <a class="signup" (click)="toSignUp()">Sign Up</a>
+      <span class="or">{{'login.or' | translate}}</span>
+      <a class="signup" (click)="toSignUp()">{{'login.sign' | translate}}</a>
     </div>
 
   </form>
-  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > {{'menucategory.loading' | translate}}... </p></ngx-spinner>
   <div *ngIf="errorText !== ''" class="danger">{{errorText}}</div>
 </div>
 

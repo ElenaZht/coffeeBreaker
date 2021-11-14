@@ -1,6 +1,6 @@
 <ul class="navbar">
   <li class="li" id="menu">
-    <div class="li-icon" routerLink="/menu_common">Menu</div>
+    <div class="li-icon" style="line-height: 0.9" routerLink="/menu_common">{{'navbar.menu' | translate}}</div>
     <div class="li-href"><mat-divider></mat-divider></div>
   </li>
   <li class="li" id="branches">
@@ -31,7 +31,7 @@
   </li>
 
   <li class="li" id="languages">
-    <div class="li-icon" (click)="chooseTheLang()">en</div>
+    <div class="li-icon" style="line-height: 0.9" (click)="chooseTheLang()">{{'navbar.lang' | translate}}</div>
     <div class="li-href"><mat-divider></mat-divider></div>
   </li>
   <li class="li" id="contacts">
@@ -58,28 +58,28 @@
   </li>
   <mat-menu #menu="matMenu">
     <button mat-menu-item>
-      <div class="li-icon tray drop-li" routerLink="/tray">Tray</div>
+      <div class="li-icon tray drop-li" routerLink="/tray">{{'navbar.tray' | translate}}</div>
     </button>
     <button mat-menu-item *ngIf="isLogged">
-      <div class="li-icon account drop-li" routerLink="/account">Account</div>
+      <div class="li-icon account drop-li" routerLink="/account">{{'navbar.account' | translate}}</div>
     </button>
     <button mat-menu-item>
-      <div class="li-icon tab drop-li" routerLink="/contacts">Contacts
+      <div class="li-icon tab drop-li" routerLink="/contacts">{{'navbar.contacts' | translate}}
       </div>
     </button>
     <button mat-menu-item>
-      <div class="li-icon h drop-li" routerLink="/help">About us</div>
+      <div class="li-icon h drop-li" routerLink="/help">{{'navbar.aboutus' | translate}}</div>
     </button>
     <button mat-menu-item *ngIf="isLogged" (click)="logOut()">
-      <div class="li-icon h drop-li">Log Out</div>
+      <div class="li-icon h drop-li">{{'navbar.logout' | translate}}</div>
     </button>
     <button mat-menu-item *ngIf="!isLogged" (click)="logIn()">
-      <div class="li-icon h drop-li">Log In</div>
+      <div class="li-icon h drop-li">{{'navbar.login' | translate}}</div>
     </button>
   </mat-menu>
-  <div class="li-icon lang2" (click)="chooseTheLang()">en</div>
+  <div class="li-icon lang2" (click)="chooseTheLang()">{{'navbar.lang' | translate}}</div>
   <li  class="li-icon" routerLink="/branches">
     <fa-icon class="fas fa-map-marker" [icon]="['fas', 'map-marker-alt']"  aria-pressed="true"></fa-icon>
   </li>
-  <div class="li-icon" routerLink="/menu_common">Menu</div>
+  <div class="li-icon" routerLink="/menu_common">{{'navbar.menu' | translate}}</div>
 </ul>

@@ -6,6 +6,14 @@
   font-family: JosefinSans Regular;
   src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
 }
+@font-face {
+  font-family: Arial Narrow;
+  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
+}
+@font-face {
+  font-family: Annabelle;
+  src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
+}
 .main {
   height: 65vh;
   background-color: white;
@@ -14,7 +22,7 @@
   user-select: none;
 }
 .swipe {
-  font: 1vw JosefinSans Regular;
+  font: 1vw JosefinSans Regular, Arial Narrow;
   color: #ECE6E5;
   margin: auto;
   position: relative;
@@ -198,7 +206,7 @@ hr {
   color: #E04523;
   display: flex;
   justify-content: center;
-  font: 9vw JosefinSans Regular;
+  font: 9vw JosefinSans Regular, Arial Narrow;
   position: relative;
 
 }
@@ -212,7 +220,7 @@ hr {
 .only {
   width: 100%;
   height: 30%;
-  font: 1.1vw JosefinSans Regular;
+  font: 1.1vw JosefinSans Regular, Arial Narrow;
   display: flex;
   justify-content: center;
   color: black;
@@ -236,7 +244,7 @@ hr {
   justify-content: center;
 }
 .item-title {
-  font: 5vw Cookie;
+  font: 5vw Cookie, Annabelle;
   color: #1F1010;
   word-wrap: break-word;
   line-height: 70%;
@@ -279,7 +287,7 @@ hr {
   transform: scale(1.5);
 }
 .admin:hover > .delete-btn > span {
-  font: 2vmax JosefinSans Regular;
+  font: 2vmax JosefinSans Regular, Arial Narrow;
   color: #E04523;
   display: flex;
 
@@ -303,7 +311,7 @@ hr {
     left: -12vw;
   }
   .swipe {
-    font: 5vw JosefinSans Regular;
+    font: 5vw JosefinSans Regular, Arial Narrow;
   }
   .category-card {
     width: 40vmax;
@@ -337,7 +345,7 @@ hr {
     left: 5vw;
   }
   .swipe {
-    font: 3vw JosefinSans Regular;
+    font: 3vw JosefinSans Regular, Arial Narrow;
     z-index: 100;
     top: 0;
   }

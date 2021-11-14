@@ -6,6 +6,7 @@ import {Contacts, ItemsService} from '../items.service';
 import {NgForm} from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {TranslateService} from '@ngx-translate/core';
 
 library.add(faPencilAlt);
 library.add(faCheck);
@@ -27,8 +28,12 @@ export class ContactsComponent implements OnInit {
   phone3: string;
   address: string;
   contacts = {} as Contacts;
+  sucMsg: string;
+  errMsg: string;
+  errTitle: string;
 
-  constructor(private userService: UsersService, private itemsService: ItemsService, private toastr: ToastrService, private spinner: NgxSpinnerService) {
+  constructor(private userService: UsersService, private itemsService: ItemsService, private toastr: ToastrService,
+              private spinner: NgxSpinnerService, private  translator: TranslateService) {
     if (this.userService.getCurrentUser().role === 0) {
       this.isAdmine = true;
     }
@@ -55,6 +60,11 @@ export class ContactsComponent implements OnInit {
 
       }
     );
+
+    this.translator.get('confirm.contactsedited').subscribe(res => this.sucMsg = res);
+    this.translator.get('confirm.try').subscribe(res => this.errMsg = res);
+    this.translator.get('confirm.connotedited').subscribe(res => this.errTitle = res);
+
   }
 
   ngOnInit() {
@@ -92,11 +102,11 @@ export class ContactsComponent implements OnInit {
     console.log('undo instagram to ', this.instagram);
   }
   showSuccess() {
-    this.toastr.success('Contacts edited successfully!' );
+    this.toastr.success(this.sucMsg );
   }
 
   showError(err) {
-    this.toastr.error('Please, try again.', 'Contacts not edited!', err);
+    this.toastr.error(this.errMsg, this.errTitle, err);
 
   }
 }

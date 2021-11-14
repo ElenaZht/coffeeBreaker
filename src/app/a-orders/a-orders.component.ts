@@ -7,6 +7,8 @@ import {Observable} from 'rxjs';
 import {ChooseBranchDialogComponent} from '../choose-branch-dialog/choose-branch-dialog.component';
 import {map} from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import {NgxSpinnerService} from 'ngx-spinner';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-a-orders',
@@ -18,8 +20,10 @@ export class AOrdersComponent implements OnInit {
   processing = [];
   readyOrders = [];
   workBranch;
+  sucMsg1: string;
+  sucMsg2: string;
 
-  constructor(private ordersService: OrdersService, public dialog: MatDialog,  private toastr: ToastrService) {
+  constructor(private ordersService: OrdersService, public dialog: MatDialog,  private toastr: ToastrService, private  translator: TranslateService) {
     this.chooseBranch().subscribe(
       res => {
         if (res) {
@@ -44,6 +48,9 @@ export class AOrdersComponent implements OnInit {
         }
       }
     );
+
+    this.translator.get('tray.order').subscribe(res => this.sucMsg1 = res);
+    this.translator.get('confirm.mooved').subscribe(res => this.sucMsg2 = res);
 
   }
   drop(event: CdkDragDrop<string[]>) {
@@ -100,7 +107,7 @@ export class AOrdersComponent implements OnInit {
 
   }
   showSuccess(id, status) {
-    this.toastr.success('Order ' + id + ' moved to ' + Statuses[status] );
+    this.toastr.success(  this.sucMsg1 + '  ' + id + ' ' +  this.sucMsg2 + Statuses[status] );
     console.log('status ', Statuses[status]);
   }
 }

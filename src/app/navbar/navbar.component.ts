@@ -16,7 +16,7 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {LoginComponentComponent} from '../login-component/login-component.component';
 import {Roles, UsersService} from '../users.service';
 import { ToastrService } from 'ngx-toastr';
-
+import {TranslateService} from '@ngx-translate/core';
 
 library.add(faMapMarkerAlt);
 library.add(faShoppingBasket);
@@ -33,13 +33,14 @@ library.add(faUserTie);
 })
 export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   subscription;
-  constructor(public dialog: MatDialog, private router: Router, private userService: UsersService, private toastr: ToastrService) {
+  constructor(public dialog: MatDialog, private router: Router, private userService: UsersService, private toastr: ToastrService,
+              private  translator: TranslateService) {
   }
   isLogged = false;
   isAdmin = false;
   ngOnInit() {
     console.log('ng on init');
-    // this.detectActiveNav();
+    // this.detectActiveNav(); // todo
     this.subscription = this.userService.getUser().subscribe(user => {
         console.log('nav has user', user);
         if (user && user.token) {
@@ -88,22 +89,24 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   logOut() {
     const element = document.getElementById('logout');
     element.classList.add('active-tab');
-    console.log('element is detected classlist ->', element);
     setTimeout( () => {
-      if (confirm('Do you want to log out?')) {
-        this.isLogged = false;
-        this.isAdmin = false;
-        this.userService.logout();
-        this.showSuccess();
-        if (this.router.url.includes('account') ||
-          this.router.url.includes('personal_data') ||
-          this.router.url.includes('my_orders') ||
-          this.router.url.includes('my_cards') ||
-          this.router.url.includes('statistic') ||
-          this.router.url.includes('orders_control')) {
-          this.router.navigate(['/homepage']);
+      this.translator.get('confirm.wantlogout').subscribe((text: string) => {
+        if (confirm(text)) {
+          this.isLogged = false;
+          this.isAdmin = false;
+          this.userService.logout();
+          this.showSuccess();
+          if (this.router.url.includes('account') ||
+            this.router.url.includes('personal_data') ||
+            this.router.url.includes('my_orders') ||
+            this.router.url.includes('my_cards') ||
+            this.router.url.includes('statistic') ||
+            this.router.url.includes('tray') ||
+            this.router.url.includes('orders_control')) {
+            this.router.navigate(['/homepage']);
+          }
         }
-      }
+      });
       document.getElementById('logout').classList.remove('active-tab');
     }, 500);
 }
@@ -114,17 +117,19 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
       width: '20vmax'});
     dialogRef.afterClosed().subscribe(
       result => {
-        console.log('The dialog was closed', result);
         document.getElementById('login').classList.remove('active-tab');
       }
     );
   }
   showSuccess() {
-    this.toastr.success('Log in for more actions. ', 'Logged out successfully!' );
+    let msg = '';
+    let title = '';
+    this.translator.get('confirm.logformore').subscribe(res => msg = res);
+    this.translator.get('Logged out successfully!').subscribe(res => title = res);
+    this.toastr.success(msg, title );
   }
 
   ngOnDestroy(): void {
-    console.log('NavBar ngOnDestroy');
     this.subscription.unsubscribe();
   }
 }

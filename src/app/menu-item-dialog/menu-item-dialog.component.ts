@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {NgForm} from '@angular/forms';
 import {OrdersService} from '../orders.service';
+import {TranslateService} from '@ngx-translate/core';
 
 library.add(faShoppingCart);
 library.add(faChevronLeft);
@@ -41,9 +42,17 @@ export class MenuItemDialogComponent implements OnInit {
   ingNewName = '';
   ingredients: Ingredient[] = [{ing: 'No ingredients.', ingClass: ''}];
   addEngWindow = false;
+  delQ: string;
+  delSuc: string;
+  delErr: string;
+  remIngQ1: string;
+  remIngQ2: string;
+  subSuc: string;
+  subErr: string;
+  addSuc: string;
   constructor(public dialogRef: MatDialogRef<MenuItemDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private router: Router,
               private itemService: ItemsService, private userService: UsersService, private toastr: ToastrService, private spinner: NgxSpinnerService,
-              private ordersService: OrdersService) {
+              private ordersService: OrdersService, private  translator: TranslateService) {
     if (this.userService.getCurrentUser() && this.userService.getCurrentUser().role === 0) {
       this.isAdmine = true;
     }
@@ -53,6 +62,16 @@ export class MenuItemDialogComponent implements OnInit {
     this.desc = data.desc;
     this.title = data.title;
     this.ingredients = data.ingredients;
+
+    this.translator.get('confirm.suredel').subscribe(res => this.delQ = res);
+    this.translator.get('confirm.delsuc').subscribe(res => this.delSuc = res);
+    this.translator.get('confirm.notdel').subscribe(res => this.delErr = res);
+    this.translator.get('confirm.suredel').subscribe(res => this.remIngQ1 = res);
+    this.translator.get('confirm.fromrecipe').subscribe(res => this.remIngQ2 = res);
+    this.translator.get('confirm.editsuc').subscribe(res => this.subSuc = res);
+    this.translator.get('confirm.notedited').subscribe(res => this.subErr = res);
+    this.translator.get('confirm.addedtotray').subscribe(res => this.addSuc = res);
+
   }
   ings = false;
   nutrs = false;
@@ -96,15 +115,15 @@ export class MenuItemDialogComponent implements OnInit {
 
   delete(data: Item) {
     this.spinner.show();
-    if (confirm('Are you sure to delete ' + data.title + '?')) {
+    if (confirm(this.delQ + ' ' + data.title + '?')) {
       this.itemService.DeleteItem(data).subscribe(
         res => {
           this.spinner.hide();
-          this.showSuccess(data.title + ' was deleted successfuly!');
+          this.showSuccess(data.title + ' ' + this.delSuc);
           this.goBack(data);
         }, err => {
           this.spinner.hide();
-          this.showError(err.statusText, data.title + ' not deleted!');
+          this.showError(err.statusText, data.title + ' ' + this.delErr);
         }
       );
     }
@@ -129,7 +148,7 @@ export class MenuItemDialogComponent implements OnInit {
   }
 
   remIng(i: Ingredient) {
-    if (confirm('Do you wont to delete ' + i.ing.toLowerCase() + ' from recipe?')) {
+    if (confirm(this.remIngQ1 + ' ' + i.ing.toLowerCase() + ' ' + this.remIngQ2)) {
       const idx = this.ingredients.indexOf(i);
       this.ingredients.splice(idx, 1);
       console.log('ingedients length ', this.ingredients.length);
@@ -168,7 +187,7 @@ export class MenuItemDialogComponent implements OnInit {
     this.itemService.EditItem(item).subscribe(
       res => {
         this.spinner.hide();
-        this.showSuccess(item.title + ' was edited successfuly!');
+        this.showSuccess(item.title + ' ' + this.subSuc);
         this.nutrValue.url = res.nutr;
         this.visualValue.url = res.img;
         this.price = res.price;
@@ -177,7 +196,7 @@ export class MenuItemDialogComponent implements OnInit {
         this.ingredients = res.ingredients;
       }, err => {
         this.spinner.hide();
-        this.showError(err.statusText, item.title + ' was not edited!');
+        this.showError(err.statusText, item.title + ' ' + this.subErr);
       }
     );
   }
@@ -189,7 +208,7 @@ export class MenuItemDialogComponent implements OnInit {
         this.spinner.hide();
         console.log(data.title + ' added to cart');
         this.dialogRef.close();
-        this.showSuccess(data.title + ' added to your tray!');
+        this.showSuccess(data.title + ' ' + this.addSuc);
       }, err => {
         this.spinner.hide();
         console.log('error ', err.statusText);

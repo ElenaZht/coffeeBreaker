@@ -1,3 +1,15 @@
+@font-face {
+  font-family: JosefinSans Regular;
+  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: Arial Narrow;
+  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
+}
+@font-face {
+  font-family: Avtala;
+  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype");
+}
 .navbar {
   width: 100%;
   height: 70%;
@@ -20,7 +32,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font: 3vw JosefinSans Regular;
+  font: 3vw JosefinSans Regular, Arial Narrow, Avtala;
   transition: all 0.5s ease-in-out ;
 }
 .li-icon:hover{
@@ -57,7 +69,7 @@ mat-divider {
   transform: scale(.8);
 }
 .help {
-  font: 2vw JosefinSans Regular;
+  font: 2vw JosefinSans Regular, Arial Narrow, Avtala;
   justify-content: center;
   display: flex;
   align-items: flex-end;

@@ -3,8 +3,16 @@
   src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
 }
 @font-face {
-  font-family: JosefinSans Regular;
+  font-family: JosefinSans Regular, Arial Narrow;
   src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: Arial Narrow;
+  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
+}
+@font-face {
+  font-family: Annabelle;
+  src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
 }
 .main{
   height: 65vh;
@@ -87,7 +95,7 @@ hr {
   width: 100%;
 }
 .table-title{
-  font: 1.5vmax JosefinSans Regular;
+  font: 1.5vmax JosefinSans Regular, Arial Narrow, Arial Narrow;
   text-align: center;
   margin: auto;
   margin-top: 2%;
@@ -120,7 +128,7 @@ hr {
 }
 .img-title > span{
   white-space: nowrap;
-  font: 1vmax JosefinSans Regular;
+  font: 1vmax JosefinSans Regular, Arial Narrow, Arial Narrow;
 
 }
 .img{
@@ -139,14 +147,14 @@ hr {
   width: 24%;
   display: flex;
   justify-content: center;
-  font: 1vmax JosefinSans Regular;
+  font: 1vmax JosefinSans Regular, Arial Narrow, Arial Narrow;
 
 }
 .totalItem{
   width: 24%;
   display: flex;
   justify-content: center;
-  font: 1vmax JosefinSans Regular;
+  font: 1vmax JosefinSans Regular, Arial Narrow, Arial Narrow;
 
 }
 .summ {
@@ -164,11 +172,11 @@ hr {
   width: 80%;
 }
 .stat{
-  font: 6vmax Cookie;
+  font: 6vmax Cookie, Annabelle;
   line-height: 0.7;
 }
 .stat-text{
-  font: 0.8vw JosefinSans Regular;
+  font: 0.8vw JosefinSans Regular, Arial Narrow, v;
   text-align: center;
   width: 65%;
 }
@@ -196,7 +204,7 @@ hr {
   transition: all 0.5s ease-in-out;
 }
 .sum-row > span{
-  font: 1.5vmax JosefinSans Regular;
+  font: 1.5vmax JosefinSans Regular, Arial Narrow, Arial Narrow;
   margin-right: 5%;
   margin-left: 5%;
 }
@@ -228,7 +236,7 @@ hr {
   background-color: white;
 }
 .wrap > span{
-  font: 1vmax JosefinSans Regular;
+  font: 1vmax JosefinSans Regular, Arial Narrow, Arial Narrow;
 }
 .pics{
   background:transparent url('../../assets/pocket-group.png') 0% 0% no-repeat padding-box;
@@ -249,7 +257,7 @@ hr {
   z-index: 100;
 }
 .our-contacts {
-  font: 12vw Cookie;
+  font: 12vw Cookie, Annabelle;
   line-height: 1;
   display: flex;
   text-align: center;
@@ -258,7 +266,7 @@ hr {
   text-shadow: 0 0 5px rgba(0,0,0,1);
 }
 .sometext {
-  font: 1vw JosefinSans Regular;
+  font: 1vw JosefinSans Regular, Arial Narrow, Arial Narrow;
   display: flex;
   position: relative;
   bottom: 68%;
@@ -296,7 +304,7 @@ hr {
   background-color: #E4D5CA;
 }
 .bnttext {
-  font: 1.9vw JosefinSans Regular;
+  font: 1.9vw JosefinSans Regular, Arial Narrow, Arial Narrow;
   color: white;
   margin: auto;
 }
@@ -323,18 +331,18 @@ hr {
   margin: auto;
 }
 .total-word{
-  font: 1.9vw JosefinSans Regular;
+  font: 1.9vw JosefinSans Regular, Arial Narrow;
   width: 24%;
   flex-grow: 1;
 }
 .total-items{
-  font: 1.9vw JosefinSans Regular;
+  font: 1.9vw JosefinSans Regular, Arial Narrow;
   width: 24%;
   display: flex;
   justify-content: center;
 }
 .total-sum{
-  font: 1.9vw JosefinSans Regular;
+  font: 1.9vw JosefinSans Regular, Arial Narrow;
   width: 24%;
   display: flex;
   justify-content: center;
@@ -346,7 +354,7 @@ hr {
   height: 100%;
 }
 .no-products > span{
-  font: 1.9vw JosefinSans Regular;
+  font: 1.9vw JosefinSans Regular, Arial Narrow;
   color: #AB9690;
 
 }

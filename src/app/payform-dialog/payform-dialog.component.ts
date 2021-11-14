@@ -4,6 +4,7 @@ import {OrdersService, CreditCard} from '../orders.service';
 import {ToastrService} from 'ngx-toastr';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {UsersService, User} from '../users.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-payform-dialog',
@@ -20,9 +21,14 @@ export class PayformDialogComponent implements OnInit {
   payMethod: string;
   cvv: number;
   user: User;
+  confQ: string;
+  sucMsg1: string;
+  sucMsg2: string;
+  errMsg: string;
 
   constructor(public dialogRef: MatDialogRef<PayformDialogComponent>, private ordersService: OrdersService,
-              private toastr: ToastrService, private spinner: NgxSpinnerService, private usersService: UsersService) {
+              private toastr: ToastrService, private spinner: NgxSpinnerService, private usersService: UsersService,
+              private  translator: TranslateService) {
     this.card = {
       userId: undefined,
       cardNumber: undefined,
@@ -33,6 +39,12 @@ export class PayformDialogComponent implements OnInit {
     };
     this.user = this.usersService.getCurrentUser();
     console.log('user for pay ', this.user);
+
+    this.translator.get('confirm.savecredit').subscribe(res => this.confQ = res);
+    this.translator.get('confirm.yourcard').subscribe(res => this.sucMsg1 = res);
+    this.translator.get('confirm.wassavedsuc').subscribe(res => this.sucMsg2 = res);
+    this.translator.get('confirm.notsaved').subscribe(res => this.errMsg = res);
+
   }
 
   ngOnInit() {
@@ -74,16 +86,16 @@ export class PayformDialogComponent implements OnInit {
     const cardChecked = await this.ordersService.mockCardChecking().toPromise();
     await this.spinner.hide();
     console.log('cardChecked ', this.card);
-    if (cardChecked && window.confirm('Save this credit card for your account? It will help you pay more fast the next time. This option it safety.')) {
+    if (cardChecked && window.confirm(this.confQ)) {
       this.ordersService.saveCreditCard(this.card).subscribe(
         res => {
           if (res) {
-            this.showSuccess('You card ****-****-****-' + this.card.lastNumber + ' was saved successfuly!');
+            this.showSuccess(this.sucMsg1 + ' ' + this.card.lastNumber + ' ' + this.sucMsg2);
           }
 
 
         }, err => {
-          this.showError(err.statusText, 'Credit card not saved!');
+          this.showError(err.statusText, this.errMsg);
         }
       );
     }

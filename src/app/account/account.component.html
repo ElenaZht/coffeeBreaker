@@ -1,43 +1,36 @@
 <app-frame>
   <div class="main">
     <div class="desc">
-      <span class="our-comminment"  *ngIf="!isAdmin">My account</span>
-      <span class="our-comminment admin"  *ngIf="isAdmin">Admin mode</span>
-      <span class="com-text"  *ngIf="!isAdmin">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      <span class="our-comminment"  *ngIf="!isAdmin" [ngStyle]="{'font-size': myLang !== 'en' ? '7vmax':'15vmax'}">{{'account.title' | translate}}</span>
+      <span class="our-comminment admin"  *ngIf="isAdmin" [ngStyle]="{'font-size': myLang !== 'en' ? '7vmax':'15vmax'}">{{'account.adminemode' | translate}}</span>
+      <span class="com-text"  *ngIf="!isAdmin">{{'account.desc' | translate}}
       </span>
-      <span class="com-text"  *ngIf="isAdmin">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim laboris nisi ut aliquip ex ea commodo consequat. Duis afugiat nulla pariatur.
+      <span class="com-text"  *ngIf="isAdmin">{{'account.adesc' | translate}}
       </span>
     </div>
     <div class="carousel">
       <a class="carousel-item">
         <div class="my-data"  routerLink="../personal_data"></div>
-        <div class="title">Personal data</div>
+        <div class="title">{{'account.personaldata' | translate}}</div>
       </a>
       <a class="carousel-item" *ngIf="!isAdmin" (click)="cardClick = !cardClick">
         <div class="my-cards" *ngIf="!cardClick"></div>
-        <div class="title" *ngIf="!cardClick">My cards</div>
-        <div class="title" *ngIf="cardClick">My cards</div>
-        <div style="color: #999999" *ngIf="cardClick">No saved cards yet.</div>
+        <div class="title" *ngIf="!cardClick">{{'account.mycards' | translate}}</div>
+        <div class="title" *ngIf="cardClick">{{'account.mycards' | translate}}</div>
+        <div style="color: #999999" *ngIf="cardClick">{{'account.nocards' | translate}}</div>
 
       </a>
       <a class="carousel-item" *ngIf="!isAdmin">
         <div class="my-orders"  (click)="toMyOrders()"></div>
-        <div class="title"  (click)="toMyOrders()">My orders</div>
+        <div class="title"  (click)="toMyOrders()">{{'account.myorders' | translate}}</div>
       </a>
       <a class="carousel-item" *ngIf="isAdmin">
         <div class="orders-control" routerLink="../orders_control"></div>
-        <div class="title">Orders control</div>
+        <div class="title">{{'account.orderscontrol' | translate}}</div>
       </a>
       <a class="carousel-item" *ngIf="isAdmin">
         <div class="statistic" routerLink="../statistic"></div>
-        <div class="title">Statistic</div>
+        <div class="title">{{'account.statistic' | translate}}</div>
       </a>
 
     </div>

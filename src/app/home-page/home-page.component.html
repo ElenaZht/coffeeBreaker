@@ -26,7 +26,7 @@
           </div>
           <div class="cup" [ngStyle]="{'background-image': 'url('+promoItems[startIndex].img+')'}"></div>
           <button class="order-now-btn" (click)="orderThis()">
-            <span>Order now ></span>
+            <span>{{'ordernow' | translate}} ></span>
           </button>
           <div class="price">
             <span class="numb">{{promoItems[startIndex].price}}</span>
@@ -41,9 +41,9 @@
           </div>
         </div>
         <div class="card-footer">
-          <span class="make-your-coffeebreak">Make your</span>
+          <span class="make-your-coffeebreak">{{'footer.big1' | translate}}</span>
           <hr>
-          <span class="make-your-coffeebreak">coffee break great again!</span>
+          <span class="make-your-coffeebreak">{{'footer.big2' | translate}}</span>
         </div>
       </div>
     </div>
@@ -58,9 +58,9 @@
         <app-iamnew></app-iamnew>
       </div>
       <div class="iamnew">
-        <div class="bigwords">I am New!</div>
-        <div class="sometext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </div>
-        <button class="orangebtn" routerLink="../menu_common"><span class="bnttext">See menu ></span></button>
+        <div class="bigwords">{{'iamnewblock.title' | translate }}</div>
+        <div class="sometext">{{'iamnewblock.desc' | translate }} </div>
+        <button class="orangebtn" routerLink="../menu_common"><span class="bnttext">{{'iamnewblock.button' | translate }} ></span></button>
       </div>
     </div>
 
@@ -82,8 +82,8 @@
         </div>
       </div>
       <div class="join-text">
-        <div class="bigwords">Join us!</div>
-        <div class="sometext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </div>
+        <div class="bigwords">{{'joinusblock.title' | translate}}</div>
+        <div class="sometext">{{'joinusblock.desc' | translate}}</div>
       </div>
       <div class="smartphone"></div>
       <div class="instascroll">
@@ -93,27 +93,18 @@
   </div>
   <div class="find-branch-section">
     <div class="branch-wrap">
-      <div class="bigwords">Find nearest point!</div>
-      <div class="sometext somepointtext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </div>
+      <div class="bigwords" [ngStyle]="{'font-size': myLang !== 'en' ? '6vmax':'8vmax'}">{{'findpoint.title' | translate}}</div>
+      <div class="sometext somepointtext">{{'findpoint.desc' | translate}}</div>
       <div class="points-wrap">
         <div class="points">
-          <div class="point">
+          <div class="point" *ngFor="let b of mostPopular | slice:0:6">
             <div class="point-icon"></div>
-            <div class="point-text">Tel aviv, st.Ben Gurion, 9</div>
+            <div class="point-text">{{b.address}}</div>
           </div>
-          <div class="point">
-            <div class="point-icon"></div>
-            <div class="point-text">Tel aviv, st.Dizenghof, 15</div>
-          </div>
-          <div class="point">
-            <div class="point-icon"></div>
-            <div class="point-text">Hifa, st.Itshak Rabin, 30</div>
-          </div>
-
         </div>
         <div class="btn2">
           <div class="white-arrow"></div>
-          <button class="orangebtn btn-other"  routerLink="../branches"><span class="bnttext">Other ></span></button>
+          <button class="orangebtn btn-other"  routerLink="../branches"><span class="bnttext">{{'findpoint.button' | translate}} ></span></button>
         </div>
       </div>
     </div>
@@ -124,14 +115,14 @@
 
       <div class="low-content">
         <div class="footer-left">
-          <div class="sometext footer-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </div>
-          <div class="make-your-coffeebreak footer-coffee-break">Make your</div>
-          <div class="make-your-coffeebreak footer-coffee-break">coffee break great again!</div>
+          <div class="sometext footer-text">{{'footer.little' | translate}}</div>
+          <div class="make-your-coffeebreak footer-coffee-break">{{'footer.big1' | translate}}</div>
+          <div class="make-your-coffeebreak footer-coffee-break">{{'footer.big2' | translate}}</div>
         </div>
         <div class="logo-m low-logo"></div>
         <div class="footer-right">
           <div class="mini-navbar">
-            <div class="mini-nav-item menu"  routerLink="../menu_common">Menu</div>
+            <div class="mini-nav-item menu"  routerLink="../menu_common">{{'navbar.menu' | translate}}</div>
             <div class="mini-nav-item pointer"  routerLink="../branches">
               <fa-icon class="fas fa-2x fa-map-marker" [icon]="['fas', 'map-marker-alt']"></fa-icon>
             </div>
@@ -141,7 +132,7 @@
             <div class="mini-nav-item account" routerLink="../account" *ngIf="userService.isLoggedIn()  && !userService.isAdmin()">
               <fa-icon class="fas fa-2x fa-user-circle" [icon]="['fas', 'user-circle']"></fa-icon>
             </div>
-            <div class="mini-nav-item lang" (click)="chooseTheLang()">en</div>
+            <div class="mini-nav-item lang" (click)="chooseTheLang()">{{'navbar.lang' | translate}}</div>
             <div class="mini-nav-item email2">
               <fa-icon class="fas fa-2x fa-info-circle" [icon]="['fas', 'info-circle']"></fa-icon>
             </div>
@@ -172,9 +163,9 @@
   <div class="navbar-wrap2">
     <ul class="navbar2">
       <li class="li-icon2 burg"></li>
-      <li class="li-icon2 curlang" (click)="chooseTheLang()">en</li>
+      <li class="li-icon2 curlang" (click)="chooseTheLang()">{{'navbar.lang' | translate}}</li>
       <li class="li-icon2 pointer"></li>
-      <li class="li-icon2 menuic">Menu</li>
+      <li class="li-icon2 menuic">{{'navbar.menu' | translate}}</li>
     </ul>
   </div>
 </div>
@@ -197,7 +188,7 @@
           </div>
           <div class="cup" [ngStyle]="{'background-image': 'url('+promoItems[startIndex].img+')'}"></div>
           <button class="order-now-btn">
-            <span>Order now ></span>
+            <span>{{'ordernow' | translate}} ></span>
           </button>
           <div class="price">
             <span class="numb">{{promoItems[startIndex].price}}</span>
@@ -212,18 +203,18 @@
           </div>
         </div>
         <div class="card-footer">
-          <span class="make-your-coffeebreak">Make your</span>
+          <span class="make-your-coffeebreak">{{'footer.big1' | translate}}</span>
           <hr>
-          <span class="make-your-coffeebreak">coffee break great again!</span>
+          <span class="make-your-coffeebreak">{{'footer.big2' | translate}}</span>
         </div>
       </div>
     </div>
     <div class="new-items-wrap">
-      <div class="bigwords">I am New!</div>
+      <div class="bigwords">{{'iamnewblock.title' | translate}}</div>
       <div class="news">
         <app-iamnew></app-iamnew>
       </div>
-      <button class="orangebtn" routerLink="../menu_common"><span class="bnttext">See menu ></span></button>
+      <button class="orangebtn" routerLink="../menu_common"><span class="bnttext">{{'iamnewblock.button' | translate}} ></span></button>
 
     </div>
     <div class="contacts">
@@ -241,8 +232,8 @@
       </div>
     </div>
     <div class="find-branch-section">
-        <div class="bigwords find">Find nearest point!</div>
-        <button class="orangebtn btn-other" routerLink="../branches"><span class="bnttext">Other ></span></button>
+        <div class="bigwords find"  [ngStyle]="{'font-size': myLang !== 'en' ? '6vmax':'8vmax'}">{{'findpoint.title' | translate}}</div>
+        <button class="orangebtn btn-other" routerLink="../branches"><span class="bnttext">{{'findpoint.button' | translate}} ></span></button>
     </div>
   </div>
   <div class="smart-nav">

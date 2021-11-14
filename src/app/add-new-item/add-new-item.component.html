@@ -14,8 +14,8 @@
             <fa-icon (click)="remIng(i)" *ngIf="i.ing.length" class="fas fa-times edit remIng" [icon]="['fas', 'times']"  aria-pressed="true"></fa-icon>
           </div>
           <div class="ingredient" style="justify-content: space-around;">
-            <span *ngIf="!addEngWindow" class="edit addIngBut" (click)="showAddEngWindow()">+ Add new ingredient</span>
-            <span *ngIf="addEngWindow" class="edit addIngBut" (click)="showAddEngWindow()">- Hide ingredient form</span>
+            <span *ngIf="!addEngWindow" class="edit addIngBut" (click)="showAddEngWindow()">+ {{'addinging.add' | translate}}</span>
+            <span *ngIf="addEngWindow" class="edit addIngBut" (click)="showAddEngWindow()">- {{'addinging.hide' | translate}}</span>
           </div>
           <div  class="ingredient newIng" *ngIf="addEngWindow">
             <div class="ing-spot splash"[ngStyle]="{'background-image': 'url('+visualIng.url+')'}">
@@ -45,18 +45,18 @@
           <div class="price">
             <input placeholder="0" class="numb" [(ngModel)]="price" name="price">
             <div class="only-shek">
-              <span class="only">only</span>
+              <span class="only">{{'addinging.only' | translate}}</span>
               <div class="shek"></div>
             </div>
           </div>
           <div class="description">
-            <textarea placeholder="Title" class="item-title" style="resize: none" [(ngModel)]="title" name="title" rows="1" cols="1"></textarea>
-            <textarea placeholder="Description.." class="item-desc" style="resize: none" [(ngModel)]="desc" name="desc" rows="4" cols="50"></textarea>
+            <textarea placeholder="{{'addinging.title' | translate}}" class="item-title" style="resize: none" [(ngModel)]="title" name="title" rows="1" cols="1"></textarea>
+            <textarea placeholder="{{'addinging.desc' | translate}}" class="item-desc" style="resize: none" [(ngModel)]="desc" name="desc" rows="4" cols="50"></textarea>
           </div>
           <div class="btns-wrap">
             <button class="orangebtn" (click)="addItem(itemForm)">
               <fa-icon class="fas fa-2x fa-check btn2 active" [icon]="['fas', 'check']" style="color: white;margin-left: 5%"  aria-pressed="true"></fa-icon>
-              <span class="bnttext">Add item</span>
+              <span class="bnttext">{{'addinging.additem' | translate}}</span>
             </button>
             <button class="edit"  (click)="undo()">
               <fa-icon class="fas fa-undo fa-2x" [icon]="['fas', 'undo']"  aria-pressed="true"></fa-icon>
@@ -80,7 +80,7 @@
       <div class="price">
         <input class="numb" [(ngModel)]="price" name="price" style="margin: 0">
         <div class="only-shek">
-          <span class="only">only</span>
+          <span class="only">{{'addinging.only' | translate}}</span>
           <div class="shek"></div>
         </div>
       </div>
@@ -110,8 +110,8 @@
   <div *ngIf="ings" class="ingredients-wrap">
     <fa-icon class="fas fa-3x fa-chevron-left active goback" [icon]="['fas', 'chevron-left']" (click)="goIngs()"></fa-icon>
     <div class="ingredient"  style="justify-content: space-around;">
-      <span *ngIf="!addEngWindow" class="edit addIngBut" (click)="showAddEngWindow()">+ Add new ingredient</span>
-      <span *ngIf="addEngWindow" class="edit addIngBut" (click)="showAddEngWindow()">- Hide ingredient form</span>    </div>
+      <span *ngIf="!addEngWindow" class="edit addIngBut" (click)="showAddEngWindow()">+ {{'addinging.add' | translate}}</span>
+      <span *ngIf="addEngWindow" class="edit addIngBut" (click)="showAddEngWindow()">- {{'addinging.hide' | translate}}</span>    </div>
     <div  class="ingredient newIng" *ngIf="addEngWindow" style="width: 90%; margin-left: 5%">
       <div class="ing-spot splash"[ngStyle]="{'background-image': 'url('+visualIng.url+')'}">
         <input style="width: 0%;visibility: hidden" class="hover-text" id="chooseFile4" type='file' (change)="onSelectFile($event, selectedFileIng, visualIng)">

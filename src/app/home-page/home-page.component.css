@@ -6,7 +6,22 @@
   font-family: JosefinSans Regular;
   src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
 }
-
+@font-face {
+  font-family: Arial Narrow;
+  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
+}
+@font-face {
+  font-family: Annabelle;
+  src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
+}
+@font-face {
+  font-family: Avtala;
+  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype");
+}
+@font-face {
+  font-family: Adama;
+  src: url('../../assets/fonts/AdamaMF Bold.ttf') format("opentype");
+}
 body {
   margin: 0;
   overflow: hidden;
@@ -541,7 +556,7 @@ hr {
   width: 60%;
   display: flex;
   align-items: center;
-  font-family: JosefinSans Regular;
+  font-family: JosefinSans Regular, Arial Narrow, Avtala;
   z-index: 100;
 }
 .cup {
@@ -569,7 +584,7 @@ hr {
   box-shadow: 14px 8px 2px 5px rgba(0,0,0,0.25);
 }
 .order-now-btn span {
-  font: 1.9vw JosefinSans Regular;
+  font: 1.9vw Avtala, Arial Narrow, JosefinSans Regular ;
   color: white;
 }
 
@@ -589,7 +604,7 @@ hr {
   color: #E04523;
   display: flex;
   justify-content: center;
-  font: 11vw JosefinSans Regular;
+  font: 11vw JosefinSans Regular, Arial Narrow, Avtala;
   position: relative;
   top: 3vh;
 
@@ -604,7 +619,7 @@ hr {
 .only {
   width: 100%;
   height: 30%;
-  font: 2.1vw JosefinSans Regular;
+  font: 2.1vw JosefinSans Regular, Arial Narrow, Avtala;
   display: flex;
   justify-content: center;
 }
@@ -628,19 +643,19 @@ hr {
 }
 .item-title {
 
-  font: 2vw JosefinSans Regular;
+  font: 2vw JosefinSans Regular, Arial Narrow, Avtala;
 
 }
 
 .item-desc {
   width: 100%;
   height: 70%;
-  font-family: JosefinSans Regular;
+  font-family: JosefinSans Regular, Arial Narrow, Avtala;
 }
 .make-your-coffeebreak {
   width: 70%;
   height: 100%;
-  font: 2vw Cookie;
+  font: 2vw Cookie, Annabelle, Adama;
   color: #EBD5D3;
 }
 .navbar-wrap {
@@ -670,7 +685,7 @@ hr {
   height: 50%;
   justify-content: center;
   align-items: center;
-  font: 3vw JosefinSans Regular;
+  font: 3vw JosefinSans Regular, Arial Narrow, Avtala;
 }
 
 .li-href {
@@ -711,7 +726,7 @@ mat-divider {
 }
 .bigwords {
   height: 30%;
-  font: 8vw JosefinSans Regular;
+  font: 8vw JosefinSans Regular,Arial Narrow, Avtala;
   color: #E04523;
   display: flex;
   justify-content: center;
@@ -723,7 +738,7 @@ mat-divider {
 }
 .sometext {
   width: 85%;
-  font-family:  JosefinSans Regular;
+  font-family:  JosefinSans Regular, Arial Narrow, Avtala;
   height: 30%;
   display: flex;
   position: relative;
@@ -745,7 +760,7 @@ mat-divider {
 
 }
 .bnttext {
-  font: 1.9vw JosefinSans Regular;
+  font: 1.9vw JosefinSans Regular, Arial Narrow, Avtala;
   color: white;
 }
 .join-us-section {
@@ -793,7 +808,7 @@ mat-divider {
 }
 .contact-text {
   width: 75%;
-  font: 2.5vw JosefinSans Regular;
+  font: 2.5vw JosefinSans Regular, Arial Narrow, Avtala;
   display: flex;
   align-items: center;
 }
@@ -913,7 +928,7 @@ mat-divider {
 .point-text {
   display: flex;
   width: 75%;
-  font: 2vw JosefinSans Regular;
+  font: 2vw JosefinSans Regular, Arial Narrow, Avtala;
   align-items: center;
 
 }
@@ -1022,14 +1037,14 @@ mat-divider {
   height: 50%;
   left: 0;
   width: 100%;
-  font: 1.5vw JosefinSans Regular;
+  font: 1.5vw JosefinSans Regular, Arial Narrow, Avtala;
 
 }
 .footer-coffee-break {
   height: 25%;
   color: #1F1010;
   width: 100%;
-  font: 4.9vw Cookie;
+  font: 4.9vw Cookie, Annabelle, Adama;
 
 }
 .mini-navbar {
@@ -1072,17 +1087,17 @@ mat-divider {
 
 }
 .low-text {
-  font: 2vw JosefinSans Regular;
+  font: 2vw JosefinSans Regular, Arial Narrow, Avtala;
 
 }
 .footer-phone {
-  font: 3.1vw JosefinSans Regular;
+  font: 3.1vw JosefinSans Regular, Arial Narrow, Avtala;
   display: flex;
   align-items: center;
   color: #564437;
 }
 .menu {
-  font: 2vw JosefinSans Regular;
+  font: 2vw JosefinSans Regular, Arial Narrow, Avtala;
   justify-content: center;
   display: flex;
   align-items: flex-end;
@@ -1101,7 +1116,7 @@ mat-divider {
   display: flex;
 }
 .lang {
-  font: 2vw JosefinSans Regular;
+  font: 2vw JosefinSans Regular, Arial Narrow, Avtala;
   justify-content: center;
   display: flex;
   align-items: flex-end;
@@ -1112,7 +1127,7 @@ mat-divider {
   display: flex;
 }
 .help {
-  font: 2vw JosefinSans Regular;
+  font: 2vw JosefinSans Regular, Arial Narrow, Avtala;
   justify-content: center;
   display: flex;
   align-items: flex-end;
@@ -1204,7 +1219,7 @@ app-navbar{
     justify-content: center;
   }
   .curlang,.smart-menu {
-    font: 12vmin JosefinSans Regular;
+    font: 12vmin JosefinSans Regular, Arial Narrow, Avtala;
     vertical-align: center;
   }
   li {

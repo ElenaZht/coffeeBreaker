@@ -1,15 +1,15 @@
 <app-frame>
   <div class="main">
     <div class="stat-title">
-      <span class="stat">Orders control</span>
-      <span class="stat-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
+      <span class="stat">{{'orderscontrol.title' | translate}}</span>
+      <span class="stat-text">{{'orderscontrol.desc' | translate}}</span>
     </div>
     <div class="panels">
       <div class="promocard" cdkDropList #newOrdersList="cdkDropList"
            [cdkDropListData]="newOrders"
            [cdkDropListConnectedTo]="[processingList]" (cdkDropListDropped)="drop($event)">
         <div class="header">
-          <span>New orders: {{newOrders.length}}</span>
+          <span>{{'orderscontrol.new' | translate}}: {{newOrders.length}}</span>
           <hr>
         </div>
         <div class="card-body">
@@ -35,7 +35,7 @@
            [cdkDropListData]="processing" [cdkDropListConnectedTo]="[readyOrdersList]"
            (cdkDropListDropped)="drop($event)">
         <div class="header">
-          <span>Processing: {{processing.length}}</span>
+          <span>{{'orderscontrol.proc' | translate}}: {{processing.length}}</span>
           <hr>
         </div>
         <div class="card-body">
@@ -63,7 +63,7 @@
            [cdkDropListData]="readyOrders"
              (cdkDropListDropped)="drop($event)">
         <div class="header">
-          <span>Ready orders: {{readyOrders.length}}</span>
+          <span>{{'orderscontrol.ready' | translate}}: {{readyOrders.length}}</span>
           <hr>
         </div>
         <div class="card-body">

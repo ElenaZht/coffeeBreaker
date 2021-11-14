@@ -3,18 +3,8 @@
     <fa-icon class="fas fa-3x fa-chevron-left active goback" [icon]="['fas', 'chevron-left']" (click)="goBack()"></fa-icon>
     <div class="left-side">
       <div class="desc">
-        <span class="our-comminment"  *ngIf="!isAdmin">My orders</span>
-        <span class="our-comminment admin"  *ngIf="isAdmin">Admin mode</span>
-        <span class="com-text"  *ngIf="!isAdmin">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      </span>
-        <span class="com-text"  *ngIf="isAdmin">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim laboris nisi ut aliquip ex ea commodo consequat. Duis afugiat nulla pariatur.
+        <span class="our-comminment"  *ngIf="!isAdmin">{{'myorders.title' | translate}}</span>
+        <span class="com-text"  *ngIf="!isAdmin">{{'myorders.desc' | translate}}
       </span>
       </div>
 
@@ -22,11 +12,11 @@
     <div class="right-side">
       <div class="category-card">
         <div class="card-title">
-          <span>ID</span>
-          <span>products</span>
-          <span>date</span>
-          <span>branch</span>
-          <span>status</span>
+          <span>{{'myorders.id' | translate}}</span>
+          <span>{{'myorders.products' | translate}}</span>
+          <span>{{'myorders.date' | translate}}</span>
+          <span>{{'myorders.branch' | translate}}</span>
+          <span>{{'myorders.status' | translate}}</span>
         </div>
         <hr style="width: 85%">
         <div class="card-content">
@@ -41,9 +31,9 @@
               </div>
               <span>{{o.date  | date:"dd MMM yyyy, h:mm a"}}</span>
               <span>{{branchesIdToAddressMap[o.branch]}}</span>
-              <span class="h" *ngIf="o.status === 0">confirmed</span>
-              <span class="h" *ngIf="o.status === 1">processing</span>
-              <span class="h" *ngIf="o.status === 2">ready</span>
+              <span class="h" *ngIf="o.status === 0">{{'myorders.confirmed' | translate}}</span>
+              <span class="h" *ngIf="o.status === 1">{{'myorders.processing' | translate}}</span>
+              <span class="h" *ngIf="o.status === 2">{{'myorders.ready' | translate}}</span>
             </div>
             <hr>
           </div>

@@ -10,7 +10,8 @@ library.add(faChevronUp);
 import {faInfoCircle, faMapMarkerAlt, faShoppingBasket, faUserCircle} from '@fortawesome/free-solid-svg-icons';
 import {LanguagesDialigComponent} from '../languages-dialig/languages-dialig.component';
 import {Router} from '@angular/router';
-import {ItemsService} from '../items.service';
+import {Branch, ItemsService} from '../items.service';
+import {Observable} from 'rxjs';
 library.add(faMapMarkerAlt);
 library.add(faShoppingBasket);
 library.add(faUserCircle);
@@ -27,6 +28,13 @@ export class HomePageComponent implements OnInit, OnDestroy {
   interval: any;
   startIndex = 0;
   promoItems = [];
+  branches$: Observable<Branch[]>;
+  subscription;
+  myLang: string;
+
+
+  mostPopular: Branch[] = [];
+
   constructor(@Inject(DOCUMENT) private document: Document, public dialog: MatDialog, private router: Router, private userService: UsersService, private itemsService: ItemsService) {
     this.itemsService.GetNewItems().subscribe(
       res => {
@@ -34,6 +42,13 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
       }
     );
+    this.branches$ = this.itemsService.GetBranches();
+    this.subscription = this.itemsService.GetBranches().subscribe(
+      res => {
+        this.mostPopular = res.filter(b => b.popular === true);
+      }
+    );
+    this.myLang = localStorage.getItem('lang');
   }
   @HostListener('window:scroll', [])
   onWindowScroll() {

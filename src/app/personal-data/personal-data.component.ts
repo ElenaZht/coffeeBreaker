@@ -6,6 +6,7 @@ import {faPencilAlt, faCheck, faUndo} from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DatePipe } from '@angular/common';
+import {TranslateService} from '@ngx-translate/core';
 
 library.add(faPencilAlt);
 library.add(faCheck);
@@ -27,8 +28,23 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
   phone: string;
   birthday: any;
   subscription;
+  subSuc: string;
+  subErrMsg: string;
+  subErrTitle: string;
+  delUserQ: string;
+  delSuc: string;
+  delErr: string;
 
-  constructor(private userService: UsersService, private toastr: ToastrService, private spinner: NgxSpinnerService, public datepipe: DatePipe) {}
+  constructor(private userService: UsersService, private toastr: ToastrService, private spinner: NgxSpinnerService, public datepipe: DatePipe,
+              private  translator: TranslateService) {
+    this.translator.get('confirm.dataedited').subscribe(res => this.subSuc = res);
+    this.translator.get('confirm.try').subscribe(res => this.subErrMsg = res);
+    this.translator.get('confirm.datanotedited').subscribe(res => this.subErrTitle = res);
+    this.translator.get('confirm.suredelaccount').subscribe(res => this.delUserQ = res);
+    this.translator.get('confirm.accountdelsuc').subscribe(res => this.delSuc = res);
+    this.translator.get('confirm.accountnotdel').subscribe(res => this.delErr = res);
+
+  }
 
   ngOnInit() {
     this.subscription = this.userService.getUser().subscribe(user => {
@@ -67,10 +83,10 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
             console.log('answer from array service ', answer);
             console.log('finily this.user is ', this.user);
             this.editData();
-            this.showSuccess('Your data edited successfully!');
+            this.showSuccess(this.subSuc);
           }, err => {
             this.spinner.hide();
-            this.showError('Please, try again.', 'Your data not edited!');
+            this.showError(this.subErrMsg, this.subErrTitle);
             console.log('error from array service', err);
           }
     );
@@ -100,18 +116,18 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
   }
 
   deleteUser(user: User) {
-    if (confirm('Are you sure you wont to delete your account? ')) {
+    if (confirm(this.delUserQ)) {
       this.spinner.show();
       this.userService.RemoveUser(user.id).subscribe(
         res => {
           if (res) {
             this.userService.logout();
             this.spinner.hide();
-            this.showSuccess('Your account deleted successfully!');
+            this.showSuccess(this.delSuc);
           }
         }, err => {
           this.spinner.hide();
-          this.showError(err.statusText, 'Your account not deleted');
+          this.showError(err.statusText, this.delErr);
         }
       );
     }

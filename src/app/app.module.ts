@@ -10,7 +10,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { FrameComponent } from './frame/frame.component';
 import { MenuCommonComponent } from './menu-common/menu-common.component';
 import { RoutingModule} from './routing';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ComminmentComponent } from './comminment/comminment.component';
 import { LanguagesDialigComponent } from './languages-dialig/languages-dialig.component';
@@ -47,6 +47,9 @@ import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
 export function playerFactory() {
   return player;
 }
@@ -92,6 +95,14 @@ export function playerFactory() {
     FormsModule,
     DragDropModule,
     MatMenuModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+
+      }
+    }),
     ToastrModule.forRoot({
       timeOut: 6000,
       positionClass: 'toast-bottom-right',
@@ -125,3 +136,6 @@ export function playerFactory() {
 })
 
 export class AppModule {}
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

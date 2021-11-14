@@ -1,22 +1,22 @@
 <div class="main">
   <div class="order">
-    <span class="title">Your order is confirmed!</span>
-    <span class="title" style="border: dotted">Order number: {{data.id}}</span>
+    <span class="title">{{'orderconfirm' | translate}}</span>
+    <span class="title" style="border: dotted">{{'ordnumb' | translate}}: {{data.id}}</span>
     <div class="details">
       <div class="detail">
-        <label for="user">Your name:</label>
+        <label for="user">{{'signup.name' | translate}}:</label>
         <output id="user">{{userName}}</output>
       </div>
       <div class="detail">
-        <label for="branch">Branch:</label>
+        <label for="branch">{{'branch' | translate}}:</label>
         <output id="branch">{{address}}</output>
       </div>
       <div class="detail">
-        <label for="date">Date:</label>
+        <label for="date">{{'date' | translate}}:</label>
         <output id="date">{{data.date | date:"dd MMM yyyy, h:mm a"}}</output>
       </div>
       <div class="detail itemlist">
-        <label for="ord">Items:</label>
+        <label for="ord">{{'items' | translate}}:</label>
         <div *ngFor="let d of data.ordered" id="ord" class="detail">
           <div>{{d.title}}</div>
           <div>{{d.sold}}</div>
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="detail">
-        <label for="total">Total:</label>
+        <label for="total">{{'total' | translate}}:</label>
         <output id="total">{{total}} ₪</output>
       </div>
 

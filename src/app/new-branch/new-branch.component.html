@@ -13,9 +13,9 @@
       <form class="about" #brachForm="ngForm">
         <div class="address">
           <div class="contact-icon pointer"></div>
-          <input class="adr" required="" [(ngModel)]="address" name="address" placeholder="Address (ex.: Tel Aviv, st.Jerusalim, 1)">
+          <input class="adr" required="" [(ngModel)]="address" name="address" placeholder="{{'branchitem.placeaddr' | translate}}">
         </div>
-          <input class="description" maxlength="350" [(ngModel)]="desc" name="desc" placeholder="Description (ex.: Lorem ipsum, fata de..)">
+          <input class="description" maxlength="350" [(ngModel)]="desc" name="desc" placeholder="{{'branchitem.placeaddr' | translate}}">
         <div class="buttons">
           <button class="edit" (click)="onSubmit(brachForm)" [disabled]="!address.length">
             <fa-icon class="fas fa-check fa-2x" [icon]="['fas', 'check']"  aria-pressed="true"></fa-icon>

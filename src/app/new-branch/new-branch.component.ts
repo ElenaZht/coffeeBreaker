@@ -6,6 +6,7 @@ import {Branch} from '../items.service';
 import {ItemsService} from '../items.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {TranslateService} from '@ngx-translate/core';
 library.add(faImages);
 library.add(faTimes);
 
@@ -20,8 +21,15 @@ export class NewBranchComponent implements OnInit {
   desc = '';
   selectedFile: File = null;
   gray = true;
+  sucMsg1: string;
+  sucMsg2: string;
+  errMsg: string;
 
-  constructor(private itemsService: ItemsService,  private toastr: ToastrService, private spinner: NgxSpinnerService) {
+  constructor(private itemsService: ItemsService,  private toastr: ToastrService, private spinner: NgxSpinnerService,
+              private  translator: TranslateService) {
+    this.translator.get('confirm.brwithaddr').subscribe(res => this.sucMsg1 = res);
+    this.translator.get('confirm.addedsuc').subscribe(res => this.sucMsg2 = res);
+    this.translator.get('confirm.brnotadd').subscribe(res => this.errMsg = res);
 
   }
 
@@ -54,11 +62,11 @@ export class NewBranchComponent implements OnInit {
     );
   }
   showSuccess(adr) {
-    this.toastr.success('Branch with address ' + adr + 'added successfuly!');
+    this.toastr.success(this.sucMsg1 + ' ' + adr + ' ' + this.sucMsg2);
   }
 
   showError(m) {
-    this.toastr.error(m, 'Branch not added!');
+    this.toastr.error(m, this.errMsg);
 
   }
 

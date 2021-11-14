@@ -7,6 +7,7 @@ import {Branch, ItemsService} from '../items.service';
 import {NgForm} from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {TranslateService} from '@ngx-translate/core';
 
 library.add(faPencilAlt);
 library.add(faCheck);
@@ -26,8 +27,19 @@ export class BranchItemComponent implements OnInit {
   photo = '';
   branch: Branch;
   selectedFile: File = null;
+  delQ: string;
+  delSuc1: string;
+  delSuc2: string;
+  delErrTitle: string;
+  subSuc: string;
+  subErrMsg: string;
+  subErrTitle: string;
+  remPopQ: string;
+  addPopQ: string;
 
-  constructor(public dialogRef: MatDialogRef<BranchItemComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private userService: UsersService, private itemService: ItemsService, private toastr: ToastrService, private spinner: NgxSpinnerService) {
+  constructor(public dialogRef: MatDialogRef<BranchItemComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private userService: UsersService,
+              private itemService: ItemsService, private toastr: ToastrService, private spinner: NgxSpinnerService,
+              private  translator: TranslateService) {
     if (this.userService.getCurrentUser().role === 0) {
       this.isAdmin = true;
     }
@@ -35,6 +47,16 @@ export class BranchItemComponent implements OnInit {
     this.address = data.address;
     this.photo = data.photo;
     this.desc = data.desc;
+
+    this.translator.get('confirm.deletebranch').subscribe(res => this.delQ = res);
+    this.translator.get('branch').subscribe(res => this.delSuc1 = res);
+    this.translator.get('confirm.deleted').subscribe(res => this.delSuc2 = res);
+    this.translator.get('confirm.nobranch').subscribe(res => this.delErrTitle = res);
+    this.translator.get('confirm.branchsuc').subscribe(res => this.subSuc = res);
+    this.translator.get('confirm.try').subscribe(res => this.subErrMsg = res);
+    this.translator.get('confirm.branchnosuc').subscribe(res => this.subErrTitle = res);
+    this.translator.get('confirm.branchnotpop').subscribe(res => this.remPopQ = res);
+    this.translator.get('confirm.makebranchpop').subscribe(res => this.addPopQ = res);
   }
 
   ngOnInit() {
@@ -57,7 +79,7 @@ export class BranchItemComponent implements OnInit {
     };
   }
   delete(branch) {
-    const question = confirm('Delete branch ' + branch.address + '?');
+    const question = confirm(this.delQ + ' ' + branch.address + '?');
     if (question) {
       this.spinner.show();
       this.itemService.DeleteBranch(this.data).subscribe(
@@ -65,12 +87,12 @@ export class BranchItemComponent implements OnInit {
           console.log('result of delete ', res);
           this.spinner.hide();
           if (res) {
-            this.showSuccess('Branch' + branch.address + 'deleted!');
+            this.showSuccess(this.delSuc1 + ' ' + branch.address + ' ' + this.delSuc2);
             this.dialogRef.close(true);
           }
         }, err =>  {
           this.spinner.hide();
-          this.showError('', 'This branch is not exist.');
+          this.showError('', this.delErrTitle);
         }
       );
     }
@@ -87,11 +109,11 @@ export class BranchItemComponent implements OnInit {
       answer => {
         this.spinner.hide();
         this.editData();
-        this.showSuccess('Branch data edited successfuly!');
+        this.showSuccess(this.subSuc);
         this.branch = answer;
       }, err => {
         this.spinner.hide();
-        this.showError('Please, try again.', 'Branch data not edited!');
+        this.showError(this.subErrMsg, this.subErrTitle);
       }
     );
   }
@@ -105,8 +127,7 @@ export class BranchItemComponent implements OnInit {
   }
 
   removeFromPop(branch: Branch) {
-    if (confirm('This branch is not popular any more?')) {
-      console.log('remove from popular ', branch);
+    if (confirm(this.remPopQ)) {
       this.itemService.ChangeBranchStatus(branch, false).subscribe(
         res => {
           console.log('res from remove from pop ', res);
@@ -115,8 +136,7 @@ export class BranchItemComponent implements OnInit {
     }
   }
   addToPop(branch: Branch) {
-    if (confirm('Make this branch popular?')) {
-      console.log('add to popular ', branch);
+    if (confirm(this.addPopQ)) {
       this.itemService.ChangeBranchStatus(branch, true).subscribe(
         res => {
           console.log('res from add to pop ', res);

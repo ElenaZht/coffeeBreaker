@@ -53,7 +53,7 @@
               </div>
               <div class="contact" *ngIf="contacts && contacts.address">
                 <div class="contact-icon address"></div>
-                <div class="contact-text" *ngIf="!isAdmine">Tel Aviv, st. Ben Gurion, 9</div>
+                <div class="contact-text" *ngIf="!isAdmine">{{'contacts.addr' | translate}}</div>
                 <input class="contact-text" *ngIf="isAdmine" [(ngModel)]="address" name="address">
               </div>
             </form>
@@ -65,16 +65,13 @@
         </div>
       </div>
       <div class="some-contacts-text-wrap">
-        <span class="our-contacts">Our contacts</span>
-        <span class="sometext">  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim  laboris nisi ut aliquip ex ea
-          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. </span>
+        <span class="our-contacts">{{'contacts.title' | translate}}</span>
+        <span class="sometext">{{'contacts.desc' | translate}}</span>
       </div>
     </div>
   </div>
   <div class="main2">
-    <span class="our-contacts">Our contacts</span>
+    <span class="our-contacts">{{'contacts.title' | translate}}</span>
     <div class="contacts">
       <div class="contact">
         <div class="contact-icon instagram"></div>
@@ -102,7 +99,7 @@
       </div>
       <div class="contact">
         <div class="contact-icon address"></div>
-        <div class="contact-text">Tel Aviv, st. Ben Gurion, 9</div>
+        <div class="contact-text">{{'contacts.addr' | translate}}</div>
       </div>
     </div>
   </div>

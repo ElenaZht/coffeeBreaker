@@ -28,10 +28,10 @@
 
                 </div>
                  <div class="no-products" *ngIf="!this.myItems.length">
-                    <span>No products yet!</span>
+                    <span>{{'menucategory.noproducts' | translate}}</span>
                  </div>
                   <div *ngIf="myItems.length" class="total">
-                    <span class="total-word">Total:</span>
+                    <span class="total-word">{{'total' | translate}}:</span>
                     <span class="total-items">{{this.totalItems}}</span>
                     <span class="total-sum">{{this.totalPerday}}₪</span>
                   </div>
@@ -45,16 +45,14 @@
     </div>
     <div class="summ">
       <div class="some-contacts-text-wrap">
-        <span class="our-contacts">Tray</span>
-        <span class="sometext">  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim  laboris nisi ut aliquip ex ea
-          commodo consequat. </span>
+        <span class="our-contacts">{{'tray.title' | translate}}</span>
+        <span class="sometext">{{'tray.desc' | translate}}</span>
       </div>
       <div class="bottom-wrap">
         <div class="btns">
-          <button  *ngIf="myItems.length" class="orangebtn" (click)="Order(myItems)" [class.btn-disabled]="totalItems <= 0"><span class="bnttext">Order</span></button>
-          <button  *ngIf="myItems.length" class="orangebtn graybtn" (click)="Clear()"><span class="bnttext mini-btn-text">Clear the tray</span></button>
-          <button  *ngIf="!myItems.length" class="orangebtn" routerLink="../menu_common"><span class="bnttext mini-btn-text">Menu ></span></button>
+          <button  *ngIf="myItems.length" class="orangebtn" (click)="Order(myItems)" [class.btn-disabled]="totalItems <= 0"><span class="bnttext">{{'tray.order' | translate}}</span></button>
+          <button  *ngIf="myItems.length" class="orangebtn graybtn" (click)="Clear()"><span class="bnttext mini-btn-text">{{'tray.clear' | translate}}</span></button>
+          <button  *ngIf="!myItems.length" class="orangebtn" routerLink="../menu_common"><span class="bnttext mini-btn-text">{{'navbar.menu' | translate}} ></span></button>
         </div>
         <div class="pics"></div>
       </div>

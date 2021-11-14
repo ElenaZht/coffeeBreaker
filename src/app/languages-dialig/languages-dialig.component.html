@@ -3,13 +3,13 @@
   <div class="card-content">
     <div class="card-header">
       <div class="hr-wrap-top"><hr></div>
-      <div class="com-logo">Language</div>
+      <div class="com-logo">{{'lang' | translate}}</div>
       <div class="hr-wrap-top"><hr></div>
     </div>
     <div class="card-body">
-      <div class="eng langicon"><span>English</span></div>
-      <div class="heb langicon"><span>Hebrew</span></div>
-      <div class="bel langicon"><span>Belarusian</span></div>
+      <div class="eng langicon" (click)="useLanguage('en')"><span>{{'chooselang.en' | translate}}</span></div>
+      <div class="heb langicon" (click)="useLanguage('he')"><span>{{'chooselang.he' | translate}}</span></div>
+      <div class="bel langicon" (click)="useLanguage('br')"><span>{{'chooselang.br' | translate}}</span></div>
     </div>
     <div class="card-footer">
       <hr>

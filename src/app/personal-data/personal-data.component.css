@@ -6,6 +6,14 @@
   font-family: JosefinSans Regular;
   src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
 }
+@font-face {
+  font-family: Arial Narrow;
+  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
+}
+@font-face {
+  font-family: Annabelle;
+  src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
+}
 .main {
   height: 65vh;
   background-color: white;
@@ -15,7 +23,7 @@
   user-select: none;
 }
 .our-comminment {
-  font: 15vmax Cookie;
+  font: 15vmax Cookie, Annabelle;
   line-height: 1;
   display: flex;
   text-align: center;
@@ -36,7 +44,7 @@
   opacity: 1;
 }
 .com-text {
-  font: 1vw JosefinSans Regular;
+  font: 1vw JosefinSans Regular, Arial Narrow;
   display: flex;
   position: absolute;
   bottom: 42%;
@@ -55,11 +63,11 @@
   justify-content: space-around;
   width: 35%;
   height: 70%;
-  font: 2vw JosefinSans Regular;
+  font: 2vmax JosefinSans Regular, Arial Narrow;
 
 }
 .data .title{
-  font: 3vw Cookie;
+  font: 3vmax Cookie, Annabelle;
   margin-bottom: 5%;
 }
 .wrap {
@@ -94,10 +102,10 @@ input {
 }
 label {
   max-width: 25%;
-  font: 1vw JosefinSans Regular;
+  font: 1vmax JosefinSans Regular, Arial Narrow;
 }
 .delAccount {
-  font: 1vw JosefinSans Regular;
+  font: 1vmax JosefinSans Regular, Arial Narrow;
   color: #E04523;
   border: dotted 2px #E04523;
   width: fit-content;
@@ -108,4 +116,18 @@ label {
 .delAccount:active {
   transform: scale(1.2);
   background: white;
+}
+@media only screen and (max-width: 1024px) {
+  .main {
+    flex-direction: column;
+  }
+  .data {
+    width: 90%;
+  }
+  .com-text {
+    display: none;
+  }
+  label {
+    font-size: 3vmax;
+  }
 }

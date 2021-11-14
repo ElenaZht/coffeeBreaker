@@ -6,6 +6,14 @@
   font-family: JosefinSans Regular;
   src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
 }
+@font-face {
+  font-family: Arial Narrow;
+  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
+}
+@font-face {
+  font-family: Annabelle;
+  src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
+}
 .main {
   height: 65vh;
   background:transparent url('../../assets/coffee-people-three.png') 0% 0% no-repeat padding-box;
@@ -91,7 +99,7 @@ hr {
   justify-content: center;
 }
 .our-contacts {
-  font: 10vw Cookie;
+  font: 10vw Cookie, Annabelle;
   line-height: 1;
   display: flex;
   text-align: center;
@@ -100,7 +108,7 @@ hr {
   text-shadow: 0 0 5px rgba(0,0,0,1);
 }
 .sometext {
-  font: 1vw JosefinSans Regular;
+  font: 1vw JosefinSans Regular, Arial Narrow;
   display: flex;
   position: relative;
   bottom: 68%;
@@ -164,7 +172,7 @@ hr {
 }
 .contact-text {
   width: 80%;
-  font: 1.2vw JosefinSans Regular;
+  font: 1.2vw JosefinSans Regular, Arial Narrow;
   display: flex;
   align-items: center;
 }
