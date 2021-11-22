@@ -144,12 +144,12 @@ display: flex;
   justify-content: space-between;
 }
 .contact {
-  height: 27%;
+  height: 14%;
   display: flex;
   justify-content: space-between;
 }
 .contact-icon {
-  width: 20%;
+  width: 1.2vw;
 }
 .instagram {
   background:transparent url('../../assets/instagram.png') 0% 0% no-repeat padding-box;
