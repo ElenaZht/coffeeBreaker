@@ -16,11 +16,19 @@
 }
 @font-face {
   font-family: Avtala;
-  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype");
+  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
+  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
+  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
+  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
+  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
 }
 @font-face {
   font-family: Adama;
-  src: url('../../assets/fonts/AdamaMF Bold.ttf') format("opentype");
+  src: url('../../assets/fonts/AdamaMF Bold.ttf') format("ttf"),
+  url('../../assets/fonts/AdamaMF Bold.eot') format("eot"),
+  url('../../assets/fonts/AdamaMF Bold.otf') format("otf"),
+  url('../../assets/fonts/AdamaMF Bold.woff') format("woff"),
+  url('../../assets/fonts/AdamaMF Bold.svg') format("svg");
 }
 body {
   margin: 0;
@@ -168,6 +176,7 @@ hr {
   height: 15%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
 }
 .ingredients {
@@ -556,7 +565,7 @@ hr {
   width: 60%;
   display: flex;
   align-items: center;
-  font-family: JosefinSans Regular, Arial Narrow, Avtala;
+  font-family: JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   z-index: 100;
 }
 .cup {
@@ -584,7 +593,7 @@ hr {
   box-shadow: 14px 8px 2px 5px rgba(0,0,0,0.25);
 }
 .order-now-btn span {
-  font: 1.9vw Avtala, Arial Narrow, JosefinSans Regular ;
+  font: 1.9vw Avtala, Arial Narrow, JosefinSans Regular, Arial Narrow, Avtala ;
   color: white;
 }
 
@@ -604,7 +613,7 @@ hr {
   color: #E04523;
   display: flex;
   justify-content: center;
-  font: 11vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: 11vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   position: relative;
   top: 3vh;
 
@@ -619,7 +628,7 @@ hr {
 .only {
   width: 100%;
   height: 30%;
-  font: 2.1vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: 2.1vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   display: flex;
   justify-content: center;
 }
@@ -640,6 +649,7 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
 }
 .item-title {
 
@@ -722,11 +732,12 @@ mat-divider {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 
 }
 .bigwords {
   height: 30%;
-  font: 8vw JosefinSans Regular,Arial Narrow, Avtala;
+  font: 8vw JosefinSans Regular, Arial Narrow, Avtala;
   color: #E04523;
   display: flex;
   justify-content: center;
@@ -742,14 +753,12 @@ mat-divider {
   height: 30%;
   display: flex;
   position: relative;
-  left: 3%;
 
 }
 .orangebtn {
   width: 36%;
   height: 20%;
   position: relative;
-  left: 10%;
   background-color: #E04523;
   border-radius: 25px;
   border: none;
@@ -760,7 +769,7 @@ mat-divider {
 
 }
 .bnttext {
-  font: 1.9vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: 1.9vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   color: white;
 }
 .join-us-section {
@@ -770,16 +779,17 @@ mat-divider {
   background-size: cover;
   position: absolute;
   z-index: 0;
+  align-items: center;
+  display: flex;
 }
 .join-wrap {
-  width: 60vw;
-  height: 45vh;
-  margin-left: 7%;
+  width: 85vw;
+  height: 100%;
   position: relative;
-  top: 2.5vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: auto;
 }
 .contacts {
   width: 40%;
@@ -788,15 +798,40 @@ mat-divider {
   flex-direction: column;
   justify-content: space-between;
 }
-
 .smartphone {
-  width: 30%;
-  height: 111%;
+  width: 100%;
+  height: 100%;
   background:transparent url('../../assets/smartphone.png') 0% 0% no-repeat padding-box;
+  background-position: center;
   background-size: contain;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.instascroll {
   position: absolute;
-  margin-left: 104%;
+  z-index: -1;
+  height: 38vh;
+  width: 9.65vw;
+  overflow: hidden;
+}
+.scroll-paper {
+  background:transparent url('../../assets/instascroll.png') 0% 0% no-repeat padding-box;
+  height: 107.3vh;
+  background-size: cover;
+  animation-duration: 6s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.7, 0.1, 0.8, 0.7);
 
+
+}
+.smart-wrapper {
+  display: flex;
+  width: 30%;
+  height: 100%;
 }
 .contact {
   height: 27%;
@@ -808,7 +843,7 @@ mat-divider {
 }
 .contact-text {
   width: 75%;
-  font: 2.5vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: 2.5vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   display: flex;
   align-items: center;
 }
@@ -840,27 +875,9 @@ mat-divider {
   min-height: 50%;
   margin: 3vw;
   align-items: center;
+  width: 30%;
 }
-.instascroll {
-  position: absolute;
-  z-index: -1;
-  height: 34.3vh;
-  margin-top: -3%;
-  margin-left: 112.95%;
-  width: 9.6vw;
-  overflow: hidden;
-}
-.scroll-paper {
-  background:transparent url('../../assets/instascroll.png') 0% 0% no-repeat padding-box;
-  height: 107.3vh;
-  background-size: cover;
-  animation-duration: 6s;
-  animation-name: slidein;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-timing-function: cubic-bezier(0.7, 0.1, 0.8, 0.7);
 
-}
 @keyframes slidein {
   from {
     margin-top: 0%;
@@ -886,6 +903,8 @@ mat-divider {
   height: 60vh;
   background-size: cover;
   margin-top: 23.2%;
+  display: flex;
+  align-items: center;
 }
 
 .branch-wrap {
@@ -895,7 +914,6 @@ mat-divider {
   width: 65%;
   height: 86%;
   left: 7%;
-  top: 7%;
 }
 .points-wrap {
   display: flex;
@@ -928,7 +946,7 @@ mat-divider {
 .point-text {
   display: flex;
   width: 75%;
-  font: 2vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: 2vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   align-items: center;
 
 }
@@ -946,7 +964,8 @@ mat-divider {
 }
 .white-arrow {
   background:transparent url('../../assets/white_arrow.png') 0% 0% no-repeat padding-box;
-  background-size: cover;
+  background-size: contain
+;
   height: 68%;
   position: relative;
   right: 9%;
@@ -1037,7 +1056,7 @@ mat-divider {
   height: 50%;
   left: 0;
   width: 100%;
-  font: 1.5vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: 1.5vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
 
 }
 .footer-coffee-break {
@@ -1087,17 +1106,17 @@ mat-divider {
 
 }
 .low-text {
-  font: 2vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: 2vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
 
 }
 .footer-phone {
-  font: 3.1vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: 3.1vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   display: flex;
   align-items: center;
   color: #564437;
 }
 .menu {
-  font: 2vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: 2vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   justify-content: center;
   display: flex;
   align-items: flex-end;
@@ -1116,7 +1135,7 @@ mat-divider {
   display: flex;
 }
 .lang {
-  font: 2vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: 2vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   justify-content: center;
   display: flex;
   align-items: flex-end;
@@ -1127,7 +1146,7 @@ mat-divider {
   display: flex;
 }
 .help {
-  font: 2vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: 2vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   justify-content: center;
   display: flex;
   align-items: flex-end;
@@ -1219,7 +1238,7 @@ app-navbar{
     justify-content: center;
   }
   .curlang,.smart-menu {
-    font: 12vmin JosefinSans Regular, Arial Narrow, Avtala;
+    font: 12vmin JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
     vertical-align: center;
   }
   li {

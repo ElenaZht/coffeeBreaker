@@ -32,7 +32,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font: 3vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: 3vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   transition: all 0.5s ease-in-out ;
 }
 .li-icon:hover{

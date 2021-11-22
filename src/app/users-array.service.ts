@@ -18,16 +18,12 @@ export class UsersArrayService implements UsersService {
     if (u) {
       this.currentUser = JSON.parse(u);
       this.user$ = new BehaviorSubject(this.currentUser);
-      // this.user$.next(this.currentUser);
-      console.log('user session restored', this.currentUser);
     } else {
       this.user$ = new BehaviorSubject(null);
     }
   }
 
   AddUser(user: User): Observable<boolean> {
-    console.log(user);
-    console.log(environment.apiUrl);
     return this.http.post<boolean>(`${environment.apiUrl}/signup`, user);
 
   }
@@ -35,7 +31,6 @@ export class UsersArrayService implements UsersService {
   logIn(email: string, password: string ): Observable<boolean> {
     return this.http.post<User>(`${environment.apiUrl}/login`, {email, password})
       .pipe(map(user => {
-      console.log('UserService.Login', user);
       if (user && user.token) {
         localStorage.setItem('user', JSON.stringify(user));
         this.currentUser = user;
@@ -45,7 +40,6 @@ export class UsersArrayService implements UsersService {
       return false;
     }), catchError(err => {
           this.logout();
-          console.log('login error', err);
           return throwError(err.statusText);
       }));
  }
@@ -73,11 +67,9 @@ export class UsersArrayService implements UsersService {
   }
 
   editUser(id: number, name: string, email: string, birthday: any, phone: string): Observable<User> {
-    console.log('firstname comes to array server from component ', name);
     // tslint:disable-next-line:max-line-length
     return this.http.patch<User>(`${environment.apiUrl}/api/users/${id}`, {name, email, phone, birthday}).pipe(map( res => {
       if (res) {
-        console.log('change data status', res);
         this.currentUser.name = res.name;
         this.currentUser.email = res.email;
         this.currentUser.phone = res.phone;
@@ -85,11 +77,9 @@ export class UsersArrayService implements UsersService {
         this.user$.next(res);
         localStorage.setItem('user', JSON.stringify(this.currentUser));
         } else {
-        console.log('we have no res from server');
       }
       return res;
     }, err => {
-      console.log('array service got error from server', err);
       }
     ));
   }
@@ -97,16 +87,8 @@ export class UsersArrayService implements UsersService {
   getUser(): Observable<User> {
     return this.user$.asObservable();
   }
-  getUserById(id: number): Observable<User> {
-    return this.http.get<User>(`${environment.apiUrl}/users/${id}`);
-  }
-
-  test() {
-    this.logout();
-  }
 
   RemoveUser(id: number): Observable<boolean> {
-    console.log('remove user: ', id);
     return this.http.delete<boolean>(`${environment.apiUrl}/api/users/${id}`);
   }
 

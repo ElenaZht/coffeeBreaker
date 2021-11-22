@@ -14,6 +14,22 @@
   font-family: Annabelle;
   src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
 }
+@font-face {
+  font-family: Avtala;
+  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
+  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
+  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
+  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
+  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
+}
+@font-face {
+  font-family: Adama;
+  src: url('../../assets/fonts/AdamaMF Bold.ttf') format("ttf"),
+  url('../../assets/fonts/AdamaMF Bold.eot') format("eot"),
+  url('../../assets/fonts/AdamaMF Bold.otf') format("otf"),
+  url('../../assets/fonts/AdamaMF Bold.woff') format("woff"),
+  url('../../assets/fonts/AdamaMF Bold.svg') format("svg");
+}
 body {
   user-select: none;
 }
@@ -54,7 +70,7 @@ hr {
   width: 100%;
 }
 .com-logo {
-  font: 2.2vmax Cookie, Annabelle;
+  font: 2.2vmax Cookie, Annabelle, Adama;
   width: 30%;
   text-align: center;
 }
@@ -106,7 +122,7 @@ hr {
   transition: all .5s ease-out;
 }
 .langicon > span {
-  font: 1.5vmax JosefinSans Regular, Arial Narrow;
+  font: 1.5vmax JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
   color: white;
   background-color: rgba(0, 0, 0, 0.4);
   padding: 1vmin;

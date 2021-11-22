@@ -31,10 +31,12 @@ export class ContactsComponent implements OnInit {
   sucMsg: string;
   errMsg: string;
   errTitle: string;
+  myLang: string;
+
 
   constructor(private userService: UsersService, private itemsService: ItemsService, private toastr: ToastrService,
               private spinner: NgxSpinnerService, private  translator: TranslateService) {
-    if (this.userService.getCurrentUser().role === 0) {
+    if (this.userService.getCurrentUser() && this.userService.getCurrentUser().role === 0) {
       this.isAdmine = true;
     }
     this.itemsService.GetContacts().subscribe(
@@ -64,6 +66,7 @@ export class ContactsComponent implements OnInit {
     this.translator.get('confirm.contactsedited').subscribe(res => this.sucMsg = res);
     this.translator.get('confirm.try').subscribe(res => this.errMsg = res);
     this.translator.get('confirm.connotedited').subscribe(res => this.errTitle = res);
+    this.myLang = localStorage.getItem('lang');
 
   }
 
@@ -73,8 +76,6 @@ export class ContactsComponent implements OnInit {
     this.spinner.show();
     const contacts = contactsForm.value;
     const edition = this.itemsService.EditContacts(this.instagram, this.facebook, this.email, this.phone1, this.phone2, this.phone3, this.address);
-    console.log('data from form ', contacts);
-    console.log('component contacts name to array service as ', contacts);
     edition.subscribe(
       answer => {
         this.spinner.hide();
@@ -99,7 +100,6 @@ export class ContactsComponent implements OnInit {
     this.phone2 = this.contacts.phone2;
     this.phone3 = this.contacts.phone3;
     this.address = this.contacts.address;
-    console.log('undo instagram to ', this.instagram);
   }
   showSuccess() {
     this.toastr.success(this.sucMsg );

@@ -28,7 +28,6 @@ export class OrderDetailsDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<OrderDetailsDialogComponent>,  @Inject(MAT_DIALOG_DATA) public data: any,
               private usersSevice: UsersService, private itemsService: ItemsService) {
-    console.log(data);
     const ordArray = this.data.ordered;
     this.userName = this.usersSevice.getCurrentUser().name;
     this.itemsService.getBranchById(data.branch).subscribe(
@@ -37,7 +36,6 @@ export class OrderDetailsDialogComponent implements OnInit {
       }
     );
     for (const or of ordArray) {
-      console.log('item ', or);
       const subSum = or.price * or.sold;
       this.total += subSum;
     }
@@ -45,9 +43,6 @@ export class OrderDetailsDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-  animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
   }
   close() {
     this.dialogRef.close();

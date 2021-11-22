@@ -11,7 +11,6 @@ export class LanguagesDialigComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<LanguagesDialigComponent>,
               private translate: TranslateService) {
-    translate.setDefaultLang('en');
     const curLang = localStorage.getItem('lang');
     this.useLanguage(curLang);
 
@@ -25,6 +24,5 @@ export class LanguagesDialigComponent implements OnInit {
   useLanguage(language: string): void {
     this.translate.use(language);
     localStorage.setItem('lang', language);
-    console.log('language is ', localStorage.getItem('lang'));
   }
 }

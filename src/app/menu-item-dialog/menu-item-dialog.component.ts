@@ -99,14 +99,11 @@ export class MenuItemDialogComponent implements OnInit {
     this.isEdit = !this.isEdit;
   }
   onSelectFile(event: any, thisSelectedFile, photoValue) {
-    console.log('photoVAlue is ', typeof photoValue);
     thisSelectedFile = event.target.files[0] as File;
-    console.log('photo before  is ', thisSelectedFile);
     const reader = new FileReader();
     reader.readAsDataURL(thisSelectedFile);
     reader.onload = (_) => {
       photoValue.url = reader.result.toString();
-      console.log('photo after is ', photoValue);
     };
   }
   showAddEngWindow() {
@@ -151,7 +148,6 @@ export class MenuItemDialogComponent implements OnInit {
     if (confirm(this.remIngQ1 + ' ' + i.ing.toLowerCase() + ' ' + this.remIngQ2)) {
       const idx = this.ingredients.indexOf(i);
       this.ingredients.splice(idx, 1);
-      console.log('ingedients length ', this.ingredients.length);
     }
     if (this.ingredients.length === 0) {
       this.ingredients = [{ing: 'No ingredients.', ingClass: ''}];
@@ -167,7 +163,6 @@ export class MenuItemDialogComponent implements OnInit {
   addNewIng() {
     if (this.ingNewName) {
       const ingred = {ing: this.ingNewName, ingClass: this.visualIng.url};
-      console.log('ingred after form ', ingred);
       this.ingredients.push(ingred);
       this.visualIng = {url: ''};
       this.ingNewName = '';
@@ -183,7 +178,6 @@ export class MenuItemDialogComponent implements OnInit {
     item.img = this.visualValue.url;
     item.ingredients = this.ingredients;
     item.nutr = this.nutrValue.url;
-    console.log('item from form ', item);
     this.itemService.EditItem(item).subscribe(
       res => {
         this.spinner.hide();
@@ -206,12 +200,9 @@ export class MenuItemDialogComponent implements OnInit {
     this.ordersService.addToCart(data).subscribe(
       res => {
         this.spinner.hide();
-        console.log(data.title + ' added to cart');
-        this.dialogRef.close();
         this.showSuccess(data.title + ' ' + this.addSuc);
       }, err => {
         this.spinner.hide();
-        console.log('error ', err.statusText);
       }
     );
   }

@@ -38,8 +38,6 @@ export class PayformDialogComponent implements OnInit {
       payMethod: ''
     };
     this.user = this.usersService.getCurrentUser();
-    console.log('user for pay ', this.user);
-
     this.translator.get('confirm.savecredit').subscribe(res => this.confQ = res);
     this.translator.get('confirm.yourcard').subscribe(res => this.sucMsg1 = res);
     this.translator.get('confirm.wassavedsuc').subscribe(res => this.sucMsg2 = res);
@@ -70,7 +68,6 @@ export class PayformDialogComponent implements OnInit {
       const visa = document.getElementById('visa') as HTMLInputElement;
       visa.focus();
     }
-    console.log(element.value, id);
   }
 
   async pay() {
@@ -81,11 +78,9 @@ export class PayformDialogComponent implements OnInit {
     this.card.lastNumber = this.last4;
     this.card.payMethod = document.querySelector('input[name="payMethod"]:checked').id;
 
-    console.log('card info ', this.card);
     this.spinner.show();
     const cardChecked = await this.ordersService.mockCardChecking().toPromise();
     await this.spinner.hide();
-    console.log('cardChecked ', this.card);
     if (cardChecked && window.confirm(this.confQ)) {
       this.ordersService.saveCreditCard(this.card).subscribe(
         res => {

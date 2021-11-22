@@ -12,7 +12,6 @@ import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
 import {MenuItemDialogComponent} from '../menu-item-dialog/menu-item-dialog.component';
 import { NgxSpinnerService } from 'ngx-spinner';
-import {ToastrService} from 'ngx-toastr';
 import {User, UsersService} from '../users.service';
 import {AddNewItemComponent} from '../add-new-item/add-new-item.component';
 
@@ -42,32 +41,21 @@ export class MenuCategoryComponent implements OnInit  {
         this.categories = res;
         if (this.categories.length === 0) {
           this.isEmpty = true;
-          // console.log('this.categories.length === 0');
         } else {
-          // console.log('this.categories.length !=== 0');
-          // console.log('this.categories = ', this.categories);
           this.category = this.categories[0];
-          // console.log('this category [0] ', this.category);
           const categoryName = this.route.snapshot.paramMap.get('category_name');
-          // console.log('category name: ', categoryName);
           this.category = this.categories.find(c => {
-            // console.log('category name find: ', c);
             return c.categoryName === categoryName;
           });
-          // console.log('this.category after find: ', this.category);
-          // console.log('category ', this.category);
-          // console.log('categories length ', this.categories.length);
 
           const queryParams = this.route.snapshot.queryParams;
           const itemId = queryParams.itemId;
           this.choosedItem = this.category.products.find(i => {
           return i.prodId === parseInt(itemId, 10);
         });
-          // console.log('choosed item is ', this.choosedItem);
         }
       }, err => {
         this.spinner.hide();
-        console.log('error', err);
       }
     );
 
@@ -94,7 +82,6 @@ export class MenuCategoryComponent implements OnInit  {
   ngOnInit() {
     if (this.choosedItem) {
       setTimeout(() => {
-      console.log('before onItem ');
       this.onItem(this.choosedItem);
       }, 500);
     }
@@ -118,8 +105,9 @@ export class MenuCategoryComponent implements OnInit  {
     const dialogRef = this.dialog.open(MenuItemDialogComponent, {panelClass: 'custom-dialog-container', height: '60vmin',
       width: '55vmax', data: item});
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The lang dialog was closed', result);
-      this.category.products.splice(result.prodId, 1);
+      if (result) {
+        this.category.products.splice(result.prodId, 1);
+      }
     });
   }
 
@@ -127,9 +115,5 @@ export class MenuCategoryComponent implements OnInit  {
   goAdd() {
     const dialogRef = this.dialog.open(AddNewItemComponent, {panelClass: 'custom-dialog-container', height: '60vmin',
       width: '55vmax', data: {category: this.category}});
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The lang dialog was closed', result);
-    });
   }
-  // todo: fix logout bug
 }

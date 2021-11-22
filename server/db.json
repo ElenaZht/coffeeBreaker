@@ -69,6 +69,62 @@
       "phone": "80336856614",
       "password": "12345678",
       "id": 7
+    },
+    {
+      "name": "Luse",
+      "email": "lu@mail.com",
+      "birthday": "18 November 2021",
+      "phone": "80336856614",
+      "password": "11111111",
+      "id": 8
+    },
+    {
+      "name": "la",
+      "email": "la@mail.com",
+      "birthday": "2021-11-05",
+      "phone": "80336856614",
+      "password": "22222222",
+      "id": 9
+    },
+    {
+      "name": "Lu",
+      "email": "lol@gmail.co",
+      "birthday": "2021-11-04",
+      "phone": "80336856614",
+      "password": "12345678",
+      "id": 10
+    },
+    {
+      "name": "j",
+      "email": "hhhhhhh@mail.com",
+      "birthday": "2021-11-12",
+      "phone": "80336856614",
+      "password": "11111111111111111",
+      "id": 11
+    },
+    {
+      "name": "Lena Z",
+      "email": "lz@mail.co",
+      "birthday": "2021-11-12",
+      "phone": "80336856614",
+      "password": "1111111111111111111111111",
+      "id": 12
+    },
+    {
+      "name": "jj",
+      "email": "jj@mail.com",
+      "birthday": "2021-11-06",
+      "phone": "80336856614",
+      "password": "333333333333333333333",
+      "id": 13
+    },
+    {
+      "name": "Galodni",
+      "email": "qa@gmail.com",
+      "birthday": "2002-03-19",
+      "phone": "80336856614",
+      "password": "qa202111",
+      "id": 14
     }
   ],
   "items": [
@@ -5187,6 +5243,678 @@
       "date": "2021-11-11T12:26:53.862Z",
       "user": 0,
       "id": 75
+    },
+    {
+      "ordered": [
+        {
+          "prodId": 1025,
+          "title": "Cookie",
+          "price": 10,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "../../assets/cookie.png",
+          "menuCategory": "Bakery",
+          "ingredients": [
+            {
+              "ing": "Flour",
+              "ingClass": "../../assets/flour.png"
+            },
+            {
+              "ing": "Sugar",
+              "ingClass": "../../assets/sugar.png"
+            },
+            {
+              "ing": "Eggs",
+              "ingClass": "../../assets/eggs.png"
+            },
+            {
+              "ing": "Butter",
+              "ingClass": "../../assets/butter.png"
+            },
+            {
+              "ing": "Chocolate",
+              "ingClass": "../../assets/chocolate.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-16T10:40:49.389Z",
+          "sold": 2
+        }
+      ],
+      "status": 2,
+      "branch": "5",
+      "date": "2021-11-16T17:19:31.261Z",
+      "user": 0,
+      "id": 76
+    },
+    {
+      "ordered": [
+        {
+          "price": "11",
+          "title": "Latte Makiata",
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "prodId": 1002,
+          "menuCategory": "Coffee",
+          "img": "../../assets/coffee-cup.png",
+          "ingredients": [
+            {
+              "ing": "Espresso",
+              "ingClass": "../../assets/coffee-splash.png"
+            },
+            {
+              "ing": "Milk 3%",
+              "ingClass": "../../assets/milk-splash.png"
+            },
+            {
+              "ing": "Chocolate",
+              "ingClass": "../../assets/chocolate.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-16T17:21:46.981Z",
+          "sold": 4
+        }
+      ],
+      "status": 0,
+      "branch": "2",
+      "date": "2021-11-16T17:22:14.231Z",
+      "user": 8,
+      "id": 77
+    },
+    {
+      "ordered": [
+        {
+          "prodId": 1024,
+          "title": "Cruasan & Nutella",
+          "price": 15,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "../../assets/cruasan-nutella.png",
+          "menuCategory": "Bakery",
+          "ingredients": [
+            {
+              "ing": "Flour",
+              "ingClass": "../../assets/flour.png"
+            },
+            {
+              "ing": "Sugar",
+              "ingClass": "../../assets/sugar.png"
+            },
+            {
+              "ing": "Eggs",
+              "ingClass": "../../assets/eggs.png"
+            },
+            {
+              "ing": "Yeast",
+              "ingClass": "../../assets/yeast.png"
+            },
+            {
+              "ing": "Butter",
+              "ingClass": "../../assets/butter.png"
+            },
+            {
+              "ing": "Nutella",
+              "ingClass": "../../assets/nutella.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-16T17:24:12.224Z",
+          "sold": 1
+        }
+      ],
+      "status": 0,
+      "branch": "2",
+      "date": "2021-11-16T17:24:33.537Z",
+      "user": 9,
+      "id": 78
+    },
+    {
+      "ordered": [
+        {
+          "prodId": 1007,
+          "title": "Capuchino",
+          "price": 14,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "../../assets/coffee-cup.png",
+          "menuCategory": "Coffee",
+          "ingredients": [
+            {
+              "ing": "Espresso",
+              "ingClass": "../../assets/coffee-splash.png"
+            },
+            {
+              "ing": "Milk 3%",
+              "ingClass": "../../assets/milk-splash.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-21T18:26:48.468Z",
+          "sold": 1
+        },
+        {
+          "prodId": 1034,
+          "title": "Apple Shtrudel",
+          "price": 15,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "../../assets/shtrudel.png",
+          "menuCategory": "Bakery",
+          "ingredients": [
+            {
+              "ing": "Flour",
+              "ingClass": "../../assets/flour.png"
+            },
+            {
+              "ing": "Sugar",
+              "ingClass": "../../assets/sugar.png"
+            },
+            {
+              "ing": "Eggs",
+              "ingClass": "../../assets/eggs.png"
+            },
+            {
+              "ing": "Yeast",
+              "ingClass": "../../assets/yeast.png"
+            },
+            {
+              "ing": "Butter",
+              "ingClass": "../../assets/butter.png"
+            },
+            {
+              "ing": "Apple",
+              "ingClass": "../../assets/apple.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-21T18:28:15.645Z",
+          "sold": 1
+        }
+      ],
+      "status": 2,
+      "branch": "11",
+      "date": "2021-11-21T18:35:23.020Z",
+      "user": 14,
+      "id": 79
+    },
+    {
+      "ordered": [
+        {
+          "price": "11",
+          "title": "Latte Makiata",
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "prodId": 1002,
+          "menuCategory": "Coffee",
+          "img": "../../assets/coffee-cup.png",
+          "ingredients": [
+            {
+              "ing": "Espresso",
+              "ingClass": "../../assets/coffee-splash.png"
+            },
+            {
+              "ing": "Milk 3%",
+              "ingClass": "../../assets/milk-splash.png"
+            },
+            {
+              "ing": "Chocolate",
+              "ingClass": "../../assets/chocolate.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-21T18:37:21.468Z",
+          "sold": 2
+        },
+        {
+          "prodId": 1018,
+          "title": "Rich Raspberry",
+          "price": 15,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "../../assets/pink-cup.png",
+          "menuCategory": "Drinks",
+          "ingredients": [
+            {
+              "ing": "Raspberry",
+              "ingClass": "../../assets/raspberry.png"
+            },
+            {
+              "ing": "Cream",
+              "ingClass": "../../assets/cream.png"
+            },
+            {
+              "ing": "Ice",
+              "ingClass": "../../assets/ice.png"
+            },
+            {
+              "ing": "Thyme",
+              "ingClass": "../../assets/thyme.png"
+            },
+            {
+              "ing": "Cinnamon",
+              "ingClass": "../../assets/cinnamon.png"
+            },
+            {
+              "ing": "Sugar",
+              "ingClass": "../../assets/sugar.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-21T18:37:25.257Z",
+          "sold": 1
+        }
+      ],
+      "status": 0,
+      "branch": "5",
+      "date": "2021-11-21T18:38:11.962Z",
+      "user": 14,
+      "id": 80
+    },
+    {
+      "ordered": [
+        {
+          "prodId": 1007,
+          "title": "Capuchino",
+          "price": 14,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "../../assets/coffee-cup.png",
+          "menuCategory": "Coffee",
+          "ingredients": [
+            {
+              "ing": "Espresso",
+              "ingClass": "../../assets/coffee-splash.png"
+            },
+            {
+              "ing": "Milk 3%",
+              "ingClass": "../../assets/milk-splash.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-21T18:39:31.050Z",
+          "sold": 1
+        },
+        {
+          "prodId": 1034,
+          "title": "Apple Shtrudel",
+          "price": 15,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "../../assets/shtrudel.png",
+          "menuCategory": "Bakery",
+          "ingredients": [
+            {
+              "ing": "Flour",
+              "ingClass": "../../assets/flour.png"
+            },
+            {
+              "ing": "Sugar",
+              "ingClass": "../../assets/sugar.png"
+            },
+            {
+              "ing": "Eggs",
+              "ingClass": "../../assets/eggs.png"
+            },
+            {
+              "ing": "Yeast",
+              "ingClass": "../../assets/yeast.png"
+            },
+            {
+              "ing": "Butter",
+              "ingClass": "../../assets/butter.png"
+            },
+            {
+              "ing": "Apple",
+              "ingClass": "../../assets/apple.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-21T18:39:47.101Z",
+          "sold": 2
+        }
+      ],
+      "status": 2,
+      "branch": "13",
+      "date": "2021-11-21T18:41:09.196Z",
+      "user": 14,
+      "id": 81
+    },
+    {
+      "ordered": [
+        {
+          "price": "11",
+          "title": "Latte Makiata",
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "prodId": 1002,
+          "menuCategory": "Coffee",
+          "img": "../../assets/coffee-cup.png",
+          "ingredients": [
+            {
+              "ing": "Espresso",
+              "ingClass": "../../assets/coffee-splash.png"
+            },
+            {
+              "ing": "Milk 3%",
+              "ingClass": "../../assets/milk-splash.png"
+            },
+            {
+              "ing": "Chocolate",
+              "ingClass": "../../assets/chocolate.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-22T11:15:10.989Z",
+          "sold": 2
+        },
+        {
+          "prodId": 1014,
+          "title": "Tea Lady Gray",
+          "price": 10,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "../../assets/coffee-cup.png",
+          "menuCategory": "Tea",
+          "ingredients": [
+            {
+              "ing": "Mineral Water",
+              "ingClass": "../../assets/water-splash.png"
+            },
+            {
+              "ing": "Black tea",
+              "ingClass": "../../assets/black-tea.png"
+            },
+            {
+              "ing": "Bergamonia",
+              "ingClass": "../../assets/bergamonia.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-22T11:15:15.722Z",
+          "sold": 1
+        },
+        {
+          "prodId": 1025,
+          "title": "Cookie",
+          "price": 10,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "../../assets/cookie.png",
+          "menuCategory": "Bakery",
+          "ingredients": [
+            {
+              "ing": "Flour",
+              "ingClass": "../../assets/flour.png"
+            },
+            {
+              "ing": "Sugar",
+              "ingClass": "../../assets/sugar.png"
+            },
+            {
+              "ing": "Eggs",
+              "ingClass": "../../assets/eggs.png"
+            },
+            {
+              "ing": "Butter",
+              "ingClass": "../../assets/butter.png"
+            },
+            {
+              "ing": "Chocolate",
+              "ingClass": "../../assets/chocolate.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-22T11:15:21.885Z",
+          "sold": 3
+        }
+      ],
+      "status": 0,
+      "branch": "6",
+      "date": "2021-11-22T11:16:05.500Z",
+      "user": 14,
+      "id": 82
+    },
+    {
+      "ordered": [
+        {
+          "prodId": 1042,
+          "title": "Snickers",
+          "price": 10,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "../../assets/snickers.png",
+          "menuCategory": "Sweets",
+          "ingredients": [],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-22T11:25:28.382Z",
+          "sold": 1
+        },
+        {
+          "prodId": 1027,
+          "title": "Cupcake Happy Birthday",
+          "price": 18,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "../../assets/cupcake-hb.png",
+          "menuCategory": "Bakery",
+          "ingredients": [
+            {
+              "ing": "Flour",
+              "ingClass": "../../assets/flour.png"
+            },
+            {
+              "ing": "Sugar",
+              "ingClass": "../../assets/sugar.png"
+            },
+            {
+              "ing": "Eggs",
+              "ingClass": "../../assets/eggs.png"
+            },
+            {
+              "ing": "Butter",
+              "ingClass": "../../assets/butter.png"
+            },
+            {
+              "ing": "Candle",
+              "ingClass": "../../assets/candle.png"
+            },
+            {
+              "ing": "Sprinkling",
+              "ingClass": "../../assets/sprinkling.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-22T11:25:47.966Z",
+          "sold": 1
+        }
+      ],
+      "status": 0,
+      "branch": "6",
+      "date": "2021-11-22T11:26:08.797Z",
+      "user": 14,
+      "id": 83
+    },
+    {
+      "ordered": [
+        {
+          "prodId": 1022,
+          "title": "Mineral Water",
+          "price": 8,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "../../assets/water-bottle.png",
+          "menuCategory": "Drinks",
+          "ingredients": [],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-22T11:26:21.400Z",
+          "sold": 9
+        }
+      ],
+      "status": 2,
+      "branch": "6",
+      "date": "2021-11-22T11:26:44.878Z",
+      "user": 14,
+      "id": 84
+    },
+    {
+      "ordered": [
+        {
+          "prodId": 1033,
+          "title": "Peanut Macaroons",
+          "price": 12,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "../../assets/macaroons.png",
+          "menuCategory": "Bakery",
+          "ingredients": [
+            {
+              "ing": "Flour",
+              "ingClass": "../../assets/flour.png"
+            },
+            {
+              "ing": "Sugar",
+              "ingClass": "../../assets/sugar.png"
+            },
+            {
+              "ing": "Peanut Butter",
+              "ingClass": "../../assets/peanut-butter.png"
+            },
+            {
+              "ing": "Almond",
+              "ingClass": "../../assets/almond.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-22T13:07:13.089Z",
+          "sold": 10
+        }
+      ],
+      "status": 0,
+      "branch": "6",
+      "date": "2021-11-22T13:07:45.590Z",
+      "user": 14,
+      "id": 85
+    },
+    {
+      "ordered": [
+        {
+          "price": "11",
+          "title": "Latte Makiata",
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "prodId": 1002,
+          "menuCategory": "Coffee",
+          "img": "../../assets/coffee-cup.png",
+          "ingredients": [
+            {
+              "ing": "Espresso",
+              "ingClass": "../../assets/coffee-splash.png"
+            },
+            {
+              "ing": "Milk 3%",
+              "ingClass": "../../assets/milk-splash.png"
+            },
+            {
+              "ing": "Chocolate",
+              "ingClass": "../../assets/chocolate.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-22T13:18:29.306Z",
+          "sold": 1
+        }
+      ],
+      "status": 0,
+      "branch": "6",
+      "date": "2021-11-22T13:18:46.134Z",
+      "user": 14,
+      "id": 86
+    },
+    {
+      "ordered": [
+        {
+          "price": "11",
+          "title": "Latte Makiata",
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "prodId": 1002,
+          "menuCategory": "Coffee",
+          "img": "../../assets/coffee-cup.png",
+          "ingredients": [
+            {
+              "ing": "Espresso",
+              "ingClass": "../../assets/coffee-splash.png"
+            },
+            {
+              "ing": "Milk 3%",
+              "ingClass": "../../assets/milk-splash.png"
+            },
+            {
+              "ing": "Chocolate",
+              "ingClass": "../../assets/chocolate.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-22T13:19:14.670Z",
+          "sold": 1
+        }
+      ],
+      "status": 0,
+      "branch": "6",
+      "date": "2021-11-22T13:19:33.662Z",
+      "user": 14,
+      "id": 87
+    },
+    {
+      "ordered": [
+        {
+          "price": "11",
+          "title": "Latte Makiata",
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "prodId": 1002,
+          "menuCategory": "Coffee",
+          "img": "../../assets/coffee-cup.png",
+          "ingredients": [
+            {
+              "ing": "Espresso",
+              "ingClass": "../../assets/coffee-splash.png"
+            },
+            {
+              "ing": "Milk 3%",
+              "ingClass": "../../assets/milk-splash.png"
+            },
+            {
+              "ing": "Chocolate",
+              "ingClass": "../../assets/chocolate.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-22T13:20:05.279Z",
+          "sold": 1
+        }
+      ],
+      "status": 0,
+      "branch": "6",
+      "date": "2021-11-22T13:20:23.163Z",
+      "user": 14,
+      "id": 88
+    },
+    {
+      "ordered": [
+        {
+          "price": "11",
+          "title": "Latte Makiata",
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "prodId": 1002,
+          "menuCategory": "Coffee",
+          "img": "../../assets/coffee-cup.png",
+          "ingredients": [
+            {
+              "ing": "Espresso",
+              "ingClass": "../../assets/coffee-splash.png"
+            },
+            {
+              "ing": "Milk 3%",
+              "ingClass": "../../assets/milk-splash.png"
+            },
+            {
+              "ing": "Chocolate",
+              "ingClass": "../../assets/chocolate.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2021-11-22T13:33:02.413Z",
+          "sold": 2
+        }
+      ],
+      "status": 0,
+      "branch": "6",
+      "date": "2021-11-22T13:33:22.273Z",
+      "user": 14,
+      "id": 89
     }
   ],
   "promoItems": [

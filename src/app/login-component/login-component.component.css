@@ -1,10 +1,18 @@
 @font-face {
-  font-family: Cookie;
-  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
-}
-@font-face {
   font-family: JosefinSans Regular;
   src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: Arial Narrow;
+  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
+}
+@font-face {
+  font-family: Avtala;
+  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
+  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
+  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
+  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
+  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
 }
 .card {
   width: 100%;
@@ -13,7 +21,7 @@
 }
 .reg_lable{
   text-align: center;
-  font: 3vw JosefinSans Regular;
+  font: 3vw JosefinSans Regular, Arial Narrow, Avtala;
   letter-spacing: 0;
   color: #E04523;
   opacity: 1;
@@ -44,7 +52,7 @@
 
 }
 .bnttext {
-  font: 1vw JosefinSans Regular;
+  font: 1vw JosefinSans Regular, Arial Narrow, Avtala;
   color: white;
 }
 .orangebtn:hover{
@@ -85,7 +93,7 @@ input{
 }
 .error{
   color: red;
-  font: 1vw JosefinSans Regular;
+  font: 1vw JosefinSans Regular, Arial Narrow, Avtala;
   padding-left: 5%;
 }
 .danger{
@@ -97,7 +105,7 @@ input{
   border-radius: 4px;
   margin-left: 2%;
   margin-right: 2%;
-  font: 1vmax JosefinSans Regular;
+  font: 1vmax JosefinSans Regular, Arial Narrow, Avtala;
   font-weight: bold;
 }
 .exit{
@@ -114,10 +122,10 @@ input{
 }
 .or{
   margin: 2%;
-  font: .8vw JosefinSans Regular;
+  font: .8vw JosefinSans Regular, Arial Narrow, Avtala;
 }
 .signup{
-  font: 1vw JosefinSans Regular;
+  font: 1vw JosefinSans Regular, Arial Narrow, Avtala;
   color: black;
   text-decoration: underline;
   cursor: pointer;

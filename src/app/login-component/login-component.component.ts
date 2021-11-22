@@ -37,7 +37,6 @@ export class LoginComponentComponent implements OnInit {
   onSubmit(loginForm: NgForm) {
     this.spinner.show();
     const user = loginForm.value as User;
-    console.log('email is ', user.email, ', password is ', user.password);
     this.usersService.logIn(user.email, user.password)
       .subscribe(answer => {
         this.spinner.hide();
@@ -46,14 +45,12 @@ export class LoginComponentComponent implements OnInit {
               loginForm.reset();
               this.exit(true);
             }
-            console.log('user received', user);
             this.showSuccess(user);
           } else {
             this.errorText = this.subErrText;
           }
         }, err => {
           this.spinner.hide();
-          console.log(err);
           this.showError(user);
         }
       );
@@ -67,7 +64,6 @@ export class LoginComponentComponent implements OnInit {
       width: '20vmax'});
     dialogRef.afterClosed().subscribe(
       res => {
-        console.log('res from sign up', res);
         this.exit(res);
       }
     );

@@ -1,10 +1,18 @@
 @font-face {
-  font-family: Cookie;
-  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
-}
-@font-face {
   font-family: JosefinSans Regular;
   src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: Arial Narrow;
+  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
+}
+@font-face {
+  font-family: Avtala;
+  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
+  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
+  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
+  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
+  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
 }
 .carousel{
   height: 65vh;
@@ -89,7 +97,7 @@ hr {
   width: 60%;
   display: flex;
   align-items: center;
-  font-family: JosefinSans Regular;
+  font-family: JosefinSans Regular, Arial Narrow, Avtala;
   z-index: 100;
   color: black;
   line-height: 0.8;
@@ -602,7 +610,7 @@ hr {
   color: #E04523;
   display: flex;
   justify-content: center;
-  font: 9vw JosefinSans Regular;
+  font: 9vw JosefinSans Regular, Arial Narrow, Avtala;
   position: relative;
 
 }
@@ -616,7 +624,7 @@ hr {
 .only {
   width: 100%;
   height: 30%;
-  font: 1.1vw JosefinSans Regular;
+  font: 1.1vw JosefinSans Regular, Arial Narrow, Avtala;
   display: flex;
   justify-content: center;
   color: black;
@@ -641,7 +649,7 @@ hr {
   color: black;
 }
 .item-title {
-  font: 1.5vw JosefinSans Regular;
+  font: 1.5vw JosefinSans Regular, Arial Narrow, Avtala;
   color: black;
   word-wrap: break-word;
   line-height: 70%;
@@ -664,7 +672,7 @@ hr {
     bottom: 29vh;
   }
   .swipe {
-    font: 5vw JosefinSans Regular;
+    font: 5vw JosefinSans Regular, Arial Narrow, Avtala;
   }
   .category-card {
     width: 35vmax;

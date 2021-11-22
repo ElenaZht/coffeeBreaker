@@ -2,6 +2,18 @@
   font-family: JosefinSans Regular;
   src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
 }
+@font-face {
+  font-family: Arial Narrow;
+  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
+}
+@font-face {
+  font-family: Avtala;
+  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
+  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
+  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
+  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
+  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
+}
 .card-body, .order-card-body{
   display: flex;
   flex-wrap: wrap;
@@ -34,7 +46,7 @@ hr {
 .prod-list-item{
   display: flex;
   justify-content: space-between;
-  font: 1vmax JosefinSans Regular;
+  font: 1vmax JosefinSans Regular, Arial Narrow, Avtala;
   align-items: center;
   margin-bottom: 3%;
   border-bottom: solid 1px #AB9690;
@@ -53,5 +65,5 @@ hr {
 }
 .prev > span{
   height: 40%;
-  font: .5vmax JosefinSans Regular;
+  font: .5vmax JosefinSans Regular, Arial Narrow, Avtala;
 }

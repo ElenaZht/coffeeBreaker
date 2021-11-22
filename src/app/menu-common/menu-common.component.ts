@@ -17,7 +17,6 @@ export class MenuCommonComponent implements OnInit, AfterViewInit, OnDestroy {
   subscription;
   constructor(private http: HttpClient,  private router: Router, public dialog: MatDialog, private itemsService: ItemsService) {
     if (window.screen.width <= 1024) {
-      console.log('SCREEN LESS THAN 1024 DETECTED');
       this.options = { fullWidth: false, padding: 10, numVisible: 4, shift: 10};
     }
   }
@@ -30,7 +29,6 @@ export class MenuCommonComponent implements OnInit, AfterViewInit, OnDestroy {
     this.subscription = this.itemsService.GetCommonCategories().subscribe(
       res => {
         this.items = res;
-        console.log(this.items);
         setTimeout(() => {
           const elems = document.querySelectorAll('.carousel');
           const instances = M.Carousel.init(elems, this.options);

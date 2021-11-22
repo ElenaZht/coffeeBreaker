@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Branch, CommonCategory, Contacts, Item, ItemsService, MenuCategory, SoldItem} from './items.service';
-import {BehaviorSubject, Observable, of} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {environment} from './environments/environment';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
@@ -34,11 +34,9 @@ export class ItemsArrayService implements ItemsService {
   }
 
   AddItem(item: Item, categoryName: string): Observable<Item> {
-    console.log('new item recieved to service ', item);
     this.items = this.items$.value;
     const category = this.items.find(c => c.categoryName === categoryName);
     category.products.push(item);
-    console.log('category is ', category);
     return this.http.put<Item>(`${environment.apiUrl}/api/items/${category.id}`, category);
   }
 
@@ -46,7 +44,6 @@ export class ItemsArrayService implements ItemsService {
     this.items = this.items$.value;
     const category: MenuCategory = this.items.find(c =>  item.menuCategory === c.categoryName);
     const itIndx = category.products.findIndex(i => (i.prodId) === (item.prodId));
-    console.log('delete index', itIndx);
     category.products.splice(itIndx, 1);
     return this.http.put<MenuCategory>(`${environment.apiUrl}/api/items/${category.id}`, category).pipe(map(
       res => {
@@ -59,34 +56,18 @@ export class ItemsArrayService implements ItemsService {
   }
 
   EditItem(item: Item): Observable<Item> {
-    console.log('item arrived to service as ', item);
     this.items = this.items$.value;
     const category: MenuCategory = this.items.find(c =>  item.menuCategory === c.categoryName);
     const idx = category.products.findIndex(i => i.prodId === item.prodId);
     category.products[idx] = item;
-    console.log('idx: ', idx, 'product after edit ', category.products[idx], 'category ', category);
     return this.http.put<MenuCategory>(`${environment.apiUrl}/api/items/${category.id}`, category).pipe(map(
       res => {
         if (res) {
           this.items$.next(this.items);
-          console.log('item rigth before return ', item);
           return item;
         }
       }
     ));
-  }
-
-
-  GetItem(): Observable<Item> {
-    return undefined;
-  }
-
-  GetItemsByCategory(categoryName): Observable<Item[]> {
-    return undefined;
-  }
-
-  GetSoldItems(): Observable<SoldItem[]> {
-    return this.http.get<SoldItem[]>(`${environment.apiUrl}/api/sold`);
   }
 
 
@@ -97,7 +78,6 @@ export class ItemsArrayService implements ItemsService {
   EditContacts(instagram, facebook, email, phone1, phone2, phone3, address): Observable<Contacts> {
     return this.http.patch<Contacts>(`${environment.apiUrl}/api/contacts/0`, {instagram, facebook, email, phone1, phone2, phone3, address}).pipe(map( res => {
         if (res) {
-          console.log('change data status', res);
           this.contacts.instagram = res.instagram;
           this.contacts.facebook = res.facebook;
           this.contacts.email = res.email;
@@ -105,12 +85,10 @@ export class ItemsArrayService implements ItemsService {
           this.contacts.phone2 = res.phone2;
           this.contacts.phone3 = res.phone3;
           this.contacts.address = res.address;
-        } else {
-          console.log('we have no res from server');
         }
         return res;
       }, err => {
-        console.log('items service got error from server', err);
+        console.error('error from server', err);
       }
     ));
   }
@@ -151,7 +129,6 @@ export class ItemsArrayService implements ItemsService {
         const branches = this.branches$.value;
         const brIndx = branches.findIndex(b => b.id === branch.id);
         if (!branch.popular) {
-          console.log('branch with no popular prop ', branch.popular);
           branch.popular = true;
           this.branches$.next(branches);
           return true;
@@ -196,7 +173,6 @@ export class ItemsArrayService implements ItemsService {
   }
 
   SoldTheItem(sItem: SoldItem): Observable<boolean> {
-    console.log('sold items comes to items service --', sItem); // sItem = [{}, {}, ..]
     return this.http.post<boolean>(`${environment.apiUrl}/api/sold`, sItem);
   }
 

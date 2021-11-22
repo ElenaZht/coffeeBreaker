@@ -13,39 +13,42 @@ export class IamnewComponent implements OnInit, AfterViewInit, OnDestroy {
   interval: any;
   cInstance: any;
   promoItems = [];
+  subscription;
   constructor( private router: Router, private itemsService: ItemsService) {
     if (window.screen.width <= 1500) {
-      console.log('SCREEN LESS THAN 1500 DETECTED');
       this.options = { fullWidth: false, padding: 10, numVisible: 3, shift: 100};
     } else if (window.screen.width <= 1024) {
-      console.log('SCREEN LESS THAN 1024 DETECTED');
       this.options = { fullWidth: false, padding: 10, numVisible: 1, shift: 10};
     }
-    this.itemsService.GetNewItems().subscribe(
-      res => {
-        this.promoItems = res;
-      }
-    );
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
   goToItem(item) {
-    console.log(item.menuCategory);
     this.router.navigate(['/menu_category', item.menuCategory], {queryParams: {itemId: item.prodId}});
   }
   ngAfterViewInit() {
-    const elems = document.querySelectorAll('#carusel111');
-    const instances = M.Carousel.init(elems, this.options);
-    console.log(instances);
-    this.cInstance = instances[0];
+    this.subscription = this.itemsService.GetNewItems().subscribe(
+      res => {
+        this.promoItems = res;
+        setTimeout( () => {
+          const elems = document.querySelectorAll('#carusel111');
+          const instances = M.Carousel.init(elems, this.options);
+          this.cInstance = instances[0];
+        }, 150);
+      }
+    );
+
+
     this.interval = setInterval(
       () => {
-        this.cInstance.next();
+        if (this.cInstance) {
+          this.cInstance.next();
+        }
       }, 5000
     );
   }
   ngOnDestroy() {
+    this.subscription.unsubscribe();
     if (this.interval) {
       clearInterval(this.interval);
     }

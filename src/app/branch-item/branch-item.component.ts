@@ -40,7 +40,7 @@ export class BranchItemComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<BranchItemComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private userService: UsersService,
               private itemService: ItemsService, private toastr: ToastrService, private spinner: NgxSpinnerService,
               private  translator: TranslateService) {
-    if (this.userService.getCurrentUser().role === 0) {
+    if (this.userService.getCurrentUser() && this.userService.getCurrentUser().role === 0) {
       this.isAdmin = true;
     }
     this.branch = data;
@@ -68,7 +68,6 @@ export class BranchItemComponent implements OnInit {
     this.address = this.data.address;
     this.desc = this.data.desc;
     this.photo = this.data.photo;
-    console.log('undo address to ', this.address, 'and desc to ', this.desc);
   }
   onSelectFile(event: any) {
     this.selectedFile = event.target.files[0] as File;
@@ -84,7 +83,6 @@ export class BranchItemComponent implements OnInit {
       this.spinner.show();
       this.itemService.DeleteBranch(this.data).subscribe(
         res => {
-          console.log('result of delete ', res);
           this.spinner.hide();
           if (res) {
             this.showSuccess(this.delSuc1 + ' ' + branch.address + ' ' + this.delSuc2);
@@ -104,7 +102,6 @@ export class BranchItemComponent implements OnInit {
     const branch = brachForm.value as Branch;
     branch.photo = this.photo;
     branch.id = this.branch.id;
-    console.log('data from form ', branch);
     this.itemService.EditBranch(branch).subscribe(
       answer => {
         this.spinner.hide();
@@ -130,7 +127,6 @@ export class BranchItemComponent implements OnInit {
     if (confirm(this.remPopQ)) {
       this.itemService.ChangeBranchStatus(branch, false).subscribe(
         res => {
-          console.log('res from remove from pop ', res);
         }
       );
     }
@@ -139,7 +135,6 @@ export class BranchItemComponent implements OnInit {
     if (confirm(this.addPopQ)) {
       this.itemService.ChangeBranchStatus(branch, true).subscribe(
         res => {
-          console.log('res from add to pop ', res);
         }
       );
     }

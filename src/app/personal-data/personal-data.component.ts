@@ -49,9 +49,8 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.userService.getUser().subscribe(user => {
         this.user = user;
-        console.log('accaunt of user ', this.user);
         if (user) {
-          if (this.user.role === 0) {
+          if (this.user && this.user.role === 0) {
             this.isAdmin = true;
           }
           this.name = this.user.name;
@@ -59,7 +58,6 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
           this.phone = this.user.phone;
           this.birthday = this.user.birthday;
           this.birthday = this.datepipe.transform(this.birthday, 'dd MMMM yyyy');
-          console.log('bd', this.birthday);
 
         } else {
           this.name = '';
@@ -75,19 +73,14 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
     this.spinner.show();
     const user = dataForm.value as User;
     const edition = this.userService.editUser(this.user.id, user.name, user.email, user.birthday, user.phone);
-    console.log('data from form ', user);
-    console.log('component send name to array service as ', user.name);
     edition.subscribe(
       answer => {
             this.spinner.hide();
-            console.log('answer from array service ', answer);
-            console.log('finily this.user is ', this.user);
             this.editData();
             this.showSuccess(this.subSuc);
           }, err => {
             this.spinner.hide();
             this.showError(this.subErrMsg, this.subErrTitle);
-            console.log('error from array service', err);
           }
     );
   }

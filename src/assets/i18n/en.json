@@ -222,7 +222,8 @@
     "brnotadd" : "Branch not added!",
     "mooved" : "moved to",
     "dataedited" : "Your data edited successfully!",
-    "datanotedited" : "Your data not edited!"
+    "datanotedited" : "Your data not edited!",
+    "pay" : "Do payment and continue."
   },
   "ordernow" : "Order now",
   "lang" : "Language"

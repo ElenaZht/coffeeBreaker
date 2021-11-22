@@ -36,7 +36,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   mostPopular: Branch[] = [];
 
   constructor(@Inject(DOCUMENT) private document: Document, public dialog: MatDialog, private router: Router, private userService: UsersService, private itemsService: ItemsService) {
-    this.itemsService.GetNewItems().subscribe(
+    this.itemsService.GetPromoItems().subscribe(
       res => {
         this.promoItems = res;
 
@@ -85,7 +85,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
       width: '30vmax'});
     document.getElementById('languages').classList.add('active-tab');
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The lang dialog was closed', result);
       document.getElementById('languages').classList.remove('active-tab');
     });
   }
@@ -98,7 +97,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
   orderThis() {
     const promoItem = this.promoItems[this.startIndex];
     const c = promoItem.menuCategory;
-    console.log('order this: ', promoItem);
     this.router.navigate(['/menu_category', c], {queryParams: { itemId: promoItem.prodId }});
   }
 }

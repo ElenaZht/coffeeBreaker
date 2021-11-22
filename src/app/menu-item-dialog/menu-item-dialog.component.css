@@ -1,10 +1,18 @@
 @font-face {
-  font-family: Cookie;
-  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
-}
-@font-face {
   font-family: JosefinSans Regular;
   src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: Arial Narrow;
+  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
+}
+@font-face {
+  font-family: Avtala;
+  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
+  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
+  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
+  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
+  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
 }
 .main{
   height: 100%;
@@ -139,7 +147,7 @@ hr {
   width: 60%;
   display: flex;
   align-items: center;
-  font: 1vw JosefinSans Regular;
+  font: 1vw JosefinSans Regular, Arial Narrow, Avtala;
   z-index: 100;
   line-height: .8;
   -webkit-text-stroke: .1px white;
@@ -167,7 +175,7 @@ hr {
   height: 25%;
 }
 .bnttext {
-  font: 1vw JosefinSans Regular;
+  font: 1vw JosefinSans Regular, Arial Narrow, Avtala;
   color: white;
   margin-left: 5%;
 }
@@ -213,7 +221,7 @@ hr {
   color: #E04523;
   display: flex;
   justify-content: center;
-  font: 5vw JosefinSans Regular;
+  font: 5vw JosefinSans Regular, Arial Narrow, Avtala;
   position: relative;
 }
 .only-shek {
@@ -226,7 +234,7 @@ hr {
 .only {
   width: 100%;
   height: 30%;
-  font: 1vw JosefinSans Regular;
+  font: 1vw JosefinSans Regular, Arial Narrow, Avtala;
   display: flex;
   justify-content: center;
 }
@@ -253,7 +261,7 @@ hr {
 
 }
 .item-title {
-  font: 1.5vw JosefinSans Regular;
+  font: 1.5vw JosefinSans Regular, Arial Narrow, Avtala;
   display: flex;
   overflow-wrap: anywhere;
 }
@@ -261,7 +269,7 @@ hr {
 .item-desc {
   width: 100%;
   height: 70%;
-  font: .8vw JosefinSans Regular;
+  font: .8vw JosefinSans Regular, Arial Narrow, Avtala;
 }
 .card-footer {
   height: 15%;

@@ -14,6 +14,22 @@
   font-family: Annabelle;
   src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
 }
+@font-face {
+  font-family: Avtala;
+  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
+  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
+  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
+  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
+  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
+}
+@font-face {
+  font-family: Adama;
+  src: url('../../assets/fonts/AdamaMF Bold.ttf') format("ttf"),
+  url('../../assets/fonts/AdamaMF Bold.eot') format("eot"),
+  url('../../assets/fonts/AdamaMF Bold.otf') format("otf"),
+  url('../../assets/fonts/AdamaMF Bold.woff') format("woff"),
+  url('../../assets/fonts/AdamaMF Bold.svg') format("svg");
+}
 .main {
   height: 105vh;
   background:transparent url('../../assets/people-coffee.png') 0% 0% no-repeat padding-box;
@@ -35,15 +51,14 @@
 }
 .our-comminment {
   font: 10vw Cookie, Annabelle;
-  line-height: 1;
-  display: flex;
+display: flex;
   text-align: center;
   color: #1F1010;
   opacity: 0.4;
   text-shadow: 0 0 5px rgba(0,0,0,1);
 }
 .com-text {
-  font: 1vw JosefinSans Regular, Arial Narrow;
+  font: 1vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
   display: flex;
   position: relative;
   bottom: 90%;
@@ -75,7 +90,7 @@
 
 }
 .owner-text {
-  font: 3vw Cookie, Annabelle;
+  font: 3vw Cookie, Annabelle, Adama;
   color: white;
   background-color: rgba(0, 0, 0, 0.6);
   position: relative;
@@ -154,7 +169,7 @@ hr {
   width: 100%;
 }
 .com-logo {
-  font: 1.5vw JosefinSans Regular, Arial Narrow;
+  font: 1.5vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
   width: 30%;
 }
 .card-body {
@@ -169,11 +184,11 @@ hr {
   justify-content: center;
 }
 .question {
-  font: 1vmax JosefinSans Regular, Arial Narrow;
+  font: 1vmax JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
   padding: 2%;
 }
 .answer {
-  font: 0.7vmax JosefinSans Regular, Arial Narrow;
+  font: 0.7vmax JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
 }
 @media only screen and (max-width: 1024px) {
   .main {
@@ -216,11 +231,11 @@ hr {
     padding-bottom: 5%;
   }
   .question {
-    font: 2vmax JosefinSans Regular, Arial Narrow;
+    font: 2vmax JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
     padding: 2%;
   }
   .answer {
-    font: 1.5vmax JosefinSans Regular, Arial Narrow;
+    font: 1.5vmax JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
   }
 
 }

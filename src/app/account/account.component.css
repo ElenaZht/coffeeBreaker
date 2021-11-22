@@ -14,6 +14,22 @@
   font-family: Annabelle;
   src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
 }
+@font-face {
+  font-family: Avtala;
+  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
+  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
+  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
+  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
+  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
+}
+@font-face {
+  font-family: Adama;
+  src: url('../../assets/fonts/AdamaMF Bold.ttf') format("ttf"),
+  url('../../assets/fonts/AdamaMF Bold.eot') format("eot"),
+  url('../../assets/fonts/AdamaMF Bold.otf') format("otf"),
+  url('../../assets/fonts/AdamaMF Bold.woff') format("woff"),
+  url('../../assets/fonts/AdamaMF Bold.svg') format("svg");
+}
 .main {
   height: 65vh;
   background-color: white;
@@ -26,9 +42,8 @@
   display: none;
 }
 .our-comminment {
-  font: 15vmax Cookie, Annabelle;
-  line-height: 1;
-  display: flex;
+  font: 15vmax Cookie, Annabelle, Adama;
+display: flex;
   text-align: center;
   color: #1F1010;
   opacity: 0.4;
@@ -36,7 +51,7 @@
   z-index: 0;
 }
 .com-text {
-  font: 1vw JosefinSans Regular, Arial Narrow;
+  font: 1vw JosefinSans Regular, Arial Narrow, Avtala;
   display: flex;
   position: absolute;
   bottom: 42%;
@@ -127,7 +142,7 @@ div:active{
   outline: none;
 }
 .title {
-  font: 2vmax JosefinSans Regular, Arial Narrow;
+  font: 2vmax JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
   color: black;
   width: min-content;
   text-align: center;
@@ -137,9 +152,8 @@ div:active{
     display: none;
   }
   .main-title {
-    font: 12vmax Cookie, Annabelle;
-    line-height: 1;
-    display: flex;
+    font: 12vmax Cookie, Annabelle, Adama;
+  display: flex;
     text-align: center;
     color: #1F1010;
     opacity: 0.4;

@@ -23,7 +23,6 @@ export class ChooseBranchDialogComponent implements OnInit {
 
   getBranch() {
     const val = document.querySelector('input[name="branch"]:checked');
-    console.log(val.id);
     this.dialogRef.close(val.id);
   }
 }

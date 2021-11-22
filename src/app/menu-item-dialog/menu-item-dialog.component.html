@@ -59,15 +59,15 @@
             </div>
             <div class="btns-wrap">
               <button class="orangebtn" *ngIf="!isAdmine && !isEdit" (click)="addToTray(data)">
-              <fa-icon class="fas fa-2x fa-plus btn2 active" [icon]="['fas', 'plus']" style="color: white;margin-left: 5%"  aria-pressed="true"></fa-icon>
+              <fa-icon class="fas fa-plus btn2 active" [icon]="['fas', 'plus']" style="color: white;margin-left: 5%"  aria-pressed="true"></fa-icon>
                 <span class="bnttext">{{'addtotray' | translate}}</span>
               </button>
               <button class="orangebtn graybtn" *ngIf="!isAdmine && !isEdit">
-              <fa-icon class="fas fa-2x fa-shopping-cart btn2 active" [icon]="['fas', 'shopping-cart']" style="margin-left: 5%" aria-pressed="true"></fa-icon>
+              <fa-icon class="fas fa-shopping-cart btn2 active" [icon]="['fas', 'shopping-cart']" style="margin-left: 5%" aria-pressed="true"></fa-icon>
                 <span class="bnttext" (click)="toTray()">{{'mytray' | translate}}</span>
               </button>
               <button class="orangebtn" *ngIf="isAdmine" (click)="goEdit()">
-                <fa-icon class="fas fa-2x fa-pencil-alt btn2 active" [icon]="['fas', 'pencil-alt']" style="color: white;margin-left: 5%"  aria-pressed="true"></fa-icon>
+                <fa-icon class="fas fa-pencil-alt btn2 active" [icon]="['fas', 'pencil-alt']" style="color: white;margin-left: 5%"  aria-pressed="true"></fa-icon>
                 <span class="bnttext">{{'edititem' | translate}}</span>
               </button>
               <div class="check-wrap">
@@ -80,7 +80,7 @@
               </div>
 
               <button class="orangebtn graybtn" *ngIf="isAdmine && !isEdit">
-                <fa-icon class="fas fa-2x fa-trash-alt btn2 active" [icon]="['fas', 'trash-alt']" style="margin-left: 5%" aria-pressed="true"></fa-icon>
+                <fa-icon class="fas fa-trash-alt btn2 active" [icon]="['fas', 'trash-alt']" style="margin-left: 5%" aria-pressed="true"></fa-icon>
                 <span class="bnttext" (click)="delete(data)">{{'deleteitematall' | translate}}</span>
               </button>
             </div>

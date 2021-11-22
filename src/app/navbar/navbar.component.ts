@@ -39,15 +39,11 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   isLogged = false;
   isAdmin = false;
   ngOnInit() {
-    console.log('ng on init');
-    // this.detectActiveNav(); // todo
     this.subscription = this.userService.getUser().subscribe(user => {
-        console.log('nav has user', user);
         if (user && user.token) {
           this.isLogged = true;
         }
         if (user && user.role === Roles.admin) {
-          console.log('ADMIN IS HERE');
           this.isAdmin = true;
         }
     }
@@ -55,7 +51,6 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   }
   ngAfterViewInit(): void {
     this.detectActiveNav();
-    console.log('after view init');
   }
 
   chooseTheLang() {
@@ -63,21 +58,17 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
       width: '30vmax'});
     document.getElementById('languages').classList.add('active-tab');
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The lang dialog was closed', result);
       document.getElementById('languages').classList.remove('active-tab');
     });
   }
   detectActiveNav() {
-    console.log('detect active nav', this.router.url);
     if (this.router.url.includes('menu_common')) {
       document.getElementById('menu').classList.add('active-tab');
     } else if (this.router.url.includes('branches')) {
       document.getElementById('branches').classList.add('active-tab');
     } else if (this.router.url.includes('tray')) {
-      console.log('element by id is ', document.getElementById('tray'));
       document.getElementById('tray').classList.add('active-tab');
     } else if (this.router.url.includes('account')) {
-      console.log('element by id is ', document.getElementById('account'));
       document.getElementById('account').classList.add('active-tab');
     } else if (this.router.url.includes('contacts')) {
       document.getElementById('contacts').classList.add('active-tab');
@@ -104,6 +95,8 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
             this.router.url.includes('tray') ||
             this.router.url.includes('orders_control')) {
             this.router.navigate(['/homepage']);
+          } else if (this.router.url.includes('contacts')) {
+            window.location.reload();
           }
         }
       });
@@ -117,7 +110,14 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
       width: '20vmax'});
     dialogRef.afterClosed().subscribe(
       result => {
-        document.getElementById('login').classList.remove('active-tab');
+        if (this.router.url.includes('tray') && this.isAdmin) {
+          this.router.navigate(['/homepage']);
+        } else if (this.router.url.includes('contacts')) {
+          window.location.reload();
+        }
+        if (document.getElementById('login')) {
+          document.getElementById('login').classList.remove('active-tab');
+        }
       }
     );
   }

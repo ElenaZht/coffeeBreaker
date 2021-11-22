@@ -5,7 +5,7 @@ import {Item, SoldItem} from './items.service';
 import {User, UsersService} from './users.service';
 import {HttpClient} from '@angular/common/http';
 import {environment} from './environments/environment';
-import {delay, map, filter} from 'rxjs/operators';
+import {delay, map} from 'rxjs/operators';
 import {PayformDialogComponent} from './payform-dialog/payform-dialog.component';
 import {MatDialog} from '@angular/material';
 
@@ -27,12 +27,15 @@ export class OrdersArrayService implements OrdersService {
         this.allOrders$.next(res);
       }
     );
+    const localStorageCart = localStorage.getItem('cart');
+    if (localStorageCart && localStorageCart.length !== 0) {
+      this.cart$.next(JSON.parse(localStorageCart));
+    }
   }
 
   addOrder(order: Order): Observable<Order> {
     return this.http.post<Order>(`${environment.apiUrl}/api/orders`, order).pipe(map(
       res => {
-        console.log('order come backs from server ', res);
         const allOrders = this.allOrders$.value;
         allOrders.push(res);
         this.allOrders$.next(allOrders);
@@ -42,39 +45,24 @@ export class OrdersArrayService implements OrdersService {
       );
   }
 
-  addOrderToUserOrders(order: Order): boolean {
-    return false;
-  }
   getCart(): Observable<SoldItem[]> {
     return this.cart$.asObservable();
   }
 
   addToCart(item: Item): Observable<boolean> {
     const sItem: SoldItem = {...item, date: new Date(), sold: 1};
-    console.log(sItem);
     this.cart = this.cart$.value;
     const oldItem = this.cart.find(i => sItem.prodId === i.prodId);
     if (oldItem) {
-      console.log('FOUND ITEM ', oldItem);
-      console.log('sItems old count', sItem.sold);
       const idx = this.cart.indexOf(oldItem);
       sItem.sold = oldItem.sold + sItem.sold;
-      console.log('new sItems sold count ', sItem.sold);
       this.cart[idx] = sItem;
-      console.log('and now old items count is ', this.cart[idx].sold);
-      this.cart$.next(this.cart);
-      console.log('and now cart is ', this.cart);
-      return of(true);
+    } else {
+      this.cart.push(sItem);
     }
-    console.log('NO DOUBLE ITEMS FOUND');
-    this.cart.push(sItem);
     this.cart$.next(this.cart);
-    console.log('and now cart is ', this.cart);
+    localStorage.setItem('cart', JSON.stringify(this.cart));
     return of(true);
-  }
-
-  addToSold(order: Order): boolean {
-    return false;
   }
 
   goPayment(user: User): Observable<boolean> {
@@ -97,22 +85,20 @@ export class OrdersArrayService implements OrdersService {
     return of(true);
   }
 
-  showToUserStatus(order: Order): boolean {
-    return false;
-  }
 
   remFromCart(item: Item): Observable<boolean> {
     this.cart = this.cart$.value;
     const idx = this.cart.findIndex(i => i.prodId === item.prodId);
     this.cart.splice(idx, 1);
     this.cart$.next(this.cart);
-
+    localStorage.setItem('cart', JSON.stringify(this.cart));
     return of(true);
   }
 
   cleanTheCart(): void {
     this.cart = [];
     this.cart$.next(this.cart);
+    localStorage.setItem('cart', '');
   }
 
   getMyOrders(): Observable<Order[]> {
@@ -121,8 +107,8 @@ export class OrdersArrayService implements OrdersService {
   }
 
   getTodaysOrders(): Observable<Order[]> {
-    return this.allOrders$;
-    // return this.allOrders$.pipe(map(or => or.filter(o => o.date === new Date())));
+    const today = new Date().toISOString().slice(0, 10);
+    return this.allOrders$.pipe(map(or => or.filter(o => o.date.slice(0, 10) === today)));
   }
 
   changeOrderStatus(id, status): Observable<boolean> {
@@ -133,11 +119,9 @@ export class OrdersArrayService implements OrdersService {
           const curOrdInd = tempOrders.findIndex(o => o.id === id);
           tempOrders[curOrdInd] = res;
           this.allOrders$.next(tempOrders);
-          console.log('order status changed to ', res.status);
           return true;
         }
       }, err => {
-        console.log('order status not changed', err.statusText);
         return false;
       }
     )

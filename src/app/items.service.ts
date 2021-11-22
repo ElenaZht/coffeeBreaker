@@ -54,14 +54,10 @@ export abstract class ItemsService {
   abstract AddItem(item: Item, category: string): Observable<Item>;
   abstract EditItem(item: Item): Observable<Item>;
   abstract DeleteItem(item: Item): Observable<boolean>;
-  // abstract GetItem(): Observable<Item>;
   abstract GetPromoItems(): Observable<Item[]>;
   abstract GetNewItems(): Observable<Item[]>;
-
   abstract GetAllTheItems(): Observable<MenuCategory[]>;
-  abstract GetSoldItems(): Observable<SoldItem[]>;
   abstract SoldTheItem(sItem: SoldItem): Observable<boolean>;
-  // abstract GetItemsByCategory(categoryName): Observable<Item[]>;
   abstract GetContacts(): Observable<Contacts>;
   abstract EditContacts(instagram: string, facebook: string, email: string, phone1: string, phone2: string, phone3: string, address: string): Observable<Contacts>;
   abstract GetBranches(): Observable<Branch[]>;

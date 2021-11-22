@@ -6,6 +6,30 @@
   font-family: JosefinSans Regular;
   src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
 }
+@font-face {
+  font-family: Arial Narrow;
+  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
+}
+@font-face {
+  font-family: Annabelle;
+  src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
+}
+@font-face {
+  font-family: Avtala;
+  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
+  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
+  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
+  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
+  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
+}
+@font-face {
+  font-family: Adama;
+  src: url('../../assets/fonts/AdamaMF Bold.ttf') format("ttf"),
+  url('../../assets/fonts/AdamaMF Bold.eot') format("eot"),
+  url('../../assets/fonts/AdamaMF Bold.otf') format("otf"),
+  url('../../assets/fonts/AdamaMF Bold.woff') format("woff"),
+  url('../../assets/fonts/AdamaMF Bold.svg') format("svg");
+}
 .main{
   height: 65vh;
   background-color: white;
@@ -40,7 +64,7 @@ hr {
   width: 100%;
 }
 .table-title{
-  font: 1.5vmax JosefinSans Regular;
+  font: 1.5vmax JosefinSans Regular, Arial Narrow, Avtala;
   text-align: center;
   margin: auto;
   margin-top: 2%;
@@ -119,11 +143,11 @@ hr {
   width: 80%;
 }
 .stat{
-  font: 6vmax Cookie;
+  font: 6vmax Cookie, Annabelle, Adama;
   line-height: 0.7;
 }
 .stat-text{
-  font: 0.8vw JosefinSans Regular;
+  font: 0.8vw JosefinSans Regular, Arial Narrow, Avtala;
   text-align: center;
   width: 65%;
 }
@@ -151,7 +175,7 @@ hr {
   transition: all 0.5s ease-in-out;
 }
 .sum-row > span{
-  font: 1.5vmax JosefinSans Regular;
+  font: 1.5vmax JosefinSans Regular, Arial Narrow, Avtala;
   margin-right: 5%;
   margin-left: 5%;
 }
@@ -183,13 +207,13 @@ hr {
   background-color: white;
 }
 .wrap > span{
-  font: 1vmax JosefinSans Regular;
+  font: 1vmax JosefinSans Regular, Arial Narrow, Avtala;
 }
 .template {
   display: flex;
   justify-content: center;
   align-items: center;
-  font: 2vmax JosefinSans Regular;
+  font: 2vmax JosefinSans Regular, Arial Narrow, Avtala;
 }
 @media only screen and (max-width: 1024px) and (orientation: portrait){
   .main {

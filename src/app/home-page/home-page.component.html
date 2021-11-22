@@ -17,7 +17,7 @@
           <div class="logo-m heder-logo"></div>
           <div class="hr-wrap-top"><hr></div>
         </div>
-        <div class="card-body">
+        <div class="card-body"   *ngIf="promoItems.length">
           <div class="ingredients">
             <div class="ingredient" *ngFor="let i of promoItems[startIndex].ingredients">
               <div class="ing-spot {{i.ingClass}}"></div>
@@ -41,9 +41,7 @@
           </div>
         </div>
         <div class="card-footer">
-          <span class="make-your-coffeebreak">{{'footer.big1' | translate}}</span>
           <hr>
-          <span class="make-your-coffeebreak">{{'footer.big2' | translate}}</span>
         </div>
       </div>
     </div>
@@ -85,15 +83,24 @@
         <div class="bigwords">{{'joinusblock.title' | translate}}</div>
         <div class="sometext">{{'joinusblock.desc' | translate}}</div>
       </div>
-      <div class="smartphone"></div>
-      <div class="instascroll">
-        <div class="scroll-paper"></div>
+<!--      <div class="smartphone"></div>-->
+<!--      <div class="instascroll">-->
+<!--        <div class="scroll-paper"></div>-->
+<!--      </div>-->
+      <div class="smart-wrapper">
+        <div class="smartphone">
+          <div class="instascroll">
+            <div class="scroll-paper"></div>
+          </div>
+        </div>
+
       </div>
+
     </div>
   </div>
   <div class="find-branch-section">
     <div class="branch-wrap">
-      <div class="bigwords" [ngStyle]="{'font-size': myLang !== 'en' ? '6vmax':'8vmax'}">{{'findpoint.title' | translate}}</div>
+      <div class="bigwords" style="justify-content: left; margin-bottom: 1vh">{{'findpoint.title' | translate}}</div>
       <div class="sometext somepointtext">{{'findpoint.desc' | translate}}</div>
       <div class="points-wrap">
         <div class="points">
@@ -179,7 +186,7 @@
           <div class="logo-m heder-logo"></div>
           <div class="hr-wrap-top"><hr></div>
         </div>
-        <div class="card-body">
+        <div class="card-body"  *ngIf="promoItems.length">
           <div class="ingredients">
             <div class="ingredient" *ngFor="let i of promoItems[startIndex].ingredients">
               <div class="ing-spot {{i.ingClass}}"></div>

@@ -26,7 +26,7 @@ export class BranchesComponent implements OnInit, OnDestroy {
         this.mostPopular = res.filter(b => b.popular === true);
       }
     );
-    if (this.userService.getCurrentUser().role === 0) {
+    if (this.userService.getCurrentUser() && this.userService.getCurrentUser().role === 0) {
       this.isAdmin = true;
     }
   }
@@ -37,7 +37,6 @@ export class BranchesComponent implements OnInit, OnDestroy {
     const dialogRef = this.dialog.open(BranchItemComponent, {panelClass: 'custom-dialog-container', height: '60vmin',
       width: '55vmax', data: b});
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The lang dialog was closed', result);
     });
   }
 
@@ -49,7 +48,6 @@ export class BranchesComponent implements OnInit, OnDestroy {
     const dialogRef = this.dialog.open(NewBranchComponent, {panelClass: 'custom-dialog-container', height: '60vmin',
       width: '55vmax'});
     dialogRef.afterClosed().subscribe(result => {
-      console.log('data from new branch form ', result);
     });
   }
 }

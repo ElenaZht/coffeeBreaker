@@ -29,23 +29,19 @@ export class SignupComponent implements OnInit {
     this.dialogRef.close(ans);
   }
   onSubmit(SignupForm: NgForm) {
-    console.log('submit');
     this.spinner.show();
     const user = SignupForm.value as User;
-    console.log('user: ', user);
     this.usersService.AddUser(user).subscribe(
       () => {
-        this.spinner.hide();
+        this.exit(true);
         this.usersService.logIn(user.email, user.password).subscribe(
           res => {
-            this.exit(true);
-            console.log('new user! ', user);
+            this.spinner.hide();
             this.showSuccess(user);
           }
         );
       }, err => {
         this.spinner.hide();
-        console.log('error from sign up ', err);
         this.showError(user);
 
       }

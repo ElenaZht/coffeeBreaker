@@ -36,32 +36,34 @@ export class TrayComponent implements OnInit, OnDestroy {
   remCartQ1: string;
   remCartQ2: string;
   remCartSuc: string;
+  orderLogInFor: string;
+  orderChooseBr: string;
+  orderPay: string;
   constructor(public dialog: MatDialog, private ordersService: OrdersService, private itemsService: ItemsService,
               private toastr: ToastrService, private spinner: NgxSpinnerService,
               private usersService: UsersService, private  translator: TranslateService) {
     if (window.screen.width <= 500) {
       this.titleWidthPermition = 150;
-      console.log('screen less 500');
     } else if (window.screen.width <= 1024) {
       this.titleWidthPermition = 10;
-      console.log('screen less 1024');
     } else if (window.screen.width <= 1400) {
       this.titleWidthPermition = 15;
-      console.log('screen less 1400');
     }
     this.ordersService.getCart().subscribe(
-      res => {
-        console.log('cart comes as ', res);
-        this.myItems = res;
-        console.log('my items are ', this.myItems);
-      }
-    );
+        res => {
+          this.myItems = res;
+        }
+      );
+
     this.order = {id: undefined, ordered: [], status: undefined, branch: undefined, date: undefined, user: undefined};
 
     this.translator.get('confirm.ordnotconfirm').subscribe(res => this.orderErr = res);
     this.translator.get('confirm.suredel').subscribe(res => this.remCartQ1 = res);
     this.translator.get('confirm.fromtray').subscribe(res => this.remCartQ2 = res);
     this.translator.get('confirm.trayrem').subscribe(res => this.remCartSuc = res);
+    this.translator.get('confirm.logformore').subscribe(res => this.orderLogInFor = res);
+    this.translator.get('choosebranch.choose').subscribe(res => this.orderChooseBr = res);
+    this.translator.get('confirm.pay').subscribe(res => this.orderPay = res);
 
   }
 
@@ -69,7 +71,6 @@ export class TrayComponent implements OnInit, OnDestroy {
     this.CountTotal();
     this.CountItems();
     this.subscription = this.usersService.getUser().subscribe(user => {
-      console.log('nav has user', user);
       if (user && user.token) {
         this.isLogged = true;
         this.user = user;
@@ -93,35 +94,48 @@ export class TrayComponent implements OnInit, OnDestroy {
     if (this.totalItems !== 0) {
       try {
         const logginSuccess = await this.checkIsLogged().toPromise();
-        const branchSuccess = await this.chooseBranch().toPromise();
-        const payed = await this.payment().toPromise();
-        this.order.date = new Date();
-        this.order.branch = branchSuccess;
-        this.order.status = Statuses.confirmed;
-        this.order.ordered = myItems;
-        this.order.user = this.user.id;
-        if (logginSuccess && branchSuccess && payed) {
-          this.spinner.show();
-          const result = await this.ordersService.addOrder(this.order).toPromise();
-          if (result) {
-            this.spinner.hide();
-            this.itemsService.SoldTheItem(myItems).subscribe(
-              res => {
-                if (res) {
-                  return res;
+        if (logginSuccess) {
+          const branchSuccess = await this.chooseBranch().toPromise();
+          if (branchSuccess) {
+            const payed = await this.payment().toPromise();
+            if (payed) {
+              this.order.date = new Date().toISOString();
+              this.order.branch = branchSuccess;
+              this.order.status = Statuses.confirmed;
+              this.order.ordered = myItems;
+              this.order.user = this.user.id;
+              if (logginSuccess && branchSuccess && payed) {
+                this.spinner.show();
+                const result = await this.ordersService.addOrder(this.order).toPromise();
+                if (result) {
+                  this.spinner.hide();
+                  this.itemsService.SoldTheItem(myItems).subscribe(
+                    res => {
+                      if (res) {
+                        return res;
+                      }
+                    }
+                  );
+                  this.Clear();
+                  this.showOrderDetails(result);
                 }
+
               }
-            );
-            console.log('my items from cart ', myItems);
-            this.Clear();
-            this.showOrderDetails(result);
+            } else {
+              this.showError(this.orderErr, this.orderPay);
+            }
+
+          } else {
+            this.showError(this.orderErr, this.orderChooseBr);
           }
 
+        } else {
+          this.showError(this.orderErr, this.orderLogInFor);
         }
+
       } catch (err) {
         this.spinner.hide();
         this.showError(err.statusText, this.orderErr);
-        console.log(err);
       }
       }
 
@@ -144,7 +158,6 @@ export class TrayComponent implements OnInit, OnDestroy {
 
   checkIsLogged(): Observable<boolean> {
     if (!this.isLogged) {
-      console.log('user not logged');
       const dialogRef = this.dialog.open(LoginComponentComponent, {panelClass: 'custom-dialog-container', height: '40vmin',
         width: '20vmax'});
       return dialogRef.afterClosed().pipe(map(
@@ -161,7 +174,6 @@ export class TrayComponent implements OnInit, OnDestroy {
     if (i.sold !== 0) {i.sold--;
                        this.CountTotal();
                        this.CountItems();
-                       console.log('after decrease ', i);
 
     }
   }
@@ -169,7 +181,6 @@ export class TrayComponent implements OnInit, OnDestroy {
     i.sold++;
     this.CountTotal();
     this.CountItems();
-    console.log('after increase ', i);
   }
 
   remFromCart(i: any) {
@@ -179,7 +190,6 @@ export class TrayComponent implements OnInit, OnDestroy {
         res => {
           this.spinner.hide();
           this.showSuccess(i.title + ' ' + this.remCartSuc);
-          console.log(i.title + ' removed from cart');
         }
       );
     }
@@ -198,10 +208,7 @@ export class TrayComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
   showOrderDetails(order) {
-    const dialogRef = this.dialog.open(OrderDetailsDialogComponent, {panelClass: 'custom-dialog-container', height: '50vmin',
+    const dialogRef = this.dialog.open(OrderDetailsDialogComponent, {panelClass: 'custom-dialog-container', height: '55vmin',
       width: '60vmax', data: order});
-    dialogRef.afterClosed().subscribe(
-      res => console.log(res)
-    );
   }
 }

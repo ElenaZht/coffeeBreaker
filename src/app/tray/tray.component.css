@@ -3,7 +3,7 @@
   src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
 }
 @font-face {
-  font-family: JosefinSans Regular, Arial Narrow;
+  font-family: JosefinSans Regular;
   src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
 }
 @font-face {
@@ -13,6 +13,22 @@
 @font-face {
   font-family: Annabelle;
   src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
+}
+@font-face {
+  font-family: Avtala;
+  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
+  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
+  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
+  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
+  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
+}
+@font-face {
+  font-family: Adama;
+  src: url('../../assets/fonts/AdamaMF Bold.ttf') format("ttf"),
+  url('../../assets/fonts/AdamaMF Bold.eot') format("eot"),
+  url('../../assets/fonts/AdamaMF Bold.otf') format("otf"),
+  url('../../assets/fonts/AdamaMF Bold.woff') format("woff"),
+  url('../../assets/fonts/AdamaMF Bold.svg') format("svg");
 }
 .main{
   height: 65vh;
@@ -95,7 +111,7 @@ hr {
   width: 100%;
 }
 .table-title{
-  font: 1.5vmax JosefinSans Regular, Arial Narrow, Arial Narrow;
+  font: 1.5vmax JosefinSans Regular, Arial Narrow, Avtala;
   text-align: center;
   margin: auto;
   margin-top: 2%;
@@ -128,7 +144,7 @@ hr {
 }
 .img-title > span{
   white-space: nowrap;
-  font: 1vmax JosefinSans Regular, Arial Narrow, Arial Narrow;
+  font: 1vmax JosefinSans Regular, Arial Narrow, Avtala;
 
 }
 .img{
@@ -147,14 +163,14 @@ hr {
   width: 24%;
   display: flex;
   justify-content: center;
-  font: 1vmax JosefinSans Regular, Arial Narrow, Arial Narrow;
+  font: 1vmax JosefinSans Regular, Arial Narrow, Avtala;
 
 }
 .totalItem{
   width: 24%;
   display: flex;
   justify-content: center;
-  font: 1vmax JosefinSans Regular, Arial Narrow, Arial Narrow;
+  font: 1vmax JosefinSans Regular, Arial Narrow, Avtala;
 
 }
 .summ {
@@ -172,11 +188,11 @@ hr {
   width: 80%;
 }
 .stat{
-  font: 6vmax Cookie, Annabelle;
+  font: 6vmax Cookie, Annabelle, Adama;
   line-height: 0.7;
 }
 .stat-text{
-  font: 0.8vw JosefinSans Regular, Arial Narrow, v;
+  font: 0.8vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, v;
   text-align: center;
   width: 65%;
 }
@@ -204,7 +220,7 @@ hr {
   transition: all 0.5s ease-in-out;
 }
 .sum-row > span{
-  font: 1.5vmax JosefinSans Regular, Arial Narrow, Arial Narrow;
+  font: 1.5vmax JosefinSans Regular, Arial Narrow, Avtala;
   margin-right: 5%;
   margin-left: 5%;
 }
@@ -236,7 +252,7 @@ hr {
   background-color: white;
 }
 .wrap > span{
-  font: 1vmax JosefinSans Regular, Arial Narrow, Arial Narrow;
+  font: 1vmax JosefinSans Regular, Arial Narrow, Avtala;
 }
 .pics{
   background:transparent url('../../assets/pocket-group.png') 0% 0% no-repeat padding-box;
@@ -257,16 +273,15 @@ hr {
   z-index: 100;
 }
 .our-contacts {
-  font: 12vw Cookie, Annabelle;
-  line-height: 1;
-  display: flex;
+  font: 12vw Cookie, Annabelle, Adama;
+display: flex;
   text-align: center;
   color: #1F1010;
   opacity: 0.4;
   text-shadow: 0 0 5px rgba(0,0,0,1);
 }
 .sometext {
-  font: 1vw JosefinSans Regular, Arial Narrow, Arial Narrow;
+  font: 1vw JosefinSans Regular, Arial Narrow, Avtala;
   display: flex;
   position: relative;
   bottom: 68%;
@@ -304,7 +319,7 @@ hr {
   background-color: #E4D5CA;
 }
 .bnttext {
-  font: 1.9vw JosefinSans Regular, Arial Narrow, Arial Narrow;
+  font: 1.9vw JosefinSans Regular, Arial Narrow, Avtala;
   color: white;
   margin: auto;
 }
@@ -331,18 +346,18 @@ hr {
   margin: auto;
 }
 .total-word{
-  font: 1.9vw JosefinSans Regular, Arial Narrow;
+  font: 1.9vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
   width: 24%;
   flex-grow: 1;
 }
 .total-items{
-  font: 1.9vw JosefinSans Regular, Arial Narrow;
+  font: 1.9vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
   width: 24%;
   display: flex;
   justify-content: center;
 }
 .total-sum{
-  font: 1.9vw JosefinSans Regular, Arial Narrow;
+  font: 1.9vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
   width: 24%;
   display: flex;
   justify-content: center;
@@ -354,7 +369,7 @@ hr {
   height: 100%;
 }
 .no-products > span{
-  font: 1.9vw JosefinSans Regular, Arial Narrow;
+  font: 1.9vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
   color: #AB9690;
 
 }

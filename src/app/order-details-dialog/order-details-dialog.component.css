@@ -1,10 +1,18 @@
 @font-face {
-  font-family: Cookie;
-  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
-}
-@font-face {
   font-family: JosefinSans Regular;
   src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: Arial Narrow;
+  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
+}
+@font-face {
+  font-family: Avtala;
+  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
+  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
+  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
+  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
+  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
 }
 .main {
   background-size: cover;
@@ -37,13 +45,13 @@
   transform: scale(1.1);
 }
 .title {
-  font: 2vmax "JosefinSans Regular";
+  font: 2vmax JosefinSans Regular, Arial Narrow, Avtala;
   display: flex;
   margin: auto;
 }
 .details {
   margin: auto;
-  font: 1.5vmax "JosefinSans Regular";
+  font: 1.5vmax JosefinSans Regular, Arial Narrow, Avtala;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -58,7 +66,7 @@
   margin: auto;
 }
 label {
-  font: 1vmax "JosefinSans Regular";
+  font: 1vmax JosefinSans Regular, Arial Narrow, Avtala;
   margin-right: 10%;
 }
 .itemlist {

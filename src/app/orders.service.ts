@@ -15,7 +15,7 @@ export interface OrderedItem {
 }
 export interface Order {
   id: number;
-  date: Date;
+  date: string;
   branch: number;
   user: number;
   status: Statuses;
@@ -42,10 +42,7 @@ export abstract class OrdersService {
   abstract saveCreditCard(card: CreditCard): Observable<boolean>;
   abstract mockCardChecking(): Observable<boolean>;
   abstract addOrder(order: Order): Observable<Order>;
-  abstract showToUserStatus(order: Order): boolean;
-  abstract addOrderToUserOrders(order: Order): boolean;
   abstract goPayment(user: User): Observable<boolean>;
-  abstract addToSold(order: Order): boolean;
   abstract getTodaysOrders(): Observable<Order[]>;
   abstract changeOrderStatus(id, newStatus): Observable<boolean>;
 }
