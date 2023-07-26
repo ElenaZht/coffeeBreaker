@@ -22,8 +22,11 @@ export class LoginComponentComponent implements OnInit {
   toastrErrMsg1: string;
   toastrErrMsg2: string;
   toastrErrTitle: string;
-  constructor(public dialogRef: MatDialogRef<LoginComponentComponent>, private usersService: UsersService,  private router: Router, public dialog: MatDialog,
-              private toastr: ToastrService, private spinner: NgxSpinnerService, private  translator: TranslateService) {
+  constructor(public dialogRef: MatDialogRef<LoginComponentComponent>, private usersService: UsersService,
+              private router: Router, public dialog: MatDialog, private toastr: ToastrService, private spinner: NgxSpinnerService,
+              private  translator: TranslateService) {}
+
+  ngOnInit() {
     this.errorText = '';
     this.translator.get('confirm.wrong').subscribe(res => this.subErrText = res);
     this.translator.get('confirm.youlogged').subscribe(res => this.toastrSucMsg = res);
@@ -32,8 +35,6 @@ export class LoginComponentComponent implements OnInit {
     this.translator.get('confirm.orpas').subscribe(res => this.toastrErrMsg2 = res);
     this.translator.get('confirm.notauth').subscribe(res => this.toastrErrTitle = res);
   }
-
-  ngOnInit() {}
   onSubmit(loginForm: NgForm) {
     this.spinner.show();
     const user = loginForm.value as User;

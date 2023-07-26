@@ -7,7 +7,7 @@
     </div>
     <div class="card-body">
       <div class="photo" [ngStyle]="{'background-image': 'url('+photo+')', 'filter':gray? 'grayscale(100%)':'none'}">
-        <input style="visibility: hidden" class="hover-text" id="chooseFile" type='file' (change)="onSelectFile($event)">
+        <input class="hover-text hidden" id="chooseFile" type='file' (change)="onSelectFile($event)">
         <label for="chooseFile" class="hover-text"> <fa-icon size="4x" [icon]="['fas', 'images']"></fa-icon></label>
       </div>
       <form class="about" #brachForm="ngForm">

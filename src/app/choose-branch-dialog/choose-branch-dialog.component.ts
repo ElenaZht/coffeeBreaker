@@ -13,12 +13,10 @@ export class ChooseBranchDialogComponent implements OnInit {
   branches$: Observable<Branch[]>;
   branches: Branch[] = [];
 
-  constructor(private itemsService: ItemsService, public dialogRef: MatDialogRef<ChooseBranchDialogComponent>) {
-    this.branches$ = this.itemsService.GetBranches();
-
-  }
+  constructor(private itemsService: ItemsService, public dialogRef: MatDialogRef<ChooseBranchDialogComponent>) {}
 
   ngOnInit() {
+    this.branches$ = this.itemsService.GetBranches();
   }
 
   getBranch() {

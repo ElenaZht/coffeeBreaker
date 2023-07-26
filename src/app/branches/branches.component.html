@@ -4,7 +4,7 @@
       <span class="our-comminment">{{'branches.title' | translate}}</span>
       <span class="com-text">{{'branches.desc' | translate}}</span>
     </div>
-    <button class="orangebtn" *ngIf="isAdmin" (click)="AddBranch()"><p class="bnttext"><fa-icon class="fas fa-plus" [icon]="['fas', 'plus']"  aria-pressed="true"></fa-icon><span style="width: 70%;">{{'branches.add' | translate}}</span></p></button>
+    <button class="orangebtn" *ngIf="isAdmin" (click)="AddBranch()"><p class="bnttext"><fa-icon class="fas fa-plus" [icon]="['fas', 'plus']"  aria-pressed="true"></fa-icon><span class="width-70">{{'branches.add' | translate}}</span></p></button>
     <div class="wrap">
       <div class="most-popular">
         <div class="pop-arrow"></div>
@@ -28,7 +28,7 @@
       <span class="our-comminment">{{'branches.title' | translate}}</span>
     </div>
     <div class="all-branches">
-      <button class="orangebtn" *ngIf="isAdmin" (click)="AddBranch()"><p class="bnttext"><fa-icon class="fas fa-plus" [icon]="['fas', 'plus']"  aria-pressed="true"></fa-icon><span style="width: 70%;">{{'branches.add' | translate}}</span></p></button>
+      <button class="orangebtn" *ngIf="isAdmin" (click)="AddBranch()"><p class="bnttext"><fa-icon class="fas fa-plus" [icon]="['fas', 'plus']"  aria-pressed="true"></fa-icon><span class="width-70">{{'branches.add' | translate}}</span></p></button>
       <div class="contact" *ngFor="let b of (branches$ | async)" (click)="onBranch(b)">
         <div class="contact-icon pointer"></div>
         <div class="contact-text">{{b.address}}</div>

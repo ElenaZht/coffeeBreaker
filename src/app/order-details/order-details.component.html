@@ -1,6 +1,6 @@
   <div class="order-card">
     <div class="order-header">
-      <div style="text-align: center">#{{data.id}}</div>
+      <div class="center-text">#{{data.id}}</div>
       <hr>
       <div>{{data.date | date:"dd MMM yyyy, h:mm a"}}</div>
     </div>
@@ -10,8 +10,8 @@
           <div [ngStyle]="{'background-image': 'url('+p.img+')'}"></div>
           <span>{{p.title}}</span>
         </div>
-        <div style="color: gray">X</div>
-        <div style="width: 30%;">{{p.sold}}</div>
+        <div class="grey-text">X</div>
+        <div class="width-30">{{p.sold}}</div>
       </div>
     </div>
   </div>

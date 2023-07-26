@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {OrdersService} from '../orders.service';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-a-statistic',
   templateUrl: './a-statistic.component.html',
   styleUrls: ['./a-statistic.component.css']
 })
-export class AStatisticComponent implements OnInit {
+export class AStatisticComponent implements OnInit, OnDestroy {
   soldOrders = [];
   soldItems = [];
   itemPop: object;
@@ -15,7 +17,10 @@ export class AStatisticComponent implements OnInit {
   totalPerday = 0;
   titleWidthPermition = 20;
   sortedItems = {};
-  constructor(private router: Router, private ordersServise: OrdersService) {
+  private destroy$ = new Subject();
+  constructor(private router: Router, private ordersServise: OrdersService) {}
+
+  ngOnInit() {
     if (window.screen.width <= 500) {
       this.titleWidthPermition = 7;
     } else if (window.screen.width <= 1024) {
@@ -23,7 +28,7 @@ export class AStatisticComponent implements OnInit {
     } else if (window.screen.width <= 1400) {
       this.titleWidthPermition = 15;
     }
-    this.ordersServise.getTodaysOrders().subscribe(
+    this.ordersServise.getTodaysOrders().pipe(takeUntil(this.destroy$)).subscribe(
       res => {
         this.soldOrders = res;
         for (const ord of this.soldOrders) {
@@ -44,9 +49,6 @@ export class AStatisticComponent implements OnInit {
       }
     );
   }
-
-  ngOnInit() {
-  }
   CountTotal() {
     for (const item of this.soldItems) {
       this.totalPerday += item.sold * item.price;
@@ -58,8 +60,8 @@ export class AStatisticComponent implements OnInit {
     this.itemPop = this.soldItems[this.soldItems.reduce((iMax, x, i, arr) => x.sold > arr[iMax].sold ? i : iMax, 0)];
   }
   FindProfible() {
-    // tslint:disable-next-line:max-line-length
-    this.itemProf = this.soldItems[this.soldItems.reduce((iMax, x, i, arr) => x.sold * x.price > arr[iMax].sold * arr[iMax].price ? i : iMax, 0)];
+    this.itemProf = this.soldItems[this.soldItems.reduce((iMax, x, i, arr) => x.sold * x.price > arr[iMax].sold *
+    arr[iMax].price ? i : iMax, 0)];
   }
 
   goToItem(item) {
@@ -68,6 +70,11 @@ export class AStatisticComponent implements OnInit {
   }
   sortingPerTotal(a, b) {
     return (a.value.sold * a.value.price) > (b.value.sold * b.value.price) ? -1 : 1;
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
 }

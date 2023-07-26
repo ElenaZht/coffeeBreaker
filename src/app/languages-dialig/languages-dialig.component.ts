@@ -10,13 +10,11 @@ import {TranslateService} from '@ngx-translate/core';
 export class LanguagesDialigComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<LanguagesDialigComponent>,
-              private translate: TranslateService) {
-    const curLang = localStorage.getItem('lang');
-    this.useLanguage(curLang);
-
-  }
+              private translate: TranslateService) {}
 
   ngOnInit() {
+    const curLang = localStorage.getItem('lang');
+    this.useLanguage(curLang);
   }
   exit() {
     this.dialogRef.close();

@@ -14,17 +14,18 @@ export class IamnewComponent implements OnInit, AfterViewInit, OnDestroy {
   cInstance: any;
   promoItems = [];
   subscription;
-  constructor( private router: Router, private itemsService: ItemsService) {
+  constructor( private router: Router, private itemsService: ItemsService) {}
+
+  ngOnInit() {
+
     if (window.screen.width <= 1500) {
       this.options = { fullWidth: false, padding: 10, numVisible: 3, shift: 100};
     } else if (window.screen.width <= 1024) {
       this.options = { fullWidth: false, padding: 10, numVisible: 1, shift: 10};
     }
   }
-
-  ngOnInit() {}
   goToItem(item) {
-    this.router.navigate(['/menu_category', item.menuCategory], {queryParams: {itemId: item.prodId}});
+   void this.router.navigate(['/menu_category', item.menuCategory], {queryParams: {itemId: item.prodId}});
   }
   ngAfterViewInit() {
     this.subscription = this.itemsService.GetNewItems().subscribe(

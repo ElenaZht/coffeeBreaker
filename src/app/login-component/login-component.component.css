@@ -1,19 +1,3 @@
-@font-face {
-  font-family: JosefinSans Regular;
-  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
-}
-@font-face {
-  font-family: Arial Narrow;
-  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
-}
-@font-face {
-  font-family: Avtala;
-  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
-  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
-  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
-  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
-  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
-}
 .card {
   width: 100%;
   height: 100%;
@@ -23,7 +7,7 @@
   text-align: center;
   font: 3vw JosefinSans Regular, Arial Narrow, Avtala;
   letter-spacing: 0;
-  color: #E04523;
+  color: var(--orange);
   opacity: 1;
   display: flex;
   flex-direction: column;
@@ -42,13 +26,13 @@
   height: 80%;
   position: relative;
   left: 10%;
-  background-color: #E04523;
+  background-color: var(--orange);
   border-radius: 25px;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 14px 8px 2px 5px rgba(0,0,0,0.25);
+  box-shadow: var(--shadow);
 
 }
 .bnttext {

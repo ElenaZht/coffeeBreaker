@@ -17,7 +17,9 @@ export class MyOrdersComponent implements OnInit {
   myOrders = [];
   branchesIdToAddressMap = {};
 
-  constructor(private router: Router, private ordersService: OrdersService, private itemsService: ItemsService) {
+  constructor(private router: Router, private ordersService: OrdersService, private itemsService: ItemsService) {}
+
+  ngOnInit() {
     this.ordersService.getMyOrders().subscribe(
       res => {
         this.myOrders = res;
@@ -25,22 +27,17 @@ export class MyOrdersComponent implements OnInit {
           this.branchesIdToAddressMap[order.branch] = 'Branch no more exist';
         }
         for (const branchId in this.branchesIdToAddressMap) {
-          // tslint:disable-next-line:radix
-            this.itemsService.getBranchById(parseInt(branchId)).subscribe(
-              res => {
-                if (res) {
-                  this.branchesIdToAddressMap[branchId] = res.address;
-                }
+          this.itemsService.getBranchById(parseInt(branchId)).subscribe( // todo
+            result => {
+              if (result) {
+                this.branchesIdToAddressMap[branchId] = result.address;
               }
-            );
+            }
+          );
 
         }
       }
     );
-
-  }
-
-  ngOnInit() {
 
   }
 }

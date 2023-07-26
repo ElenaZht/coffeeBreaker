@@ -18,8 +18,11 @@ export class BranchesComponent implements OnInit, OnDestroy {
   branches$: Observable<Branch[]>;
   mostPopular: Branch[] = [];
   subscription;
+  private dialogSubscription;
   isAdmin = false;
-  constructor(public dialog: MatDialog, private itemsService: ItemsService, private userService: UsersService) {
+  constructor(public dialog: MatDialog, private itemsService: ItemsService, private userService: UsersService) {}
+
+  ngOnInit() {
     this.branches$ = this.itemsService.GetBranches();
     this.subscription = this.itemsService.GetBranches().subscribe(
       res => {
@@ -30,24 +33,22 @@ export class BranchesComponent implements OnInit, OnDestroy {
       this.isAdmin = true;
     }
   }
-
-  ngOnInit() {
-  }
   onBranch(b) {
     const dialogRef = this.dialog.open(BranchItemComponent, {panelClass: 'custom-dialog-container', height: '60vmin',
       width: '55vmax', data: b});
-    dialogRef.afterClosed().subscribe(result => {
-    });
+    this.dialogSubscription = dialogRef.afterClosed().subscribe();
   }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
   AddBranch() {
     const dialogRef = this.dialog.open(NewBranchComponent, {panelClass: 'custom-dialog-container', height: '60vmin',
       width: '55vmax'});
     dialogRef.afterClosed().subscribe(result => {
     });
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+    if (this.dialogSubscription) {
+      this.dialogSubscription.unsubscribe();
+    }
+
   }
 }

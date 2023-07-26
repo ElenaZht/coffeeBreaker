@@ -17,14 +17,14 @@
           <span>{{'myorders.branch' | translate}}</span>
           <span>{{'myorders.status' | translate}}</span>
         </div>
-        <hr style="width: 85%">
+        <hr class="hr-85">
         <div class="card-content">
           <div *ngFor="let o of myOrders; let i= index">
             <div class ="order-raw">
               <span>{{o.id}}</span>
               <div class="titles-wrap">
-                <div class="ttlwrp" *ngFor="let ord of o.ordered;let last = last" style="display: flex; flex-direction: column;justify-content: space-around" [ngClass]="{'last-child': last}">
-                  <span style="display: flex">{{ord.title}}({{ord.sold}})</span>
+                <div class="ttlwrp flex column around" *ngFor="let ord of o.ordered;let last = last" [ngClass]="{'last-child': last}">
+                  <span class="flex">{{ord.title}}({{ord.sold}})</span>
                 </div>
 
               </div>

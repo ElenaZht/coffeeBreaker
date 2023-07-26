@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {faTimes} from '@fortawesome/free-solid-svg-icons';
 import {library} from '@fortawesome/fontawesome-svg-core';
@@ -14,7 +14,7 @@ library.add(faTimes);
   templateUrl: './order-details-dialog.component.html',
   styleUrls: ['./order-details-dialog.component.css']
 })
-export class OrderDetailsDialogComponent implements OnInit {
+export class OrderDetailsDialogComponent implements OnInit, OnDestroy {
   total = 0;
   userName: string;
   address: string;
@@ -22,15 +22,18 @@ export class OrderDetailsDialogComponent implements OnInit {
     path: '/assets/animation.json',
     loop: true
   };
+  private subscription;
 
 
 
 
   constructor(public dialogRef: MatDialogRef<OrderDetailsDialogComponent>,  @Inject(MAT_DIALOG_DATA) public data: any,
-              private usersSevice: UsersService, private itemsService: ItemsService) {
+              private usersSevice: UsersService, private itemsService: ItemsService) {}
+
+  ngOnInit() {
     const ordArray = this.data.ordered;
     this.userName = this.usersSevice.getCurrentUser().name;
-    this.itemsService.getBranchById(data.branch).subscribe(
+    this.subscription = this.itemsService.getBranchById(this.data.branch).subscribe(
       res => {
         this.address = res.address;
       }
@@ -41,11 +44,12 @@ export class OrderDetailsDialogComponent implements OnInit {
     }
 
   }
-
-  ngOnInit() {
-  }
   close() {
     this.dialogRef.close();
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }

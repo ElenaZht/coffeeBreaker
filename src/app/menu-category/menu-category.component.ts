@@ -29,38 +29,7 @@ export class MenuCategoryComponent implements OnInit  {
   user: User;
   isAdmin: boolean;
   constructor(private route: ActivatedRoute,  private router: Router, public dialog: MatDialog,
-              private itemsService: ItemsService, private spinner: NgxSpinnerService, private userService: UsersService) {
-    this.spinner.show();
-    this.user = this.userService.getCurrentUser();
-    if (this.user && this.user.role === 0) {
-      this.isAdmin = true;
-    }
-    this.itemsService.GetAllTheItems().subscribe(
-      res => {
-        this.spinner.hide();
-        this.categories = res;
-        if (this.categories.length === 0) {
-          this.isEmpty = true;
-        } else {
-          this.category = this.categories[0];
-          const categoryName = this.route.snapshot.paramMap.get('category_name');
-          this.category = this.categories.find(c => {
-            return c.categoryName === categoryName;
-          });
-
-          const queryParams = this.route.snapshot.queryParams;
-          const itemId = queryParams.itemId;
-          this.choosedItem = this.category.products.find(i => {
-          return i.prodId === parseInt(itemId, 10);
-        });
-        }
-      }, err => {
-        this.spinner.hide();
-      }
-    );
-
-
-  }
+              private itemsService: ItemsService, private spinner: NgxSpinnerService, private userService: UsersService) {}
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 1) {
@@ -85,6 +54,35 @@ export class MenuCategoryComponent implements OnInit  {
       this.onItem(this.choosedItem);
       }, 500);
     }
+    this.spinner.show();
+    this.user = this.userService.getCurrentUser();
+    if (this.user && this.user.role === 0) {
+      this.isAdmin = true;
+    }
+    this.itemsService.GetAllTheItems().subscribe(
+      res => {
+        this.spinner.hide();
+        this.categories = res;
+        if (this.categories.length === 0) {
+          this.isEmpty = true;
+        } else {
+          this.category = this.categories[0];
+          const categoryName = this.route.snapshot.paramMap.get('category_name');
+          this.category = this.categories.find(c => {
+            return c.categoryName === categoryName;
+          });
+
+          const queryParams = this.route.snapshot.queryParams;
+          const itemId = queryParams.itemId;
+          this.choosedItem = this.category.products.find(i => {
+            return i.prodId === parseInt(itemId, 10);
+          });
+        }
+      }, err => {
+        this.spinner.hide();
+      }
+    );
+
   }
 
 
@@ -113,7 +111,7 @@ export class MenuCategoryComponent implements OnInit  {
 
 
   goAdd() {
-    const dialogRef = this.dialog.open(AddNewItemComponent, {panelClass: 'custom-dialog-container', height: '60vmin',
+    const dialogRef = this.dialog.open(AddNewItemComponent, {panelClass: 'custom-dialog-container', height: '60vmin', // todo ?
       width: '55vmax', data: {category: this.category}});
   }
 }

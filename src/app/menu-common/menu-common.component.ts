@@ -15,15 +15,15 @@ export class MenuCommonComponent implements OnInit, AfterViewInit, OnDestroy {
   options = { fullWidth: false, padding: 200, numVisible: 6, shift: 300};
   items = [];
   subscription;
-  constructor(private http: HttpClient,  private router: Router, public dialog: MatDialog, private itemsService: ItemsService) {
+  constructor(private http: HttpClient,  private router: Router, public dialog: MatDialog, private itemsService: ItemsService) {}
+
+  ngOnInit() {
     if (window.screen.width <= 1024) {
       this.options = { fullWidth: false, padding: 10, numVisible: 4, shift: 10};
     }
   }
-
-  ngOnInit() {}
   goToCategory(c) {
-    this.router.navigate(['/menu_category', c]);
+    void this.router.navigate(['/menu_category', c]);
   }
   ngAfterViewInit() {
     this.subscription = this.itemsService.GetCommonCategories().subscribe(
@@ -31,7 +31,7 @@ export class MenuCommonComponent implements OnInit, AfterViewInit, OnDestroy {
         this.items = res;
         setTimeout(() => {
           const elems = document.querySelectorAll('.carousel');
-          const instances = M.Carousel.init(elems, this.options);
+          const instances = M.Carousel.init(elems, this.options); // todo ?
           }, 150);
 
       }

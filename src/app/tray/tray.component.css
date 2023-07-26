@@ -1,35 +1,3 @@
-@font-face {
-  font-family: Cookie;
-  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
-}
-@font-face {
-  font-family: JosefinSans Regular;
-  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
-}
-@font-face {
-  font-family: Arial Narrow;
-  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
-}
-@font-face {
-  font-family: Annabelle;
-  src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
-}
-@font-face {
-  font-family: Avtala;
-  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
-  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
-  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
-  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
-  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
-}
-@font-face {
-  font-family: Adama;
-  src: url('../../assets/fonts/AdamaMF Bold.ttf') format("ttf"),
-  url('../../assets/fonts/AdamaMF Bold.eot') format("eot"),
-  url('../../assets/fonts/AdamaMF Bold.otf') format("otf"),
-  url('../../assets/fonts/AdamaMF Bold.woff') format("woff"),
-  url('../../assets/fonts/AdamaMF Bold.svg') format("svg");
-}
 .main{
   height: 65vh;
   background-color: white;
@@ -43,8 +11,8 @@
   height: 90%;
   width: 40%;
   background-color: white;
-  border: solid rgba(0,0,0,0.25) 0.01px;
-  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  border: var(--border);
+  box-shadow: var(--shadow);
   flex-direction: column;
 }
 .card-content {
@@ -101,20 +69,19 @@
 }
 hr {
   height: 2px;
-  background: #AB9690;
+  background: var(--cappuccino);;
   width: 90%;
   margin: auto;
 }
 .hr-thin{
   height: 1px;
-  background: #AB9690;
+  background: var(--cappuccino);;
   width: 100%;
 }
 .table-title{
   font: 1.5vmax JosefinSans Regular, Arial Narrow, Avtala;
   text-align: center;
-  margin: auto;
-  margin-top: 2%;
+  margin: 2% auto auto;
 }
 .table-raw{
   display: flex;
@@ -211,8 +178,8 @@ hr {
   background-color: rgba(0, 0, 0, 0.1);
   justify-content: space-between;
   border-radius: 20px;
-  border: solid rgba(0,0,0,0.25) 0.01px;
-  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  border: var(--border);
+  box-shadow: var(--shadow);
   transition: all 0.5s ease-in-out;
 }
 .sum-row:hover{
@@ -255,12 +222,11 @@ hr {
   font: 1vmax JosefinSans Regular, Arial Narrow, Avtala;
 }
 .pics{
-  background:transparent url('../../assets/pocket-group.png') 0% 0% no-repeat padding-box;
   background-size: contain;
   opacity: 0.5;
   width: 70%;
   height: 140%;
-  background-position: 100% 100%;
+  background: transparent url('../../assets/pocket-group.png') no-repeat 100% 100%;
   z-index: 0;
 
 }
@@ -276,9 +242,9 @@ hr {
   font: 12vw Cookie, Annabelle, Adama;
 display: flex;
   text-align: center;
-  color: #1F1010;
+  color: var(--darkchocolate);
   opacity: 0.4;
-  text-shadow: 0 0 5px rgba(0,0,0,1);
+  text-shadow: var(--text-shadow);
 }
 .sometext {
   font: 1vw JosefinSans Regular, Arial Narrow, Avtala;
@@ -305,7 +271,7 @@ display: flex;
   height: 35%;
   position: relative;
   left: 10%;
-  background-color: #E04523;
+  background-color: var(--orange);
   border-radius: 15px;
   border: none;
   display: flex;
@@ -316,7 +282,7 @@ display: flex;
 
 }
 .graybtn{
-  background-color: #E4D5CA;
+  background-color: var(--vanilla);
 }
 .bnttext {
   font: 1.9vw JosefinSans Regular, Arial Narrow, Avtala;
@@ -370,7 +336,7 @@ display: flex;
 }
 .no-products > span{
   font: 1.9vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
-  color: #AB9690;
+  color: var(--cappuccino);
 
 }
 .plus{

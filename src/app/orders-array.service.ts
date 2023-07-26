@@ -77,8 +77,7 @@ export class OrdersArrayService implements OrdersService {
   }
 
   mockCardChecking(): Observable<boolean> {
-    const obs = of(true).pipe(delay(5000));
-    return obs;
+    return of(true).pipe(delay(5000));
   }
 
   saveCreditCard(card: CreditCard): Observable<boolean> {

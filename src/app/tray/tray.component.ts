@@ -7,8 +7,8 @@ import {ToastrService} from 'ngx-toastr';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {User, UsersService} from '../users.service';
 import {LoginComponentComponent} from '../login-component/login-component.component';
-import {Observable, of} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {Observable, of, Subject} from 'rxjs';
+import {map, takeUntil} from 'rxjs/operators';
 import {ChooseBranchDialogComponent} from '../choose-branch-dialog/choose-branch-dialog.component';
 import {OrderDetailsDialogComponent} from '../order-details-dialog/order-details-dialog.component';
 import {ItemsService} from '../items.service';
@@ -31,7 +31,6 @@ export class TrayComponent implements OnInit, OnDestroy {
   titleWidthPermition = 20;
   user: User;
   isLogged: boolean;
-  subscription;
   orderErr: string;
   remCartQ1: string;
   remCartQ2: string;
@@ -39,9 +38,12 @@ export class TrayComponent implements OnInit, OnDestroy {
   orderLogInFor: string;
   orderChooseBr: string;
   orderPay: string;
+  private destroy$ = new Subject();
   constructor(public dialog: MatDialog, private ordersService: OrdersService, private itemsService: ItemsService,
               private toastr: ToastrService, private spinner: NgxSpinnerService,
-              private usersService: UsersService, private  translator: TranslateService) {
+              private usersService: UsersService, private  translator: TranslateService) {}
+
+  ngOnInit() {
     if (window.screen.width <= 500) {
       this.titleWidthPermition = 150;
     } else if (window.screen.width <= 1024) {
@@ -49,28 +51,24 @@ export class TrayComponent implements OnInit, OnDestroy {
     } else if (window.screen.width <= 1400) {
       this.titleWidthPermition = 15;
     }
-    this.ordersService.getCart().subscribe(
-        res => {
-          this.myItems = res;
-        }
-      );
+    this.ordersService.getCart().pipe(takeUntil(this.destroy$)).subscribe(
+      res => {
+        this.myItems = res;
+      }
+    );
 
     this.order = {id: undefined, ordered: [], status: undefined, branch: undefined, date: undefined, user: undefined};
 
-    this.translator.get('confirm.ordnotconfirm').subscribe(res => this.orderErr = res);
-    this.translator.get('confirm.suredel').subscribe(res => this.remCartQ1 = res);
-    this.translator.get('confirm.fromtray').subscribe(res => this.remCartQ2 = res);
-    this.translator.get('confirm.trayrem').subscribe(res => this.remCartSuc = res);
-    this.translator.get('confirm.logformore').subscribe(res => this.orderLogInFor = res);
+    this.translator.get('confirm.ordnotconfirm').pipe(takeUntil(this.destroy$)).subscribe(res => this.orderErr = res);
+    this.translator.get('confirm.suredel').pipe(takeUntil(this.destroy$)).subscribe(res => this.remCartQ1 = res);
+    this.translator.get('confirm.fromtray').pipe(takeUntil(this.destroy$)).subscribe(res => this.remCartQ2 = res);
+    this.translator.get('confirm.trayrem').pipe(takeUntil(this.destroy$)).subscribe(res => this.remCartSuc = res);
+    this.translator.get('confirm.logformore').pipe(takeUntil(this.destroy$)).subscribe(res => this.orderLogInFor = res);
     this.translator.get('choosebranch.choose').subscribe(res => this.orderChooseBr = res);
-    this.translator.get('confirm.pay').subscribe(res => this.orderPay = res);
-
-  }
-
-  ngOnInit() {
+    this.translator.get('confirm.pay').pipe(takeUntil(this.destroy$)).subscribe(res => this.orderPay = res);
     this.CountTotal();
     this.CountItems();
-    this.subscription = this.usersService.getUser().subscribe(user => {
+    this.usersService.getUser().pipe(takeUntil(this.destroy$)).subscribe(user => {
       if (user && user.token) {
         this.isLogged = true;
         this.user = user;
@@ -109,7 +107,7 @@ export class TrayComponent implements OnInit, OnDestroy {
                 const result = await this.ordersService.addOrder(this.order).toPromise();
                 if (result) {
                   this.spinner.hide();
-                  this.itemsService.SoldTheItem(myItems).subscribe(
+                  this.itemsService.SoldTheItem(myItems).pipe(takeUntil(this.destroy$)).subscribe(
                     res => {
                       if (res) {
                         return res;
@@ -156,59 +154,61 @@ export class TrayComponent implements OnInit, OnDestroy {
 
     }
 
-  checkIsLogged(): Observable<boolean> {
-    if (!this.isLogged) {
-      const dialogRef = this.dialog.open(LoginComponentComponent, {panelClass: 'custom-dialog-container', height: '40vmin',
-        width: '20vmax'});
-      return dialogRef.afterClosed().pipe(map(
-        res => {
-          return res;
-        }
-      ));
+    checkIsLogged(): Observable<boolean> {
+      if (!this.isLogged) {
+        const dialogRef = this.dialog.open(LoginComponentComponent, {panelClass: 'custom-dialog-container', height: '40vmin',
+          width: '20vmax'});
+        return dialogRef.afterClosed().pipe(map(
+          res => {
+            return res;
+          }
+        ));
 
-    } else {
-      return of(true);
+      } else {
+        return of(true);
+      }
     }
-  }
-  Decrease(i) {
-    if (i.sold !== 0) {i.sold--;
-                       this.CountTotal();
-                       this.CountItems();
+    Decrease(i) {
+      if (i.sold !== 0) {
+        i.sold--;
+        this.CountTotal();
+        this.CountItems();
 
+      }
     }
-  }
-  Increase(i) {
-    i.sold++;
-    this.CountTotal();
-    this.CountItems();
-  }
-
-  remFromCart(i: any) {
-    if (confirm(this.remCartQ1 + ' ' + i.title + ' ' + this.remCartQ2)) {
-      this.spinner.show();
-      this.ordersService.remFromCart(i).subscribe(
-        res => {
-          this.spinner.hide();
-          this.showSuccess(i.title + ' ' + this.remCartSuc);
-        }
-      );
+    Increase(i) {
+      i.sold++;
+      this.CountTotal();
+      this.CountItems();
     }
 
-  }
-  showSuccess(msg) {
-    this.toastr.success(msg);
-  }
+    remFromCart(i: any) {
+      if (confirm(this.remCartQ1 + ' ' + i.title + ' ' + this.remCartQ2)) {
+        this.spinner.show();
+        this.ordersService.remFromCart(i).pipe(takeUntil(this.destroy$)).subscribe(
+          res => {
+            this.spinner.hide();
+            this.showSuccess(i.title + ' ' + this.remCartSuc);
+          }
+        );
+      }
 
-  showError(msg, title) {
-    this.toastr.error(msg, title);
+    }
+    showSuccess(msg) {
+      this.toastr.success(msg);
+    }
 
-  }
+    showError(msg, title) {
+      this.toastr.error(msg, title);
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-  showOrderDetails(order) {
-    const dialogRef = this.dialog.open(OrderDetailsDialogComponent, {panelClass: 'custom-dialog-container', height: '55vmin',
-      width: '60vmax', data: order});
-  }
+    }
+
+    showOrderDetails(order) {
+      const dialogRef = this.dialog.open(OrderDetailsDialogComponent, {panelClass: 'custom-dialog-container', height: '55vmin',
+        width: '60vmax', data: order});
+    }
+    ngOnDestroy(): void {
+     this.destroy$.next();
+     this.destroy$.complete();
+    }
 }

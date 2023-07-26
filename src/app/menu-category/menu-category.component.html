@@ -1,7 +1,7 @@
 <app-frame>
   <div class="main">
-    <div style="color: gray" *ngIf="!isEmpty && !categories.length">{{'menucategory.loading' | translate}}..</div>
-    <div style="color: gray" *ngIf="isEmpty && !categories.length">{{'menucategory.oops' | translate}}</div>
+    <div class="grey-text" *ngIf="!isEmpty && !categories.length">{{'menucategory.loading' | translate}}..</div>
+    <div class="grey-text" *ngIf="isEmpty && !categories.length">{{'menucategory.oops' | translate}}</div>
     <div class="header" *ngIf="category">
       <div class="go" (click)="go(-1)">
         <fa-icon class="fas fa-5x fa-chevron-left active" [icon]="['fas', 'chevron-left']"></fa-icon>
@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="cards" *ngIf="category">
-      <span style="color:gray;margin: auto auto" *ngIf="category.products.length === 0">{{'menucategory.noproducts' | translate}}</span>
+      <span class="grey-text auto-margin" *ngIf="category.products.length === 0">{{'menucategory.noproducts' | translate}}</span>
       <div *ngIf="isAdmin" class="promocard">
         <div class="card-content">
           <div class="card-header">
@@ -31,7 +31,7 @@
             <div class="hr-wrap-top"><hr></div>
           </div>
           <div class="card-body addcup" (click)="goAdd()">
-            <span style="text-align: center">+ {{'menucategory.add' | translate}}</span>
+            <span class="center-text">+ {{'menucategory.add' | translate}}</span>
           </div>
           <div class="card-footer">
             <hr>

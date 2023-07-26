@@ -76,7 +76,8 @@ export class ItemsArrayService implements ItemsService {
   }
 
   EditContacts(instagram, facebook, email, phone1, phone2, phone3, address): Observable<Contacts> {
-    return this.http.patch<Contacts>(`${environment.apiUrl}/api/contacts/0`, {instagram, facebook, email, phone1, phone2, phone3, address}).pipe(map( res => {
+    return this.http.patch<Contacts>(`${environment.apiUrl}/api/contacts/0`,
+      {instagram, facebook, email, phone1, phone2, phone3, address}).pipe(map( res => {
         if (res) {
           this.contacts.instagram = res.instagram;
           this.contacts.facebook = res.facebook;
@@ -112,7 +113,8 @@ export class ItemsArrayService implements ItemsService {
   }
 
   EditBranch(branch): Observable<Branch> {
-    return this.http.patch<Branch>(`${environment.apiUrl}/api/branches/${branch.id}`, {address: branch.address, desc: branch.desc, photo: branch.photo}).pipe(map(
+    return this.http.patch<Branch>(`${environment.apiUrl}/api/branches/${branch.id}`,
+      {address: branch.address, desc: branch.desc, photo: branch.photo}).pipe(map(
       res => {
         const branches = this.branches$.value;
         const brIndx = branches.findIndex(b => b.id === branch.id);

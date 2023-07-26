@@ -15,7 +15,9 @@ export class AccountComponent implements OnInit, AfterViewInit {
   user: User;
   cardClick = false;
   options = { fullWidth: false, padding: 100, numVisible: 3, shift: 10, dist: -100};
-  constructor(private usersService: UsersService,  private router: Router) {
+  constructor(private usersService: UsersService,  private router: Router) {}
+
+  ngOnInit() {
     this.user = this.usersService.getCurrentUser();
     if (this.user && this.user.role === 0) {
       this.isAdmin = true;
@@ -24,15 +26,12 @@ export class AccountComponent implements OnInit, AfterViewInit {
       this.options = { fullWidth: false, padding: 10, numVisible: 3, shift: 10, dist: -300};
     }
   }
-
-  ngOnInit() {
-  }
   ngAfterViewInit() {
     const elems = document.querySelectorAll('.carousel');
-    const instances = M.Carousel.init(elems, this.options);
+    const instances = M.Carousel.init(elems, this.options); // todo
   }
 
   toMyOrders() {
-    this.router.navigate(['/my_orders']);
+    void this.router.navigate(['/my_orders']);
   }
 }

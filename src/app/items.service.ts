@@ -59,7 +59,8 @@ export abstract class ItemsService {
   abstract GetAllTheItems(): Observable<MenuCategory[]>;
   abstract SoldTheItem(sItem: SoldItem): Observable<boolean>;
   abstract GetContacts(): Observable<Contacts>;
-  abstract EditContacts(instagram: string, facebook: string, email: string, phone1: string, phone2: string, phone3: string, address: string): Observable<Contacts>;
+  abstract EditContacts(instagram: string, facebook: string, email: string, phone1: string,
+                        phone2: string, phone3: string, address: string): Observable<Contacts>;
   abstract GetBranches(): Observable<Branch[]>;
   abstract DeleteBranch(branch: Branch): Observable<boolean>;
   abstract AddNewBranch(branch: Branch): Observable<boolean>;

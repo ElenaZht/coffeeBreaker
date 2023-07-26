@@ -1,35 +1,3 @@
-@font-face {
-  font-family: Cookie;
-  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
-}
-@font-face {
-  font-family: JosefinSans Regular;
-  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
-}
-@font-face {
-  font-family: Arial Narrow;
-  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
-}
-@font-face {
-  font-family: Annabelle;
-  src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
-}
-@font-face {
-  font-family: Avtala;
-  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
-  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
-  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
-  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
-  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
-}
-@font-face {
-  font-family: Adama;
-  src: url('../../assets/fonts/AdamaMF Bold.ttf') format("ttf"),
-  url('../../assets/fonts/AdamaMF Bold.eot') format("eot"),
-  url('../../assets/fonts/AdamaMF Bold.otf') format("otf"),
-  url('../../assets/fonts/AdamaMF Bold.woff') format("woff"),
-  url('../../assets/fonts/AdamaMF Bold.svg') format("svg");
-}
 .main {
   height: 65vh;
   background-color: white;
@@ -42,7 +10,7 @@
 }
 .goback {
   color: white;
-  filter: drop-shadow(2px 4px 6px black);
+  filter: var(--drop-shadow);
   margin-left: 2%;
   position: absolute;
   left: 0;
@@ -60,9 +28,9 @@
   font: 10vmax Cookie, Annabelle, Adama;
 display: flex;
   text-align: center;
-  color: #1F1010;
+  color: var(--darkchocolate);
   opacity: 0.4;
-  text-shadow: 0 0 5px rgba(0,0,0,1);
+  text-shadow: var(--text-shadow);
   z-index: 0;
 }
 .com-text {
@@ -84,11 +52,11 @@ display: flex;
   background-color: white;
   width: 45vw;
   height: 45vh;
-  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  box-shadow: var(--shadow);
   position: relative;
   display: flex;
   align-items: center;
-  border: solid rgba(0,0,0,0.25) 0.01px;
+  border: var(--border);
   flex-direction: column;
 
 }
@@ -115,7 +83,7 @@ display: flex;
 }
 hr {
   height: 2px;
-  background: #AB9690;
+  background: var(--cappuccino);;
   width: 100%;
 }
 .order-raw {
@@ -137,11 +105,14 @@ hr {
 .ttlwrp {
   flex-direction: row;
   display: flex;
-  border-bottom: 1px solid #AB9690;
+  border-bottom: 1px solid var(--cappuccino);
 
 }
 .last-child {
   border-bottom: none;
+}
+.hr-85{
+  width: 85%;
 }
 @media only screen and (max-width: 1024px) {
   .main {

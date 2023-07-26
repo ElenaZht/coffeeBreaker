@@ -5,7 +5,7 @@
       <span class="stat-text">{{'orderscontrol.desc' | translate}}</span>
     </div>
     <div class="panels">
-      <div class="promocard" cdkDropList #newOrdersList="cdkDropList"
+      <div class="promocard" cdkDropList
            [cdkDropListData]="newOrders"
            [cdkDropListConnectedTo]="[processingList]" (cdkDropListDropped)="drop($event)">
         <div class="header">
@@ -24,8 +24,8 @@
                   <div [ngStyle]="{'background-image': 'url('+p.img+')'}"></div>
                   <span>{{p.title}}</span>
                 </div>
-                <div style="color: gray">X</div>
-                <div style="width: 30%;">{{p.sold}}</div>
+                <div class="gray-text">X</div>
+                <div class="width-30">{{p.sold}}</div>
               </div>
             </div>
           </div>
@@ -50,8 +50,8 @@
                   <div [ngStyle]="{'background-image': 'url('+p.img+')'}"></div>
                   <span>{{p.title}}</span>
                 </div>
-                <div style="color: gray">X</div>
-                <div style="width: 30%;">{{p.sold}}</div>
+                <div class="gray-text">X</div>
+                <div class="width-30">{{p.sold}}</div>
               </div>
             </div>
           </div>
@@ -79,8 +79,8 @@
                   <div [ngStyle]="{'background-image': 'url('+p.img+')'}"></div>
                   <span>{{p.title}}</span>
                 </div>
-                <div style="color: gray">X</div>
-                <div style="width: 30%;">{{p.sold}}</div>
+                <div class="gray-text">X</div>
+                <div class="width-30">{{p.sold}}</div>
               </div>
             </div>
           </div>

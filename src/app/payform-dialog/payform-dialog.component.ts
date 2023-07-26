@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material';
 import {OrdersService, CreditCard} from '../orders.service';
 import {ToastrService} from 'ngx-toastr';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {UsersService, User} from '../users.service';
 import {TranslateService} from '@ngx-translate/core';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-payform-dialog',
   templateUrl: './payform-dialog.component.html',
   styleUrls: ['./payform-dialog.component.css']
 })
-export class PayformDialogComponent implements OnInit {
+export class PayformDialogComponent implements OnInit, OnDestroy {
   card: CreditCard;
   first4: number;
   second4: number;
@@ -25,11 +27,20 @@ export class PayformDialogComponent implements OnInit {
   sucMsg1: string;
   sucMsg2: string;
   errMsg: string;
+  private destroy$ = new Subject();
 
   constructor(public dialogRef: MatDialogRef<PayformDialogComponent>, private ordersService: OrdersService,
               private toastr: ToastrService, private spinner: NgxSpinnerService, private usersService: UsersService,
-              private  translator: TranslateService) {
-    this.card = {
+              private  translator: TranslateService) {}
+
+  ngOnInit() {
+      const dob = document.getElementById('dob') as HTMLInputElement;
+      dob.addEventListener('keydown', () => {
+      dob.value = dob.value.replace(/^(\d\d)(\d)$/g, '$1/$2');
+      });
+
+
+      this.card = {
       userId: undefined,
       cardNumber: undefined,
       estDate: '',
@@ -37,19 +48,11 @@ export class PayformDialogComponent implements OnInit {
       lastNumber: undefined,
       payMethod: ''
     };
-    this.user = this.usersService.getCurrentUser();
-    this.translator.get('confirm.savecredit').subscribe(res => this.confQ = res);
-    this.translator.get('confirm.yourcard').subscribe(res => this.sucMsg1 = res);
-    this.translator.get('confirm.wassavedsuc').subscribe(res => this.sucMsg2 = res);
-    this.translator.get('confirm.notsaved').subscribe(res => this.errMsg = res);
-
-  }
-
-  ngOnInit() {
-      const dob = document.getElementById('dob') as HTMLInputElement;
-      dob.addEventListener('keydown', () => {
-      dob.value = dob.value.replace(/^(\d\d)(\d)$/g, '$1/$2');
-});
+      this.user = this.usersService.getCurrentUser();
+      this.translator.get('confirm.savecredit').pipe(takeUntil(this.destroy$)).subscribe(res => this.confQ = res);
+      this.translator.get('confirm.yourcard').pipe(takeUntil(this.destroy$)).subscribe(res => this.sucMsg1 = res);
+      this.translator.get('confirm.wassavedsuc').pipe(takeUntil(this.destroy$)).subscribe(res => this.sucMsg2 = res);
+      this.translator.get('confirm.notsaved').pipe(takeUntil(this.destroy$)).subscribe(res => this.errMsg = res);
   }
   onDigitInput(event, id) {
     const element = event.target;
@@ -82,7 +85,7 @@ export class PayformDialogComponent implements OnInit {
     const cardChecked = await this.ordersService.mockCardChecking().toPromise();
     await this.spinner.hide();
     if (cardChecked && window.confirm(this.confQ)) {
-      this.ordersService.saveCreditCard(this.card).subscribe(
+      this.ordersService.saveCreditCard(this.card).pipe(takeUntil(this.destroy$)).subscribe(
         res => {
           if (res) {
             this.showSuccess(this.sucMsg1 + ' ' + this.card.lastNumber + ' ' + this.sucMsg2);
@@ -103,5 +106,10 @@ export class PayformDialogComponent implements OnInit {
   showError(msg, title) {
     this.toastr.error(msg, title);
 
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

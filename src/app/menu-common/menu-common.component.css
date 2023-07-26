@@ -1,35 +1,3 @@
-@font-face {
-  font-family: Cookie;
-  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
-}
-@font-face {
-  font-family: JosefinSans Regular;
-  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
-}
-@font-face {
-  font-family: Arial Narrow;
-  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
-}
-@font-face {
-  font-family: Annabelle;
-  src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
-}
-@font-face {
-  font-family: Avtala;
-  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
-  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
-  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
-  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
-  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
-}
-@font-face {
-  font-family: Adama;
-  src: url('../../assets/fonts/AdamaMF Bold.ttf') format("ttf"),
-  url('../../assets/fonts/AdamaMF Bold.eot') format("eot"),
-  url('../../assets/fonts/AdamaMF Bold.otf') format("otf"),
-  url('../../assets/fonts/AdamaMF Bold.woff') format("woff"),
-  url('../../assets/fonts/AdamaMF Bold.svg') format("svg");
-}
 .main {
   height: 65vh;
   background-color: white;
@@ -54,11 +22,11 @@
   background-color: white;
   width: 25vw;
   height: 45vh;
-  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  box-shadow: var(--shadow);
   position: relative;
   display: flex;
   align-items: center;
-  border: solid rgba(0,0,0,0.25) 0.01px;
+  border: var(--border);
 
 }
 .card-content {
@@ -98,7 +66,7 @@
 }
 hr {
   height: 2px;
-  background: #AB9690;
+  background: var(--cappuccino);;
   width: 100%;
 }
 .card-body {
@@ -219,7 +187,7 @@ hr {
 .numb {
   width: 75%;
   height: 100%;
-  color: #E04523;
+  color: var(--orange);
   display: flex;
   justify-content: center;
   font: 9vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
@@ -261,10 +229,10 @@ hr {
 }
 .item-title {
   font: 5vw Cookie, Annabelle, Adama;
-  color: #1F1010;
+  color: var(--darkchocolate);
   word-wrap: break-word;
   line-height: 70%;
-  text-shadow: 2px 2px 4px #000000;
+  text-shadow: 2px 2px 4px black;
 }
 .card-footer {
   height: 15%;
@@ -304,7 +272,7 @@ hr {
 }
 .admin:hover > .delete-btn > span {
   font: 2vmax JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
-  color: #E04523;
+  color: var(--orange);
   display: flex;
 
 }

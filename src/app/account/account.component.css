@@ -1,35 +1,3 @@
-@font-face {
-  font-family: Cookie;
-  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
-}
-@font-face {
-  font-family: JosefinSans Regular;
-  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
-}
-@font-face {
-  font-family: Arial Narrow;
-  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
-}
-@font-face {
-  font-family: Annabelle;
-  src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
-}
-@font-face {
-  font-family: Avtala;
-  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
-  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
-  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
-  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
-  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
-}
-@font-face {
-  font-family: Adama;
-  src: url('../../assets/fonts/AdamaMF Bold.ttf') format("ttf"),
-  url('../../assets/fonts/AdamaMF Bold.eot') format("eot"),
-  url('../../assets/fonts/AdamaMF Bold.otf') format("otf"),
-  url('../../assets/fonts/AdamaMF Bold.woff') format("woff"),
-  url('../../assets/fonts/AdamaMF Bold.svg') format("svg");
-}
 .main {
   height: 65vh;
   background-color: white;
@@ -41,13 +9,14 @@
 .main-title{
   display: none;
 }
+
 .our-comminment {
   font: 15vmax Cookie, Annabelle, Adama;
 display: flex;
   text-align: center;
-  color: #1F1010;
+  color: var(--darkchocolate);
   opacity: 0.4;
-  text-shadow: 0 0 5px rgba(0,0,0,1);
+  text-shadow: var(--text-shadow);
   z-index: 0;
 }
 .com-text {
@@ -69,7 +38,7 @@ display: flex;
   justify-content: center;
 }
 .admin{
-  color: #E04523;
+  color: var(--orange);
   opacity: 1;
 }
 
@@ -79,8 +48,8 @@ display: flex;
 }
 .carousel-item {
   background-color: white;
-  border: solid rgba(0,0,0,0.25) 0.01px;
-  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  border: var(--border);
+  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
   width: 20vmax;
@@ -155,9 +124,9 @@ div:active{
     font: 12vmax Cookie, Annabelle, Adama;
   display: flex;
     text-align: center;
-    color: #1F1010;
+    color: var(--darkchocolate);
     opacity: 0.4;
-    text-shadow: 0 0 5px rgba(0,0,0,1);
+    text-shadow: var(--text-shadow);
   }
   .main {
     flex-direction: column;

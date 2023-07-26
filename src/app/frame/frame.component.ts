@@ -13,6 +13,6 @@ export class FrameComponent implements OnInit {
   ngOnInit() {
   }
   goHome() {
-    this.router.navigate(['homepage']);
+    void this.router.navigate(['homepage']);
   }
 }

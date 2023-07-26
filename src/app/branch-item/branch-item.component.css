@@ -1,28 +1,12 @@
-@font-face {
-  font-family: JosefinSans Regular;
-  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
-}
-@font-face {
-  font-family: Arial Narrow;
-  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
-}
-@font-face {
-  font-family: Avtala;
-  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
-  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
-  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
-  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
-  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
-}
 .category-card {
   background-color: white;
   width: 100%;
   height: 100%;
-  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  box-shadow: var(--shadow);
   position: relative;
   display: flex;
   align-items: center;
-  border: solid rgba(0,0,0,0.25) 0.01px;
+  border: var(--border);
 
 }
 .card-content {
@@ -57,7 +41,7 @@
 }
 hr {
   height: 2px;
-  background: #AB9690;
+  background: var(--cappuccino);;
   width: 100%;
 }
 .card-body {
@@ -75,9 +59,8 @@ hr {
   transform: scale(0.6);
 }
 .pointer {
-  background:transparent url('../../assets/point.png') 0% 0% no-repeat padding-box;
   background-size: contain;
-  background-position: center;
+  background: transparent url('../../assets/point.png') no-repeat center;
   width: 3vw;
   height: 5vh;
   transform: scale(1);
@@ -90,15 +73,15 @@ hr {
   font: 1vw JosefinSans Regular, Arial Narrow, Avtala;
   padding: 1%;
   margin: 2%;
-  color: #E04523;
-  border: solid 2px #E04523;
+  color: var(--orange);
+  border: solid 2px var(--orange);
 }
 .rempop {
   font: 1vw JosefinSans Regular, Arial Narrow, Avtala;
   padding: 1%;
   margin: 2%;
-  color: #E04523;
-  border: dotted 2px #E04523;
+  color: var(--orange);
+  border: dotted 2px var(--orange);
   width: 50%;
   z-index: 100;
   background: none;
@@ -144,23 +127,20 @@ hr {
   opacity: 0.5;
 }
 .spl-milk {
-  background:transparent url('../../assets/milk-splash.png') 0% 0% no-repeat padding-box;
   background-size: contain;
-  background-position: center;
+  background: transparent url('../../assets/milk-splash.png') no-repeat center;
   width: 30%;
   transform: scale(1.8);
 }
 .spl-cof {
-  background:transparent url('../../assets/coffee-beans.png') 0% 0% no-repeat padding-box;
   background-size: contain;
-  background-position: center;
+  background: transparent url('../../assets/coffee-beans.png') no-repeat center;
   width: 30%;
   transform: scale(1.8);
 }
 .spl-tes {
-  background:transparent url('../../assets/tea-leafes.png') 0% 0% no-repeat padding-box;
   background-size: contain;
-  background-position: center;
+  background: transparent url('../../assets/tea-leafes.png') no-repeat center;
   width: 30%;
   transform: scale(1.8);
 }

@@ -41,7 +41,6 @@ server.use('/api', router);
 
 server.post('/login', (req, res) => {
   const { email, password } = req.body;
-  console.log(email, password);
   let user = auth.authenticateUser(email, password);
   if (user) {
     let token = auth.generateAccessToken(user);
@@ -56,11 +55,9 @@ server.post('/login', (req, res) => {
 });
 
 server.post('/signup', (req, res) => {
-  console.log(req.body);
   const user = DB.get('users').find({email: req.body.email}).value();
   if (!user) {
     const maxId = Math.max(...DB.get('users').value().map(o => o.id));
-    console.log("newId:", maxId + 1);
     DB.get('users').push({...req.body, id:  maxId + 1}).write();
     setTimeout(() => res.status(200).json({}), parseInt(Math.random()*3000+1000));
   } else {
@@ -68,26 +65,6 @@ server.post('/signup', (req, res) => {
   }
 });
 
-// server.put('/users/edituser', (req, res) => {
-//   const { firstname, secondname, email, birthday, phone } = req.body;
-//   console.log(req.body, 'SERVER EDIT USER FUNC');
-//   const user = DB.get('users').find({email: email}).value();
-//   console.log('server found user ', user);
-//   if (!user) {
-//     setTimeout(() => res.status(404).json({msg: 'user not found.'}), parseInt(Math.random()*3000+1000));
-//   } else {
-//     console.log('user edition on server...');
-//     console.log('user sent name ', req.body.firstname);
-//     user.firstname = req.body.firstname;
-//     console.log('and now his name is ', user.firstname);
-//     user.secondname = req.body.secondname;
-//     user.email = req.body.email;
-//     user.birthday = req.body.birthday;
-//     user.phone = req.body.phone;
-//     console.log('user after edition ', user);
-//     setTimeout(() => res.status(200).json({user}), parseInt(Math.random()*3000+1000));
-//   }
-// });
 
 server.listen(3000, () => {
   console.log('JSON Server is running')

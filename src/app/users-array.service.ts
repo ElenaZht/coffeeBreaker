@@ -54,21 +54,17 @@ export class UsersArrayService implements UsersService {
   }
 
   isLoggedIn(): boolean {
-    if (this.currentUser && this.currentUser.token) {
-      return true;
-    }
-    return false;
+    return !!(this.currentUser && this.currentUser.token);
+
   }
   isAdmin(): boolean {
-    if (this.currentUser && this.currentUser.token && this.currentUser.role === Roles.admin) {
-      return true;
-    }
-    return false;
+    return this.currentUser && this.currentUser.token && this.currentUser.role === Roles.admin;
+
   }
 
   editUser(id: number, name: string, email: string, birthday: any, phone: string): Observable<User> {
-    // tslint:disable-next-line:max-line-length
-    return this.http.patch<User>(`${environment.apiUrl}/api/users/${id}`, {name, email, phone, birthday}).pipe(map( res => {
+    return this.http.patch<User>(`${environment.apiUrl}/api/users/${id}`, {name, email, phone, birthday})
+      .pipe(map( res => {
       if (res) {
         this.currentUser.name = res.name;
         this.currentUser.email = res.email;

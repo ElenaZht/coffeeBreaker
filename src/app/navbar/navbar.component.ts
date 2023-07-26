@@ -17,6 +17,8 @@ import {LoginComponentComponent} from '../login-component/login-component.compon
 import {Roles, UsersService} from '../users.service';
 import { ToastrService } from 'ngx-toastr';
 import {TranslateService} from '@ngx-translate/core';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 library.add(faMapMarkerAlt);
 library.add(faShoppingBasket);
@@ -32,14 +34,14 @@ library.add(faUserTie);
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
-  subscription;
-  constructor(public dialog: MatDialog, private router: Router, private userService: UsersService, private toastr: ToastrService,
-              private  translator: TranslateService) {
-  }
+  private destroy$ = new  Subject();
   isLogged = false;
   isAdmin = false;
+  constructor(public dialog: MatDialog, private router: Router, private userService: UsersService, private toastr: ToastrService,
+              private  translator: TranslateService) {}
+
   ngOnInit() {
-    this.subscription = this.userService.getUser().subscribe(user => {
+    this.userService.getUser().pipe(takeUntil(this.destroy$)).subscribe(user => {
         if (user && user.token) {
           this.isLogged = true;
         }
@@ -57,7 +59,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
     const dialogRef = this.dialog.open(LanguagesDialigComponent, {panelClass: 'custom-dialog-container', height: '40vmin',
       width: '30vmax'});
     document.getElementById('languages').classList.add('active-tab');
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().pipe(takeUntil(this.destroy$)).subscribe(result => {
       document.getElementById('languages').classList.remove('active-tab');
     });
   }
@@ -81,7 +83,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
     const element = document.getElementById('logout');
     element.classList.add('active-tab');
     setTimeout( () => {
-      this.translator.get('confirm.wantlogout').subscribe((text: string) => {
+      this.translator.get('confirm.wantlogout').pipe(takeUntil(this.destroy$)).subscribe((text: string) => {
         if (confirm(text)) {
           this.isLogged = false;
           this.isAdmin = false;
@@ -108,7 +110,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
     document.getElementById('login').classList.add('active-tab');
     const dialogRef = this.dialog.open(LoginComponentComponent, {panelClass: 'custom-dialog-container', height: '40vmin',
       width: '20vmax'});
-    dialogRef.afterClosed().subscribe(
+    dialogRef.afterClosed().pipe(takeUntil(this.destroy$)).subscribe(
       result => {
         if (this.router.url.includes('tray') && this.isAdmin) {
           this.router.navigate(['/homepage']);
@@ -124,12 +126,13 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   showSuccess() {
     let msg = '';
     let title = '';
-    this.translator.get('confirm.logformore').subscribe(res => msg = res);
-    this.translator.get('Logged out successfully!').subscribe(res => title = res);
+    this.translator.get('confirm.logformore').pipe(takeUntil(this.destroy$)).subscribe(res => msg = res);
+    this.translator.get('Logged out successfully!').pipe(takeUntil(this.destroy$)).subscribe(res => title = res);
     this.toastr.success(msg, title );
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

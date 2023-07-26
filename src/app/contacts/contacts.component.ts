@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {faPencilAlt, faCheck, faUndo} from '@fortawesome/free-solid-svg-icons';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {UsersService} from '../users.service';
@@ -7,6 +7,8 @@ import {NgForm} from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {TranslateService} from '@ngx-translate/core';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 library.add(faPencilAlt);
 library.add(faCheck);
@@ -17,7 +19,7 @@ library.add(faUndo);
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.css']
 })
-export class ContactsComponent implements OnInit {
+export class ContactsComponent implements OnInit, OnDestroy {
   isAdmine: boolean;
   isButtonsShown = false;
   instagram: string;
@@ -32,14 +34,17 @@ export class ContactsComponent implements OnInit {
   errMsg: string;
   errTitle: string;
   myLang: string;
-
+  private destroy$ = new Subject();
 
   constructor(private userService: UsersService, private itemsService: ItemsService, private toastr: ToastrService,
-              private spinner: NgxSpinnerService, private  translator: TranslateService) {
+              private spinner: NgxSpinnerService, private  translator: TranslateService) {}
+
+  ngOnInit() {
+
     if (this.userService.getCurrentUser() && this.userService.getCurrentUser().role === 0) {
       this.isAdmine = true;
     }
-    this.itemsService.GetContacts().subscribe(
+    this.itemsService.GetContacts().pipe(takeUntil(this.destroy$)).subscribe(
       res => {
         this.contacts = res;
         if (this.contacts) {
@@ -63,20 +68,16 @@ export class ContactsComponent implements OnInit {
       }
     );
 
-    this.translator.get('confirm.contactsedited').subscribe(res => this.sucMsg = res);
-    this.translator.get('confirm.try').subscribe(res => this.errMsg = res);
-    this.translator.get('confirm.connotedited').subscribe(res => this.errTitle = res);
+    this.translator.get('confirm.contactsedited').pipe(takeUntil(this.destroy$)).subscribe(res => this.sucMsg = res);
+    this.translator.get('confirm.try').pipe(takeUntil(this.destroy$)).subscribe(res => this.errMsg = res);
+    this.translator.get('confirm.connotedited').pipe(takeUntil(this.destroy$)).subscribe(res => this.errTitle = res);
     this.myLang = localStorage.getItem('lang');
-
-  }
-
-  ngOnInit() {
   }
   onSubmit(contactsForm: NgForm) {
     this.spinner.show();
     const contacts = contactsForm.value;
     const edition = this.itemsService.EditContacts(this.instagram, this.facebook, this.email, this.phone1, this.phone2, this.phone3, this.address);
-    edition.subscribe(
+    edition.pipe(takeUntil(this.destroy$)).subscribe(
       answer => {
         this.spinner.hide();
         this.editData();
@@ -108,5 +109,10 @@ export class ContactsComponent implements OnInit {
   showError(err) {
     this.toastr.error(this.errMsg, this.errTitle, err);
 
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

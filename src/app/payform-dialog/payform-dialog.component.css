@@ -1,24 +1,8 @@
-@font-face {
-  font-family: JosefinSans Regular;
-  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
-}
-@font-face {
-  font-family: Arial Narrow;
-  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
-}
-@font-face {
-  font-family: Avtala;
-  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
-  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
-  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
-  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
-  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
-}
 .main{
   height: 100%;
   width: 100%;
   background-color: white;
-  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -27,16 +11,15 @@
 .pics{
   width: 90%;
   height: 25%;
-  background:transparent url('../../assets/mastercard-visa-paypal.png') 0% 0% no-repeat padding-box;
   background-size: contain;
-  background-position: center;
+  background: transparent url('../../assets/mastercard-visa-paypal.png') no-repeat center;
 }
 .card-wrapper{
   width: 90%;
   height: 50%;
   background-color: #F2F2F2;
   border-radius: 10px;
-  border: solid rgba(0,0,0,0.25) 0.01px;
+  border: var(--border);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -52,13 +35,13 @@
   width: 30%;
   height: 100%;;
   position: relative;
-  background-color: #E04523;
+  background-color: var(--orange);
   border-radius: 15px;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 14px 8px 2px 5px rgba(0,0,0,0.25);
+  box-shadow: var(--shadow);
   transition: all 0.5s ease-in-out ;
 
 }
@@ -99,7 +82,7 @@
 }
 .card-number > input{
   background-color: white;
-  border: solid rgba(0,0,0,0.25) 0.01px;
+  border: var(--border);
   border-radius: 10px;
   width: 24%;
   height: 100%;
@@ -109,7 +92,7 @@
   margin-left: 5%;
   width: 40%;
   background-color: white;
-  border: solid rgba(0,0,0,0.25) 0.01px;
+  border: var(--border);
   border-radius: 10px;
 }
 .card-choice{

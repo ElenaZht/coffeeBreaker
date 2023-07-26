@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {faImages, faTimes} from '@fortawesome/free-solid-svg-icons';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {NgForm} from '@angular/forms';
@@ -7,6 +7,8 @@ import {ItemsService} from '../items.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {TranslateService} from '@ngx-translate/core';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 library.add(faImages);
 library.add(faTimes);
 
@@ -15,7 +17,7 @@ library.add(faTimes);
   templateUrl: './new-branch.component.html',
   styleUrls: ['./new-branch.component.css']
 })
-export class NewBranchComponent implements OnInit {
+export class NewBranchComponent implements OnInit, OnDestroy {
   photo = '../../assets/branch-photo.png';
   address = '';
   desc = '';
@@ -24,16 +26,15 @@ export class NewBranchComponent implements OnInit {
   sucMsg1: string;
   sucMsg2: string;
   errMsg: string;
+  private destroy$ = new  Subject();
 
   constructor(private itemsService: ItemsService,  private toastr: ToastrService, private spinner: NgxSpinnerService,
-              private  translator: TranslateService) {
-    this.translator.get('confirm.brwithaddr').subscribe(res => this.sucMsg1 = res);
-    this.translator.get('confirm.addedsuc').subscribe(res => this.sucMsg2 = res);
-    this.translator.get('confirm.brnotadd').subscribe(res => this.errMsg = res);
-
-  }
+              private  translator: TranslateService) {}
 
   ngOnInit() {
+    this.translator.get('confirm.brwithaddr').pipe(takeUntil(this.destroy$)).subscribe(res => this.sucMsg1 = res);
+    this.translator.get('confirm.addedsuc').pipe(takeUntil(this.destroy$)).subscribe(res => this.sucMsg2 = res);
+    this.translator.get('confirm.brnotadd').pipe(takeUntil(this.destroy$)).subscribe(res => this.errMsg = res);
   }
   onSelectFile(event: any) {
     this.selectedFile = event.target.files[0] as File;
@@ -49,7 +50,7 @@ export class NewBranchComponent implements OnInit {
     this.spinner.show();
     const newBranch = brachForm.value as Branch;
     newBranch.photo = this.photo;
-    this.itemsService.AddNewBranch(newBranch).subscribe(
+    this.itemsService.AddNewBranch(newBranch).pipe(takeUntil(this.destroy$)).subscribe(
       res => {
         this.showSuccess(newBranch.address);
         this.spinner.hide();
@@ -71,5 +72,10 @@ export class NewBranchComponent implements OnInit {
   undo() {
     this.address = '';
     this.desc = '';
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

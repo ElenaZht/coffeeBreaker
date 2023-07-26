@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {Ingredient, Item, ItemsService} from '../items.service';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Router} from '@angular/router';
@@ -6,13 +6,16 @@ import {ToastrService} from 'ngx-toastr';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {NgForm} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-new-item',
   templateUrl: './add-new-item.component.html',
   styleUrls: ['./add-new-item.component.css']
 })
-export class AddNewItemComponent implements OnInit {
+export class AddNewItemComponent implements OnInit, OnDestroy {
+
   nutrValue = {url: ''};
   visualValue = {url: ''};
   visualIng = {url: ''};
@@ -30,10 +33,13 @@ export class AddNewItemComponent implements OnInit {
   remIngQ2: string;
   addItemSuc: string;
   addItemErr: string;
+  private destroy$ = new Subject();
 
   constructor(public dialogRef: MatDialogRef<AddNewItemComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private router: Router,
-              private itemService: ItemsService, private toastr: ToastrService, private spinner: NgxSpinnerService, private  translator: TranslateService) {
+              private itemService: ItemsService, private toastr: ToastrService, private spinner: NgxSpinnerService,
+              private  translator: TranslateService) {} // todo
 
+  ngOnInit() {
     this.nutrValue.url = '../../assets/nutrition_icon.png';
     this.visualValue.url = '../../assets/coffee_icon.png';
     this.price = null;
@@ -41,14 +47,10 @@ export class AddNewItemComponent implements OnInit {
     this.title = '';
     this.ingredients = [{ing: '', ingClass: ''}];
 
-    this.translator.get('confirm.suredel').subscribe(res => this.remIngQ1 = res);
-    this.translator.get('confirm.fromrecipe').subscribe(res => this.remIngQ2 = res);
-    this.translator.get('confirm.editsuc').subscribe(res => this.addItemSuc = res);
-    this.translator.get('confirm.notedited').subscribe(res => this.addItemErr = res);
-
-  }
-
-  ngOnInit() {
+    this.translator.get('confirm.suredel').pipe(takeUntil(this.destroy$)).subscribe(res => this.remIngQ1 = res);
+    this.translator.get('confirm.fromrecipe').pipe(takeUntil(this.destroy$)).subscribe(res => this.remIngQ2 = res);
+    this.translator.get('confirm.editsuc').pipe(takeUntil(this.destroy$)).subscribe(res => this.addItemSuc = res);
+    this.translator.get('confirm.notedited').pipe(takeUntil(this.destroy$)).subscribe(res => this.addItemErr = res);
   }
   undo() {
     this.price = null;
@@ -113,7 +115,7 @@ export class AddNewItemComponent implements OnInit {
     item.img = this.visualValue.url;
     item.ingredients = this.ingredients;
     item.nutr = this.nutrValue.url;
-    this.itemService.AddItem(item, item.menuCategory).subscribe(
+    this.itemService.AddItem(item, item.menuCategory).pipe(takeUntil(this.destroy$)).subscribe(
       res => {
         this.spinner.hide();
         this.showSuccess(item.title + ' ' + this.addItemSuc);
@@ -141,5 +143,9 @@ export class AddNewItemComponent implements OnInit {
 
   goNutrs() {
     this.nutrs = !this.nutrs;
+  }
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

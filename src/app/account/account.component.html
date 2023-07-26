@@ -17,7 +17,7 @@
         <div class="my-cards" *ngIf="!cardClick"></div>
         <div class="title" *ngIf="!cardClick">{{'account.mycards' | translate}}</div>
         <div class="title" *ngIf="cardClick">{{'account.mycards' | translate}}</div>
-        <div style="color: #999999" *ngIf="cardClick">{{'account.nocards' | translate}}</div>
+        <div class="gray_text" *ngIf="cardClick">{{'account.nocards' | translate}}</div>
 
       </a>
       <a class="carousel-item" *ngIf="!isAdmin">

@@ -1,35 +1,3 @@
-@font-face {
-  font-family: Cookie;
-  src: url('../../assets/fonts/Cookie-Regular.ttf') format("opentype");
-}
-@font-face {
-  font-family: JosefinSans Regular;
-  src: url('../../assets/fonts/JosefinSans-Regular.ttf') format("opentype");
-}
-@font-face {
-  font-family: Arial Narrow;
-  src: url('../../assets/fonts/Arial-Narrow.ttf') format("opentype");
-}
-@font-face {
-  font-family: Annabelle;
-  src: url('../../assets/fonts/Annabelle.ttf') format("opentype");
-}
-@font-face {
-  font-family: Avtala;
-  src: url('../../assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
-  url('../../assets/fonts/AvtalaCondensedMF.eot') format("eot"),
-  url('../../assets/fonts/AvtalaCondensedMF.otf') format("otf"),
-  url('../../assets/fonts/AvtalaCondensedMF.svg') format("svg"),
-  url('../../assets/fonts/AvtalaCondensedMF.woff') format("woff");
-}
-@font-face {
-  font-family: Adama;
-  src: url('../../assets/fonts/AdamaMF Bold.ttf') format("ttf"),
-  url('../../assets/fonts/AdamaMF Bold.eot') format("eot"),
-  url('../../assets/fonts/AdamaMF Bold.otf') format("otf"),
-  url('../../assets/fonts/AdamaMF Bold.woff') format("woff"),
-  url('../../assets/fonts/AdamaMF Bold.svg') format("svg");
-}
 body {
   margin: 0;
   overflow: hidden;
@@ -120,7 +88,7 @@ body {
   background-color: white;
   width: 38vw;
   height: 65vh;
-  box-shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  box-shadow: var(--shadow);
   position: relative;
   bottom: 51vh;
   left: 4vw;
@@ -142,7 +110,7 @@ body {
 
 hr {
   height: 2px;
-  background: #AB9690;
+  background: var(--cappuccino);
   width: 100%;
 }
 .hr-wrap-top {
@@ -584,7 +552,7 @@ hr {
   position: relative;
   top: -74%;
   left: 6%;
-  background-color: #E04523;
+  background-color: var(--orange);
   border-radius: 25px;
   border: none;
   display: flex;
@@ -610,7 +578,7 @@ hr {
 .numb {
   width: 75%;
   height: 100%;
-  color: #E04523;
+  color: var(--orange);
   display: flex;
   justify-content: center;
   font: 11vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
@@ -666,7 +634,7 @@ hr {
   width: 70%;
   height: 100%;
   font: 2vw Cookie, Annabelle, Adama;
-  color: #EBD5D3;
+  color: var(--beige);
 }
 .navbar-wrap {
   display: flex;
@@ -708,7 +676,7 @@ mat-divider {
   margin: 0;
   border-top-width: 4px;
   border-top-style: solid;
-  border-color: #18120D;
+  border-color: var(--darkgray);
   width: 100%;
 }
 .new-items-section {
@@ -738,7 +706,7 @@ mat-divider {
 .bigwords {
   height: 30%;
   font: 8vw JosefinSans Regular, Arial Narrow, Avtala;
-  color: #E04523;
+  color: var(--orange);
   display: flex;
   justify-content: center;
   min-width: 30vw;
@@ -759,7 +727,7 @@ mat-divider {
   width: 36%;
   height: 20%;
   position: relative;
-  background-color: #E04523;
+  background-color: var(--orange);
   border-radius: 25px;
   border: none;
   display: flex;
@@ -1061,7 +1029,7 @@ mat-divider {
 }
 .footer-coffee-break {
   height: 25%;
-  color: #1F1010;
+  color: var(--darkchocolate);
   width: 100%;
   font: 4.9vw Cookie, Annabelle, Adama;
 
@@ -1113,7 +1081,7 @@ mat-divider {
   font: 3.1vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   display: flex;
   align-items: center;
-  color: #564437;
+  color: var(--chocolate);
 }
 .menu {
   font: 2vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
@@ -1258,7 +1226,7 @@ app-navbar{
     top: 4%;
     width: 92vmin;
     height: 60vmax;
-    border: solid rgba(0,0,0,0.25) 0.01px;
+    border: var(--border);
     animation-name: none;
   }
   .cup {
@@ -1382,6 +1350,10 @@ app-navbar{
     margin: auto;
   }
 
+}
+.find-words{
+  justify-content: left;
+  margin-bottom: 1vh
 }
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
   .smart-home-content {

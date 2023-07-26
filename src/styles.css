@@ -1,4 +1,100 @@
+/*----------FONTS-------------*/
+@font-face {
+  font-family: Cookie;
+  src: url('./assets/fonts/Cookie-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: JosefinSans Regular;
+  src: url('./assets/fonts/JosefinSans-Regular.ttf') format("opentype");
+}
+@font-face {
+  font-family: Arial Narrow;
+  src: url('./assets/fonts/Arial-Narrow.ttf') format("opentype");
+}
+@font-face {
+  font-family: Annabelle;
+  src: url('./assets/fonts/Annabelle.ttf') format("opentype");
+}
+@font-face {
+  font-family: Avtala;
+  src: url('./assets/fonts/AvtalaCondensedMF.ttf') format("opentype"),
+  url('./assets/fonts/AvtalaCondensedMF.eot') format("eot"),
+  url('./assets/fonts/AvtalaCondensedMF.otf') format("otf"),
+  url('./assets/fonts/AvtalaCondensedMF.svg') format("svg"),
+  url('./assets/fonts/AvtalaCondensedMF.woff') format("woff");
+}
+@font-face {
+  font-family: Adama;
+  src: url('./assets/fonts/AdamaMF Bold.ttf') format("ttf"),
+  url('./assets/fonts/AdamaMF Bold.eot') format("eot"),
+  url('./assets/fonts/AdamaMF Bold.otf') format("otf"),
+  url('./assets/fonts/AdamaMF Bold.woff') format("woff"),
+  url('./assets/fonts/AdamaMF Bold.svg') format("svg");
+}
+:root{
+  /*--small: ;*/
+  /*--medium: ;*/
+  /*--big: ;*/
+  /*--large: ;*/
+}
+/*-----------COLORS------------*/
+:root{
+  --orange: #E04523;
+  --beige: #EBD5D3;
+  --darkgray: #18120D;
+  --darkchocolate: #1F1010;
+  --chocolate: #564437;
+  --shadow: 14px 2px 3px 5px rgba(0,0,0,0.25);
+  --border: solid rgba(0,0,0,0.25) 0px;
+  --cappuccino: #AB9690;
+  --vanilla: #E4D5CA;
+  --text-shadow: 0 0 5px rgba(0,0,0,1);
+  --drop-shadow: drop-shadow(2px 4px 6px black);
+}
+/*----------COMMON STYLES-------*/
 
+.hidden{
+  visibility: hidden;
+}
+.flex{
+  display:flex;
+}
+.no-margin{
+  margin: 0
+}
+.auto-margin{
+  margin: auto;
+}
+.all-height{
+  height: 100%;
+}
+.all-width{
+  width: 100%;
+}
+.left-0{
+  left: 0;
+}
+.no-width{
+  width: 0;
+}
+.auto-height{
+  height: auto;
+}
+.white{
+  color: white;
+}
+.center-text{
+  text-align: center;
+}
+.shadow-drop{
+  filter: drop-shadow(2px 4px 6px black);
+}
+.column{
+  flex-direction: column
+}
+.dotted-border{
+  border: dotted;
+}
 
 
 html, body { height: 100%; }
@@ -58,7 +154,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .toast-message a,
 .toast-message label {
-  color: #FFFFFF;
+  color: white;
 }
 .toast-message a:hover {
   color: #CCCCCC;
@@ -71,13 +167,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   float: right;
   font-size: 20px;
   font-weight: bold;
-  color: #FFFFFF;
-  text-shadow: 0 1px 0 #ffffff;
+  color: white;
+  text-shadow: 0 1px 0 white;
   /* opacity: 0.8; */
 }
 .toast-close-button:hover,
 .toast-close-button:focus {
-  color: #000000;
+  color: black;
   text-decoration: none;
   cursor: pointer;
   opacity: 0.4;
@@ -109,11 +205,11 @@ button.toast-close-button {
   background-position: 15px center;
   background-repeat: no-repeat;
   background-size: 24px;
-  box-shadow: 0 0 12px #999999;
-  color: #FFFFFF;
+  box-shadow: 0 0 12px gray;
+  color: white;
 }
 .toast-container .ngx-toastr:hover {
-  box-shadow: 0 0 12px #000000;
+  box-shadow: 0 0 12px black;
   opacity: 1;
   cursor: pointer;
 }
@@ -166,7 +262,7 @@ button.toast-close-button {
   left: 0;
   bottom: 0;
   height: 4px;
-  background-color: #000000;
+  background-color: black;
   opacity: 0.4;
 }
 /* Responsive Design */

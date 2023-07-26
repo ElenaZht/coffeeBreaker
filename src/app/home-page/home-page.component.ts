@@ -30,13 +30,16 @@ export class HomePageComponent implements OnInit, OnDestroy {
   promoItems = [];
   branches$: Observable<Branch[]>;
   subscription;
+  private getPromoSubscription;
+  private langSubscription;
   myLang: string;
 
 
   mostPopular: Branch[] = [];
 
-  constructor(@Inject(DOCUMENT) private document: Document, public dialog: MatDialog, private router: Router, private userService: UsersService, private itemsService: ItemsService) {
-    this.itemsService.GetPromoItems().subscribe(
+  constructor(@Inject(DOCUMENT) private document: Document, public dialog: MatDialog, private router: Router,
+              private userService: UsersService, private itemsService: ItemsService) {
+    this.getPromoSubscription = this.itemsService.GetPromoItems().subscribe(
       res => {
         this.promoItems = res;
 
@@ -84,19 +87,23 @@ export class HomePageComponent implements OnInit, OnDestroy {
     const dialogRef = this.dialog.open(LanguagesDialigComponent, {panelClass: 'custom-dialog-container', height: '40vmin',
       width: '30vmax'});
     document.getElementById('languages').classList.add('active-tab');
-    dialogRef.afterClosed().subscribe(result => {
+    this.langSubscription = dialogRef.afterClosed().subscribe(result => {
       document.getElementById('languages').classList.remove('active-tab');
     });
+  }
+  orderThis() {
+    const promoItem = this.promoItems[this.startIndex];
+    const c = promoItem.menuCategory;
+    this.router.navigate(['/menu_category', c], {queryParams: { itemId: promoItem.prodId }});
   }
   ngOnDestroy() {
     if (this.interval) {
       clearInterval(this.interval);
     }
-  }
+    this.getPromoSubscription.unsubscribe();
+    if (this.langSubscription) {
+      this.langSubscription.unsubscribe();
+    }
 
-  orderThis() {
-    const promoItem = this.promoItems[this.startIndex];
-    const c = promoItem.menuCategory;
-    this.router.navigate(['/menu_category', c], {queryParams: { itemId: promoItem.prodId }});
   }
 }

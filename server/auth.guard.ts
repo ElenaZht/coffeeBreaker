@@ -9,17 +9,13 @@ import {User, UsersService} from '../src/app/users.service';
 export class AuthGuard implements CanActivate, CanActivateChild {
   user: User;
   constructor(private auth: UsersService) {
-    console.log('canActivate ctor');
     this.auth.getUser().subscribe(res => {
       this.user = res;
-      console.log('this user guard', this.user);
     });
   }  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    console.log('canActivate works', this.user);
     if (this.user && this.user.token) {
       return of(true);
     }
-    console.log('protected by guard');
     return of(false);
   }
   canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
