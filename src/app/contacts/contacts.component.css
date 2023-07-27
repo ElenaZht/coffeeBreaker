@@ -29,32 +29,32 @@
   border: var(--border);
 
 }
-.card-content {
-  width: 85%;
-  height: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.card-header {
-  height: 15%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+/*.card-content {*/
+/*  width: 85%;*/
+/*  height: 100%;*/
+/*  margin: auto;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  justify-content: space-between;*/
+/*}*/
+/*.card-header {*/
+/*  height: 15%;*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  align-items: center;*/
+/*}*/
 .hr-wrap-top {
   display: flex;
   align-items: center;
   width: 38%;
 }
-.logo-m {
-  width: 8vw;
-  height: 8vh;
-  position: relative;
-  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-}
+/*.logo-m {*/
+/*  width: 8vw;*/
+/*  height: 8vh;*/
+/*  position: relative;*/
+/*  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;*/
+/*  background-size: contain;*/
+/*}*/
 .heder-logo {
   height: 70%;
   width: 14%;
@@ -64,23 +64,23 @@
   align-items: center;
   width: 38%;
 }
-hr {
-  height: 2px;
-  background: var(--cappuccino);
-  width: 100%;
-}
+/*hr {*/
+/*  height: 2px;*/
+/*  background: var(--cappuccino);*/
+/*  width: 100%;*/
+/*}*/
 .card-body {
   height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.card-footer {
-  height: 15%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+/*.card-footer {*/
+/*  height: 15%;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  justify-content: center;*/
+/*}*/
 .our-contacts {
   font: 9vw Cookie, Annabelle, Adama;
 display: flex;
@@ -118,51 +118,41 @@ display: flex;
 .contact-icon {
   width: 1.2vw;
 }
-.instagram {
-  background:transparent url('../../assets/instagram.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-
-}
-.facebook {
-  background:transparent url('../../assets/facebook.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-  transform: scale(1.4);
-
-}
-.email {
-  background:transparent url('../../assets/email.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-  transform: scale(0.8);
-
-}
-.phone {
-    background:transparent url('../../assets/phone.png') 0% 0% no-repeat padding-box;
-    background-size: contain;
-    background-position: center;
-    transform: scale(0.8);
-
-  }
-.address {
-  background:transparent url('../../assets/address.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-  transform: scale(0.8);
-
-}
+/*.instagram {*/
+/*  background-size: contain;*/
+/*  background: transparent url('../../assets/instagram.png') no-repeat center;*/
+/*}*/
+/*.facebook {*/
+/*  background-size: contain;*/
+/*  background: transparent url('../../assets/facebook.png') no-repeat center;*/
+/*  transform: scale(1.4);*/
+/*}*/
+/*.email {*/
+/*  background-size: contain;*/
+/*  background: transparent url('../../assets/email.png') no-repeat center;*/
+/*  transform: scale(0.8);*/
+/*}*/
+/*.phone {*/
+/*  background-size: contain;*/
+/*  background: transparent url('../../assets/phone.png') no-repeat center;*/
+/*  transform: scale(0.8);*/
+/*  }*/
+/*.address {*/
+/*  background-size: contain;*/
+/*  background: transparent url('../../assets/address.png') no-repeat center;*/
+/*  transform: scale(0.8);*/
+/*}*/
 .contact-text {
   width: 80%;
   font: 1.2vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
   display: flex;
   align-items: center;
 }
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5%;
-}
+/*.buttons {*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  margin-bottom: 5%;*/
+/*}*/
 .edit {
   opacity: 0.5;
   border: none;
@@ -209,6 +199,9 @@ display: flex;
     margin: auto;
     font-size: 17vw;
   }
+}
+.for_admin_height{
+  height: 60vh;
 }
 @media only screen and (max-width: 1024px) and (orientation: landscape){
   .main2 {

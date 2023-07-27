@@ -29,46 +29,46 @@
   border: var(--border);
 
 }
-.card-content {
-  width: 85%;
-  height: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.card-header {
-  height: 15%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.hr-wrap-top {
-  display: flex;
-  align-items: center;
-  width: 38%;
-}
-.logo-m {
-  width: 8vw;
-  height: 8vh;
-  position: relative;
-  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-}
+/*.card-content {*/
+/*  width: 85%;*/
+/*  height: 100%;*/
+/*  margin: auto;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  justify-content: space-between;*/
+/*}*/
+/*.card-header {*/
+/*  height: 15%;*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  align-items: center;*/
+/*}*/
+/*.hr-wrap-top {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  width: 38%;*/
+/*}*/
+/*.logo-m {*/
+/*  width: 8vw;*/
+/*  height: 8vh;*/
+/*  position: relative;*/
+/*  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;*/
+/*  background-size: contain;*/
+/*}*/
 .heder-logo {
   height: 70%;
   width: 14%;
 }
-.hr-wrap-top {
-  display: flex;
-  align-items: center;
-  width: 38%;
-}
-hr {
-  height: 2px;
-  background: var(--cappuccino);;
-  width: 100%;
-}
+/*.hr-wrap-top {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  width: 38%;*/
+/*}*/
+/*hr {*/
+/*  height: 2px;*/
+/*  background: var(--cappuccino);;*/
+/*  width: 100%;*/
+/*}*/
 .card-body {
   height: 80%;
 }
@@ -88,46 +88,45 @@ hr {
   right: 66%;
   z-index: 10000;
 }
-.coffee-splash {
-  background:transparent url('../../assets/coffee-splash.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
+/*.coffee-splash {*/
+/*  background:transparent url('../../assets/coffee-splash.png') 0% 0% no-repeat padding-box;*/
+/*  background-size: contain;*/
+/*  background-position: center;*/
 
-}
-.tea-splash {
-  background:transparent url('../../assets/tea-splash.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-  height: 33%;
-  top: 7%;
-  left: 3.4%;
-  width: 16%;
-}
-.juice-splash {
-  background:transparent url('../../assets/juice-splash.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-  z-index: 0;
-}
-.vegi-splash {
-  background:transparent url('../../assets/vegi.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.sprinkling-splash {
-  background:transparent url('../../assets/sprinkling-splash.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-  height: 81%;
-}
-.choco-splash {
-  background:transparent url('../../assets/choco-splash.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-  width: 33%;
-  right: 60%;
-  top: -16%;
-}
+/*}*/
+/*.tea-splash {*/
+/*  background:transparent url('../../assets/tea-splash.png') 0% 0% no-repeat padding-box;*/
+/*  background-size: contain;*/
+/*  background-position: center;*/
+/*  height: 33%;*/
+/*  top: 7%;*/
+/*  left: 3.4%;*/
+/*  width: 16%;*/
+/*}*/
+/*.juice-splash {*/
+/*  background:transparent url('../../assets/juice-splash.png') 0% 0% no-repeat padding-box;*/
+/*  background-size: contain;*/
+/*  background-position: center;*/
+/*  z-index: 0;*/
+/*}*/
+/*.vegi-splash {*/
+/*  background:transparent url('../../assets/vegi.png') 0% 0% no-repeat padding-box;*/
+/*  background-size: contain;*/
+/*  background-position: center;*/
+/*}*/
+/*.sprinkling-splash {*/
+/*  background:transparent url('../../assets/sprinkling-splash.png') 0% 0% no-repeat padding-box;*/
+/*  background-size: contain;*/
+/*  background-position: center;*/
+/*  height: 81%;*/
+/*}*/
+/*.choco-splash {*/
+/*  background-size: contain;*/
+/*  background: transparent url('../../assets/choco-splash.png') no-repeat center;*/
+/*  width: 33%;*/
+/*  right: 60%;*/
+/*  top: -16%;*/
+/*}*/
 .cup {
   width: 50%;
   height: 60%;
@@ -135,45 +134,40 @@ hr {
   left: 8%;
   top: 31%;
   z-index: 0;
-  background:transparent url('../../assets/coffee-cup.png') 0% 0% no-repeat padding-box;
   background-size: contain;
-  background-position: center;
+  background: transparent url('../../assets/coffee-cup.png') no-repeat center;
 }
-.juice-cup{
-  background:transparent url('../../assets/orange-cup.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.sandwich {
-  background:transparent url('../../assets/sandwich.jpg') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-  height: 50%;
-  width: 60%;
-  left: 0;
-}
-.donut {
-  background:transparent url('../../assets/donut-pink.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-}
-.chocolate {
-  background:transparent url('../../assets/chocolate.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-  left: 4%;
-  top: 33%;
-}
-.twix-right{
-  background:transparent url('../../assets/twix-right.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-  height: 80%;
-  width: 35%;
-  left: 15%;
-  transform: scale(1.5);
-
-}
+/*.juice-cup{*/
+/*  background-size: contain;*/
+/*  background: transparent url('../../assets/orange-cup.png') no-repeat center;*/
+/*}*/
+/*.sandwich {*/
+/*  background-size: contain;*/
+/*  background: transparent url('../../assets/sandwich.jpg') no-repeat center;*/
+/*  height: 50%;*/
+/*  width: 60%;*/
+/*  left: 0;*/
+/*}*/
+/*.donut {*/
+/*  background:transparent url('../../assets/donut-pink.png') 0% 0% no-repeat padding-box;*/
+/*  background-size: contain;*/
+/*  background-position: center;*/
+/*}*/
+/*.chocolate {*/
+/*  background:transparent url('../../assets/chocolate.png') 0% 0% no-repeat padding-box;*/
+/*  background-size: contain;*/
+/*  background-position: center;*/
+/*  left: 4%;*/
+/*  top: 33%;*/
+/*}*/
+/*.twix-right{*/
+/*  background-size: contain;*/
+/*  background: transparent url('../../assets/twix-right.png') no-repeat center;*/
+/*  height: 80%;*/
+/*  width: 35%;*/
+/*  left: 15%;*/
+/*  transform: scale(1.5);*/
+/*}*/
 .price {
   width: 54%;
   height: 45%;
@@ -194,13 +188,13 @@ hr {
   position: relative;
 
 }
-.only-shek {
-  width: 25%;
-  height: 59%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+/*.only-shek {*/
+/*  width: 25%;*/
+/*  height: 59%;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  justify-content: space-between;*/
+/*}*/
 .only {
   width: 100%;
   height: 30%;
@@ -209,14 +203,14 @@ hr {
   justify-content: center;
   color: black;
 }
-.shek {
-  width: 100%;
-  height: 70%;
-  background:transparent url('../../assets/shekel.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-  margin-top: 1vh;
-}
+/*.shek {*/
+/*  width: 100%;*/
+/*  height: 70%;*/
+/*  background:transparent url('../../assets/shekel.png') 0% 0% no-repeat padding-box;*/
+/*  background-size: contain;*/
+/*  background-position: center;*/
+/*  margin-top: 1vh;*/
+/*}*/
 .description {
   width: 51%;
   height: 45%;
@@ -234,12 +228,12 @@ hr {
   line-height: 70%;
   text-shadow: 2px 2px 4px black;
 }
-.card-footer {
-  height: 15%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+/*.card-footer {*/
+/*  height: 15%;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  justify-content: center;*/
+/*}*/
 .admin > .delete-btn {
   display: none;
 }

@@ -64,44 +64,39 @@ display: flex;
   cursor: pointer;
 }
 .my-cards{
-  background:transparent url('../../assets/credit-cards.png') 0% 0% no-repeat padding-box;
   background-size: contain;
-  background-position: center;
+  background: transparent url('../../assets/credit-cards.png') no-repeat center;
   width: 30%;
   height: 70%;
   transform: scale(1.8);
 }
 .my-data{
-  background:transparent url('../../assets/account-card.png') 0% 0% no-repeat padding-box;
   background-size: contain;
-  background-position: center;
+  background: transparent url('../../assets/account-card.png') no-repeat center;
   width: 30%;
   transform: scale(1.8);
   height: 70%;
 
 }
 .my-orders{
-  background:transparent url('../../assets/orders-card.png') 0% 0% no-repeat padding-box;
   background-size: contain;
-  background-position: center;
+  background: transparent url('../../assets/orders-card.png') no-repeat center;
   width: 30%;
   transform: scale(1.8);
   height: 70%;
 
 }
 .orders-control{
-  background:transparent url('../../assets/orders-control.png') 0% 0% no-repeat padding-box;
   background-size: contain;
-  background-position: center;
+  background: transparent url('../../assets/orders-control.png') no-repeat center;
   width: 30%;
   transform: scale(1.8);
   height: 70%;
 
 }
 .statistic{
-  background:transparent url('../../assets/statistic.png') 0% 0% no-repeat padding-box;
   background-size: contain;
-  background-position: center;
+  background: transparent url('../../assets/statistic.png') no-repeat center;
   width: 30%;
   transform: scale(1.8);
   height: 70%;
@@ -115,6 +110,9 @@ div:active{
   color: black;
   width: min-content;
   text-align: center;
+}
+.for_not_en{
+  font-size: 7vmax;
 }
 @media only screen and (max-width: 1024px){
   .desc {

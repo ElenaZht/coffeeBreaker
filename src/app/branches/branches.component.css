@@ -68,9 +68,8 @@ display: flex;
   transform: scale(0.6);
 }
 .pointer {
-  background:transparent url('../../assets/point.png') 0% 0% no-repeat padding-box;
   background-size: contain;
-  background-position: center;
+  background: transparent url('../../assets/point.png') no-repeat center;
   width: 3vw;
   transform: scale(.7);
 }
@@ -81,9 +80,8 @@ display: flex;
   align-items: center;
 }
 .pop-arrow {
-  background:transparent url('../../assets/pop-arrow.png') 0% 0% no-repeat padding-box;
   background-size: contain;
-  background-position: center;
+  background: transparent url('../../assets/pop-arrow.png') no-repeat center;
   width: 100%;
   height: 50%;
 }

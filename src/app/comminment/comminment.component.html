@@ -1,14 +1,14 @@
 <app-frame>
   <div class="main">
     <div class="title">
-      <span class="our-comminment" [ngStyle]="{'font-size': myLang !== 'en' ? '6vmax':'10vmax'}">{{'comminment.title' | translate}}</span>
+      <span class="our-comminment" [ngClass]="{'for_not_en_title': !isEng}">{{'comminment.title' | translate}}</span>
       <span class="com-text">{{'comminment.desc' | translate}}
       </span>
     </div>
     <div class="content">
       <div class="owner">
         <div class="owner-photo"></div>
-        <div class="owner-text" [ngStyle]="{'font-size': myLang !== 'en' ? '2vmax':'3vmax'}">{{'comminment.phrase' | translate}}
+        <div class="owner-text" [ngClass]="{'for_not_en': !isEng}">{{'comminment.phrase' | translate}}
         </div>
         <div class="prizes">
           <div class="prize prize1"></div>

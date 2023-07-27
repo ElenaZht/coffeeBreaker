@@ -36,11 +36,15 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
   delUserQ: string;
   delSuc: string;
   delErr: string;
+  private isEng;
 
   constructor(private userService: UsersService, private toastr: ToastrService, private spinner: NgxSpinnerService,
               public datepipe: DatePipe, private  translator: TranslateService) {}
 
   ngOnInit() {
+    if (localStorage.lang === 'en') {
+      this.isEng = true;
+    }
     this.userService.getUser().pipe(takeUntil(this.destroy$)).subscribe(user => {
         this.user = user;
         if (user) {

@@ -8,7 +8,7 @@
 }
 .our-comminment {
   font: 15vmax Cookie, Annabelle, Adama;
-display: flex;
+  display: flex;
   text-align: center;
   color: var(--darkchocolate);
   opacity: 0.4;
@@ -39,7 +39,7 @@ display: flex;
 }
 .data {
   border: var(--border);
-  box-shadow: 14px 2px 3px 5px rgb(0 0 0 / 25%);
+  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
   align-items: center;

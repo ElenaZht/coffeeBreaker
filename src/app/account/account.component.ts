@@ -14,10 +14,14 @@ export class AccountComponent implements OnInit, AfterViewInit {
   isAdmin = false;
   user: User;
   cardClick = false;
+  private isEng;
   options = { fullWidth: false, padding: 100, numVisible: 3, shift: 10, dist: -100};
   constructor(private usersService: UsersService,  private router: Router) {}
 
   ngOnInit() {
+    if (localStorage.lang === 'en') {
+      this.isEng = true;
+    }
     this.user = this.usersService.getCurrentUser();
     if (this.user && this.user.role === 0) {
       this.isAdmin = true;

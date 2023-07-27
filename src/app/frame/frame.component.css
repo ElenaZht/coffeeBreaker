@@ -24,8 +24,7 @@
 .navigation-box {
   width: 50vw;
   height: 13vh;
-  margin: auto;
-  margin-top: 2vh;
+  margin: 2vh auto auto;
 }
 app-navbar{
   width: 100%;

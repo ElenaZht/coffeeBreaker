@@ -26,7 +26,7 @@
 }
 .our-comminment {
   font: 10vmax Cookie, Annabelle, Adama;
-display: flex;
+  display: flex;
   text-align: center;
   color: var(--darkchocolate);
   opacity: 0.4;
@@ -81,11 +81,11 @@ display: flex;
   width: 20%;
   text-align: center;
 }
-hr {
-  height: 2px;
-  background: var(--cappuccino);;
-  width: 100%;
-}
+/*hr {*/
+/*  height: 2px;*/
+/*  background: var(--cappuccino);;*/
+/*  width: 100%;*/
+/*}*/
 .order-raw {
   display: flex;
   justify-content: space-between;

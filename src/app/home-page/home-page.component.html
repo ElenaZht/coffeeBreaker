@@ -96,7 +96,7 @@
   </div>
   <div class="find-branch-section">
     <div class="branch-wrap">
-      <div class="bigwords find-words">{{'findpoint.title' | translate}}</div>
+      <div class="bigwords find-words" [ngClass] = "{'for_en' : isEng}">{{'findpoint.title' | translate}}</div>
       <div class="sometext somepointtext">{{'findpoint.desc' | translate}}</div>
       <div class="points-wrap">
         <div class="points">
@@ -235,7 +235,7 @@
       </div>
     </div>
     <div class="find-branch-section">
-        <div class="bigwords find"  [ngStyle]="{'font-size': myLang !== 'en' ? '6vmax':'8vmax'}">{{'findpoint.title' | translate}}</div>
+        <div class="bigwords find"  [ngClass] = "{'for_en' : isEng}">{{'findpoint.title' | translate}}</div>
         <button class="orangebtn btn-other" routerLink="../branches"><span class="bnttext">{{'findpoint.button' | translate}} ></span></button>
     </div>
   </div>

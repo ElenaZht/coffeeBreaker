@@ -1,8 +1,8 @@
 <app-frame>
   <div class="main">
     <div class="desc">
-      <span class="our-comminment"  *ngIf="!isAdmin" [ngStyle]="{'font-size': myLang !== 'en' ? '7vmax':'15vmax'}">{{'account.title' | translate}}</span>
-      <span class="our-comminment admin"  *ngIf="isAdmin" [ngStyle]="{'font-size': myLang !== 'en' ? '7vmax':'15vmax'}">{{'account.adminemode' | translate}}</span>
+      <span class="our-comminment"  *ngIf="!isAdmin" [ngClass]="{'for_not_en': !isEng}">{{'account.title' | translate}}</span>
+      <span class="our-comminment admin"  *ngIf="isAdmin" [ngClass]="{'for_not_en': !isEng}">{{'account.adminemode' | translate}}</span>
       <span class="com-text"  *ngIf="!isAdmin">{{'account.desc' | translate}}
       </span>
       <span class="com-text"  *ngIf="isAdmin">{{'account.adesc' | translate}}

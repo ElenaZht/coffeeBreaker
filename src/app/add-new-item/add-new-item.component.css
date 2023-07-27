@@ -6,52 +6,52 @@
 .main2{
   display: none;
 }
-.category-card {
-  background-color: white;
-  width: 100%;
-  height: 100%;
-  box-shadow: var(--shadow);
-  position: relative;
-  display: flex;
-  align-items: center;
-  border: var(--border);
+/*.category-card {*/
+/*  background-color: white;*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  box-shadow: var(--shadow);*/
+/*  position: relative;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  border: var(--border);*/
 
-}
-.card-content {
-  width: 85%;
-  height: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.card-header {
-  height: 15%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+/*}*/
+/*.card-content {*/
+/*  width: 85%;*/
+/*  height: 100%;*/
+/*  margin: auto;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  justify-content: space-between;*/
+/*}*/
+/*.card-header {*/
+/*  height: 15%;*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  align-items: center;*/
+/*}*/
 .hr-wrap-top {
   display: flex;
   align-items: center;
   width: 38%;
 }
-.logo-m {
-  width: 8vw;
-  height: 8vh;
-  position: relative;
-  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-}
+/*.logo-m {*/
+/*  width: 8vw;*/
+/*  height: 8vh;*/
+/*  position: relative;*/
+/*  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;*/
+/*  background-size: contain;*/
+/*}*/
 .heder-logo {
   height: 90%;
   width: 14%;
 }
-hr {
-  height: 2px;
-  background: var(--cappuccino);;
-  width: 100%;
-}
+/*hr {*/
+/*  height: 2px;*/
+/*  background: var(--cappuccino);;*/
+/*  width: 100%;*/
+/*}*/
 .card-body {
   height: 80%;
   display: flex;
@@ -70,12 +70,12 @@ hr {
   height: 100%;
   width: 25%;
 }
-.card-footer {
-  height: 15%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+/*.card-footer {*/
+/*  height: 15%;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  justify-content: center;*/
+/*}*/
 .ingredients {
   height: 100%;
   width: 25%;

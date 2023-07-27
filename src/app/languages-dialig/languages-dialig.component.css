@@ -1,42 +1,42 @@
 body {
   user-select: none;
 }
-.category-card {
-  background-color: white;
-  width: 100%;
-  height: 100%;
-  box-shadow: var(--shadow);
-  position: relative;
-  display: flex;
-  align-items: center;
-  border: var(--border);
+/*.category-card {*/
+/*  background-color: white;*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  box-shadow: var(--shadow);*/
+/*  position: relative;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  border: var(--border);*/
 
-}
-.card-content {
-  width: 85%;
-  height: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.card-header {
-  height: 15%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+/*}*/
+/*.card-content {*/
+/*  width: 85%;*/
+/*  height: 100%;*/
+/*  margin: auto;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  justify-content: space-between;*/
+/*}*/
+/*.card-header {*/
+/*  height: 15%;*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  align-items: center;*/
+/*}*/
 .hr-wrap-top {
   display: flex;
   align-items: center;
   width: 30%;
 }
 
-hr {
-  height: 2px;
-  background: var(--cappuccino);;
-  width: 100%;
-}
+/*hr {*/
+/*  height: 2px;*/
+/*  background: var(--cappuccino);;*/
+/*  width: 100%;*/
+/*}*/
 .com-logo {
   font: 2.2vmax Cookie, Annabelle, Adama;
   width: 30%;
@@ -48,12 +48,12 @@ hr {
   justify-content: space-between;
   align-items: center;
 }
-.card-footer {
-  height: 15%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+/*.card-footer {*/
+/*  height: 15%;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  justify-content: center;*/
+/*}*/
 .exit {
   position: absolute;
   width: 1vw;
@@ -96,19 +96,16 @@ hr {
   padding: 1vmin;
 }
 .eng {
-   background:transparent url('../../assets/english.png') 0% 0% no-repeat padding-box;
-   background-size: contain;
-   background-position: center;
- }
-.heb {
-  background:transparent url('../../assets/hebrew.png') 0% 0% no-repeat padding-box;
   background-size: contain;
-  background-position: center;
+  background: transparent url('../../assets/english.png') no-repeat center;
+}
+.heb {
+  background-size: contain;
+  background: transparent url('../../assets/hebrew.png') no-repeat center;
 }
 .bel {
-  background:transparent url('../../assets/belarusian.png') 0% 0% no-repeat padding-box;
   background-size: contain;
-  background-position: center;
+  background: transparent url('../../assets/belarusian.png') no-repeat center;
 }
 @media only screen and (max-width: 1024px){
   .exit {

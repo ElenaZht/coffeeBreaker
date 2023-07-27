@@ -33,6 +33,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   private getPromoSubscription;
   private langSubscription;
   myLang: string;
+  isEng = false;
 
 
   mostPopular: Branch[] = [];
@@ -52,6 +53,9 @@ export class HomePageComponent implements OnInit, OnDestroy {
       }
     );
     this.myLang = localStorage.getItem('lang');
+    if (this.myLang === 'en') {
+      this.isEng = true;
+    }
   }
   @HostListener('window:scroll', [])
   onWindowScroll() {

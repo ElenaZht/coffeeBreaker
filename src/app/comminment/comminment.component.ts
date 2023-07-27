@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comminment.component.css']
 })
 export class ComminmentComponent implements OnInit {
+  private isEng = false;
 
   constructor() { }
 
   ngOnInit() {
+    if (localStorage.lang === 'en') {
+      this.isEng = true;
+    }
   }
 
 }

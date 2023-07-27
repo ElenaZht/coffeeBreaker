@@ -48,9 +48,8 @@ display: flex;
   z-index: 10;
 }
 .owner-photo {
-  background:transparent url('../../assets/owner-photo.jpeg') 0% 0% no-repeat padding-box;
   background-size: cover;
-  background-position: center;
+  background: transparent url('../../assets/owner-photo.jpeg') no-repeat center;
   height: 100%;
   width: 100%;
   box-shadow: var(--shadow);
@@ -74,23 +73,18 @@ display: flex;
   position: relative;
   top: -55%;
 }
-.prize1 {
-   background:transparent url('../../assets/prize1.png') 0% 0% no-repeat padding-box;
-   background-size: contain;
-   background-position: center;
-   width: 33%;
- }
-.prize2 {
-  background:transparent url('../../assets/prize2.png') 0% 0% no-repeat padding-box;
+.prize1, .prize2, .prize3{
   background-size: contain;
-  background-position: center;
   width: 33%;
 }
+.prize1 {
+  background: transparent url('../../assets/prize1.png') no-repeat center;
+ }
+.prize2 {
+  background: transparent url('../../assets/prize2.png') no-repeat center;
+}
 .prize3 {
-  background:transparent url('../../assets/prize3.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-  width: 33%;
+  background: transparent url('../../assets/prize3.png') no-repeat center;
 }
 .declaration {
   display: flex;
@@ -130,11 +124,11 @@ display: flex;
   width: 30%;
 }
 
-hr {
-  height: 2px;
-  background: var(--cappuccino);;
-  width: 100%;
-}
+/*hr {*/
+/*  height: 2px;*/
+/*  background: var(--cappuccino);;*/
+/*  width: 100%;*/
+/*}*/
 .com-logo {
   font: 1.5vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
   width: 30%;
@@ -144,18 +138,24 @@ hr {
   display: flex;
   flex-direction: column;
 }
-.card-footer {
-  height: 15%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+/*.card-footer {*/
+/*  height: 15%;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  justify-content: center;*/
+/*}*/
 .question {
   font: 1vmax JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
   padding: 2%;
 }
 .answer {
   font: 0.7vmax JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
+}
+.for_not_en{
+  font-size: 2vmax;
+}
+.for_not_en_title{
+  font-size: 6vmax;
 }
 @media only screen and (max-width: 1024px) {
   .main {

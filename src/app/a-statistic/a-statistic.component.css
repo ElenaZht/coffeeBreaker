@@ -34,8 +34,7 @@ hr {
 .table-title{
   font: 1.5vmax JosefinSans Regular, Arial Narrow, Avtala;
   text-align: center;
-  margin: auto;
-  margin-top: 2%;
+  margin: 2% auto auto;
 }
 .titles{
   display: flex;

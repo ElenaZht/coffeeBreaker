@@ -15,62 +15,62 @@
   box-shadow: var(--shadow);
   flex-direction: column;
 }
-.card-content {
-  width: 85%;
-  height: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.card-header {
-  height: 15%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.hr-wrap-top {
-  display: flex;
-  align-items: center;
-  width: 38%;
-}
-.logo-m {
-  width: 8vw;
-  height: 8vh;
-  position: relative;
-  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;
-  background-size: contain;
-}
+/*.card-content {*/
+/*  width: 85%;*/
+/*  height: 100%;*/
+/*  margin: auto;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  justify-content: space-between;*/
+/*}*/
+/*.card-header {*/
+/*  height: 15%;*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  align-items: center;*/
+/*}*/
+/*.hr-wrap-top {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  width: 38%;*/
+/*}*/
+/*.logo-m {*/
+/*  width: 8vw;*/
+/*  height: 8vh;*/
+/*  position: relative;*/
+/*  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;*/
+/*  background-size: contain;*/
+/*}*/
 .heder-logo {
   height: 70%;
   width: 14%;
 }
-.hr-wrap-top {
-  display: flex;
-  align-items: center;
-  width: 38%;
-}
+/*.hr-wrap-top {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  width: 38%;*/
+/*}*/
 .card-body {
   height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.card-footer {
-  height: 15%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+/*.card-footer {*/
+/*  height: 15%;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  justify-content: center;*/
+/*}*/
 .summ{
   display: flex;
   height: 80%;
   width: 40%;
 }
 hr {
-  height: 2px;
-  background: var(--cappuccino);;
-  width: 90%;
+  /*height: 2px;*/
+  /*background: var(--cappuccino);;*/
+  /*width: 90%;*/
   margin: auto;
 }
 .hr-thin{
@@ -372,6 +372,9 @@ display: flex;
 }
 .btn-disabled{
   opacity: 0.5;
+}
+.for_no_en{
+  font-size: 10vmax;
 }
 @media only screen and (max-width: 1024px) and (orientation: portrait){
   .main {

@@ -45,7 +45,7 @@
     </div>
     <div class="summ">
       <div class="some-contacts-text-wrap">
-        <span class="our-contacts" [ngStyle]="{'font-size': myLang !== 'en' ? '10vmax':'15vmax'}">{{'tray.title' | translate}}</span>
+        <span class="our-contacts" [ngClass]="{'for_no_en': isEng !== 'en'}">{{'tray.title' | translate}}</span>
         <span class="sometext">{{'tray.desc' | translate}}</span>
       </div>
       <div class="bottom-wrap">

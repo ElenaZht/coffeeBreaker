@@ -38,6 +38,7 @@ export class TrayComponent implements OnInit, OnDestroy {
   orderLogInFor: string;
   orderChooseBr: string;
   orderPay: string;
+  private isEng;
   private destroy$ = new Subject();
   constructor(public dialog: MatDialog, private ordersService: OrdersService, private itemsService: ItemsService,
               private toastr: ToastrService, private spinner: NgxSpinnerService,
@@ -76,6 +77,9 @@ export class TrayComponent implements OnInit, OnDestroy {
         this.isLogged = false;
       }
     });
+    if (localStorage.lang === 'en') {
+      this.isEng = true;
+    }
 
   }
   CountTotal() {
