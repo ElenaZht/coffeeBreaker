@@ -62,11 +62,11 @@
               </label>
             </div>
             <div class="btns-wrap">
-              <button class="orangebtn" *ngIf="!isAdmine && !isEdit" (click)="addToTray(data)">
+              <button class="buttonOrange smallButton" *ngIf="!isAdmine && !isEdit" (click)="addToTray(data)">
               <fa-icon class="fas fa-plus btn2 active white left-5" [icon]="['fas', 'plus']"  aria-pressed="true"></fa-icon>
                 <span class="bnttext">{{'addtotray' | translate}}</span>
               </button>
-              <button class="orangebtn graybtn" *ngIf="!isAdmine && !isEdit">
+              <button class="buttonGray smallButton" *ngIf="!isAdmine && !isEdit">
               <fa-icon class="fas fa-shopping-cart btn2 active left-5" [icon]="['fas', 'shopping-cart']" aria-pressed="true"></fa-icon>
                 <span class="bnttext" (click)="toTray()">{{'mytray' | translate}}</span>
               </button>

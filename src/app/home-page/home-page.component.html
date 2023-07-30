@@ -25,7 +25,7 @@
             </div>
           </div>
           <div class="cup" [ngStyle]="{'background-image': 'url('+promoItems[startIndex].img+')'}"></div>
-          <button class="order-now-btn" (click)="orderThis()">
+          <button class="buttonOrange bigButton" (click)="orderThis()">
             <span>{{'ordernow' | translate}} ></span>
           </button>
           <div class="price">
@@ -58,7 +58,7 @@
       <div class="iamnew">
         <div class="bigwords">{{'iamnewblock.title' | translate }}</div>
         <div class="sometext">{{'iamnewblock.desc' | translate }} </div>
-        <button class="orangebtn" routerLink="../menu_common"><span class="bnttext">{{'iamnewblock.button' | translate }} ></span></button>
+        <button class="buttonOrange bigButton" routerLink="../menu_common"><span class="bnttext">{{'iamnewblock.button' | translate }} ></span></button>
       </div>
     </div>
 
@@ -107,7 +107,7 @@
         </div>
         <div class="btn2">
           <div class="white-arrow"></div>
-          <button class="orangebtn btn-other"  routerLink="../branches"><span class="bnttext">{{'findpoint.button' | translate}} ></span></button>
+          <button class="buttonOrange bigButton"  routerLink="../branches"><span class="bnttext">{{'findpoint.button' | translate}} ></span></button>
         </div>
       </div>
     </div>
@@ -190,7 +190,7 @@
             </div>
           </div>
           <div class="cup" [ngStyle]="{'background-image': 'url('+promoItems[startIndex].img+')'}"></div>
-          <button class="order-now-btn">
+          <button class="buttonOrange bigButton">
             <span>{{'ordernow' | translate}} ></span>
           </button>
           <div class="price">
@@ -217,7 +217,7 @@
       <div class="news">
         <app-iamnew></app-iamnew>
       </div>
-      <button class="orangebtn" routerLink="../menu_common"><span class="bnttext">{{'iamnewblock.button' | translate}} ></span></button>
+      <button class="buttonOrange bigButton" routerLink="../menu_common"><span class="bnttext">{{'iamnewblock.button' | translate}} ></span></button>
 
     </div>
     <div class="contacts">
@@ -236,7 +236,7 @@
     </div>
     <div class="find-branch-section">
         <div class="bigwords find"  [ngClass] = "{'for_en' : isEng}">{{'findpoint.title' | translate}}</div>
-        <button class="orangebtn btn-other" routerLink="../branches"><span class="bnttext">{{'findpoint.button' | translate}} ></span></button>
+        <button class="bigButton smallButton" routerLink="../branches"><span class="bnttext">{{'findpoint.button' | translate}} ></span></button>
     </div>
   </div>
   <div class="smart-nav">

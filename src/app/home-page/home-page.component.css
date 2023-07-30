@@ -7,7 +7,7 @@ body {
 }
 
 :root {
-  font-size: 1vw;
+  font-size: var(--xs);
 }
 
 .welcome-section {
@@ -450,7 +450,7 @@ hr {
   box-shadow: 14px 8px 2px 5px rgba(0,0,0,0.25);
 }
 .order-now-btn span {
-  font: 1.9vw Avtala, Arial Narrow, JosefinSans Regular, Arial Narrow, Avtala ;
+  font: var(--s) Avtala, Arial Narrow, JosefinSans Regular, Arial Narrow, Avtala ;
   color: white;
 }
 
@@ -470,7 +470,7 @@ hr {
   color: var(--orange);
   display: flex;
   justify-content: center;
-  font: 11vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
+  font: var(--l) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   position: relative;
   top: 3vh;
 
@@ -485,7 +485,7 @@ hr {
 .only {
   width: 100%;
   height: 30%;
-  font: 2.1vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
+  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   display: flex;
   justify-content: center;
 }
@@ -510,7 +510,7 @@ hr {
 }
 .item-title {
 
-  font: 2vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala;
 
 }
 
@@ -522,7 +522,7 @@ hr {
 .make-your-coffeebreak {
   width: 70%;
   height: 100%;
-  font: 2vw Cookie, Annabelle, Adama;
+  font: var(--s) Cookie, Annabelle, Adama;
   color: var(--beige);
 }
 .navbar-wrap {
@@ -552,7 +552,7 @@ hr {
   height: 50%;
   justify-content: center;
   align-items: center;
-  font: 3vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala;
 }
 
 .li-href {
@@ -594,7 +594,7 @@ mat-divider {
 }
 .bigwords {
   height: 30%;
-  font: 8vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: var(--l) JosefinSans Regular, Arial Narrow, Avtala;
   color: var(--orange);
   display: flex;
   justify-content: center;
@@ -626,7 +626,7 @@ mat-divider {
 
 }
 .bnttext {
-  font: 1.9vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
+  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   color: white;
 }
 .join-us-section {
@@ -700,7 +700,7 @@ mat-divider {
 }
 .contact-text {
   width: 75%;
-  font: 2.5vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
+  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   display: flex;
   align-items: center;
 }
@@ -803,7 +803,7 @@ mat-divider {
 .point-text {
   display: flex;
   width: 75%;
-  font: 2vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
+  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   align-items: center;
 
 }
@@ -913,14 +913,14 @@ mat-divider {
   height: 50%;
   left: 0;
   width: 100%;
-  font: 1.5vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
+  font: var(--xs) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
 
 }
 .footer-coffee-break {
   height: 25%;
   color: var(--darkchocolate);
   width: 100%;
-  font: 4.9vw Cookie, Annabelle, Adama;
+  font: var(--m) Cookie, Annabelle, Adama;
 
 }
 .mini-navbar {
@@ -963,17 +963,17 @@ mat-divider {
 
 }
 .low-text {
-  font: 2vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
+  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
 
 }
 .footer-phone {
-  font: 3.1vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
+  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   display: flex;
   align-items: center;
   color: var(--chocolate);
 }
 .menu {
-  font: 2vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
+  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   justify-content: center;
   display: flex;
   align-items: flex-end;
@@ -992,7 +992,7 @@ mat-divider {
   display: flex;
 }
 .lang {
-  font: 2vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
+  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   justify-content: center;
   display: flex;
   align-items: flex-end;
@@ -1003,7 +1003,7 @@ mat-divider {
   display: flex;
 }
 .help {
-  font: 2vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
+  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   justify-content: center;
   display: flex;
   align-items: flex-end;
@@ -1095,7 +1095,7 @@ app-navbar{
     justify-content: center;
   }
   .curlang,.smart-menu {
-    font: 12vmin JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
+    font: var(--l) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
     vertical-align: center;
   }
   li {
@@ -1133,7 +1133,7 @@ app-navbar{
     height: 16%;
   }
   .order-now-btn span {
-    font-size: 7vmin;
+    font-size: var(--m);
   }
   .ingredients {
     position: relative;
@@ -1149,7 +1149,7 @@ app-navbar{
     height: 100%;
   }
   .ing-name{
-    font-size: 5vw;
+    font-size: var(--m);
     width: 100%;
   }
   .make-your-coffeebreak{
@@ -1165,11 +1165,11 @@ app-navbar{
     width: 59%;
   }
   .numb {
-    font-size: 35vmin;
+    font-size: var(--xxl);
     top: 0;
   }
   .only {
-    font-size: 4.8vmin;
+    font-size: var(--m);
   }
   .heder-logo {
     height: 100%;
@@ -1184,7 +1184,7 @@ app-navbar{
     margin-left: 3%;
   }
   .item-title {
-    font-size: 7vmin;
+    font-size: var(--m);
     overflow: hidden;
   }
   .new-items-wrap {
@@ -1193,7 +1193,7 @@ app-navbar{
     height: 60vmax;
   }
   .bigwords {
-    font-size: 18vmin;
+    font-size: var(--xl);
     height: 15%
   }
   .news {
@@ -1208,7 +1208,7 @@ app-navbar{
     margin: auto;
   }
   .orangebtn span {
-    font-size: 7vmin;
+    font-size: var(--m);
   }
   .contacts {
     height: 30vmax;
@@ -1218,7 +1218,7 @@ app-navbar{
     top: 13vmax;
   }
   .contact-text {
-    font-size: 5.5vmin;
+    font-size: var(--m);
   }
   .find-branch-section {
     height: 26vmax;
@@ -1235,7 +1235,7 @@ app-navbar{
   }
   .find {
     height: 63%;
-    font-size: 15vmin;
+    font-size: var(--l);
     margin: auto;
   }
 
@@ -1245,7 +1245,7 @@ app-navbar{
   margin-bottom: 1vh
 }
 .for_en{
-  font-size: 6vmax;
+  font-size: var(--m);
 }
 
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
@@ -1281,7 +1281,7 @@ app-navbar{
     margin-left: 2%;
   }
   .ing-name{
-    font-size: 2vw;
+    font-size: var(--s);
   }
   .ingredients{
     width: 80%;

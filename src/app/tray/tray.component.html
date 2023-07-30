@@ -50,9 +50,9 @@
       </div>
       <div class="bottom-wrap">
         <div class="btns">
-          <button  *ngIf="myItems.length" class="orangebtn" (click)="Order(myItems)" [class.btn-disabled]="totalItems <= 0"><span class="bnttext">{{'tray.order' | translate}}</span></button>
-          <button  *ngIf="myItems.length" class="orangebtn graybtn" (click)="Clear()"><span class="bnttext mini-btn-text">{{'tray.clear' | translate}}</span></button>
-          <button  *ngIf="!myItems.length" class="orangebtn" routerLink="../menu_common"><span class="bnttext mini-btn-text">{{'navbar.menu' | translate}} ></span></button>
+          <button  *ngIf="myItems.length" class="buttonOrange smallButton" (click)="Order(myItems)" [class.btn-disabled]="totalItems <= 0"><span class="bnttext">{{'tray.order' | translate}}</span></button>
+          <button  *ngIf="myItems.length" class="buttonGray smallButton" (click)="Clear()"><span class="bnttext mini-btn-text">{{'tray.clear' | translate}}</span></button>
+          <button  *ngIf="!myItems.length" class="buttonOrange smallButton" routerLink="../menu_common"><span class="bnttext mini-btn-text">{{'navbar.menu' | translate}} ></span></button>
         </div>
         <div class="pics"></div>
       </div>

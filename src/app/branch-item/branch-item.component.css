@@ -69,14 +69,14 @@
   align-items: center;
 }
 .popular {
-  font: 1vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: var(--xs) JosefinSans Regular, Arial Narrow, Avtala;
   padding: 1%;
   margin: 2%;
   color: var(--orange);
   border: solid 2px var(--orange);
 }
 .rempop {
-  font: 1vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: var(--xs) JosefinSans Regular, Arial Narrow, Avtala;
   padding: 1%;
   margin: 2%;
   color: var(--orange);
@@ -113,10 +113,10 @@
 
 }
 .adr {
-  font: 1.5vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: var(--xs) JosefinSans Regular, Arial Narrow, Avtala;
 }
 .description {
-  font: 1vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: var(--xs) JosefinSans Regular, Arial Narrow, Avtala;
   text-indent: 4%;
 }
 .splashes {
@@ -164,7 +164,7 @@
     background-size: cover;
   }
   .adr{
-    font-size: 4vmin;
+    font-size: var(--m);
     display: flex;
     align-items: center;
   }
@@ -174,7 +174,7 @@
   }
   .description {
     text-overflow: ellipsis;
-    font-size: 3vmin;
+    font-size: var(--s);
     height: 20%;
     overflow: hidden;
     display: -webkit-box;

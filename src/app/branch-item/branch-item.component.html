@@ -20,16 +20,16 @@
         <div class="description" *ngIf="!isShowEdit">{{desc}}</div>
         <input class="description" *ngIf="isShowEdit" [(ngModel)]="desc" name="desc">
         <div class="buttons" *ngIf="isAdmin">
-          <button class="edit" (click)="editData()">
+          <button class="buttonOrange smallButton" (click)="editData()">
             <fa-icon class="fas fa-pencil-alt fa-2x" [icon]="['fas', 'pencil-alt']"  aria-pressed="true"></fa-icon>
           </button>
-          <button class="edit" *ngIf="isShowEdit" (click)="onSubmit(brachForm)">
+          <button class="buttonOrange smallButton" *ngIf="isShowEdit" (click)="onSubmit(brachForm)">
             <fa-icon class="fas fa-check fa-2x" [icon]="['fas', 'check']"  aria-pressed="true"></fa-icon>
           </button>
-          <button class="edit" *ngIf="isShowEdit" (click)="undo()">
+          <button class="buttonGray smallButton" *ngIf="isShowEdit" (click)="undo()">
             <fa-icon class="fas fa-undo fa-2x" [icon]="['fas', 'undo']"  aria-pressed="true"></fa-icon>
           </button>
-          <button class="edit" *ngIf="isShowEdit" (click)="delete(branch)">
+          <button class="buttonOrange smallButton" *ngIf="isShowEdit" (click)="delete(branch)">
             <fa-icon class="fas fa-trash-alt fa-2x" [icon]="['fas', 'trash-alt']"  aria-pressed="true"></fa-icon>
           </button>
         </div>

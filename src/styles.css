@@ -32,11 +32,60 @@
   url('./assets/fonts/AdamaMF Bold.svg') format("svg");
 }
 :root{
-  /*--small: ;*/
-  /*--medium: ;*/
-  /*--big: ;*/
-  /*--large: ;*/
+  --xs: 1.1 vmin;
+  --s: 2.3 vmin;
+  --m: 5.3 vmin;
+  --l: 11.7vmin;
+  --xl: 18vmin;
+  --xxl: 35vmin;
 }
+/*-----------BUTTONS------------*/
+button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-style: none;
+  border-radius: 25px;
+  transform: scale(1.2);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  opacity: 1;
+  position: relative;
+  z-index: 10;
+  margin: 5%;
+  padding: 5%;
+  width: fit-content;
+}
+.buttonOrange{
+  background-color: var(--orange);
+  color: white;
+}
+.buttonGray{
+  background-color: gray;
+  color: var(--darkgray);
+}
+.bigButton{
+  min-width: 12vmax;
+  height: 10vmin;
+  font-size: var(--m);
+}
+.bigMobButton{
+  min-width: 12vmax;
+  height: 10vmin;
+  font-size: var(--m);
+}
+.smallButton{
+  min-width: 7vmax;
+  height: 5vmin;
+  font-size: var(--s);
+}
+.smallMobButton{
+  min-width: 20vmax;
+  height: 10vmin;
+  font-size: var(--s);
+}
+
+
 /*-----------COLORS------------*/
 :root{
   --orange: #E04523;
@@ -123,7 +172,7 @@
   justify-content: center;
 }
 input::placeholder{
-  font-size: 1vw;
+  font-size: var(--xs);
   color: gray;
 }
 .category-card {
@@ -137,7 +186,7 @@ input::placeholder{
   border: var(--border);
 }
 .help {
-  font: 2vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala;
   justify-content: center;
   display: flex;
   align-items: flex-end;
@@ -156,7 +205,7 @@ mat-divider {
 }
 .reg_lable{
   text-align: center;
-  font: 3vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala;
   letter-spacing: 0;
   color: var(--orange);
   opacity: 1;
@@ -170,7 +219,7 @@ mat-divider {
 }
 .error{
   color: red;
-  font: 1vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: var(--xs) JosefinSans Regular, Arial Narrow, Avtala;
   padding-left: 5%;
 }
 .btn-wrap{
@@ -189,7 +238,7 @@ mat-divider {
   border-radius: 4px;
   margin-left: 2%;
   margin-right: 2%;
-  font: 1vmax JosefinSans Regular, Arial Narrow, Avtala;
+  font: var(--xs) JosefinSans Regular, Arial Narrow, Avtala;
   font-weight: bold;
 }
 hr {
