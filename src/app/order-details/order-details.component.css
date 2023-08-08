@@ -22,11 +22,6 @@
   align-items: center;
   z-index: 1;
 }
-/*hr {*/
-/*  height: 2px;*/
-/*  background: var(--cappuccino);;*/
-/*  width: 100%;*/
-/*}*/
 .prod-list-item{
   display: flex;
   justify-content: space-between;

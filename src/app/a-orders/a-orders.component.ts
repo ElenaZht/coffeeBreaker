@@ -68,7 +68,7 @@ export class AOrdersComponent implements OnInit, OnDestroy {
   }
 
   details(i) {
-    const dialogRef = this.dialog.open(OrderDetailsComponent, {panelClass: 'custom-dialog-container', height: '50vmin', // todo clean or not
+    this.dialog.open(OrderDetailsComponent, {panelClass: 'custom-dialog-container', height: '50vmin',
       width: '20vmax', data: i});
   }
   chooseBranch(): Observable<number> {

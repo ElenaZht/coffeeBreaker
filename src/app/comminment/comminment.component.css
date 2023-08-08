@@ -17,8 +17,8 @@
   align-items: center;
 }
 .our-comminment {
-  font: var(--l) Cookie, Annabelle;
-display: flex;
+  font: var(--xxl) Cookie, Annabelle;
+  display: flex;
   text-align: center;
   color: var(--darkchocolate);
   opacity: 0.4;
@@ -48,15 +48,15 @@ display: flex;
   z-index: 10;
 }
 .owner-photo {
-  background-size: cover;
   background: transparent url('../../assets/owner-photo.jpeg') no-repeat center;
+  background-size: cover;
   height: 100%;
   width: 100%;
   box-shadow: var(--shadow);
 
 }
 .owner-text {
-  font: var(--s) Cookie, Annabelle, Adama;
+  font: var(--m) Cookie, Annabelle, Adama;
   color: white;
   background-color: rgba(0, 0, 0, 0.6);
   position: relative;
@@ -73,10 +73,6 @@ display: flex;
   position: relative;
   top: -55%;
 }
-.prize1, .prize2, .prize3{
-  background-size: contain;
-  width: 33%;
-}
 .prize1 {
   background: transparent url('../../assets/prize1.png') no-repeat center;
  }
@@ -85,6 +81,10 @@ display: flex;
 }
 .prize3 {
   background: transparent url('../../assets/prize3.png') no-repeat center;
+}
+.prize1, .prize2, .prize3{
+  background-size: contain;
+  width: 33%;
 }
 .declaration {
   display: flex;
@@ -123,27 +123,16 @@ display: flex;
   align-items: center;
   width: 30%;
 }
-
-/*hr {*/
-/*  height: 2px;*/
-/*  background: var(--cappuccino);;*/
-/*  width: 100%;*/
-/*}*/
 .com-logo {
-  font: var(--xs) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
   width: 30%;
+  display: flex;
+  justify-content: center;
 }
 .card-body {
   height: 80%;
   display: flex;
   flex-direction: column;
 }
-/*.card-footer {*/
-/*  height: 15%;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  justify-content: center;*/
-/*}*/
 .question {
   font: var(--xs) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
   padding: 2%;

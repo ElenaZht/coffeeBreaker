@@ -100,8 +100,8 @@ export class MenuCategoryComponent implements OnInit  {
     this.category = this.categories[curCategory];
   }
   onItem(item) {
-    const dialogRef = this.dialog.open(MenuItemDialogComponent, {panelClass: 'custom-dialog-container', height: '60vmin',
-      width: '55vmax', data: item});
+    const dialogRef = this.dialog.open(MenuItemDialogComponent, {panelClass: 'custom-dialog-container', height: '600px',
+      width: '800px', data: item});
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.category.products.splice(result.prodId, 1);
@@ -111,7 +111,7 @@ export class MenuCategoryComponent implements OnInit  {
 
 
   goAdd() {
-    const dialogRef = this.dialog.open(AddNewItemComponent, {panelClass: 'custom-dialog-container', height: '60vmin', // todo ?
+    this.dialog.open(AddNewItemComponent, {panelClass: 'custom-dialog-container', height: '60vmin',
       width: '55vmax', data: {category: this.category}});
   }
 }

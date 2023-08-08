@@ -63,7 +63,7 @@
             </div>
             <div class="btns-wrap">
               <button class="buttonOrange smallButton" *ngIf="!isAdmine && !isEdit" (click)="addToTray(data)">
-              <fa-icon class="fas fa-plus btn2 active white left-5" [icon]="['fas', 'plus']"  aria-pressed="true"></fa-icon>
+              <fa-icon class="fas fa-plus btn2 active white_color left-5" [icon]="['fas', 'plus']" aria-pressed="true"></fa-icon>
                 <span class="bnttext">{{'addtotray' | translate}}</span>
               </button>
               <button class="buttonGray smallButton" *ngIf="!isAdmine && !isEdit">
@@ -71,7 +71,7 @@
                 <span class="bnttext" (click)="toTray()">{{'mytray' | translate}}</span>
               </button>
               <button class="orangebtn" *ngIf="isAdmine" (click)="goEdit()">
-                <fa-icon class="fas fa-pencil-alt btn2 active white left-5" [icon]="['fas', 'pencil-alt']"  aria-pressed="true"></fa-icon>
+                <fa-icon class="fas fa-pencil-alt btn2 active white_color left-5" [icon]="['fas', 'pencil-alt']" aria-pressed="true"></fa-icon>
                 <span class="bnttext">{{'edititem' | translate}}</span>
               </button>
               <div class="check-wrap">

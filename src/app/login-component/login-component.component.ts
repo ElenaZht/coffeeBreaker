@@ -61,8 +61,8 @@ export class LoginComponentComponent implements OnInit {
   }
 
   toSignUp() {
-    const dialogRef = this.dialog.open(SignupComponent, {panelClass: 'custom-dialog-container', height: '50vmin',
-      width: '20vmax'});
+    const dialogRef = this.dialog.open(SignupComponent, {panelClass: 'custom-dialog-container', height: '400px',
+      width: '300px'});
     dialogRef.afterClosed().subscribe(
       res => {
         this.exit(res);

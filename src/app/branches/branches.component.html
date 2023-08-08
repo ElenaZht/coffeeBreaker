@@ -2,9 +2,8 @@
   <div class="main">
     <div class="title">
       <span class="our-comminment">{{'branches.title' | translate}}</span>
-      <span class="com-text">{{'branches.desc' | translate}}</span>
     </div>
-    <button class="orangebtn" *ngIf="isAdmin" (click)="AddBranch()"><p class="bnttext"><fa-icon class="fas fa-plus" [icon]="['fas', 'plus']"  aria-pressed="true"></fa-icon><span class="width-70">{{'branches.add' | translate}}</span></p></button>
+    <button class="orangebtn bigButton" *ngIf="isAdmin" (click)="AddBranch()"><p class="bnttext"><fa-icon class="fas fa-plus" [icon]="['fas', 'plus']"  aria-pressed="true"></fa-icon><span class="width-70">{{'branches.add' | translate}}</span></p></button>
     <div class="wrap">
       <div class="most-popular">
         <div class="pop-arrow"></div>

@@ -17,27 +17,30 @@
           <div class="logo-m heder-logo"></div>
           <div class="hr-wrap-top"><hr></div>
         </div>
-        <div class="card-body"   *ngIf="promoItems.length">
-          <div class="ingredients">
-            <div class="ingredient" *ngFor="let i of promoItems[startIndex].ingredients">
-              <div class="ing-spot {{i.ingClass}}"></div>
-              <span class="ing-name">{{i.ing}}</span>
-            </div>
+        <div class="card-body"   *ngIf="promoItems.length" [ngStyle]="{'background': 'transparent url('+promoItems[startIndex].img+') center/contain no-repeat', 'background-size': 'contain'}" >
+          <div class="left_side">
+              <div class="ingredients">
+                <div class="ingredient" *ngFor="let i of promoItems[startIndex].ingredients">
+                  <div class="ing-spot {{i.ingClass}}"></div>
+                  <span class="ing-name">{{i.ing}}</span>
+                </div>
+              </div>
+              <button class="buttonOrange bigButton" (click)="orderThis()">
+                <span>{{'ordernow' | translate}} ></span>
+              </button>
           </div>
-          <div class="cup" [ngStyle]="{'background-image': 'url('+promoItems[startIndex].img+')'}"></div>
-          <button class="buttonOrange bigButton" (click)="orderThis()">
-            <span>{{'ordernow' | translate}} ></span>
-          </button>
-          <div class="price">
-            <span class="numb">{{promoItems[startIndex].price}}</span>
-            <div class="only-shek">
-              <span class="only">only</span>
-              <div class="shek"></div>
-            </div>
-          </div>
-          <div class="description">
-            <span class="item-title">{{promoItems[startIndex].title}}</span>
-            <span class="item-desc">{{promoItems[startIndex].desc}}</span>
+          <div class="right_side">
+              <div class="price">
+                <span class="numb">{{promoItems[startIndex].price}}</span>
+                <div class="only-shek">
+                  <span class="only">only</span>
+                  <div class="shek"></div>
+                </div>
+              </div>
+              <div class="description">
+                <span class="item-title">{{promoItems[startIndex].title}}</span>
+                <span class="item-desc">{{promoItems[startIndex].desc}}</span>
+              </div>
           </div>
         </div>
         <div class="card-footer">
@@ -82,14 +85,6 @@
       <div class="join-text">
         <div class="bigwords">{{'joinusblock.title' | translate}}</div>
         <div class="sometext">{{'joinusblock.desc' | translate}}</div>
-      </div>
-      <div class="smart-wrapper">
-        <div class="smartphone">
-          <div class="instascroll">
-            <div class="scroll-paper"></div>
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -182,27 +177,30 @@
           <div class="logo-m heder-logo"></div>
           <div class="hr-wrap-top"><hr></div>
         </div>
-        <div class="card-body"  *ngIf="promoItems.length">
-          <div class="ingredients">
-            <div class="ingredient" *ngFor="let i of promoItems[startIndex].ingredients">
-              <div class="ing-spot {{i.ingClass}}"></div>
-              <span class="ing-name">{{i.ing}}</span>
+        <div class="card-body"  *ngIf="promoItems.length" [ngStyle]="{'background': 'transparent url('+promoItems[startIndex].img+') center/contain no-repeat', 'background-size': 'contain'}">
+          <div class="left_side">
+            <div class="ingredients">
+              <div class="ingredient" *ngFor="let i of promoItems[startIndex].ingredients">
+                <div class="ing-spot {{i.ingClass}}"></div>
+                <span class="ing-name">{{i.ing}}</span>
+              </div>
             </div>
+            <button class="buttonOrange bigButton" (click)="orderThis()">
+              <span>{{'ordernow' | translate}} ></span>
+            </button>
           </div>
-          <div class="cup" [ngStyle]="{'background-image': 'url('+promoItems[startIndex].img+')'}"></div>
-          <button class="buttonOrange bigButton">
-            <span>{{'ordernow' | translate}} ></span>
-          </button>
-          <div class="price">
-            <span class="numb">{{promoItems[startIndex].price}}</span>
-            <div class="only-shek">
-              <span class="only">only</span>
-              <div class="shek"></div>
+          <div class="right_side">
+            <div class="price">
+              <span class="numb">{{promoItems[startIndex].price}}</span>
+              <div class="only-shek">
+                <span class="only">only</span>
+                <div class="shek"></div>
+              </div>
             </div>
-          </div>
-          <div class="description">
-            <span class="item-title">{{promoItems[startIndex].title}}</span>
-            <span class="item-desc">{{(promoItems[startIndex].desc | slice: 0:25)+'..'}}</span>
+            <div class="description">
+              <span class="item-title">{{promoItems[startIndex].title}}</span>
+              <span class="item-desc">{{promoItems[startIndex].desc}}</span>
+            </div>
           </div>
         </div>
         <div class="card-footer">

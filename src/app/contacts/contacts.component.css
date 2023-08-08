@@ -10,6 +10,9 @@
 .main2 {
   display: none;
 }
+button{
+  padding: .5%;
+}
 .wrapper {
   display: flex;
   justify-content: space-between;
@@ -21,7 +24,9 @@
 .category-card {
   background-color: white;
   width: 22vw;
+  min-width: 350px;
   height: 45vh;
+  min-height: 300px;
   box-shadow: var(--shadow);
   position: relative;
   display: flex;
@@ -29,32 +34,11 @@
   border: var(--border);
 
 }
-/*.card-content {*/
-/*  width: 85%;*/
-/*  height: 100%;*/
-/*  margin: auto;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  justify-content: space-between;*/
-/*}*/
-/*.card-header {*/
-/*  height: 15%;*/
-/*  display: flex;*/
-/*  justify-content: space-between;*/
-/*  align-items: center;*/
-/*}*/
 .hr-wrap-top {
   display: flex;
   align-items: center;
   width: 38%;
 }
-/*.logo-m {*/
-/*  width: 8vw;*/
-/*  height: 8vh;*/
-/*  position: relative;*/
-/*  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;*/
-/*  background-size: contain;*/
-/*}*/
 .heder-logo {
   height: 70%;
   width: 14%;
@@ -64,26 +48,15 @@
   align-items: center;
   width: 38%;
 }
-/*hr {*/
-/*  height: 2px;*/
-/*  background: var(--cappuccino);*/
-/*  width: 100%;*/
-/*}*/
 .card-body {
   height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-/*.card-footer {*/
-/*  height: 15%;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  justify-content: center;*/
-/*}*/
 .our-contacts {
   font: 9vw Cookie, Annabelle, Adama;
-display: flex;
+  display: flex;
   text-align: center;
   color: var(--darkchocolate);
   opacity: 0.4;
@@ -116,43 +89,16 @@ display: flex;
   justify-content: space-between;
 }
 .contact-icon {
-  width: 1.2vw;
+  width: var(--s);
 }
-/*.instagram {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/instagram.png') no-repeat center;*/
-/*}*/
-/*.facebook {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/facebook.png') no-repeat center;*/
-/*  transform: scale(1.4);*/
-/*}*/
-/*.email {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/email.png') no-repeat center;*/
-/*  transform: scale(0.8);*/
-/*}*/
-/*.phone {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/phone.png') no-repeat center;*/
-/*  transform: scale(0.8);*/
-/*  }*/
-/*.address {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/address.png') no-repeat center;*/
-/*  transform: scale(0.8);*/
-/*}*/
+
 .contact-text {
   width: 80%;
-  font: 1.2vw JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
+  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
   display: flex;
   align-items: center;
 }
-/*.buttons {*/
-/*  display: flex;*/
-/*  justify-content: space-between;*/
-/*  margin-bottom: 5%;*/
-/*}*/
+
 .edit {
   opacity: 0.5;
   border: none;

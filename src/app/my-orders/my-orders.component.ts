@@ -27,7 +27,7 @@ export class MyOrdersComponent implements OnInit {
           this.branchesIdToAddressMap[order.branch] = 'Branch no more exist';
         }
         for (const branchId in this.branchesIdToAddressMap) {
-          this.itemsService.getBranchById(parseInt(branchId)).subscribe( // todo
+          this.itemsService.getBranchById(parseInt(branchId, 2)).subscribe( // todo
             result => {
               if (result) {
                 this.branchesIdToAddressMap[branchId] = result.address;

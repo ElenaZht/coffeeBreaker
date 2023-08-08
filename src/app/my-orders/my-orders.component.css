@@ -81,11 +81,6 @@
   width: 20%;
   text-align: center;
 }
-/*hr {*/
-/*  height: 2px;*/
-/*  background: var(--cappuccino);;*/
-/*  width: 100%;*/
-/*}*/
 .order-raw {
   display: flex;
   justify-content: space-between;

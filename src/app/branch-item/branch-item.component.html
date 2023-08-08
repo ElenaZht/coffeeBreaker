@@ -11,7 +11,7 @@
         <label *ngIf="isShowEdit" for="chooseFile" class="hover-text"> <fa-icon size="4x" [icon]="['fas', 'images']"></fa-icon></label>
       </div>
       <form class="about" #brachForm="ngForm">
-        <div class="address">
+        <div class="branchAddress">
           <div class="contact-icon pointer"></div>
           <div class="adr" *ngIf="!isShowEdit">{{address}}</div>
           <input class="adr" *ngIf="isShowEdit" [(ngModel)]="address" name="address">
@@ -21,16 +21,16 @@
         <input class="description" *ngIf="isShowEdit" [(ngModel)]="desc" name="desc">
         <div class="buttons" *ngIf="isAdmin">
           <button class="buttonOrange smallButton" (click)="editData()">
-            <fa-icon class="fas fa-pencil-alt fa-2x" [icon]="['fas', 'pencil-alt']"  aria-pressed="true"></fa-icon>
+            <fa-icon class="fas fa-pencil-alt" [icon]="['fas', 'pencil-alt']"  aria-pressed="true"></fa-icon>
           </button>
           <button class="buttonOrange smallButton" *ngIf="isShowEdit" (click)="onSubmit(brachForm)">
-            <fa-icon class="fas fa-check fa-2x" [icon]="['fas', 'check']"  aria-pressed="true"></fa-icon>
+            <fa-icon class="fas fa-check" [icon]="['fas', 'check']"  aria-pressed="true"></fa-icon>
           </button>
           <button class="buttonGray smallButton" *ngIf="isShowEdit" (click)="undo()">
-            <fa-icon class="fas fa-undo fa-2x" [icon]="['fas', 'undo']"  aria-pressed="true"></fa-icon>
+            <fa-icon class="fas fa-undo fa" [icon]="['fas', 'undo']"  aria-pressed="true"></fa-icon>
           </button>
           <button class="buttonOrange smallButton" *ngIf="isShowEdit" (click)="delete(branch)">
-            <fa-icon class="fas fa-trash-alt fa-2x" [icon]="['fas', 'trash-alt']"  aria-pressed="true"></fa-icon>
+            <fa-icon class="fas fa-trash-alt fa" [icon]="['fas', 'trash-alt']"  aria-pressed="true"></fa-icon>
           </button>
         </div>
         <button class="rempop" *ngIf="isShowEdit && isAdmin && branch.popular" (click)="removeFromPop(branch)">

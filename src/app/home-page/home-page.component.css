@@ -2,6 +2,10 @@ body {
   margin: 0;
   overflow: hidden;
 }
+.main{
+  display: flex;
+  flex-direction: column;
+}
 .main2 {
   display: none;
 }
@@ -14,6 +18,7 @@ body {
   width: 100%;
   background:transparent url('../../assets/wooden.jpg') 0% 0% no-repeat padding-box;
   height: 100vh;
+  min-height: 400px;
   background-size: cover;
 }
 .main-logo {
@@ -27,8 +32,8 @@ body {
 }
 
 .burg {
+    background: transparent url('../../assets/burg.png') no-repeat center;
   background-size: contain;
-  background: transparent url('../../assets/burg.png') no-repeat center;
   opacity: 0.8;
 }
 
@@ -70,7 +75,9 @@ body {
 }
 .video-wrap {
   width: 70vw;
+  min-width: 700px;
   height: 60vh;
+  min-height: 300px;
   position: relative;
   top: -14%;
   left: 27%;
@@ -115,36 +122,34 @@ hr {
   align-items: center;
   width: 38%;
 }
-/*.cardhead {*/
-/*  top: 2%;*/
-/*  left: 42%;*/
-/*}*/
-/*.card-content {*/
-/*  width: 85%;*/
-/*  height: 100%;*/
-/*  margin: auto;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  justify-content: space-between;*/
-/*}*/
-/*.card-header {*/
-/*  height: 15%;*/
-/*  display: flex;*/
-/*  justify-content: space-between;*/
-/*  align-items: center;*/
-/*}*/
-/*.card-body {*/
-/*  height: 70%;*/
-/*}*/
-/*.card-footer {*/
-/*  height: 15%;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  justify-content: center;*/
-/*}*/
+.left_side, .right_side{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
+  height: 100%;
+}
+.left_side{
+  justify-content: space-between;
+
+}
+.right_side{
+  justify-content: flex-end;
+  width: 40%;
+  height: 70%;
+  margin-top: auto;
+  margin-left: auto;
+}
+.right_side > div{
+  margin: 5%;
+}
+.card-body{
+  display: flex;
+  flex-direction: row;
+}
 .ingredients {
   height: 70%;
-  width: 33%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -158,266 +163,6 @@ hr {
   width: 50%;
   background-size: contain;
 }
-/*.splash {*/
-/*  background-size: contain;*/
-/*  background-position: center;*/
-/*  background-repeat: no-repeat;*/
-/*}*/
-/*.coffee-splash {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/coffee-splash.png') no-repeat center;*/
-/*}*/
-/*.milk-splash {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/milk-splash.png') no-repeat center;*/
-/*}*/
-/*.juice-splash {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/juice-splash.png') no-repeat center;*/
-/*}*/
-/*.water-splash {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/water-splash.png') no-repeat center;*/
-/*}*/
-/*.sugar {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/sugar.png') no-repeat center;*/
-/*}*/
-/*.oranges{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/orange.png') no-repeat center;*/
-/*}*/
-/*.mint {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/mint.png') no-repeat center;*/
-/*}*/
-/*.chocolate {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/chocolate.png') no-repeat center;*/
-/*  left: 4%;*/
-/*  top: 33%;*/
-/*}*/
-/*.mango{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/mango.png') no-repeat center;*/
-/*  height: 80%;*/
-/*  width: 10%;*/
-/*}*/
-/*.raspberry{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/raspberry.png') no-repeat center;*/
-/*  height: 80%;*/
-/*  width: 10%;*/
-/*}*/
-/*.caramel{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/caramel.png') no-repeat center;*/
-/*  height: 80%;*/
-/*  width: 10%;*/
-/*}*/
-/*.juice{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/juice-splash.png') no-repeat center;*/
-/*  height: 80%;*/
-/*  width: 10%;*/
-/*}*/
-/*.ice2{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/ice.png') no-repeat center;*/
-/*  height: 80%;*/
-/*  width: 10%;*/
-/*}*/
-/*.baget{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/baget.png') no-repeat center;*/
-/*}*/
-/*.letuce{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/letuce.png') no-repeat center;*/
-/*}*/
-/*.tomatoes{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/tomatoes.png') no-repeat center;*/
-/*}*/
-/*.cucumber{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/cucumber.png') no-repeat center;*/
-/*}*/
-/*.onion{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/onion.png') no-repeat center;*/
-/*}*/
-/*.onion-f{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/onion-f.png') no-repeat center;*/
-/*}*/
-/*.mozzarella{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/mozzarella.png') no-repeat center;*/
-/*}*/
-/*.cheese{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/cheese.png') no-repeat center;*/
-/*}*/
-/*.chiken{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/chiken.png') no-repeat center;*/
-/*}*/
-/*.beef{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/beef.png') no-repeat center;*/
-/*}*/
-/*.basil{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/basil.png') no-repeat center;*/
-/*}*/
-/*.spicies{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/spicies.png') no-repeat center;*/
-/*}*/
-/*.sugar {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/sugar.png') no-repeat center;*/
-/*}*/
-/*.flour {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/flour.png') no-repeat center;*/
-/*}*/
-/*.eggs {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/eggs.png') no-repeat center;*/
-/*}*/
-/*.cocoa {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/cocoa.png') no-repeat center;*/
-/*}*/
-/*.candle {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/candle.png') no-repeat center;*/
-/*}*/
-/*.cinnamon {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/cinnamon.png') no-repeat center;*/
-/*}*/
-/*.nutella {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/nutella.png') no-repeat center;*/
-/*}*/
-/*.yeast {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/yeast.png') no-repeat center;*/
-/*}*/
-/*.sprinkling {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/sprinkling.png') no-repeat center;*/
-/*}*/
-/*.butter {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/butter.png') no-repeat center;*/
-/*}*/
-/*.peanut-butter {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/peanut-butter.png') no-repeat center;*/
-/*}*/
-/*.almond {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/almond.png') no-repeat center;*/
-/*}*/
-/*.chocolate {*/
-/*  background:transparent url('../../assets/chocolate.png') 0% 0% no-repeat padding-box;*/
-/*  background-size: contain;*/
-/*  background-position: center;*/
-/*}*/
-/*.water-splash {*/
-/*  background:transparent url('../../assets/water-splash.png') 0% 0% no-repeat padding-box;*/
-/*  background-size: contain;*/
-/*  background-position: center;*/
-
-/*}*/
-/*.cream {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/cream.png') no-repeat center;*/
-/*}*/
-/*.apple{*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/apple.png') no-repeat center;*/
-/*}*/
-/*.syrup {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/syrup.png') no-repeat center;*/
-/*}*/
-/*.honey {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/honey.png') no-repeat center;*/
-/*}*/
-/*.ice {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/ice.png') no-repeat center;*/
-/*}*/
-/*.oreo {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/oreo.png') no-repeat center;*/
-/*}*/
-/*.cinnamon {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/cinnamon.png') no-repeat center;*/
-/*}*/
-/*.blueberry {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/blueberry.png') no-repeat center;*/
-/*}*/
-/*.black-tea {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/black-tea.png') no-repeat center;*/
-/*}*/
-/*.bergamonia {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/bergamonia.png') no-repeat center;*/
-/*}*/
-/*.juice-splash {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/juice-splash.png') no-repeat center;*/
-/*}*/
-/*.limes {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/lime.png') no-repeat center;*/
-/*}*/
-/*.eucalyptus {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/eucalyptus.png') no-repeat center;*/
-/*}*/
-/*.rosemary {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/rosemary.png') no-repeat center;*/
-/*}*/
-/*.thyme {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/thyme.png') no-repeat center;*/
-/*}*/
-/*.chamomile {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/chamomile.png') no-repeat center;*/
-/*}*/
-/*.flour {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/flour.png') no-repeat center;*/
-/*}*/
-/*.eggs {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/eggs.png') no-repeat center;*/
-/*}*/
-/*.cinnamon {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/cinnamon.png') no-repeat center;*/
-/*}*/
-/*.yeast {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/yeast.png') no-repeat center;*/
-/*}*/
-/*.butter {*/
-/*  background-size: contain;*/
-/*  background: transparent url('../../assets/butter.png') no-repeat center;*/
-/*}*/
 .ing-name {
   width: 60%;
   display: flex;
@@ -435,31 +180,8 @@ hr {
   background-position: center;
   background-repeat: no-repeat;
 }
-.order-now-btn {
-  width: 36%;
-  height: 20%;
-  position: relative;
-  top: -74%;
-  left: 6%;
-  background-color: var(--orange);
-  border-radius: 25px;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 14px 8px 2px 5px rgba(0,0,0,0.25);
-}
-.order-now-btn span {
-  font: var(--s) Avtala, Arial Narrow, JosefinSans Regular, Arial Narrow, Avtala ;
-  color: white;
-}
 
 .price {
-  width: 47%;
-  height: 45%;
-  position: relative;
-  top: -178%;
-  left: 52%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -470,7 +192,7 @@ hr {
   color: var(--orange);
   display: flex;
   justify-content: center;
-  font: var(--l) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
+  font: var(--xxl) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   position: relative;
   top: 3vh;
 
@@ -492,31 +214,32 @@ hr {
 .shek {
   width: 100%;
   height: 70%;
-  background:transparent url('../../assets/shekel.png') 0% 0% no-repeat padding-box;
+  background: transparent url('../../assets/shekel.png') no-repeat center;
   background-size: contain;
-  background-position: center;
   margin-top: 1vh;
 }
 .description {
-  width: 42%;
-  height: 45%;
-  position: relative;
-  top: -156%;
-  left: 57%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
+  height: 100%;
+  width: 100%;
 }
 .item-title {
 
-  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala;
+  font: 20px JosefinSans Regular, Arial Narrow, Avtala;
 
 }
 
 .item-desc {
   width: 100%;
-  height: 70%;
+  height: 75%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  white-space: normal;
   font-family: JosefinSans Regular, Arial Narrow, Avtala;
 }
 .make-your-coffeebreak {
@@ -529,6 +252,7 @@ hr {
   display: flex;
   width: 50vw;
   height: 13vh;
+  min-height: 100px;
   position: relative;
   left: 45%;
   bottom: 69%;
@@ -570,6 +294,7 @@ mat-divider {
 }
 .new-items-section {
   height: 50vh;
+  min-height: 300px;
   background-color: white;
 }
 .new-items-wrap {
@@ -586,6 +311,7 @@ mat-divider {
 }
 .iamnew {
   width: 40%;
+  min-height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -594,7 +320,7 @@ mat-divider {
 }
 .bigwords {
   height: 30%;
-  font: var(--l) JosefinSans Regular, Arial Narrow, Avtala;
+  font: var(--xxl) JosefinSans Regular, Arial Narrow, Avtala;
   color: var(--orange);
   display: flex;
   justify-content: center;
@@ -606,7 +332,7 @@ mat-divider {
 }
 .sometext {
   width: 85%;
-  font-family:  JosefinSans Regular, Arial Narrow, Avtala;
+  font: var(--xs) JosefinSans Regular, Arial Narrow, Avtala;
   height: 30%;
   display: flex;
   position: relative;
@@ -625,23 +351,18 @@ mat-divider {
   box-shadow: 14px 8px 2px 5px rgba(0,0,0,0.25);
 
 }
-.bnttext {
-  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
-  color: white;
-}
 .join-us-section {
   width: 100%;
   background:transparent url('../../assets/wooden.jpg') 0% 0% no-repeat padding-box;
-  height: 50vh;
+  height: 100%;
+  min-height: 300px;
   background-size: cover;
-  position: absolute;
-  z-index: 0;
   align-items: center;
   display: flex;
 }
 .join-wrap {
   width: 85vw;
-  height: 100%;
+  height: 90%;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -651,15 +372,15 @@ mat-divider {
 .contacts {
   width: 40%;
   height: 100%;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .smartphone {
-  width: 100%;
-  height: 100%;
-  background:transparent url('../../assets/smartphone.png') 0% 0% no-repeat padding-box;
-  background-position: center;
+  height: 350px;
+  width: 400px;
+  background: transparent url('../../assets/smartphone.png') no-repeat center;
   background-size: contain;
   position: relative;
   display: flex;
@@ -669,9 +390,10 @@ mat-divider {
 .instascroll {
   position: absolute;
   z-index: -1;
-  height: 38vh;
-  width: 9.65vw;
+  height: 260px;
+  width: 150px;
   overflow: hidden;
+  border-radius: 25px;
 }
 .scroll-paper {
   background:transparent url('../../assets/instascroll.png') 0% 0% no-repeat padding-box;
@@ -700,7 +422,7 @@ mat-divider {
 }
 .contact-text {
   width: 75%;
-  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
+  font: var(--m) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   display: flex;
   align-items: center;
 }
@@ -759,7 +481,6 @@ mat-divider {
   background-position: center;
   height: 60vh;
   background-size: cover;
-  margin-top: 23.2%;
   display: flex;
   align-items: center;
 }
@@ -769,7 +490,8 @@ mat-divider {
   flex-direction: column;
   position: relative;
   width: 65%;
-  height: 86%;
+  height: 50%;
+  min-height: 250px;
   left: 7%;
 }
 .points-wrap {
@@ -821,8 +543,7 @@ mat-divider {
 }
 .white-arrow {
   background:transparent url('../../assets/white_arrow.png') 0% 0% no-repeat padding-box;
-  background-size: contain
-;
+  background-size: contain;
   height: 68%;
   position: relative;
   right: 9%;
@@ -920,7 +641,7 @@ mat-divider {
   height: 25%;
   color: var(--darkchocolate);
   width: 100%;
-  font: var(--m) Cookie, Annabelle, Adama;
+  font: var(--xl) Cookie, Annabelle, Adama;
 
 }
 .mini-navbar {
@@ -967,7 +688,7 @@ mat-divider {
 
 }
 .footer-phone {
-  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
+  font: var(--xl) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow, Avtala;
   display: flex;
   align-items: center;
   color: var(--chocolate);
@@ -1050,7 +771,8 @@ app-navbar{
     display: none;
   }
   .main2 {
-    display: block;
+    display: flex;
+    flex-direction: column;
     background:transparent url('../../assets/wooden.jpg') 0% 0% no-repeat padding-box;
     height: 100vmax;
     background-size: cover;
@@ -1159,10 +881,7 @@ app-navbar{
     height: 7%;
   }
   .price {
-    top: -216%;
-    height: 29%;
-    left: 46%;
-    width: 59%;
+
   }
   .numb {
     font-size: var(--xxl);
@@ -1177,11 +896,7 @@ app-navbar{
     background-position: center;
   }
   .description {
-    top: -185%;
-    height: 40%;
-    left: 70%;
-    width: 36%;
-    margin-left: 3%;
+
   }
   .item-title {
     font-size: var(--m);
@@ -1191,6 +906,7 @@ app-navbar{
     top: 8.5vmax;
     flex-direction: column;
     height: 60vmax;
+    min-height: 300px;
   }
   .bigwords {
     font-size: var(--xl);
@@ -1235,17 +951,14 @@ app-navbar{
   }
   .find {
     height: 63%;
-    font-size: var(--l);
-    margin: auto;
+    font-size: var(--xl);
+    margin: 5%;
   }
 
 }
 .find-words{
   justify-content: left;
   margin-bottom: 1vh
-}
-.for_en{
-  font-size: var(--m);
 }
 
 @media only screen and (max-width: 1024px) and (orientation: landscape) {

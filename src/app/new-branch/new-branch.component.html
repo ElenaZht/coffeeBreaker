@@ -6,13 +6,12 @@
       <div class="hr-wrap-top"><hr></div>
     </div>
     <div class="card-body">
-<!--      <div class="photo" [ngStyle]="{'background-image': 'url('+photo+')', 'filter':gray? 'grayscale(100%)':'none'}">-->
       <div class="photo" [ngStyle]="{'background-image': 'url('+photo+')', 'filter':gray? 'grayscale(100%)':'none'}">
         <input class="hover-text hidden" id="chooseFile" type='file' (change)="onSelectFile($event)">
         <label for="chooseFile" class="hover-text"> <fa-icon size="4x" [icon]="['fas', 'images']"></fa-icon></label>
       </div>
       <form class="about" #brachForm="ngForm">
-        <div class="address">
+        <div class="branchAddress">
           <div class="contact-icon pointer"></div>
           <input class="adr" required="" [(ngModel)]="address" name="address" placeholder="{{'branchitem.placeaddr' | translate}}">
         </div>

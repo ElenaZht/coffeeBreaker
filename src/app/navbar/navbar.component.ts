@@ -108,8 +108,8 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
 
   logIn() {
     document.getElementById('login').classList.add('active-tab');
-    const dialogRef = this.dialog.open(LoginComponentComponent, {panelClass: 'custom-dialog-container', height: '40vmin',
-      width: '20vmax'});
+    const dialogRef = this.dialog.open(LoginComponentComponent, {panelClass: 'custom-dialog-container', height: '300px',
+      width: '300px'});
     dialogRef.afterClosed().pipe(takeUntil(this.destroy$)).subscribe(
       result => {
         if (this.router.url.includes('tray') && this.isAdmin) {

@@ -1,72 +1,24 @@
-/*.category-card {*/
-/*  background-color: white;*/
-/*  width: 100%;*/
-/*  height: 100%;*/
-/*  box-shadow: var(--shadow);*/
-/*  position: relative;*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  border: var(--border);*/
-
-/*}*/
-/*.card-content {*/
-/*  width: 85%;*/
-/*  height: 100%;*/
-/*  margin: auto;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  justify-content: space-between;*/
-/*}*/
-/*.card-header {*/
-/*  height: 15%;*/
-/*  display: flex;*/
-/*  justify-content: space-between;*/
-/*  align-items: center;*/
-/*}*/
-/*.hr-wrap-top {*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  width: 38%;*/
-/*}*/
-/*.logo-m {*/
-/*  width: 8vw;*/
-/*  height: 8vh;*/
-/*  position: relative;*/
-/*  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;*/
-/*  background-size: contain;*/
-/*}*/
 .heder-logo {
   height: 90%;
   width: 10%;
 }
-/*hr {*/
-/*  height: 2px;*/
-/*  background: var(--cappuccino);;*/
-/*  width: 100%;*/
-/*}*/
 .card-body {
   height: 80%;
   display: flex;
   justify-content: space-between;
 }
-/*.card-footer {*/
-/*  height: 15%;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  justify-content: center;*/
-/*}*/
 .contact-icon {
   transform: scale(0.6);
 }
 .pointer {
-  background-size: contain;
   background: transparent url('../../assets/point.png') no-repeat center;
+  background-size: contain;
   width: 3vw;
   height: 5vh;
   transform: scale(1);
   opacity: .5;
 }
-.address {
+.branchAddress {
   display: flex;
   align-items: center;
 }
@@ -134,20 +86,20 @@
   opacity: 0.5;
 }
 .spl-milk {
-  background-size: contain;
   background: transparent url('../../assets/milk-splash.png') no-repeat center;
+  background-size: contain;
   width: 30%;
   transform: scale(1.8);
 }
 .spl-cof {
-  background-size: contain;
   background: transparent url('../../assets/coffee-beans.png') no-repeat center;
+  background-size: contain;
   width: 30%;
   transform: scale(1.8);
 }
 .spl-tes {
-  background-size: contain;
   background: transparent url('../../assets/tea-leafes.png') no-repeat center;
+  background-size: contain;
   width: 30%;
   transform: scale(1.8);
 }

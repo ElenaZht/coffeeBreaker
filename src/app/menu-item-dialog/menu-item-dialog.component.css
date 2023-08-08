@@ -1,57 +1,19 @@
 .main{
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  min-height: 600px;
+  min-width: 600px;
 }
 .main2{
   display: none;
 }
-/*.category-card {*/
-/*  background-color: white;*/
-/*  width: 100%;*/
-/*  height: 100%;*/
-/*  box-shadow: var(--shadow);*/
-/*  position: relative;*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  border: var(--border);*/
 
-/*}*/
-/*.card-content {*/
-/*  width: 85%;*/
-/*  height: 100%;*/
-/*  margin: auto;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  justify-content: space-between;*/
-/*}*/
-/*.card-header {*/
-/*  height: 15%;*/
-/*  display: flex;*/
-/*  justify-content: space-between;*/
-/*  align-items: center;*/
-/*}*/
-/*.hr-wrap-top {*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  width: 38%;*/
-/*}*/
-/*.logo-m {*/
-/*  width: 8vw;*/
-/*  height: 8vh;*/
-/*  position: relative;*/
-/*  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;*/
-/*  background-size: contain;*/
-/*}*/
 .heder-logo {
   height: 90%;
   width: 14%;
 }
-/*hr {*/
-/*  height: 2px;*/
-/*  background: var(--cappuccino);;*/
-/*  width: 100%;*/
-/*}*/
+
 .card-body {
   height: 80%;
   display: flex;
@@ -70,12 +32,7 @@
   height: 100%;
   width: 25%;
 }
-/*.card-footer {*/
-/*  height: 15%;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  justify-content: center;*/
-/*}*/
+
 .ingredients {
   height: 100%;
   width: 25%;
@@ -145,8 +102,6 @@
   z-index: 10000;
 }
 .cup {
-  height: 100%;
-  position: relative;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -156,7 +111,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 25%;
+  height: fit-content;
 }
 .bnttext {
   font: 1vw JosefinSans Regular, Arial Narrow, Avtala;
@@ -200,12 +155,12 @@
   align-items: flex-end;
 }
 .numb {
-  width: 75%;
+  /*width: 75%;*/
   height: 100%;
   color: var(--orange);
   display: flex;
   justify-content: center;
-  font: 5vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: var(--xxl) JosefinSans Regular, Arial Narrow, Avtala;
   position: relative;
 }
 .only-shek {
@@ -245,15 +200,16 @@
 
 }
 .item-title {
-  font: 1.5vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala;
   display: flex;
   overflow-wrap: initial;
+  margin: 5% 0;
 }
 
 .item-desc {
   width: 100%;
   height: 70%;
-  font: .8vw JosefinSans Regular, Arial Narrow, Avtala;
+  font: var(--xs) JosefinSans Regular, Arial Narrow, Avtala;
 }
 .card-footer {
   height: 15%;
@@ -343,6 +299,9 @@
     justify-content: space-around;
     align-items: center;
     opacity: .8;
+    width: 90%;
+    height: 90%;
+    margin: auto;
   }
   .row1{
     height: 25%;
@@ -374,21 +333,22 @@
     width: 50%;
   }
   .price{
-    height: 100%;
+    height: 60px;
     width: 30%;
   }
   .only{
     font-size: 3.5vmin;
   }
   .numb{
-    font-size: 20vmin;
+    font-size: var(--xxl);
   }
   .item-title{
     font-size: 9vmin;
     -webkit-text-stroke: .1px white;
   }
   .orangebtn{
-    width: 90%;
+    width: 100px;
+    height: 100px;
     justify-content: center;
   }
   .graybtn{

@@ -6066,6 +6066,74 @@
       "date": "2022-08-21T17:24:40.970Z",
       "user": 123,
       "id": 91
+    },
+    {
+      "ordered": [
+        {
+          "price": "11",
+          "title": "Latte Makiata",
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "prodId": 1002,
+          "menuCategory": "Coffee",
+          "img": "../../assets/coffee-cup.png",
+          "ingredients": [
+            {
+              "ing": "Espresso",
+              "ingClass": "../../assets/coffee-splash.png"
+            },
+            {
+              "ing": "Milk 3%",
+              "ingClass": "../../assets/milk-splash.png"
+            },
+            {
+              "ing": "Chocolate",
+              "ingClass": "../../assets/chocolate.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2023-07-31T14:55:47.992Z",
+          "sold": 2
+        }
+      ],
+      "status": 0,
+      "branch": "15",
+      "date": "2023-07-31T14:57:12.190Z",
+      "user": 1,
+      "id": 92
+    },
+    {
+      "ordered": [
+        {
+          "prodId": 1001,
+          "title": "Frappe",
+          "price": 8,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "../../assets/coffee-cup.png",
+          "menuCategory": "Coffee",
+          "ingredients": [
+            {
+              "ing": "Espresso",
+              "ingClass": "../../assets/coffee-splash.png"
+            },
+            {
+              "ing": "Cream",
+              "ingClass": "../../assets/cream.png"
+            },
+            {
+              "ing": "Syrup",
+              "ingClass": "../../assets/syrup.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2023-08-08T14:55:41.995Z",
+          "sold": 1
+        }
+      ],
+      "status": 0,
+      "branch": "5",
+      "date": "2023-08-08T14:56:05.962Z",
+      "user": 0,
+      "id": 93
     }
   ],
   "promoItems": [

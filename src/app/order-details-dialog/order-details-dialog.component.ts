@@ -4,7 +4,6 @@ import {faTimes} from '@fortawesome/free-solid-svg-icons';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {UsersService} from '../users.service';
 import {ItemsService} from '../items.service';
-import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 
 library.add(faTimes);

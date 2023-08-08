@@ -15,62 +15,22 @@
   box-shadow: var(--shadow);
   flex-direction: column;
 }
-/*.card-content {*/
-/*  width: 85%;*/
-/*  height: 100%;*/
-/*  margin: auto;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  justify-content: space-between;*/
-/*}*/
-/*.card-header {*/
-/*  height: 15%;*/
-/*  display: flex;*/
-/*  justify-content: space-between;*/
-/*  align-items: center;*/
-/*}*/
-/*.hr-wrap-top {*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  width: 38%;*/
-/*}*/
-/*.logo-m {*/
-/*  width: 8vw;*/
-/*  height: 8vh;*/
-/*  position: relative;*/
-/*  background:transparent url('../../assets/logo.png') 0% 0% no-repeat padding-box;*/
-/*  background-size: contain;*/
-/*}*/
 .heder-logo {
   height: 70%;
   width: 14%;
 }
-/*.hr-wrap-top {*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  width: 38%;*/
-/*}*/
 .card-body {
   height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-/*.card-footer {*/
-/*  height: 15%;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  justify-content: center;*/
-/*}*/
 .summ{
   display: flex;
   height: 80%;
   width: 40%;
 }
 hr {
-  /*height: 2px;*/
-  /*background: var(--cappuccino);;*/
-  /*width: 90%;*/
   margin: auto;
 }
 .hr-thin{
@@ -222,11 +182,11 @@ hr {
   font: 1vmax JosefinSans Regular, Arial Narrow, Avtala;
 }
 .pics{
-  background-size: contain;
-  opacity: 0.5;
+    opacity: 0.5;
   width: 70%;
   height: 140%;
   background: transparent url('../../assets/pocket-group.png') no-repeat 100% 100%;
+  background-size: contain;
   z-index: 0;
 
 }
@@ -283,14 +243,6 @@ display: flex;
 }
 .graybtn{
   background-color: var(--vanilla);
-}
-.bnttext {
-  font: 1.9vw JosefinSans Regular, Arial Narrow, Avtala;
-  color: white;
-  margin: auto;
-}
-.mini-btn-text{
-  font-size: 1.3vw;
 }
 .orangebtn:hover {
   transform:scale(1.2);
