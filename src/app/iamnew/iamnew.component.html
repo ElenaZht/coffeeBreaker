@@ -8,14 +8,14 @@
             <div class="logo-m heder-logo"></div>
             <div class="hr-wrap-top"><hr></div>
           </div>
-          <div class="card-body">
+          <div class="card-body"  [ngStyle]="{'background-image': 'url('+item.img+')',
+          'background-size': 'contain', 'background-repeat': 'no-repeat', 'background-position': 'center'}">
             <div class="ingredients">
               <div class="ingredient" *ngFor="let ing of promoItems[i].ingredients">
                 <div class="ing-spot {{ing.ingClass}}"></div>
                 <span class="ing-name">{{ing.ing}}</span>
               </div>
             </div>
-            <div class="cup" [ngStyle]="{'background-image': 'url('+item.img+')', 'background-size': 'contain'}"></div>
             <div class="price">
               <span class="numb">{{item.price}}</span>
               <div class="only-shek">

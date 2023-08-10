@@ -6134,6 +6134,73 @@
       "date": "2023-08-08T14:56:05.962Z",
       "user": 0,
       "id": 93
+    },
+    {
+      "ordered": [
+        {
+          "prodId": 1023,
+          "title": "Cruasan",
+          "price": 10,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "../../assets/cruasan.png",
+          "menuCategory": "Bakery",
+          "ingredients": [
+            {
+              "ing": "Flour",
+              "ingClass": "../../assets/flour.png"
+            },
+            {
+              "ing": "Sugar",
+              "ingClass": "../../assets/sugar.png"
+            },
+            {
+              "ing": "Eggs",
+              "ingClass": "../../assets/eggs.png"
+            },
+            {
+              "ing": "Yeast",
+              "ingClass": "../../assets/yeast.png"
+            },
+            {
+              "ing": "Butter",
+              "ingClass": "../../assets/butter.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2023-08-10T12:43:34.734Z",
+          "sold": 1
+        },
+        {
+          "prodId": 1004,
+          "title": "Latte Honey",
+          "price": 18,
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "../../assets/coffee-cup.png",
+          "menuCategory": "Coffee",
+          "ingredients": [
+            {
+              "ing": "Espresso",
+              "ingClass": "../../assets/coffee-splash.png"
+            },
+            {
+              "ing": "Milk 3%",
+              "ingClass": "../../assets/milk-splash.png"
+            },
+            {
+              "ing": "Honey",
+              "ingClass": "../../assets/honey.png"
+            }
+          ],
+          "nutr": "../../assets/nutritions.png",
+          "date": "2023-08-10T12:43:47.944Z",
+          "sold": 1
+        }
+      ],
+      "status": 0,
+      "branch": "6",
+      "date": "2023-08-10T12:45:07.427Z",
+      "user": 0,
+      "id": 94
     }
   ],
   "promoItems": [

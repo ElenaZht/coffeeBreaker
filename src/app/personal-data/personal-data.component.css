@@ -77,15 +77,14 @@
 .edit:active {
   transform: scale(1.1);
 }
-form {
-  width: 70%;
-}
+
 input {
   width: 70%;
+  margin-left: 2%;
 }
 label {
   max-width: 25%;
-  font: 1vmax JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
+  font: var(--s) JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
 }
 .delAccount {
   font: 1vmax JosefinSans Regular, Arial Narrow, Avtala, Arial Narrow;
@@ -111,6 +110,6 @@ label {
     display: none;
   }
   label {
-    font-size: 3vmax;
+    font-size: var(--m);
   }
 }

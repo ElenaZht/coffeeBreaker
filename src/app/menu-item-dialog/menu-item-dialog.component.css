@@ -106,6 +106,7 @@
   background-position: center;
   background-repeat: no-repeat;
   opacity: .5;
+  height: 100%;
 }
 .btns-wrap {
   display: flex;
