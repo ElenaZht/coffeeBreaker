@@ -9,6 +9,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import {TranslateService} from '@ngx-translate/core';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
+import {reject} from 'q';
 
 library.add(faPencilAlt);
 library.add(faCheck);
@@ -34,6 +35,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
   errMsg: string;
   errTitle: string;
   myLang: string;
+  private emptyObj;
   private destroy$ = new Subject();
 
   constructor(private userService: UsersService, private itemsService: ItemsService, private toastr: ToastrService,
@@ -47,6 +49,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
     this.itemsService.GetContacts().pipe(takeUntil(this.destroy$)).subscribe(
       res => {
         this.contacts = res;
+        this.emptyObj = Object.keys(this.contacts).length;
         if (this.contacts) {
           this.instagram = this.contacts.instagram;
           this.facebook = this.contacts.facebook;
@@ -65,6 +68,8 @@ export class ContactsComponent implements OnInit, OnDestroy {
           this.address = '';
         }
 
+      }, error => {
+        this.emptyObj = true;
       }
     );
 

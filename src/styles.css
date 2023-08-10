@@ -162,7 +162,62 @@ button{
   --drop-shadow: drop-shadow(2px 4px 6px black);
 }
 /*----------COMMON STYLES-------*/
+.no-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--darkgray);
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+.no-cup{
+  height: 100%;
+  width: 100%;
+  background-image: url("assets/graycup.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.no-branch{
+  height: 100%;
+  width: 100%;
+  margin: auto;
+}
+.no-wrap{
+  width: 90%;
+  height: 60%;
+  display: flex;
+  justify-content:center;
+}
+.no-contacts{
+  height: 100%;
+  width: 100%;
+  background-image: url("assets/graycup.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
+.no-main-text{
+  font-family: JosefinSans Regular, sans-serif;
+  font-size: var(--m);
+  justify-content: flex-end;
+}
+.no-sub-text{
+  font-family: "Arial Narrow", sans-serif;
+  font-size: var(--xs);
+  justify-content: flex-start;
+}
+.no-items-wrap{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
 .hidden{
   visibility: hidden;
 }

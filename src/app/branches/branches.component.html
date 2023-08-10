@@ -5,7 +5,7 @@
     </div>
     <button class="orangebtn bigButton" *ngIf="isAdmin" (click)="AddBranch()"><p class="bnttext"><fa-icon class="fas fa-plus" [icon]="['fas', 'plus']"  aria-pressed="true"></fa-icon><span class="width-70">{{'branches.add' | translate}}</span></p></button>
     <div class="wrap">
-      <div class="most-popular">
+      <div class="most-popular" *ngIf="mostPopular.length">
         <div class="pop-arrow"></div>
         <div class="pop-branches">
           <div class="contact" *ngFor="let b of mostPopular | slice:0:6" (click)="onBranch(b)">
@@ -14,10 +14,16 @@
           </div>
         </div>
       </div>
-      <div class="all-branches">
+      <div class="all-branches" *ngIf="mostPopular.length">
         <div class="contact" *ngFor="let b of (branches$ | async)" (click)="onBranch(b)">
           <div class="contact-icon pointer"></div>
           <div class="contact-text">{{b.address}}</div>
+        </div>
+      </div>
+      <div class="no-wrap" *ngIf="!mostPopular.length">
+        <div class="no-body no-branch">
+          <div class="no-body no-main-text">Sorry! Seems like no connection to server.</div>
+          <div class="no-body no-sub-text">Please, try again latter..</div>
         </div>
       </div>
     </div>
@@ -26,11 +32,17 @@
     <div class="title">
       <span class="our-comminment">{{'branches.title' | translate}}</span>
     </div>
-    <div class="all-branches">
+    <div class="all-branches" *ngIf="mostPopular.length">
       <button class="orangebtn" *ngIf="isAdmin" (click)="AddBranch()"><p class="bnttext"><fa-icon class="fas fa-plus" [icon]="['fas', 'plus']"  aria-pressed="true"></fa-icon><span class="width-70">{{'branches.add' | translate}}</span></p></button>
       <div class="contact" *ngFor="let b of (branches$ | async)" (click)="onBranch(b)">
         <div class="contact-icon pointer"></div>
         <div class="contact-text">{{b.address}}</div>
+      </div>
+    </div>
+    <div *ngIf="!mostPopular.length" class="no-wrap">
+      <div class="no-body no-branch">
+        <div class="no-body no-main-text">Sorry! Seems like no connection to server.</div>
+        <div class="no-body no-sub-text">Please, try again latter..</div>
       </div>
     </div>
   </div>

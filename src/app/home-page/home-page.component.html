@@ -43,6 +43,10 @@
               </div>
           </div>
         </div>
+        <div class="no-body no-cup" *ngIf="!promoItems.length">
+          <div class="no-body no-main-text">Sorry! Seems like no connection to server.</div>
+          <div class="no-body no-sub-text">Please, try again latter..</div>
+        </div>
         <div class="card-footer">
           <hr>
         </div>
@@ -55,8 +59,10 @@
   </div>
   <div class="new-items-section">
     <div class="new-items-wrap">
-      <div class="news">
+      <div class="news" *ngIf="promoItems && promoItems.length">
         <app-iamnew></app-iamnew>
+      </div>
+      <div class="no-body no-cup no-new" *ngIf="!promoItems.length">
       </div>
       <div class="iamnew">
         <div class="bigwords">{{'iamnewblock.title' | translate }}</div>
@@ -94,13 +100,13 @@
       <div class="bigwords find-words" [ngClass] = "{'for_en' : isEng}">{{'findpoint.title' | translate}}</div>
       <div class="sometext somepointtext">{{'findpoint.desc' | translate}}</div>
       <div class="points-wrap">
-        <div class="points">
+        <div class="points" *ngIf="mostPopular && mostPopular.length">
           <div class="point" *ngFor="let b of mostPopular | slice:0:6">
             <div class="point-icon"></div>
             <div class="point-text">{{b.address}}</div>
           </div>
         </div>
-        <div class="btn2">
+        <div class="btn2" *ngIf="mostPopular && mostPopular.length">
           <div class="white-arrow"></div>
           <button class="buttonOrange bigButton"  routerLink="../branches"><span class="bnttext">{{'findpoint.button' | translate}} ></span></button>
         </div>
@@ -203,6 +209,10 @@
             </div>
           </div>
         </div>
+        <div class="no-body no-cup" *ngIf="!promoItems.length">
+          <div class="no-body no-main-text">Sorry! Seems like no connection to server.</div>
+          <div class="no-body no-sub-text">Please, try again latter..</div>
+        </div>
         <div class="card-footer">
           <span class="make-your-coffeebreak">{{'footer.big1' | translate}}</span>
           <hr>
@@ -212,10 +222,11 @@
     </div>
     <div class="new-items-wrap">
       <div class="bigwords">{{'iamnewblock.title' | translate}}</div>
-      <div class="news">
+      <div class="news" *ngIf="promoItems.length">
         <app-iamnew></app-iamnew>
       </div>
-      <button class="buttonOrange bigButton" routerLink="../menu_common"><span class="bnttext">{{'iamnewblock.button' | translate}} ></span></button>
+      <div class="no-body no-cup" *ngIf="!promoItems.length"></div>
+      <button *ngIf="!promoItems.length" class="buttonOrange bigButton" routerLink="../menu_common"><span class="bnttext">{{'iamnewblock.button' | translate}} ></span></button>
 
     </div>
     <div class="contacts">
@@ -234,7 +245,7 @@
     </div>
     <div class="find-branch-section">
         <div class="bigwords find"  [ngClass] = "{'for_en' : isEng}">{{'findpoint.title' | translate}}</div>
-        <button class="bigButton smallButton" routerLink="../branches"><span class="bnttext">{{'findpoint.button' | translate}} ></span></button>
+        <button *ngIf="promoItems.length" class="bigButton smallButton" routerLink="../branches"><span class="bnttext">{{'findpoint.button' | translate}} ></span></button>
     </div>
   </div>
   <div class="smart-nav">

@@ -8,7 +8,7 @@
             <div class="logo-m heder-logo"></div>
             <div class="hr-wrap-top"><hr></div>
           </div>
-          <div class="card-body">
+          <div class="card-body" *ngIf="contacts">
             <div class="buttons" *ngIf="isAdmine">
               <button class="buttonOrange smallButton" (click)="editData()">
                 <fa-icon class="fas fa-pencil-alt fa-2x" [icon]="['fas', 'pencil-alt']"  aria-pressed="true"></fa-icon>
@@ -20,7 +20,7 @@
                 <fa-icon class="fas fa-undo fa-2x" [icon]="['fas', 'undo']"  aria-pressed="true"></fa-icon>
               </button>
             </div>
-            <form class="contacts" #contactsForm="ngForm">
+            <form class="contacts" #contactsForm="ngForm"  *ngIf="!emptyObj">
               <div class="contact" *ngIf="contacts && contacts.instagram">
                 <div class="contact-icon instagram"></div>
                 <div class="contact-text" *ngIf="!isAdmine">@coffee_breaker</div>
@@ -57,6 +57,12 @@
                 <input class="contact-text" *ngIf="isAdmine" [(ngModel)]="address" name="address">
               </div>
             </form>
+            <div  *ngIf="emptyObj" class="no-wrap">
+              <div class="no-body no-contacts">
+                <div class="no-body no-main-text">Sorry! Seems like no connection to server.</div>
+                <div class="no-body no-sub-text">Please, try again latter..</div>
+              </div>
+            </div>
 
           </div>
           <div class="card-footer">
@@ -71,34 +77,42 @@
   </div>
   <div class="main2">
     <span class="our-contacts">{{'contacts.title' | translate}}</span>
-    <div class="contacts">
-      <div class="contact">
+    <div class="contacts" *ngIf="!emptyObj">
+      <div class="contact" *ngIf="contacts && contacts.instagram">
         <div class="contact-icon instagram"></div>
         <div class="contact-text">@coffee_breaker</div>
       </div>
-      <div class="contact">
+      <div class="contact" *ngIf="contacts && contacts.facebook">
         <div class="contact-icon facebook" ></div>
         <div class="contact-text">coffee_breaker.com</div>
       </div>
-      <div class="contact">
+      <div class="contact" *ngIf="contacts && contacts.email">
         <div class="contact-icon email"></div>
         <div class="contact-text">coffee_breaker@gmail.com</div>
       </div>
-      <div class="contact">
+      <div class="contact" *ngIf="contacts && contacts.phone1">
         <div class="contact-icon phone"></div>
         <div class="contact-text">052-556-667</div>
       </div>
-      <div class="contact">
-        <div class="contact-icon phone"></div>
+      <div class="contact" *ngIf="contacts && contacts.phone2">
+        <div class="contact-icon phone" *ngIf="contacts && contacts.phone2"></div>
         <div class="contact-text">052-556-688</div>
       </div>
-      <div class="contact">
+      <div class="contact" *ngIf="contacts && contacts.phone3">
         <div class="contact-icon phone"></div>
         <div class="contact-text">052-556-629</div>
       </div>
-      <div class="contact">
-        <div class="contact-icon address"></div>
+      <div class="contact" *ngIf="contacts && contacts.address">
+        <div class="contact-icon address" *ngIf="contacts && contacts.address"></div>
         <div class="contact-text">{{'contacts.addr' | translate}}</div>
+      </div>
+    </div>
+    <div>
+      <div *ngIf="emptyObj" class="no-wrap">
+        <div class="no-body no-contacts">
+          <div class="no-body no-main-text">Sorry! Seems like no connection to server.</div>
+          <div class="no-body no-sub-text">Please, try again latter..</div>
+        </div>
       </div>
     </div>
   </div>

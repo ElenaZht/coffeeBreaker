@@ -1,7 +1,7 @@
 <app-frame>
   <div class="main">
-    <span class="swipe"><-- {{'menucommon.swipe' | translate}} --></span>
-    <div class="carousel">
+    <span class="swipe" *ngIf="items && items.length"><-- {{'menucommon.swipe' | translate}} --></span>
+    <div class="carousel" *ngIf="items && items.length">
       <a class="carousel-item" *ngFor="let item of items">
         <div class="category-card">
                 <div class="card-content">
@@ -38,5 +38,14 @@
          </div>
       </a>
     </div>
+    <div *ngIf="!items.length" class="no-items-wrap">
+      <div class="no-body no-cup"></div>
+      <div class="no-body no-cup">
+        <div class="no-body no-main-text">Sorry! Seems like no connection to server.</div>
+        <div class="no-body no-sub-text">Please, try again latter..</div>
+      </div>
+      <div class="no-body no-cup"></div>
+    </div>
+
   </div>
 </app-frame>

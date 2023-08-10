@@ -318,6 +318,9 @@ mat-divider {
   align-items: center;
 
 }
+.no-new{
+  width: 50%;
+}
 .bigwords {
   height: 30%;
   font: var(--xxl) JosefinSans Regular, Arial Narrow, Avtala;
